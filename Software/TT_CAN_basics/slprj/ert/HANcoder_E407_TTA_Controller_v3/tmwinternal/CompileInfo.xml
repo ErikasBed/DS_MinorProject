@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/ci/19700101 http://schema.mathworks.com/mf0/sl_modelref_info/R2022b http://schema.mathworks.com/mf0/slexec_mm_sto/R2022b_202202091112 http://schema.mathworks.com/mf0/sltp_mm/R2022b_202203181029">
+  <ModelRefInfoRepo.ModelRefInfoRoot type="ModelRefInfoRepo.ModelRefInfoRoot" uuid="dcecc417-20f6-4f0b-8e96-1bf37fa43305">
+    <JITEngines>s1yEYPsOPwessHL817IdVu</JITEngines>
+    <JITEngines>s4WuZcpfT1dN8yRMiLMfB7G</JITEngines>
+    <JITEngines>s4jcYbbPPkP9XcuJx3OtAIC</JITEngines>
+    <JITEngines>s4z74ASbQgHpiFQ75E9D0NB</JITEngines>
+    <JITEngines>sEam1CFpssklIPXCVVSnTlF</JITEngines>
+    <JITEngines>sGu3Slqg0uUxn3ZjSMqRvk</JITEngines>
+    <JITEngines>sNsjIEfyE7955QxaRFON8YD</JITEngines>
+    <JITEngines>sT9RoFIpAe9RXBFYkh8ic8D</JITEngines>
+    <JITEngines>sdV97kSI5cbcFFxEfj4IXSC</JITEngines>
+    <JITEngines>sfIieK4UzrLqvV8A1BEq5gF</JITEngines>
+    <JITEngines>suancHOEdjuLhm3ApuQoriH</JITEngines>
+    <JITEngines>sxNz2XleAwK5Lg41zNP3bdH</JITEngines>
+    <JITEngines>syYueI5qDzGwrNluzHNn6gH</JITEngines>
+    <calibrationData type="ModelRefInfoRepo.CalibrationData" uuid="e8722ebf-3811-414b-81de-3dcca809ebb8">
+      <InternalData>[{&quot;Name&quot;:&quot;fcn_call_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;fcn_call_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;fcn_call_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;fcn_call_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Tx_msg_count_CAN1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Tx_CAN1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Local_Ticks&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Rx_Ticks_CAN1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Rx_State_CAN2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Board_ID&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;RxID_CAN2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Rx_CAN2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Tx_CAN2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;TxID_CAN2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;init_clock&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Toggle_Pin_A0&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Rx_Ticks_CAN2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Tx_msg_count_CAN2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Toggle_Pin_D13&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Toggle_Pin_D12&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Toggle_Pin_D9&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Toggle_Pin_D8&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;TxID_CAN1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;New_Msg_Ready_CAN1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Master_ID&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;New_Msg_Ready_CAN2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Rx_State_CAN1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;RxID_CAN1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Rx_CAN1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;A3_Pin_State&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;A0_Pin_State&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;A1_Pin_State&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;BC0_Sync_processed&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;basic_cycle_count&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Initialization_flag&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Desync_Positive&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;BC1_Sync_processed&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_f_est&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_a_est&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Toggle_Pin_A1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Role_ID&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;D13_Pin_State&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;D12_Pin_State&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;D9_Pin_State&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;D8_Pin_State&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_fr_integral&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;A2_Pin_State&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_ar_integral&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Desync_Ticks&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;speed_integral&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;A4_Pin_State&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;D10_Pin_State&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Toggle_Pin_D10&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Initialization_Timeout&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Delay_Counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;msg_count_DEBUG&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Board1_error_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Sensor_missed_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Out1_missed_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Own_Vote&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Sync_bc1_missed_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Out2_missed_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Board2_error_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Board3_error_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;BC0_Vote2_processed&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;BC0_Vote3_processed&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;BC0_Vote1_processed&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Sync_bc0_missed_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Set_missed_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Votes_count&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;BC0_TM1_timeout_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;BC0_TM2_timeout_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;BC0_TM3_timeout_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Reset_Board&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;new_msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;v_ctreff&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;speed_error_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;speed_derivative&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_dot_f_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_dot_a_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_f_error_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_a_error_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_fr_derivative&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_ar_derivative&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;mc_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;tau_fr_out1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;tau_fr_out2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;set_miss_out2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;sensor_miss_out2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;tau_fl_out1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;tau_ar_out2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;tau_ar_out1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;tau_fl_out2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;tau_al_out1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;tau_al_out2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;set_miss_out1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;sensor_miss_out1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;v_set_stored&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_ar_stored&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_al_stored&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;rx_data_incr_time&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;output_control1_rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_f_set_stored&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_fr_out&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_fl_out&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_ar_out&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_al_out&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Error_SetValues_NotRX&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Error_SensorValues_NotRX&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_a_set_stored&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_fr&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_ar&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_fl&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_al&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;v_est&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_fr_set&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_fl_set&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_ar_set&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_al_set&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;output_control1_msg&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;output_control2_rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;output_control2_msg&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;error_log_1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_fr_stored&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_fl_stored&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;error_log_2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;error_log_3&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;new_msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;msg_count_DEBUG&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Sync_bc1_missed_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Sync_bc0_missed_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Reset_Board&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;new_msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Reset_Board&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;new_msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;msg_count_DEBUG&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_fr&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;OutController_missed_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Sync_bc1_missed_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_ar&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_fl&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;torque_al&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;rx_data_incr_time&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;controller_msg_missed&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_fr_incr&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_fl_incr&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Sync_bc0_missed_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_ar_incr&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_al_incr&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_ar&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_al&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_fr&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_fl&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_ar_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_al_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_fr_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_fl_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_fr_ve&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_fl_ve&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_ar_ve&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_al_ve&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_fr_prev_ve&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_fl_prev_ve&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_ar_prev_ve&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;theta_dot_al_prev_ve&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_double_dot_f_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_double_dot_a_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;avg_force&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;avg_force_prev&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_dot_f&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;delta_dot_a&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;speed_act&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Reset_Board&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;new_msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;mc_counter&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;new_msg_Rx&quot;,&quot;Profile&quot;:&quot;&quot;}]</InternalData>
+      <ModelName>HANcoder_E407_TTA_Controller_v3</ModelName>
+    </calibrationData>
+    <childModelRefInfo type="ModelRefInfoRepo.ChildModelRefInfo" uuid="4a975b3a-55c8-46e2-ad6a-e50af0b12d47">
+      <modelName>HANcoder_E407_TTA_Controller_v3</modelName>
+      <modelPath>HANcoder_E407_TTA_Controller_v3</modelPath>
+    </childModelRefInfo>
+    <dataTransferInfos>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAAAAAABAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAA</dataTransferInfos>
+    <defaultsCMapping>{&quot;Inports&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;Outports&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;ParameterArguments&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;LocalParameters&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;GlobalParameters&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;InternalData&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;SharedLocalDataStores&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;GlobalDataStores&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;Constants&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;DataTransfers&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;ModelData&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;InitializeTerminate&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;Execution&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;SharedUtility&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;}</defaultsCMapping>
+    <fundamentalSampleTimePeriod>.01</fundamentalSampleTimePeriod>
+    <globalVariables>BC0_sync_processed_ing_s</globalVariables>
+    <globalVariables>BC0_sync_processed_s</globalVariables>
+    <globalVariables>BC0_sync_processed_vem__s</globalVariables>
+    <globalVariables>BC0_vote1_processed_s</globalVariables>
+    <globalVariables>BC0_vote2_processed_s</globalVariables>
+    <globalVariables>BC0_vote3_processed_s</globalVariables>
+    <globalVariables>BC1_sync_processed_ing_s</globalVariables>
+    <globalVariables>BC1_sync_processed_s</globalVariables>
+    <globalVariables>BC1_sync_processed_vem__s</globalVariables>
+    <globalVariables>Board_1_error_counter_s</globalVariables>
+    <globalVariables>Board_2_error_counter_s</globalVariables>
+    <globalVariables>Board_3_error_counter_s</globalVariables>
+    <globalVariables>Board_ID_s</globalVariables>
+    <globalVariables>COMM_Period</globalVariables>
+    <globalVariables>COMM_Phase1</globalVariables>
+    <globalVariables>COMM_Phase2</globalVariables>
+    <globalVariables>COMM_Phase_init1</globalVariables>
+    <globalVariables>COMM_Phase_init2</globalVariables>
+    <globalVariables>COMP_duration</globalVariables>
+    <globalVariables>Controller1_Board</globalVariables>
+    <globalVariables>Controller2_Board</globalVariables>
+    <globalVariables>Controller3_Board</globalVariables>
+    <globalVariables>Desync_Sync_bc0_ing_s</globalVariables>
+    <globalVariables>Desync_Sync_bc0_s</globalVariables>
+    <globalVariables>Desync_Sync_bc0_vem_s</globalVariables>
+    <globalVariables>Desync_Sync_bc1_ing_s</globalVariables>
+    <globalVariables>Desync_Sync_bc1_s</globalVariables>
+    <globalVariables>Desync_Sync_bc1_vem_s</globalVariables>
+    <globalVariables>HANtuneOverride</globalVariables>
+    <globalVariables>I_a</globalVariables>
+    <globalVariables>I_f</globalVariables>
+    <globalVariables>Input_Gen_Board</globalVariables>
+    <globalVariables>LA_COMM_Err</globalVariables>
+    <globalVariables>LA_COMM_dly</globalVariables>
+    <globalVariables>LA_Clock_Gr</globalVariables>
+    <globalVariables>LA_E_Desync</globalVariables>
+    <globalVariables>LA_MEX_Flag</globalVariables>
+    <globalVariables>LA_Task_Act</globalVariables>
+    <globalVariables>LedValue</globalVariables>
+    <globalVariables>Master_ID_ing_s</globalVariables>
+    <globalVariables>Master_ID_s</globalVariables>
+    <globalVariables>Master_ID_vem_s</globalVariables>
+    <globalVariables>Master_Role</globalVariables>
+    <globalVariables>OutControl1_ID</globalVariables>
+    <globalVariables>OutControl2_ID</globalVariables>
+    <globalVariables>OutEmulator_ID</globalVariables>
+    <globalVariables>R_al</globalVariables>
+    <globalVariables>R_ar</globalVariables>
+    <globalVariables>R_fl</globalVariables>
+    <globalVariables>R_fr</globalVariables>
+    <globalVariables>Role_ID_ing_s</globalVariables>
+    <globalVariables>Role_ID_s</globalVariables>
+    <globalVariables>Role_ID_vem_s</globalVariables>
+    <globalVariables>RxCAN1_counter_s</globalVariables>
+    <globalVariables>RxCAN2_counter_s</globalVariables>
+    <globalVariables>RxID_CAN1_s</globalVariables>
+    <globalVariables>RxID_CAN2_s</globalVariables>
+    <globalVariables>Rx_init_LT</globalVariables>
+    <globalVariables>Rx_init_bc</globalVariables>
+    <globalVariables>Rx_init_id</globalVariables>
+    <globalVariables>Rx_init_mc</globalVariables>
+    <globalVariables>Rx_msg_ticks_CAN1</globalVariables>
+    <globalVariables>Rx_msg_ticks_CAN2</globalVariables>
+    <globalVariables>Rx_temporal_msg_CAN1</globalVariables>
+    <globalVariables>Rx_temporal_msg_CAN2</globalVariables>
+    <globalVariables>SI_CPUload</globalVariables>
+    <globalVariables>SI_FreeHeap</globalVariables>
+    <globalVariables>SI_FreeStack</globalVariables>
+    <globalVariables>SensorValues_ID</globalVariables>
+    <globalVariables>SetValues_ID</globalVariables>
+    <globalVariables>Slave_Role</globalVariables>
+    <globalVariables>Sync_ID</globalVariables>
+    <globalVariables>TM1_timeout_counter_s</globalVariables>
+    <globalVariables>TM2_timeout_counter_s</globalVariables>
+    <globalVariables>TM3_timeout_counter_s</globalVariables>
+    <globalVariables>TMR_miss1_sensor</globalVariables>
+    <globalVariables>TMR_miss1_set</globalVariables>
+    <globalVariables>TMR_miss2_sensor</globalVariables>
+    <globalVariables>TMR_miss2_set</globalVariables>
+    <globalVariables>TMR_miss_out1</globalVariables>
+    <globalVariables>TMR_miss_out2</globalVariables>
+    <globalVariables>TMR_miss_sensor</globalVariables>
+    <globalVariables>TMR_miss_set</globalVariables>
+    <globalVariables>TM_COMM_Output_Control1</globalVariables>
+    <globalVariables>TM_COMM_Output_Control2</globalVariables>
+    <globalVariables>TM_COMM_Output_Emulator</globalVariables>
+    <globalVariables>TM_COMM_Sensor_Values</globalVariables>
+    <globalVariables>TM_COMM_Set_Values</globalVariables>
+    <globalVariables>TM_COMM_Sync</globalVariables>
+    <globalVariables>TM_COMM_Vote1</globalVariables>
+    <globalVariables>TM_COMM_Vote2</globalVariables>
+    <globalVariables>TM_COMM_Vote3</globalVariables>
+    <globalVariables>TM_Check_Output_Control1</globalVariables>
+    <globalVariables>TM_Check_Output_Control2</globalVariables>
+    <globalVariables>TM_Check_Output_Emulator</globalVariables>
+    <globalVariables>TM_Check_Output_Emulator_2</globalVariables>
+    <globalVariables>TM_Check_Sensor_Values</globalVariables>
+    <globalVariables>TM_Check_Sensor_Values_2</globalVariables>
+    <globalVariables>TM_Check_Set_Values</globalVariables>
+    <globalVariables>TM_Check_Set_Values_2</globalVariables>
+    <globalVariables>TM_Check_Sync</globalVariables>
+    <globalVariables>TM_Check_TOuts</globalVariables>
+    <globalVariables>TM_Check_Vote1</globalVariables>
+    <globalVariables>TM_Check_Vote2</globalVariables>
+    <globalVariables>TM_Check_Vote2_2</globalVariables>
+    <globalVariables>TM_Check_Vote3</globalVariables>
+    <globalVariables>TM_Count_Vote1</globalVariables>
+    <globalVariables>TM_Count_Vote2</globalVariables>
+    <globalVariables>TM_Count_Vote3</globalVariables>
+    <globalVariables>TM_Data_bc0</globalVariables>
+    <globalVariables>TM_Data_bc1</globalVariables>
+    <globalVariables>TM_New_Master</globalVariables>
+    <globalVariables>TM_Reset_Board</globalVariables>
+    <globalVariables>TM_Reset_Var</globalVariables>
+    <globalVariables>TM_Reset_Var_bc1</globalVariables>
+    <globalVariables>TM_Reset_Var_bc1_2</globalVariables>
+    <globalVariables>TM_Steer</globalVariables>
+    <globalVariables>TM_TMR</globalVariables>
+    <globalVariables>TM_TMR_2</globalVariables>
+    <globalVariables>TM_TMR_3</globalVariables>
+    <globalVariables>TM_Torque</globalVariables>
+    <globalVariables>TM_Type_bc0</globalVariables>
+    <globalVariables>TM_Type_bc1</globalVariables>
+    <globalVariables>TM_Update_LT</globalVariables>
+    <globalVariables>TM_Update_LT_2</globalVariables>
+    <globalVariables>TM_Velocity</globalVariables>
+    <globalVariables>TM_Vote_Dec</globalVariables>
+    <globalVariables>TM_Vote_Dec_2</globalVariables>
+    <globalVariables>Tl_a</globalVariables>
+    <globalVariables>Tl_f</globalVariables>
+    <globalVariables>TxCAN1_counter_s</globalVariables>
+    <globalVariables>TxCAN2_counter_s</globalVariables>
+    <globalVariables>TxID_CAN1_s</globalVariables>
+    <globalVariables>TxID_CAN2_s</globalVariables>
+    <globalVariables>Tx_temporal_msg_CAN1</globalVariables>
+    <globalVariables>Tx_temporal_msg_CAN2</globalVariables>
+    <globalVariables>Vehicle_Em_Board</globalVariables>
+    <globalVariables>Vote1_ID</globalVariables>
+    <globalVariables>Vote2_ID</globalVariables>
+    <globalVariables>Vote3_ID</globalVariables>
+    <globalVariables>Vote_s</globalVariables>
+    <globalVariables>bacic_cycle_s</globalVariables>
+    <globalVariables>basic_cycle_duration_bc0</globalVariables>
+    <globalVariables>basic_cycle_duration_bc1</globalVariables>
+    <globalVariables>comm_delay_estimation1</globalVariables>
+    <globalVariables>comm_delay_estimation2</globalVariables>
+    <globalVariables>delta_a_set</globalVariables>
+    <globalVariables>delta_f_set</globalVariables>
+    <globalVariables>delta_max</globalVariables>
+    <globalVariables>delta_min</globalVariables>
+    <globalVariables>delta_precision</globalVariables>
+    <globalVariables>e_width</globalVariables>
+    <globalVariables>error_log1_s</globalVariables>
+    <globalVariables>error_log2_s</globalVariables>
+    <globalVariables>error_log3_s</globalVariables>
+    <globalVariables>frequency_IRQ</globalVariables>
+    <globalVariables>hardware_granularity</globalVariables>
+    <globalVariables>idle_time_init</globalVariables>
+    <globalVariables>local_ticks_interrupt</globalVariables>
+    <globalVariables>m_v</globalVariables>
+    <globalVariables>matrix_cycle_duration</globalVariables>
+    <globalVariables>matrix_rows</globalVariables>
+    <globalVariables>max_desync</globalVariables>
+    <globalVariables>max_num_msgs_CAN1</globalVariables>
+    <globalVariables>max_num_msgs_CAN2</globalVariables>
+    <globalVariables>mc_counter_s</globalVariables>
+    <globalVariables>min_desync</globalVariables>
+    <globalVariables>msg_buffer_type</globalVariables>
+    <globalVariables>msg_count_DEBUG_ing_s</globalVariables>
+    <globalVariables>msg_count_DEBUG_s</globalVariables>
+    <globalVariables>msg_count_DEBUG_vem_s</globalVariables>
+    <globalVariables>new_sensor_rx_s</globalVariables>
+    <globalVariables>new_sensor_rx_vem_s</globalVariables>
+    <globalVariables>new_set_rx_s</globalVariables>
+    <globalVariables>out1_miss_counter_s</globalVariables>
+    <globalVariables>out1_rx_s</globalVariables>
+    <globalVariables>out2_miss_counter_s</globalVariables>
+    <globalVariables>out2_rx_s</globalVariables>
+    <globalVariables>outcont_miss_counter_vem</globalVariables>
+    <globalVariables>reset_ing_s</globalVariables>
+    <globalVariables>reset_s</globalVariables>
+    <globalVariables>reset_vem_s</globalVariables>
+    <globalVariables>rx_data_incr_time_s</globalVariables>
+    <globalVariables>script_run</globalVariables>
+    <globalVariables>script_run_s</globalVariables>
+    <globalVariables>sensor_miss_counter_s</globalVariables>
+    <globalVariables>set_miss_counter_s</globalVariables>
+    <globalVariables>simulation_time</globalVariables>
+    <globalVariables>speed_k_d</globalVariables>
+    <globalVariables>speed_k_i</globalVariables>
+    <globalVariables>speed_k_p</globalVariables>
+    <globalVariables>speed_max</globalVariables>
+    <globalVariables>speed_min</globalVariables>
+    <globalVariables>speed_precision</globalVariables>
+    <globalVariables>sync_bc0_miss_counter_ing</globalVariables>
+    <globalVariables>sync_bc0_miss_counter_s</globalVariables>
+    <globalVariables>sync_bc0_miss_counter_vem</globalVariables>
+    <globalVariables>sync_bc1_miss_counter_ing</globalVariables>
+    <globalVariables>sync_bc1_miss_counter_s</globalVariables>
+    <globalVariables>sync_bc1_miss_counter_vem</globalVariables>
+    <globalVariables>tau_al1_disagree_s</globalVariables>
+    <globalVariables>tau_al2_disagree_s</globalVariables>
+    <globalVariables>tau_al_disagree_s</globalVariables>
+    <globalVariables>tau_ar1_disagree_s</globalVariables>
+    <globalVariables>tau_ar2_disagree_s</globalVariables>
+    <globalVariables>tau_ar_disagree_s</globalVariables>
+    <globalVariables>tau_fl1_disagree_s</globalVariables>
+    <globalVariables>tau_fl2_disagree_s</globalVariables>
+    <globalVariables>tau_fl_disagree_s</globalVariables>
+    <globalVariables>tau_fr1_disagree_s</globalVariables>
+    <globalVariables>tau_fr2_disagree_s</globalVariables>
+    <globalVariables>tau_fr_disagree_s</globalVariables>
+    <globalVariables>tau_max</globalVariables>
+    <globalVariables>tau_min</globalVariables>
+    <globalVariables>tau_range</globalVariables>
+    <globalVariables>theta_al_s</globalVariables>
+    <globalVariables>theta_al_stored_s</globalVariables>
+    <globalVariables>theta_ar_s</globalVariables>
+    <globalVariables>theta_ar_stored_s</globalVariables>
+    <globalVariables>theta_fl_s</globalVariables>
+    <globalVariables>theta_fl_stored_s</globalVariables>
+    <globalVariables>theta_fr_s</globalVariables>
+    <globalVariables>theta_fr_stored_s</globalVariables>
+    <globalVariables>theta_max</globalVariables>
+    <globalVariables>theta_min</globalVariables>
+    <globalVariables>theta_precision</globalVariables>
+    <globalVariables>torque_a_k_d</globalVariables>
+    <globalVariables>torque_a_k_i</globalVariables>
+    <globalVariables>torque_a_k_p</globalVariables>
+    <globalVariables>torque_al_out1_s</globalVariables>
+    <globalVariables>torque_al_out2_s</globalVariables>
+    <globalVariables>torque_al_set_out_s</globalVariables>
+    <globalVariables>torque_al_set_s</globalVariables>
+    <globalVariables>torque_ar_out1_s</globalVariables>
+    <globalVariables>torque_ar_out2_s</globalVariables>
+    <globalVariables>torque_ar_set_out_s</globalVariables>
+    <globalVariables>torque_ar_set_s</globalVariables>
+    <globalVariables>torque_f_k_d</globalVariables>
+    <globalVariables>torque_f_k_i</globalVariables>
+    <globalVariables>torque_f_k_p</globalVariables>
+    <globalVariables>torque_fl_out1_s</globalVariables>
+    <globalVariables>torque_fl_out2_s</globalVariables>
+    <globalVariables>torque_fl_set_out_s</globalVariables>
+    <globalVariables>torque_fl_set_s</globalVariables>
+    <globalVariables>torque_fr_out1_s</globalVariables>
+    <globalVariables>torque_fr_out2_s</globalVariables>
+    <globalVariables>torque_fr_set_out_s</globalVariables>
+    <globalVariables>torque_fr_set_s</globalVariables>
+    <globalVariables>torque_precision</globalVariables>
+    <globalVariables>v_ctreff_s</globalVariables>
+    <globalVariables>v_est_s</globalVariables>
+    <globalVariables>v_est_vem_s</globalVariables>
+    <globalVariables>v_integral_s</globalVariables>
+    <globalVariables>v_set</globalVariables>
+    <globalVariables>v_set_s</globalVariables>
+    <globalVariables>vote_array</globalVariables>
+    <globalVariables>votes_Board_1_DEBUG</globalVariables>
+    <globalVariables>votes_Board_2_DEBUG</globalVariables>
+    <globalVariables>votes_Board_3_DEBUG</globalVariables>
+    <hasBlockWithPeriodicDiscreteSampleTime>true</hasBlockWithPeriodicDiscreteSampleTime>
+    <hasBwsAccessed>true</hasBwsAccessed>
+    <hasBwsAccessedByAnyModel>true</hasBwsAccessedByAnyModel>
+    <hasNonVirtualConstantTs>true</hasNonVirtualConstantTs>
+    <hasStatesModifiedInOutputUpdate>true</hasStatesModifiedInOutputUpdate>
+    <isBdInSimModeForSimCodegenVariants>false</isBdInSimModeForSimCodegenVariants>
+    <isInlineParamsOn>true</isInlineParamsOn>
+    <loggingSaveFormat>4</loggingSaveFormat>
+    <maxFreqHz>-1.0</maxFreqHz>
+    <needAbsoluteTimeDisallowInitPort>true</needAbsoluteTimeDisallowInitPort>
+    <numDStateRecs>2</numDStateRecs>
+    <numDataInputPorts>0</numDataInputPorts>
+    <numLoggableDStateRecs>2</numLoggableDStateRecs>
+    <numLoggableJacobianDStates>0</numLoggableJacobianDStates>
+    <removeResetFunc>true</removeResetFunc>
+    <runtimeNonFcnCallRateInfos type="ModelRefInfoRepo.RateInfo">
+      <compiled>true</compiled>
+      <needAbsoluteTime>true</needAbsoluteTime>
+      <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+      <period>.01</period>
+      <priority>40</priority>
+      <rateIdx>0</rateIdx>
+    </runtimeNonFcnCallRateInfos>
+    <runtimeNonFcnCallRateInfos type="ModelRefInfoRepo.RateInfo">
+      <compiled>true</compiled>
+      <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+      <period>.1</period>
+      <priority>40</priority>
+      <rateIdx>1</rateIdx>
+    </runtimeNonFcnCallRateInfos>
+    <runtimeNonFcnCallRateInfos type="ModelRefInfoRepo.RateInfo">
+      <compiled>true</compiled>
+      <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
+      <period>.2</period>
+      <priority>40</priority>
+      <rateIdx>2</rateIdx>
+    </runtimeNonFcnCallRateInfos>
+    <sampleTimeInheritanceRule>2</sampleTimeInheritanceRule>
+    <solverStatusFlags>323</solverStatusFlags>
+    <timingAndTaskingRegistry>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;slexec_sto version=&quot;1.1&quot; packageUris=&quot;http://schema.mathworks.com/mf0/slexec_mm_sto/R2022b_202202091112&quot;&gt;
+  &lt;sto.Registry type=&quot;sto.Registry&quot; uuid=&quot;f20f3343-2a2f-4d17-ba8d-6b3989f5a3aa&quot;&gt;
+    &lt;executionSpec&gt;Undetermined&lt;/executionSpec&gt;
+    &lt;clockRegistry type=&quot;sto.ClockRegistry&quot; uuid=&quot;5be6d2f0-7f23-4f63-8d89-ac3fda703ed1&quot;&gt;
+      &lt;clocks type=&quot;sto.Timer&quot; uuid=&quot;158952cb-60c2-4490-86da-fc8251d66366&quot;&gt;
+        &lt;clockTickConstraint&gt;PeriodicWithFixedResolution&lt;/clockTickConstraint&gt;
+        &lt;computedFundamentalDiscretePeriod&gt;.01&lt;/computedFundamentalDiscretePeriod&gt;
+        &lt;resolution&gt;.01&lt;/resolution&gt;
+        &lt;timeAdvanceMode&gt;FixedStep&lt;/timeAdvanceMode&gt;
+        &lt;rates type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;8d6f4666-f15d-48bd-aa33-5a4822cd60dc&quot;&gt;
+          &lt;annotation&gt;D1&lt;/annotation&gt;
+          &lt;colorIndex&gt;2&lt;/colorIndex&gt;
+          &lt;description&gt;Discrete 1&lt;/description&gt;
+          &lt;taskId&gt;_task0&lt;/taskId&gt;
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;0930ae32-e59b-4999-ad64-696050b9a904&quot;&gt;
+            &lt;period&gt;.01&lt;/period&gt;
+            &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
+          &lt;/rateSpec&gt;
+        &lt;/rates&gt;
+        &lt;rates type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;b9957177-f14a-46bc-abff-066168038791&quot;&gt;
+          &lt;annotation&gt;D2&lt;/annotation&gt;
+          &lt;colorIndex&gt;3&lt;/colorIndex&gt;
+          &lt;description&gt;Discrete 2&lt;/description&gt;
+          &lt;rateIdx&gt;1&lt;/rateIdx&gt;
+          &lt;taskId&gt;_task0&lt;/taskId&gt;
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;4cfa16d6-7516-4605-81d7-4fc683df57e2&quot;&gt;
+            &lt;period&gt;.1&lt;/period&gt;
+            &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
+          &lt;/rateSpec&gt;
+        &lt;/rates&gt;
+        &lt;rates type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;fdebec12-ea47-4f02-b11f-2e20e1eeab29&quot;&gt;
+          &lt;annotation&gt;D3&lt;/annotation&gt;
+          &lt;colorIndex&gt;4&lt;/colorIndex&gt;
+          &lt;description&gt;Discrete 3&lt;/description&gt;
+          &lt;rateIdx&gt;2&lt;/rateIdx&gt;
+          &lt;taskId&gt;_task0&lt;/taskId&gt;
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;135049f6-494b-4373-8243-af5fb2ca2d73&quot;&gt;
+            &lt;period&gt;.2&lt;/period&gt;
+            &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
+          &lt;/rateSpec&gt;
+        &lt;/rates&gt;
+        &lt;baseRate type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;9b9b450a-7ecd-40ec-96bb-1a9c37895822&quot;&gt;
+          &lt;annotation&gt;D1&lt;/annotation&gt;
+          &lt;colorIndex&gt;2&lt;/colorIndex&gt;
+          &lt;description&gt;Discrete 1&lt;/description&gt;
+          &lt;taskId&gt;_task0&lt;/taskId&gt;
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;27cc131d-3a0d-4a98-9b4f-5bc0cacc0238&quot;&gt;
+            &lt;period&gt;.01&lt;/period&gt;
+            &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
+          &lt;/rateSpec&gt;
+        &lt;/baseRate&gt;
+      &lt;/clocks&gt;
+      &lt;clocks type=&quot;sto.Event&quot; uuid=&quot;0500eb2a-befa-4152-8d74-5734ff873932&quot;&gt;
+        &lt;eventType&gt;PARAMETER_CHANGE_EVENT&lt;/eventType&gt;
+        &lt;cNum&gt;1&lt;/cNum&gt;
+        &lt;clockType&gt;Event&lt;/clockType&gt;
+        &lt;identifier&gt;ParameterChangeEvent&lt;/identifier&gt;
+        &lt;rates type=&quot;sto.ModelWideEventRate&quot; uuid=&quot;5e9f5f75-074d-4271-9f53-f9480acf0312&quot;&gt;
+          &lt;clockId&gt;ParameterChangeEvent&lt;/clockId&gt;
+          &lt;rateIdx&gt;-1&lt;/rateIdx&gt;
+          &lt;taskId&gt;ModelWideParameterChangeEvent&lt;/taskId&gt;
+          &lt;useForExecution&gt;NotForExecution&lt;/useForExecution&gt;
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;db00331b-4a79-4838-99b7-bd3b88b964fd&quot;&gt;
+            &lt;period&gt;inf&lt;/period&gt;
+            &lt;rateType&gt;ModelWideParameterChangeEvent&lt;/rateType&gt;
+          &lt;/rateSpec&gt;
+        &lt;/rates&gt;
+      &lt;/clocks&gt;
+      &lt;timeAdvanceMode&gt;FixedStep&lt;/timeAdvanceMode&gt;
+    &lt;/clockRegistry&gt;
+    &lt;taskRegistry type=&quot;sto.TaskRegistry&quot; uuid=&quot;1d30edf5-57ea-4d27-b6a0-55a148903ff7&quot;&gt;
+      &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;6dd3c7eb-ebff-4930-a3db-e12225984e40&quot;&gt;
+        &lt;isExplicit&gt;true&lt;/isExplicit&gt;
+        &lt;rates type=&quot;sto.ModelWideEventRate&quot; uuid=&quot;37671178-90a1-42a7-a3b3-8884a628c7f3&quot;&gt;
+          &lt;clockId&gt;ParameterChangeEvent&lt;/clockId&gt;
+          &lt;rateIdx&gt;-1&lt;/rateIdx&gt;
+          &lt;taskId&gt;ModelWideParameterChangeEvent&lt;/taskId&gt;
+          &lt;useForExecution&gt;NotForExecution&lt;/useForExecution&gt;
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;6086ea60-cfcd-4f35-84f6-5019fff1a3a4&quot;&gt;
+            &lt;period&gt;inf&lt;/period&gt;
+            &lt;rateType&gt;ModelWideParameterChangeEvent&lt;/rateType&gt;
+          &lt;/rateSpec&gt;
+        &lt;/rates&gt;
+        &lt;schedulingClockId&gt;ParameterChangeEvent&lt;/schedulingClockId&gt;
+        &lt;elementType&gt;Task&lt;/elementType&gt;
+        &lt;identifier&gt;ModelWideParameterChangeEvent&lt;/identifier&gt;
+        &lt;priority&gt;-1&lt;/priority&gt;
+      &lt;/rootTaskHierarchyElements&gt;
+      &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;26800c82-1985-44a8-84c9-a5f7560e2bc8&quot;&gt;
+        &lt;isExecutable&gt;true&lt;/isExecutable&gt;
+        &lt;orderIndex&gt;1&lt;/orderIndex&gt;
+        &lt;rates type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;01c171b0-3f36-4c73-a918-1cdf2087210f&quot;&gt;
+          &lt;annotation&gt;D1&lt;/annotation&gt;
+          &lt;colorIndex&gt;2&lt;/colorIndex&gt;
+          &lt;description&gt;Discrete 1&lt;/description&gt;
+          &lt;taskId&gt;_task0&lt;/taskId&gt;
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;64890724-fcff-4c6d-b889-3fb307b6edb0&quot;&gt;
+            &lt;period&gt;.01&lt;/period&gt;
+            &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
+          &lt;/rateSpec&gt;
+        &lt;/rates&gt;
+        &lt;rates type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;ad267c54-c026-4c1f-ae1e-a9fcca14032e&quot;&gt;
+          &lt;annotation&gt;D2&lt;/annotation&gt;
+          &lt;colorIndex&gt;3&lt;/colorIndex&gt;
+          &lt;description&gt;Discrete 2&lt;/description&gt;
+          &lt;rateIdx&gt;1&lt;/rateIdx&gt;
+          &lt;taskId&gt;_task0&lt;/taskId&gt;
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;035a4f08-ddcb-4573-9828-11f71d663a95&quot;&gt;
+            &lt;period&gt;.1&lt;/period&gt;
+            &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
+          &lt;/rateSpec&gt;
+        &lt;/rates&gt;
+        &lt;rates type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;e0b68b8a-a106-495f-9199-f306b92f7dbb&quot;&gt;
+          &lt;annotation&gt;D3&lt;/annotation&gt;
+          &lt;colorIndex&gt;4&lt;/colorIndex&gt;
+          &lt;description&gt;Discrete 3&lt;/description&gt;
+          &lt;rateIdx&gt;2&lt;/rateIdx&gt;
+          &lt;taskId&gt;_task0&lt;/taskId&gt;
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;76019ded-1c8e-41db-9876-a57d81e64512&quot;&gt;
+            &lt;period&gt;.2&lt;/period&gt;
+            &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
+          &lt;/rateSpec&gt;
+        &lt;/rates&gt;
+        &lt;elementType&gt;Task&lt;/elementType&gt;
+        &lt;identifier&gt;_task0&lt;/identifier&gt;
+        &lt;priority&gt;40&lt;/priority&gt;
+      &lt;/rootTaskHierarchyElements&gt;
+      &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;7dd1309b-c926-4837-b61f-de185e26369b&quot;&gt;
+        &lt;taskIdentifier&gt;_task0&lt;/taskIdentifier&gt;
+      &lt;/taskDependencyGraph&gt;
+      &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;9ac4d0b5-c67f-4242-8954-78eba6b316b9&quot;&gt;
+        &lt;clockIdentifier&gt;ParameterChangeEvent&lt;/clockIdentifier&gt;
+        &lt;taskIdentifier&gt;ModelWideParameterChangeEvent&lt;/taskIdentifier&gt;
+      &lt;/taskDependencyGraph&gt;
+    &lt;/taskRegistry&gt;
+  &lt;/sto.Registry&gt;
+&lt;/slexec_sto&gt;</timingAndTaskingRegistry>
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="86c6e1dd-a845-42ac-afdb-d78003f13e11">
+      <direction>56</direction>
+      <isDiscrete>true</isDiscrete>
+      <name>Trig</name>
+      <needsEventNotification>true</needsEventNotification>
+      <tolerance>-1.0</tolerance>
+      <type>1</type>
+      <width>1</width>
+    </zeroCrossingInfo>
+    <zeroInternalMemoryAtStartupUnchecked>true</zeroInternalMemoryAtStartupUnchecked>
+    <FMUBlockMap type="ModelRefInfoRepo.FMUBlockInfo" uuid="666383ff-e86c-48e7-b422-3db650b69286"/>
+    <codeGenInfo type="ModelRefInfoRepo.CodeGenInformation" uuid="6a1282a3-cb34-4507-ad8c-7504b62bd383"/>
+    <compiledVariantInfos type="ModelRefInfoRepo.CompiledVariantInfoMap" uuid="e2f69436-71fe-486a-8b36-c7971248c388"/>
+    <configSettingsForConsistencyChecks type="ModelRefInfoRepo.ConfigSettingsForConsistencyChecks" uuid="62f65671-5b64-4a72-80ad-1cca92a0729e">
+      <fixedStepSize>.01</fixedStepSize>
+      <frameDiagnosticSetting>2</frameDiagnosticSetting>
+      <hasHybridSampleTime>true</hasHybridSampleTime>
+      <optimizedInitCode>true</optimizedInitCode>
+      <signalLoggingSaveFormat>2</signalLoggingSaveFormat>
+      <simSIMDOptimization>1</simSIMDOptimization>
+      <solverName>FixedStepDiscrete</solverName>
+      <solverType>SOLVER_TYPE_FIXEDSTEP</solverType>
+      <hardwareSettings type="ModelRefInfoRepo.HardwareSettings" uuid="68d2b505-c25f-47cc-bca1-b8ffa703be3e">
+        <prodBitPerChar>8</prodBitPerChar>
+        <prodBitPerDouble>64</prodBitPerDouble>
+        <prodBitPerFloat>32</prodBitPerFloat>
+        <prodBitPerInt>32</prodBitPerInt>
+        <prodBitPerLong>32</prodBitPerLong>
+        <prodBitPerLongLong>64</prodBitPerLongLong>
+        <prodBitPerPointer>32</prodBitPerPointer>
+        <prodBitPerPtrDiffT>32</prodBitPerPtrDiffT>
+        <prodBitPerShort>16</prodBitPerShort>
+        <prodBitPerSizeT>32</prodBitPerSizeT>
+        <prodEndianess>1</prodEndianess>
+        <prodLargestAtomicFloat>1</prodLargestAtomicFloat>
+        <prodLargestAtomicInteger>3</prodLargestAtomicInteger>
+        <prodShiftRight>true</prodShiftRight>
+        <prodWordSize>32</prodWordSize>
+      </hardwareSettings>
+    </configSettingsForConsistencyChecks>
+    <controllableInputRatesMap type="ModelRefInfoRepo.VarTsUIDMap" uuid="5289ec7e-061a-4166-95f9-ab0d79357a68"/>
+    <controllableOutputRatesMap type="ModelRefInfoRepo.VarTsUIDMap" uuid="f5866ef7-a3a6-4665-b238-258187e958ea"/>
+    <dataPortGroup type="ModelRefInfoRepo.DataPortGroup" uuid="25a5096b-3bfc-4bab-a5cb-f29813da760d"/>
+    <expFcnUnconnectedDataPortGroup type="ModelRefInfoRepo.DataPortGroup" uuid="fd9d6768-2d25-4b1d-8492-61097b1401f1"/>
+    <interfaceParameterInfo type="ModelRefInfoRepo.InterfaceParameterInfo" uuid="db1f83c8-a071-4501-8d71-49fb4c98529d">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="acfff8e1-9f10-40ad-b0bd-76cbbc3b7a49">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>COMM_Phase1</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4182227b-b642-4ec6-a779-a7e33a13baf3">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>COMM_Phase2</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="027fb6be-54d3-4836-b4f7-a12a2e6e25ae">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>COMM_Phase_init1</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2eaae0c3-3d88-46ba-8c23-40f8268f13a0">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>COMM_Phase_init2</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2dee41e7-688b-411d-9f27-1456385dc959">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>delta_a_set</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4326bc56-9c6a-4e58-ad92-6b5a69500e1a">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>delta_f_set</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="c018de46-e2a9-41c8-b193-f8ddc06e7293">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>script_run</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7068b8ba-21ee-49d7-a292-d50269ce66bf">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>speed_k_d</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b5141fc2-de51-4162-9a06-8d986aaa7629">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>speed_k_i</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="011b3f89-affd-4fe7-8598-71ad958ce474">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>speed_k_p</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="1f274ab2-7138-4904-b094-4c684ff1ff95">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_a_k_d</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="642a1dbe-49b3-40de-8d86-29274a0e6db2">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_a_k_i</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a3f4b258-cdd4-4a98-b97f-5cda3be943f1">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_a_k_p</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ef86f76e-162e-4f01-902d-dba06373460b">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_f_k_d</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e1f987cc-460d-4f47-90ca-27b21ff7cea3">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_f_k_i</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ed2ed228-9445-48d6-9c7c-b402dc2c7b4f">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_f_k_p</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="fc1e8ec4-5dee-472a-bff9-faf96b19ff23">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>v_set</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="91b7dfa6-c1ed-4642-9ca4-7a0438202bef">
+        <datatypeID>8</datatypeID>
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <netSVCE>true</netSVCE>
+        <numDimensions>2</numDimensions>
+        <parameterName>HANtuneOverride</parameterName>
+      </globalVariables>
+    </interfaceParameterInfo>
+    <messageInfo type="ModelRefInfoRepo.MessageInformation" uuid="6adfca14-bb17-4180-845b-3ad0971b1f55"/>
+    <methodInfo type="ModelRefInfoRepo.MethodExistenceInfo" uuid="e258df41-ee64-46d4-b689-f630fe9ae246">
+      <hasEnableMethod>true</hasEnableMethod>
+      <hasSystemInitializeMethod>true</hasSystemInitializeMethod>
+      <hasSystemResetMethod>true</hasSystemResetMethod>
+      <hasTerminateMethod>true</hasTerminateMethod>
+      <hasUpdateMethod>true</hasUpdateMethod>
+    </methodInfo>
+    <periodicEventPortUnsupportedBlockInfo type="ModelRefInfoRepo.PeriodicEventPortUnsupportedBlockInfo" uuid="6763283e-6216-4d72-a48e-2a55eef09102"/>
+    <portGroupsRequireSameRate type="ModelRefInfoRepo.PortGroupsRequireSameRate" uuid="f0fa0463-66dd-4265-a380-a63066f51aac">
+      <DSMPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="6f91a699-8696-44c5-b313-94ed0c716831"/>
+      <GlobalDSMPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="49e6d7c4-abc7-488a-9b8d-d6d6e911581b"/>
+      <mergedPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="171c0cc1-3f35-46bf-b698-d5c7c3f92d35"/>
+    </portGroupsRequireSameRate>
+    <rateBasedMdlGlobalDSMRateSpec type="ModelRefInfoRepo.GlobalDSMRateSpecMap" uuid="9efcfed0-7a33-4a86-983a-c374f694de03"/>
+    <rateSpecOfGlobalDSMAccessedByDescExpFcnMdlMap type="ModelRefInfoRepo.GlobalDSMRateSpecMap" uuid="9a89fbaf-574b-44c0-9d44-5c456902e0fa"/>
+    <rootBlockDiagramInterface type="ci.Model" uuid="624ca4a8-46c4-4a0a-a309-5f69125d5972">
+      <p_RootComponentInterface type="ci.ComponentInterface" uuid="b8e1aa29-ea6a-45cc-9960-469da5fa122b">
+        <p_Name>HANcoder_E407_TTA_Controller_v3</p_Name>
+        <p_Type>ROOT</p_Type>
+      </p_RootComponentInterface>
+    </rootBlockDiagramInterface>
+    <simulinkFunctions type="ModelRefInfoRepo.SimulinkFunctions" uuid="3d64b93a-ec51-4b1d-babe-94acac7d04a3">
+      <compSimulinkFunctionCatalog></compSimulinkFunctionCatalog>
+    </simulinkFunctions>
+    <sltpContext type="sltp.mm.core.Context" uuid="37c82fdb-a511-4cf7-905c-fea0edfc0d79">
+      <editorState type="sltp.mm.core.EditorState" uuid="1336c607-e648-40cb-8713-31fa6e554e57">
+        <panelState type="sltp.mm.core.EditorPanelState" uuid="d07837bb-d4be-4357-86a3-c5a3e728fef8"/>
+      </editorState>
+      <rootTask type="sltp.mm.core.Task" uuid="a273f78d-a46a-401f-8606-68cbdc677ed7">
+        <context type="sltp.mm.core.Context" uuid="37c82fdb-a511-4cf7-905c-fea0edfc0d79"/>
+        <explicit>false</explicit>
+        <name>Default</name>
+        <priority>-2147483648</priority>
+        <subgraph type="sltp.mm.core.Graph" uuid="00aea47a-1028-42b3-891b-5c5071735a4f">
+          <tasks type="sltp.mm.core.Task" uuid="8ec7824c-59b2-452e-9ed2-65ee49c2ab58">
+            <context type="sltp.mm.core.Context" uuid="37c82fdb-a511-4cf7-905c-fea0edfc0d79"/>
+            <explicit>false</explicit>
+            <id>1</id>
+            <isTimed>true</isTimed>
+            <name>D1</name>
+            <priority>40</priority>
+            <rates type="sltp.mm.core.Rate" uuid="11622127-ee26-4c9d-a453-179f3d37fd96">
+              <annotation>D1</annotation>
+              <color>-436207361</color>
+              <rateSpec type="sltp.mm.core.RateSpec">
+                <period>.01</period>
+              </rateSpec>
+              <sti>0</sti>
+            </rates>
+            <rates type="sltp.mm.core.Rate" uuid="2e8f5828-750c-47e2-851a-8be73f74c962">
+              <annotation>D2</annotation>
+              <color>13697279</color>
+              <rateSpec type="sltp.mm.core.RateSpec">
+                <period>.1</period>
+              </rateSpec>
+              <sti>1</sti>
+            </rates>
+            <rates type="sltp.mm.core.Rate" uuid="0d5e0173-d304-4095-8107-aebfde2cd118">
+              <annotation>D3</annotation>
+              <color>52479</color>
+              <rateSpec type="sltp.mm.core.RateSpec">
+                <period>.2</period>
+              </rateSpec>
+              <sti>2</sti>
+            </rates>
+          </tasks>
+        </subgraph>
+      </rootTask>
+    </sltpContext>
+    <stateWriterToOwnerMap type="ModelRefInfoRepo.StateWriterInfo" uuid="4aabf73e-0f53-4aee-8aea-b06a23d747ae"/>
+    <stoClientDataRegistry type="sto.ClientDataRegistry" uuid="3731865c-9650-4b69-9638-f5f53de9c2cc">
+      <dataSets type="sto.ClientClockNamedDataSet" uuid="f01438aa-f67b-4ac8-99a0-111f888ee92c">
+        <tag>sltpEvents</tag>
+      </dataSets>
+      <dataSets type="sto.ClientTaskHierarchyElementNamedDataSet" uuid="ee7ac8d9-c288-4daf-bae7-59a02cb37eb5">
+        <tag>sltpTaskGroups</tag>
+      </dataSets>
+      <dataSets type="sto.ClientTaskHierarchyElementNamedDataSet" uuid="38446b1d-b5ef-4730-a7f8-23b110717d21">
+        <dSet type="ModelRefInfoRepo.SltpTaskData" uuid="987d6d65-835c-4e2b-ba0b-0f3d3141ff8f"/>
+        <tSet type="ModelRefInfoRepo.SltpTaskData" uuid="987d6d65-835c-4e2b-ba0b-0f3d3141ff8f">
+          <dataName>D1</dataName>
+          <linkedSet type="sto.ClientTaskHierarchyElementNamedDataSet" uuid="38446b1d-b5ef-4730-a7f8-23b110717d21"/>
+          <id type="sto.TaskHierarchyElementId">
+            <id>_task0</id>
+          </id>
+        </tSet>
+        <tag>sltpTasks</tag>
+      </dataSets>
+    </stoClientDataRegistry>
+    <varTsUIDMap type="ModelRefInfoRepo.VarTsUIDMap" uuid="2f6a52e7-f23e-462e-b0d5-f7e0695215da"/>
+  </ModelRefInfoRepo.ModelRefInfoRoot>
+</MF0>
