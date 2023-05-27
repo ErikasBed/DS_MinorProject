@@ -8,9 +8,9 @@
  *
  * Code generation for model "HANcoder_E407_TTA_Chris".
  *
- * Model version              : 17.8
+ * Model version              : 17.10
  * Simulink Coder version : 9.8 (R2022b) 13-May-2022
- * C source code generated on : Sun May 14 18:45:07 2023
+ * C source code generated on : Sat May 27 16:24:52 2023
  * 
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -23,7 +23,7 @@
 
 ASAP2_VERSION  1 31   /* Version 1.31 */
 
-/begin PROJECT ProjectName "HANcoder_E407_TTA_Chris_softwareID_v1_140523_184501"
+/begin PROJECT ProjectName "HANcoder_E407_TTA_Chris_softwareID_v1_270523_162447"
   
   /begin HEADER "Header Comments go here"
     
@@ -37,9 +37,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     	ADDR_EPK		0x0800c014
 		CPU_TYPE		"STM32F407"
 		ECU				"E407"
-		EPK				"HANcoder_E407_TTA_Chris_softwareID_v1_140523_184501"
+		EPK				"HANcoder_E407_TTA_Chris_softwareID_v1_270523_162447"
 		SYSTEM_CONSTANT	"XcpStationID string length"  "0x00000033"
-		SYSTEM_CONSTANT	"RAM-FlashOffset"  "-402551392"
+		SYSTEM_CONSTANT	"RAM-FlashOffset"  "-402550048"
 	/end MOD_PAR
     
     /begin MOD_COMMON  "Mod Common Comment Here" 
@@ -229,7 +229,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */      matrixRows  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
-      /* ECU Address            */      0x20000018 
+      /* ECU Address            */      0x20000030 
       /* Record Layout          */      Scalar_FLOAT64_IEEE 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      HANcoder_E407_TTA_Chris_CM_double 
@@ -239,7 +239,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC 
-      /* Name                   */      idA  
+      /* Name                   */      MMBS1_ID  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x20000010 
@@ -252,7 +252,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC 
-      /* Name                   */      idB  
+      /* Name                   */      SSTM1_ID  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x20000014 
@@ -265,10 +265,101 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC 
-      /* Name                   */      slotTime  
+      /* Name                   */      SYNC1_ID  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x20000018 
+      /* Record Layout          */      Scalar_ULONG 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      HANcoder_E407_TTA_Chris_CM_uint32 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      4294967295
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      TRCK1_ID1  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x2000001c 
+      /* Record Layout          */      Scalar_ULONG 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      HANcoder_E407_TTA_Chris_CM_uint32 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      4294967295
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      TRCK1_ID2  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x20000020 
+      /* Record Layout          */      Scalar_ULONG 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      HANcoder_E407_TTA_Chris_CM_uint32 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      4294967295
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      TRCK1_ID3  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x20000024 
+      /* Record Layout          */      Scalar_ULONG 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      HANcoder_E407_TTA_Chris_CM_uint32 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      4294967295
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      TRLS1_ID4  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x20000028 
+      /* Record Layout          */      Scalar_ULONG 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      HANcoder_E407_TTA_Chris_CM_uint32 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      4294967295
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      TRLS1_ID5  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x2000002c 
+      /* Record Layout          */      Scalar_ULONG 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      HANcoder_E407_TTA_Chris_CM_uint32 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      4294967295
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      nodeRole  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x20000038 
+      /* Record Layout          */      Scalar_UBYTE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      HANcoder_E407_TTA_Chris_CM_uint8 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      255
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      slotTime  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x20000039 
       /* Record Layout          */      Scalar_UBYTE 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      HANcoder_E407_TTA_Chris_CM_uint8 
@@ -287,7 +378,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x2000020c
+      ECU_ADDRESS                       0x20000224
     /end MEASUREMENT
     
     
@@ -300,7 +391,20 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x20000210
+      ECU_ADDRESS                       0x20000228
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      testCounter
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      HANcoder_E407_TTA_Chris_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x2000028e
     /end MEASUREMENT
     
     
@@ -313,7 +417,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x2000023c
+      ECU_ADDRESS                       0x2000024a
     /end MEASUREMENT
     
     
@@ -326,72 +430,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x20000208
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      setSlotTime
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      HANcoder_E407_TTA_Chris_CM_uint8
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      255
-      ECU_ADDRESS                       0x20000265
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      slotSelected
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      HANcoder_E407_TTA_Chris_CM_uint8
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      255
-      ECU_ADDRESS                       0x20000266
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      dataBtx
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      HANcoder_E407_TTA_Chris_CM_uint8
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      255
-      ECU_ADDRESS                       0x2000023b
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      dataBrx
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      HANcoder_E407_TTA_Chris_CM_uint8
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      255
-      ECU_ADDRESS                       0x2000023a
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      dataAtx
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      HANcoder_E407_TTA_Chris_CM_uint8
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      255
-      ECU_ADDRESS                       0x20000239
+      ECU_ADDRESS                       0x20000220
     /end MEASUREMENT
     
     
@@ -404,7 +443,33 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x20000238
+      ECU_ADDRESS                       0x20000248
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      setSlotTime
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      HANcoder_E407_TTA_Chris_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x2000028b
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      slotSelected
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      HANcoder_E407_TTA_Chris_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x2000028c
     /end MEASUREMENT
     
     
@@ -417,7 +482,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x2000023f
+      ECU_ADDRESS                       0x2000024d
     /end MEASUREMENT
     
     
@@ -430,7 +495,20 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x2000023e
+      ECU_ADDRESS                       0x2000024c
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      boolCan
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      HANcoder_E407_TTA_Chris_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x2000022c
     /end MEASUREMENT
     
     
@@ -443,7 +521,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x20000214
+      ECU_ADDRESS                       0x2000022d
     /end MEASUREMENT
     
     /begin COMPU_METHOD
@@ -504,23 +582,15 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       Root_HANcoder_STM32_Target___E407_STM32_algorithm
       /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm"
       /begin SUB_GROUP
-        S1_Communication
         S1_Inputs
         S1_Local_Time_generation
+        S1_Message_selector
         S1_Role_assignment
         S1_System_information
       /end SUB_GROUP
-    /end GROUP
-    
-    /begin GROUP
-      /* Name                   */       S1_Communication
-      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Communication"
-      /begin SUB_GROUP
-        S4_Role_A_Rx
-        S4_Role_A_Tx
-        S4_Role_B_Rx
-        S4_Role_B_Tx
-      /end SUB_GROUP
+      /begin REF_CHARACTERISTIC
+        nodeRole
+      /end REF_CHARACTERISTIC
     /end GROUP
     
     /begin GROUP
@@ -536,7 +606,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S1_Local_Time_generation
       /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Local Time generation"
       /begin SUB_GROUP
-        S9_Enabled_Subsystem
+        S8_Enabled_Subsystem
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         canActive
@@ -546,10 +616,33 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
+      /* Name                   */       S1_Message_selector
+      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Message selector"
+      /begin SUB_GROUP
+        S9_SYNC1_RX
+        S9_SYNC1_TX
+      /end SUB_GROUP
+      /begin REF_CHARACTERISTIC
+        MMBS1_ID
+        SSTM1_ID
+        SYNC1_ID
+        TRCK1_ID1
+        TRCK1_ID2
+        TRCK1_ID3
+        TRLS1_ID4
+        TRLS1_ID5
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        boolCan
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
       /* Name                   */       S1_Role_assignment
       /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Role assignment"
       /begin SUB_GROUP
         S11_Subsystem
+        S11_Subsystem1
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         ClockOn
@@ -567,51 +660,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S4_Role_A_Rx
-      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Communication/Role A Rx"
-      /begin SUB_GROUP
-        S15_CAN_receive1
-      /end SUB_GROUP
-      /begin REF_CHARACTERISTIC
-        idB
-      /end REF_CHARACTERISTIC
-    /end GROUP
-    
-    /begin GROUP
-      /* Name                   */       S4_Role_A_Tx
-      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Communication/Role A Tx"
-      /begin REF_CHARACTERISTIC
-        idA
-      /end REF_CHARACTERISTIC
-      /begin REF_MEASUREMENT
-        dataAtx
-      /end REF_MEASUREMENT
-    /end GROUP
-    
-    /begin GROUP
-      /* Name                   */       S4_Role_B_Rx
-      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Communication/Role B Rx"
-      /begin SUB_GROUP
-        S17_CAN_receive1
-      /end SUB_GROUP
-      /begin REF_CHARACTERISTIC
-        idA
-      /end REF_CHARACTERISTIC
-    /end GROUP
-    
-    /begin GROUP
-      /* Name                   */       S4_Role_B_Tx
-      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Communication/Role B Tx"
-      /begin REF_CHARACTERISTIC
-        idB
-      /end REF_CHARACTERISTIC
-      /begin REF_MEASUREMENT
-        dataBtx
-      /end REF_MEASUREMENT
-    /end GROUP
-    
-    /begin GROUP
-      /* Name                   */       S9_Enabled_Subsystem
+      /* Name                   */       S8_Enabled_Subsystem
       /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Local Time generation/Enabled Subsystem"
       /begin REF_CHARACTERISTIC
         matrixRows
@@ -622,10 +671,34 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
+      /* Name                   */       S9_SYNC1_RX
+      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Message selector/SYNC1_RX"
+      /begin SUB_GROUP
+        S24_CAN_receive1
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S9_SYNC1_TX
+      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Message selector/SYNC1_TX"
+      /begin REF_MEASUREMENT
+        testCounter
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
       /* Name                   */       S11_Subsystem
       /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Role assignment/Subsystem"
       /begin REF_CHARACTERISTIC
         slotTime
+      /end REF_CHARACTERISTIC
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S11_Subsystem1
+      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Role assignment/Subsystem1"
+      /begin REF_CHARACTERISTIC
+        SYNC1_ID
       /end REF_CHARACTERISTIC
     /end GROUP
     
@@ -654,34 +727,18 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S15_CAN_receive1
-      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Communication/Role A Rx/CAN receive1"
+      /* Name                   */       S24_CAN_receive1
+      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Message selector/SYNC1_RX/CAN receive1"
       /begin SUB_GROUP
-        S19_Enabled_Subsystem
+        S44_Enabled_Subsystem
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S17_CAN_receive1
-      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Communication/Role B Rx/CAN receive1"
-      /begin SUB_GROUP
-        S22_Enabled_Subsystem
-      /end SUB_GROUP
-    /end GROUP
-    
-    /begin GROUP
-      /* Name                   */       S19_Enabled_Subsystem
-      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Communication/Role A Rx/CAN receive1/Enabled Subsystem"
+      /* Name                   */       S44_Enabled_Subsystem
+      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Message selector/SYNC1_RX/CAN receive1/Enabled Subsystem"
       /begin REF_MEASUREMENT
         dataArx
-      /end REF_MEASUREMENT
-    /end GROUP
-    
-    /begin GROUP
-      /* Name                   */       S22_Enabled_Subsystem
-      /* Long identifier        */       "HANcoder_E407_TTA_Chris/HANcoder STM32 Target - E407-STM32 algorithm/Communication/Role B Rx/CAN receive1/Enabled Subsystem"
-      /begin REF_MEASUREMENT
-        dataBrx
       /end REF_MEASUREMENT
     /end GROUP
     

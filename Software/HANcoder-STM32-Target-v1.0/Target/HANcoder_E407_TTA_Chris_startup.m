@@ -32,37 +32,48 @@ dataArx = Simulink.Signal;
 
 dataAtx = Simulink.Signal;
 dataAtx.StorageClass = 'ExportedGlobal';
-dataAtx = Simulink.Signal;
+
 
 dataBrx = Simulink.Signal;
 dataBrx.StorageClass = 'ExportedGlobal';
-dataBrx = Simulink.Signal;
+
 
 dataBtx = Simulink.Signal;
 dataBtx.StorageClass = 'ExportedGlobal';
-dataBtx = Simulink.Signal;
+
 
 slotSelected = Simulink.Signal;
 slotSelected.StorageClass = 'ExportedGlobal';
-slotSelected = Simulink.Signal;
+
 
 roleA = Simulink.Signal;
 roleA.StorageClass = 'ExportedGlobal';
-roleA = Simulink.Signal;
+
 
 roleB = Simulink.Signal;
 roleB.StorageClass = 'ExportedGlobal';
-roleB = Simulink.Signal;
+
 
 canActive = Simulink.Signal;
 canActive.StorageClass = 'ExportedGlobal';
-canActive = Simulink.Signal;
+
 
 setSlotTime = Simulink.Signal;
 setSlotTime.StorageClass = 'ExportedGlobal';
-setSlotTime = Simulink.Signal;
+
+
+testCounter = Simulink.Signal;
+testCounter.StorageClass = 'ExportedGlobal';
+
+boolCan = Simulink.Signal;
+boolCan.StorageClass ='ExportedGlobal';
+
 %% Parameters
 % Defining a parameter for editing in HANtune
+nodeRole = Simulink.Parameter; % Define as parameter
+nodeRole.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+nodeRole.Value = 1; % Initial value is set to zero
+
 ClockOn = Simulink.Parameter; % Define as parameter
 ClockOn.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 ClockOn.Value = 0; % Initial value is set to zero
@@ -73,4 +84,37 @@ slotTime.Value = 50; % Initial value is 50 [ms]
 
 matrixRows = Simulink.Parameter; % Define as parameter
 matrixRows.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-matrixRows.Value = 2; % Initial value is 50 [ms]
+matrixRows.Value = 10 ; % Initial value is 10 slots
+
+SYNC1_ID = Simulink.Parameter; % Define as parameter
+SYNC1_ID.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+SYNC1_ID.Value = 11; % ID
+
+MMBS1_ID = Simulink.Parameter; % Define as parameter
+MMBS1_ID.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+MMBS1_ID.Value = 12; % ID
+
+SSTM1_ID = Simulink.Parameter; % Define as parameter
+SSTM1_ID.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+SSTM1_ID.Value = 13; % ID
+
+TRCK1_ID1 = Simulink.Parameter; % Define as parameter
+TRCK1_ID1.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+TRCK1_ID1.Value = 14; % ID
+
+TRCK1_ID2 = Simulink.Parameter; % Define as parameter
+TRCK1_ID2.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+TRCK1_ID2.Value = 26; % ID
+
+TRCK1_ID3 = Simulink.Parameter; % Define as parameter
+TRCK1_ID3.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+TRCK1_ID3.Value = 37; % ID
+
+TRLS1_ID4 = Simulink.Parameter; % Define as parameter
+TRLS1_ID4.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+TRLS1_ID4.Value = 48; % ID
+
+TRLS1_ID5 = Simulink.Parameter; % Define as parameter
+TRLS1_ID5.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+TRLS1_ID5.Value = 59; % ID
+

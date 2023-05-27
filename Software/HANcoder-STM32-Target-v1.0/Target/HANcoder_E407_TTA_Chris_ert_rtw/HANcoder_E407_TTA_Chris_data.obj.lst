@@ -1,0 +1,39 @@
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 2
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.file	"HANcoder_E407_TTA_Chris_data.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	rtConstP
+  19              		.section	.rodata.rtConstP,"a"
+  20              		.align	2
+  23              	rtConstP:
+  24 0000 00010000 		.ascii	"\000\001\000\000\001\001\000\000\001\000\001\001\000"
+  24      01010000 
+  24      01000101 
+  24      00
+  25 000d 000000   		.ascii	"\000\000\000"
+  26              		.text
+  27              	.Letext0:
+  28              		.file 1 "rtwtypes.h"
+  29              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+  30              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+  31              		.file 4 "HANcoder_E407_TTA_Chris.h"
+  32              		.file 5 "HANcoder_E407_TTA_Chris_data.c"
+DEFINED SYMBOLS
+                            *ABS*:00000000 HANcoder_E407_TTA_Chris_data.c
+C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccsDuPMc.s:23     .rodata.rtConstP:00000000 rtConstP
+C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccsDuPMc.s:20     .rodata.rtConstP:00000000 $d
+
+NO UNDEFINED SYMBOLS
