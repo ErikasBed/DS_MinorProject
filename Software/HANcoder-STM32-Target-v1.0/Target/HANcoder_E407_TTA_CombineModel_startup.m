@@ -14,6 +14,11 @@ frequency_IRQ = 1000; % IRQ every 1000 ticks of hardware clock -> local clock: 1
 
 idA = 4;
 idB = 6;
+
+V2 = 1.3889; % velocity 
+L0F = 3; % Wheelbase of tractor
+L0b = 1; % Distance between rear axle & hitch
+L1F = 4; % Wheelbase of the trailing units
 %% Signals
 % Defining signals for viewing in HANtune
 
@@ -66,7 +71,7 @@ testCounter = Simulink.Signal;
 testCounter.StorageClass = 'ExportedGlobal';
 
 boolCan = Simulink.Signal;
-boolCan.StorageC
+boolCan.StorageClass ='ExportedGlobal';
 
 %% Parameters
 % Defining a parameter for editing in HANtune
