@@ -75,6 +75,23 @@ boolCan.StorageClass ='ExportedGlobal';
 
 %% Parameters
 % Defining a parameter for editing in HANtune
+desiredAngle = Simulink.Parameter; % Define as parameter
+desiredAngle.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+desiredAngle.Value = 0; % Initial value is set to zero
+
+trailer1Slider = Simulink.Parameter; % Define as parameter
+trailer1Slider.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+trailer1Slider.Value = 0; % Initial value is set to zer
+
+propVal = Simulink.Parameter; % Define as parameter
+propVal.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+propVal.Value = 0; % Initial value is set to zer
+
+
+intVal = Simulink.Parameter; % Define as parameter
+intVal.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+intVal.Value = 0; % Initial value is set to zer
+
 nodeRole = Simulink.Parameter; % Define as parameter
 nodeRole.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 nodeRole.Value = 1; % Initial value is set to zero
