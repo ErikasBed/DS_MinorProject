@@ -67,7 +67,7 @@ COMPILER_TOOL_CHAIN = default
 #  EXTMODE_STATIC_SIZE - Size of static memory allocation buffer.
 #  MULTI_INSTANCE_CODE - Is the generated code multi instantiable (1/0)?
 MODEL                = HANcoder_E407_TTA_CombineModel
-MODULES              = HANcoder_E407_TTA_CombineModel_data.c
+MODULES              = HANcoder_E407_TTA_CombineModel_data.c rt_i32zcfcn.c
 MAKEFILE             = HANcoder_E407_TTA_CombineModel.mk
 MATLAB_ROOT          = C:\Program Files\MATLAB\R2022b
 ALT_MATLAB_ROOT      = C:\PROGRA~1\MATLAB\R2022b

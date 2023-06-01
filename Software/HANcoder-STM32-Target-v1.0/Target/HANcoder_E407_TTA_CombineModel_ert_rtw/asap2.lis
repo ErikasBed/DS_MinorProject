@@ -24,25 +24,23 @@
     
         TRLS1_ID5
     
-        nodeRole
-    
         slotTime
     
-    Gamma2
-Gamma1
+    Gamma1
 steering
 position
 control
 SI_FreeHeap
 SI_FreeStack
+Gamma2
 mospeed
 testCounter
 local_ticks_interrupt
 SI_CPUload
-dataArx
 setSlotTime
 slotSelected
+boolCan
 cw
 ccw
-boolCan
 canActive
+requestedAngle

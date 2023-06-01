@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.15
+ * Model version                  : 17.16
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue May 30 19:08:35 2023
+ * C/C++ source code generated on : Thu Jun  1 20:05:03 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -82,6 +82,7 @@ extern void MMBS1_RX(boolean_T rtu_Enable, uint32_T rtu_In1, rtB_MMBS1_RX
 extern void MMBS1_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, rtZCE_MMBS1_TX
                      *localZCE);
 extern void BitShift(uint16_T rtu_u, rtB_BitShift *localB);
+extern void BitShift_d(uint16_T rtu_u, rtB_BitShift_l *localB);
 
 #endif                /* RTW_HEADER_HANcoder_E407_TTA_CombineModel_private_h_ */
 

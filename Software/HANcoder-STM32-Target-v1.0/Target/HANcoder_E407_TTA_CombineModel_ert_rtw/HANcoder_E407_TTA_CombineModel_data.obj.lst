@@ -15,39 +15,28 @@
   15              		.text
   16              	.Ltext0:
   17              		.cfi_sections	.debug_frame
-  18              		.global	rtConstP
-  19              		.global	rtConstB
-  20              		.section	.rodata.rtConstB,"a"
-  21              		.align	3
-  24              	rtConstB:
-  25 0000 00000000 		.word	0
-  26 0004 0000F03F 		.word	1072693248
-  27 0008 00000000 		.word	0
-  28 000c 0000F03F 		.word	1072693248
-  29 0010 00000040 		.word	1073741824
-  30 0014 EF38F63F 		.word	1073101039
-  31 0018 00000000 		.word	0
-  32 001c 0000F03F 		.word	1072693248
-  33              		.section	.rodata.rtConstP,"a"
-  34              		.align	2
-  37              	rtConstP:
-  38 0000 00010000 		.ascii	"\000\001\000\000\001\001\000\000\001\000\001\001\000"
-  38      01010000 
-  38      01000101 
-  38      00
-  39 000d 000000   		.ascii	"\000\000\000"
-  40              		.text
-  41              	.Letext0:
-  42              		.file 1 "rtwtypes.h"
-  43              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
-  44              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
-  45              		.file 4 "HANcoder_E407_TTA_CombineModel.h"
-  46              		.file 5 "HANcoder_E407_TTA_CombineModel_data.c"
+  18              		.global	rtConstB
+  19              		.section	.rodata.rtConstB,"a"
+  20              		.align	3
+  23              	rtConstB:
+  24 0000 00000000 		.word	0
+  25 0004 0000F03F 		.word	1072693248
+  26 0008 00000000 		.word	0
+  27 000c 0000F03F 		.word	1072693248
+  28 0010 000000C0 		.word	-1073741824
+  29 0014 CCCCF43F 		.word	1073007820
+  30 0018 00000000 		.word	0
+  31 001c 0000F03F 		.word	1072693248
+  32              		.text
+  33              	.Letext0:
+  34              		.file 1 "rtwtypes.h"
+  35              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+  36              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+  37              		.file 4 "HANcoder_E407_TTA_CombineModel.h"
+  38              		.file 5 "HANcoder_E407_TTA_CombineModel_data.c"
 DEFINED SYMBOLS
                             *ABS*:00000000 HANcoder_E407_TTA_CombineModel_data.c
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccCkugri.s:37     .rodata.rtConstP:00000000 rtConstP
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccCkugri.s:24     .rodata.rtConstB:00000000 rtConstB
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccCkugri.s:21     .rodata.rtConstB:00000000 $d
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccCkugri.s:34     .rodata.rtConstP:00000000 $d
+C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccq4Rabb.s:23     .rodata.rtConstB:00000000 rtConstB
+C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccq4Rabb.s:20     .rodata.rtConstB:00000000 $d
 
 NO UNDEFINED SYMBOLS
