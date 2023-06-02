@@ -26,14 +26,20 @@
     
         slotTime
     
-    Gamma1
+    reqAngle
+Gamma1
 steering
 position
 control
 SI_FreeHeap
 SI_FreeStack
+delta12K
+t2Angle
+t1Angle
 Gamma2
 mospeed
+analogPot2
+analogPot1
 testCounter
 local_ticks_interrupt
 SI_CPUload
@@ -43,4 +49,3 @@ boolCan
 cw
 ccw
 canActive
-requestedAngle

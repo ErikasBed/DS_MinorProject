@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.16
+ * Model version                  : 17.17
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Thu Jun  1 20:05:03 2023
+ * C/C++ source code generated on : Fri Jun  2 15:45:18 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -124,6 +124,7 @@ typedef struct {
   real_T amountOfTrailers;             /* '<S1>/Data Store Memory5' */
   real_T systemState;                  /* '<S1>/Data Store Memory6' */
   real_T init_clock;                   /* '<S1>/Data Store Memory18' */
+  real_T requestedAngle;               /* '<S1>/Data Store Memory7' */
   uint32_T Subsystem_PREV_T[2];        /* '<S11>/Subsystem' */
   uint16_T Local_Ticks;                /* '<S1>/Data Store Memory' */
   uint16_T pwmMotor;                   /* '<S1>/Data Store Memory12' */
@@ -207,14 +208,20 @@ extern const ConstBlockIO rtConstB;    /* constant block i/o */
  * these signals and export their symbols.
  *
  */
+extern real_T reqAngle;                /* '<S27>/Data Store Read' */
 extern real_T Gamma1;                  /* '<S59>/Sum1' */
 extern real_T steering;                /* '<S58>/Gain2' */
 extern real_T position;                /* '<S58>/Gain1' */
 extern real_T control;                 /* '<S58>/Sum' */
 extern uint32_T SI_FreeHeap;           /* '<S150>/Level-2 M-file S-Function' */
 extern uint32_T SI_FreeStack;          /* '<S151>/Level-2 M-file S-Function' */
+extern real32_T delta12K;              /* '<S114>/tan 1' */
+extern uint16_T t2Angle;               /* '<S27>/Data Store Read2' */
+extern uint16_T t1Angle;               /* '<S27>/Data Store Read1' */
 extern uint16_T Gamma2;                /* '<S59>/Sum2' */
 extern uint16_T mospeed;               /* '<S58>/Add' */
+extern uint16_T analogPot2;            /* '<S53>/Level-2 M-file S-Function' */
+extern uint16_T analogPot1;            /* '<S52>/Level-2 M-file S-Function' */
 extern uint16_T testCounter;           /* '<S25>/Data Store Read1' */
 extern uint16_T local_ticks_interrupt; /* '<S10>/Switch' */
 extern uint8_T SI_CPUload;             /* '<S149>/Level-2 M-file S-Function' */
@@ -277,16 +284,6 @@ extern uint32_T TRLS1_ID5;             /* Variable: TRLS1_ID5
 extern uint8_T slotTime;               /* Variable: slotTime
                                         * Referenced by: '<S144>/Constant3'
                                         */
-
-/*
- * Exported States
- *
- * Note: Exported states are block states with an exported global
- * storage class designation.  Code generation will declare the memory for these
- * states and exports their symbols.
- *
- */
-extern real_T requestedAngle;          /* '<S1>/Data Store Memory7' */
 
 /* Model entry point functions */
 extern void HANcoder_E407_TTA_CombineModel_initialize(void);

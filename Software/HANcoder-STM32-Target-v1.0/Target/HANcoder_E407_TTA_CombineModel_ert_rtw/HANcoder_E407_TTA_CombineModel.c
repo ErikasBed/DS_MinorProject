@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.16
+ * Model version                  : 17.17
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Thu Jun  1 20:05:03 2023
+ * C/C++ source code generated on : Fri Jun  2 15:45:18 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -32,14 +32,20 @@ void TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12(void);
 void TimeoutOverflowIRQ_TIMEOUT_MODULE_TIM4(void);
 
 /* Exported block signals */
+real_T reqAngle;                       /* '<S27>/Data Store Read' */
 real_T Gamma1;                         /* '<S59>/Sum1' */
 real_T steering;                       /* '<S58>/Gain2' */
 real_T position;                       /* '<S58>/Gain1' */
 real_T control;                        /* '<S58>/Sum' */
 uint32_T SI_FreeHeap;                  /* '<S150>/Level-2 M-file S-Function' */
 uint32_T SI_FreeStack;                 /* '<S151>/Level-2 M-file S-Function' */
+real32_T delta12K;                     /* '<S114>/tan 1' */
+uint16_T t2Angle;                      /* '<S27>/Data Store Read2' */
+uint16_T t1Angle;                      /* '<S27>/Data Store Read1' */
 uint16_T Gamma2;                       /* '<S59>/Sum2' */
 uint16_T mospeed;                      /* '<S58>/Add' */
+uint16_T analogPot2;                   /* '<S53>/Level-2 M-file S-Function' */
+uint16_T analogPot1;                   /* '<S52>/Level-2 M-file S-Function' */
 uint16_T testCounter;                  /* '<S25>/Data Store Read1' */
 uint16_T local_ticks_interrupt;        /* '<S10>/Switch' */
 uint8_T SI_CPUload;                    /* '<S149>/Level-2 M-file S-Function' */
@@ -95,9 +101,6 @@ uint32_T TRLS1_ID5 = 59U;              /* Variable: TRLS1_ID5
 uint8_T slotTime = 50U;                /* Variable: slotTime
                                         * Referenced by: '<S144>/Constant3'
                                         */
-
-/* Exported block states */
-real_T requestedAngle;                 /* '<S1>/Data Store Memory7' */
 
 /* Block signals (default storage) */
 BlockIO rtB;
@@ -471,8 +474,6 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 {
   /* local block i/o variables */
   int32_T rtb_Level2MfileSFunction_k;
-  uint16_T rtb_Level2MfileSFunction_d;
-  uint16_T rtb_Level2MfileSFunction_g;
   uint8_T rtb_SFunction_o2;
   uint8_T rtb_SFunction_o3;
   uint8_T rtb_SFunction_o4;
@@ -805,11 +806,11 @@ void HANcoder_E407_TTA_CombineModel_step(void)
        *  Constant: '<S48>/Constant2'
        *  DataStoreWrite: '<S48>/Data Store Write2'
        */
-      requestedAngle = 0.015001500150015003 * desiredAngle;
+      rtDWork.requestedAngle = 0.015001500150015003 * desiredAngle;
 
       /* M-S-Function: '<S53>/Level-2 M-file S-Function' */
       /* read from analog input for filtered inputs*/
-      rtb_Level2MfileSFunction_d = AninGet(ANIN_PORTF_PIN8,0);
+      analogPot2 = AninGet(ANIN_PORTF_PIN8,0);
 
       /* Outputs for Enabled SubSystem: '<S48>/Subsystem' incorporates:
        *  EnablePort: '<S50>/Enable'
@@ -823,7 +824,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
          *  DataStoreWrite: '<S50>/Data Store Write'
          */
         rtDWork.trailerTwoAngle = (uint16_T)(((uint32_T)((uint16_T)62921U) *
-          rtb_Level2MfileSFunction_d) >> 22);
+          analogPot2) >> 22);
       }
 
       /* End of RelationalOperator: '<S48>/Equal1' */
@@ -831,7 +832,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
       /* M-S-Function: '<S52>/Level-2 M-file S-Function' */
       /* read from analog input for filtered inputs*/
-      rtb_Level2MfileSFunction_g = AninGet(ANIN_PORTF_PIN7,0);
+      analogPot1 = AninGet(ANIN_PORTF_PIN7,0);
 
       /* Outputs for Enabled SubSystem: '<S48>/Subsystem1' incorporates:
        *  EnablePort: '<S51>/Enable'
@@ -845,7 +846,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
          *  DataStoreWrite: '<S51>/Data Store Write'
          */
         rtDWork.trailerOneAngle = (uint16_T)(((uint32_T)((uint16_T)62921U) *
-          rtb_Level2MfileSFunction_g) >> 22);
+          analogPot1) >> 22);
       }
 
       /* End of RelationalOperator: '<S48>/Equal' */
@@ -898,18 +899,23 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       rtDWork.Subsystem_PREV_T[0] = Subsystem_ELAPS_T_tmp;
       rtDWork.Subsystem_PREV_T[1] = rtM->Timing.clockTickH0;
 
+      /* DataStoreRead: '<S27>/Data Store Read' */
+      reqAngle = rtDWork.requestedAngle;
+
       /* Product: '<S113>/Product' incorporates:
        *  Constant: '<S59>/TrailUnitWheelbase'
-       *  DataStoreRead: '<S27>/Data Store Read'
        *  Trigonometry: '<S113>/tan '
        */
-      rtb_Sum = tan(requestedAngle) * rtConstB.Abs / 4.0;
+      rtb_Sum = tan(reqAngle) * rtConstB.Abs / 4.0;
 
-      /* Sum: '<S59>/Sum2' incorporates:
-       *  DataStoreRead: '<S27>/Data Store Read1'
-       *  DataStoreRead: '<S27>/Data Store Read2'
-       */
-      Gamma2 = (uint16_T)(rtDWork.trailerOneAngle - rtDWork.trailerTwoAngle);
+      /* DataStoreRead: '<S27>/Data Store Read2' */
+      t2Angle = rtDWork.trailerTwoAngle;
+
+      /* DataStoreRead: '<S27>/Data Store Read1' */
+      t1Angle = rtDWork.trailerOneAngle;
+
+      /* Sum: '<S59>/Sum2' */
+      Gamma2 = (uint16_T)(t1Angle - t2Angle);
 
       /* Trigonometry: '<S111>/tan 1' incorporates:
        *  DataTypeConversion: '<S111>/Cast'
@@ -935,9 +941,8 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
       /* Sum: '<S59>/Sum1' incorporates:
        *  Constant: '<S27>/Constant1'
-       *  DataStoreRead: '<S27>/Data Store Read1'
        */
-      Gamma1 = 0.0 - (real_T)rtDWork.trailerOneAngle;
+      Gamma1 = 0.0 - (real_T)t1Angle;
 
       /* Product: '<S112>/Product' incorporates:
        *  Constant: '<S27>/Constant'
@@ -970,12 +975,11 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtb_MovingAverage_0 = (rtb_Integrator > 0.0);
       }
 
-      /* Gain: '<S58>/Gain2' incorporates:
+      /* Trigonometry: '<S114>/tan 1' incorporates:
        *  Constant: '<S59>/RearAxleToHitch'
        *  Constant: '<S59>/TractorWheelbase'
        *  Constant: '<S59>/TrailUnitWheelbase'
        *  DataTypeConversion: '<S114>/Cast'
-       *  DataTypeConversion: '<S58>/Cast3'
        *  Gain: '<S116>/Gain'
        *  Product: '<S114>/Product1'
        *  Product: '<S115>/Product1'
@@ -986,14 +990,18 @@ void HANcoder_E407_TTA_CombineModel_step(void)
        *  Signum: '<S116>/Sign'
        *  Sum: '<S115>/Add'
        *  Sum: '<S116>/Add'
-       *  Trigonometry: '<S114>/tan 1'
        *  Trigonometry: '<S116>/tan '
        *  Trigonometry: '<S116>/tan 1'
        */
-      steering = (real32_T)atan((real32_T)((rtb_Integrator / 1.0 * modValueRev *
+      delta12K = (real32_T)atan((real32_T)((rtb_Integrator / 1.0 * modValueRev *
         (-1.0) + z / 1.0 * 4.0 * rtb_Sum) * (rtb_MovingAverage_0 *
         rtConstB.signL0b_o) * 3.0 / (rtb_Sum * 4.0 * modValueRev + z *
-        rtb_Integrator))) * 45.6;
+        rtb_Integrator)));
+
+      /* Gain: '<S58>/Gain2' incorporates:
+       *  DataTypeConversion: '<S58>/Cast3'
+       */
+      steering = 45.6 * delta12K;
 
       /* M-S-Function: '<S61>/Level-2 M-file S-Function' */
       /* determine if the counter needs a reset  */
