@@ -1,5 +1,7 @@
     ClockOn
     
+        controlWidth
+    
         desiredAngle
     
         intVal
@@ -7,6 +9,10 @@
         matrixRows
     
         propVal
+    
+        trailer1TestAngle
+    
+        trailer2TestAngle
     
         MMBS1_ID
     
@@ -27,6 +33,9 @@
         slotTime
     
     reqAngle
+t2Angle
+t1Angle
+Gamma2
 Gamma1
 steering
 position
@@ -34,9 +43,6 @@ control
 SI_FreeHeap
 SI_FreeStack
 delta12K
-t2Angle
-t1Angle
-Gamma2
 mospeed
 analogPot2
 analogPot1

@@ -8,9 +8,9 @@
  *
  * Code generation for model "HANcoder_E407_TTA_CombineModel".
  *
- * Model version              : 17.17
+ * Model version              : 17.20
  * Simulink Coder version : 9.8 (R2022b) 13-May-2022
- * C source code generated on : Fri Jun  2 15:45:18 2023
+ * C source code generated on : Sun Jun  4 16:34:07 2023
  * 
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -23,7 +23,7 @@
 
 ASAP2_VERSION  1 31   /* Version 1.31 */
 
-/begin PROJECT ProjectName "HANcoder_E407_TTA_CombineModel_softwareID_v1_020623_154442"
+/begin PROJECT ProjectName "HANcoder_E407_TTA_CombineModel_softwareID_v1_040623_163337"
   
   /begin HEADER "Header Comments go here"
     
@@ -37,9 +37,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     	ADDR_EPK		0x0800c038
 		CPU_TYPE		"STM32F407"
 		ECU				"E407"
-		EPK				"HANcoder_E407_TTA_CombineModel_softwareID_v1_020623_154442"
+		EPK				"HANcoder_E407_TTA_CombineModel_softwareID_v1_040623_163337"
 		SYSTEM_CONSTANT	"XcpStationID string length"  "0x0000003a"
-		SYSTEM_CONSTANT	"RAM-FlashOffset"  "-402536736"
+		SYSTEM_CONSTANT	"RAM-FlashOffset"  "-402536992"
 	/end MOD_PAR
     
     /begin MOD_COMMON  "Mod Common Comment Here" 
@@ -226,7 +226,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC 
-      /* Name                   */      desiredAngle  
+      /* Name                   */      controlWidth  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x20000030 
@@ -239,7 +239,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC 
-      /* Name                   */      intVal  
+      /* Name                   */      desiredAngle  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x20000038 
@@ -252,7 +252,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC 
-      /* Name                   */      matrixRows  
+      /* Name                   */      intVal  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x20000040 
@@ -265,10 +265,49 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC 
-      /* Name                   */      propVal  
+      /* Name                   */      matrixRows  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x20000048 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      HANcoder_E407_TTA_CombineModel_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      propVal  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x20000050 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      HANcoder_E407_TTA_CombineModel_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      trailer1TestAngle  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x20000060 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      HANcoder_E407_TTA_CombineModel_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      trailer2TestAngle  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x20000068 
       /* Record Layout          */      Scalar_FLOAT64_IEEE 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      HANcoder_E407_TTA_CombineModel_CM_double 
@@ -385,7 +424,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */      slotTime  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
-      /* ECU Address            */      0x20000050 
+      /* ECU Address            */      0x20000058 
       /* Record Layout          */      Scalar_UBYTE 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      HANcoder_E407_TTA_CombineModel_CM_uint8 
@@ -404,7 +443,46 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x200002b8
+      ECU_ADDRESS                       0x200002e0
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      t2Angle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       0x20000398
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      t1Angle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       0x20000390
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Gamma2
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       0x20000270
     /end MEASUREMENT
     
     
@@ -417,7 +495,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x20000248
+      ECU_ADDRESS                       0x20000268
     /end MEASUREMENT
     
     
@@ -430,7 +508,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x200003e0
+      ECU_ADDRESS                       0x20000388
     /end MEASUREMENT
     
     
@@ -443,7 +521,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x200002b0
+      ECU_ADDRESS                       0x200002d8
     /end MEASUREMENT
     
     
@@ -456,7 +534,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x20000298
+      ECU_ADDRESS                       0x200002c0
     /end MEASUREMENT
     
     
@@ -469,7 +547,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x20000254
+      ECU_ADDRESS                       0x2000027c
     /end MEASUREMENT
     
     
@@ -482,7 +560,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x20000258
+      ECU_ADDRESS                       0x20000280
     /end MEASUREMENT
     
     
@@ -495,46 +573,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -3.4E+38
       /* Upper limit            */      3.4E+38
-      ECU_ADDRESS                       0x200002a4
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      t2Angle
-      /* Long identifier        */      ""
-      /* Data type              */      UWORD
-      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_uint16
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      65535
-      ECU_ADDRESS                       0x200003ea
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      t1Angle
-      /* Long identifier        */      ""
-      /* Data type              */      UWORD
-      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_uint16
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      65535
-      ECU_ADDRESS                       0x200003e8
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      Gamma2
-      /* Long identifier        */      ""
-      /* Data type              */      UWORD
-      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_uint16
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      65535
-      ECU_ADDRESS                       0x20000250
+      ECU_ADDRESS                       0x200002cc
     /end MEASUREMENT
     
     
@@ -547,7 +586,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x200002aa
+      ECU_ADDRESS                       0x200002d2
     /end MEASUREMENT
     
     
@@ -560,7 +599,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x2000025e
+      ECU_ADDRESS                       0x20000286
     /end MEASUREMENT
     
     
@@ -573,7 +612,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x2000025c
+      ECU_ADDRESS                       0x20000284
     /end MEASUREMENT
     
     
@@ -586,7 +625,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x200003ec
+      ECU_ADDRESS                       0x200003a0
     /end MEASUREMENT
     
     
@@ -599,7 +638,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x200002a8
+      ECU_ADDRESS                       0x200002d0
     /end MEASUREMENT
     
     
@@ -612,7 +651,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x20000252
+      ECU_ADDRESS                       0x20000278
     /end MEASUREMENT
     
     
@@ -625,7 +664,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x200003de
+      ECU_ADDRESS                       0x20000386
     /end MEASUREMENT
     
     
@@ -638,7 +677,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x200003df
+      ECU_ADDRESS                       0x20000387
     /end MEASUREMENT
     
     
@@ -651,7 +690,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x20000260
+      ECU_ADDRESS                       0x20000288
     /end MEASUREMENT
     
     
@@ -664,7 +703,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x200002a0
+      ECU_ADDRESS                       0x200002c8
     /end MEASUREMENT
     
     
@@ -677,7 +716,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x20000294
+      ECU_ADDRESS                       0x200002bc
     /end MEASUREMENT
     
     
@@ -690,7 +729,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x20000261
+      ECU_ADDRESS                       0x20000289
     /end MEASUREMENT
     
     /begin COMPU_METHOD
@@ -859,6 +898,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
         S27_Control_Algorithm
         S27_Kinematic_Algorithm
       /end SUB_GROUP
+      /begin REF_CHARACTERISTIC
+        trailer1TestAngle
+        trailer2TestAngle
+      /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
         reqAngle
         t1Angle
@@ -921,6 +964,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /begin GROUP
       /* Name                   */       S27_Control_Algorithm
       /* Long identifier        */       "HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Message selector/Subsystem/Control Algorithm"
+      /begin REF_CHARACTERISTIC
+        controlWidth
+      /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
         ccw
         control
@@ -935,7 +981,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S27_Kinematic_Algorithm
       /* Long identifier        */       "HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Message selector/Subsystem/Kinematic Algorithm"
       /begin SUB_GROUP
-        S59_Steer_angle_at_steer_axle
+        S61_Steer_angle_at_steer_axle
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         Gamma1
@@ -960,7 +1006,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S59_Steer_angle_at_steer_axle
+      /* Name                   */       S61_Steer_angle_at_steer_axle
       /* Long identifier        */       "HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Message selector/Subsystem/Kinematic Algorithm/Steer angle at steer axle"
       /begin REF_MEASUREMENT
         delta12K
@@ -968,7 +1014,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S66_Internal_Parameters
+      /* Name                   */       S67_Internal_Parameters
       /* Long identifier        */       "HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Message selector/Subsystem/Control Algorithm/Discrete PID Controller1/I Gain/Internal Parameters"
       /begin REF_CHARACTERISTIC
         intVal
@@ -976,7 +1022,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S74_Internal_Parameters
+      /* Name                   */       S75_Internal_Parameters
       /* Long identifier        */       "HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Message selector/Subsystem/Control Algorithm/Discrete PID Controller1/Parallel P Gain/Internal Parameters"
       /begin REF_CHARACTERISTIC
         propVal

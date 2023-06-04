@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.17
+ * Model version                  : 17.20
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Fri Jun  2 15:45:18 2023
+ * C/C++ source code generated on : Sun Jun  4 16:34:07 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -21,10 +21,10 @@
 
 /* Invariant block signals (default storage) */
 const ConstBlockIO rtConstB = {
-  1.0,                                 /* '<S112>/Sign' */
-  1.0,                                 /* '<S112>/Sign1' */
-  1.3,                                 /* '<S113>/Abs' */
-  1.0                                  /* '<S116>/Sign1' */
+  1.0,                                 /* '<S114>/Sign' */
+  1.0,                                 /* '<S114>/Sign1' */
+  1.3,                                 /* '<S115>/Abs' */
+  1.0                                  /* '<S118>/Sign1' */
 };
 
 /*

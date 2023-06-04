@@ -85,12 +85,12 @@ trailer1Slider.Value = 0; % Initial value is set to zer
 
 propVal = Simulink.Parameter; % Define as parameter
 propVal.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-propVal.Value = 0; % Initial value is set to zer
+propVal.Value = 1; % Initial value is set to zer
 
 
 intVal = Simulink.Parameter; % Define as parameter
 intVal.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-intVal.Value = 0; % Initial value is set to zer
+intVal.Value = 0.15; % Initial value is set to zer
 
 nodeRole = Simulink.Parameter; % Define as parameter
 nodeRole.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
@@ -140,3 +140,14 @@ TRLS1_ID5 = Simulink.Parameter; % Define as parameter
 TRLS1_ID5.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 TRLS1_ID5.Value = 59; % ID
 
+trailer1TestAngle = Simulink.Parameter; % Define as parameter
+trailer1TestAngle.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+trailer1TestAngle.Value = 0; % Angle in degrees
+
+trailer2TestAngle = Simulink.Parameter; % Define as parameter
+trailer2TestAngle.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+trailer2TestAngle.Value = 0; % Angle in degrees
+
+controlWidth = Simulink.Parameter; % Define as parameter
+controlWidth.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+controlWidth.Value = 3; % Angle in degrees
