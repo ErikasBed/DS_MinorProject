@@ -9,7 +9,7 @@
  *
  * Model version                  : 17.22
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Mon Jun  5 17:13:02 2023
+ * C/C++ source code generated on : Mon Jun  5 17:23:15 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -1936,7 +1936,7 @@ void HANcoder_E407_TTA_CombineModel_initialize(void)
     canFilter1.mode = CAN_FILTER_MODE_STDID_ONLY;
 
     /* connect and synchronize the CAN bus */
-    canResult1 = CanConnect(0, 250000, &canFilter1);
+    canResult1 = CanConnect(0, 1000000, &canFilter1);
     configASSERT(canResult1 == TRUE);
 
     /* Start for S-Function (sfcn_timeout_init): '<S12>/S-Function' */

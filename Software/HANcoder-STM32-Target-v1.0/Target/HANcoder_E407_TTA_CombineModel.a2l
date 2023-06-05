@@ -10,7 +10,7 @@
  *
  * Model version              : 17.22
  * Simulink Coder version : 9.8 (R2022b) 13-May-2022
- * C source code generated on : Mon Jun  5 17:13:02 2023
+ * C source code generated on : Mon Jun  5 17:23:15 2023
  * 
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -23,7 +23,7 @@
 
 ASAP2_VERSION  1 31   /* Version 1.31 */
 
-/begin PROJECT ProjectName "HANcoder_E407_TTA_CombineModel_softwareID_v1_050623_171229"
+/begin PROJECT ProjectName "HANcoder_E407_TTA_CombineModel_softwareID_v1_050623_172305"
   
   /begin HEADER "Header Comments go here"
     
@@ -37,7 +37,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     	ADDR_EPK		0x0800c038
 		CPU_TYPE		"STM32F407"
 		ECU				"E407"
-		EPK				"HANcoder_E407_TTA_CombineModel_softwareID_v1_050623_171229"
+		EPK				"HANcoder_E407_TTA_CombineModel_softwareID_v1_050623_172305"
 		SYSTEM_CONSTANT	"XcpStationID string length"  "0x0000003a"
 		SYSTEM_CONSTANT	"RAM-FlashOffset"  "-402536928"
 	/end MOD_PAR
