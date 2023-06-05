@@ -44,11 +44,11 @@ SI_FreeHeap
 SI_FreeStack
 delta12K
 mospeed
-analogPot2
 analogPot1
+analogPot2
 testCounter
-local_ticks_interrupt
 SI_CPUload
+local_ticks_interrupt
 setSlotTime
 slotSelected
 boolCan

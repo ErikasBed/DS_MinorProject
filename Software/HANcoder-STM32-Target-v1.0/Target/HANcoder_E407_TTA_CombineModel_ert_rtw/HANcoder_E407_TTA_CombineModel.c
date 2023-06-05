@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.20
+ * Model version                  : 17.22
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Sun Jun  4 16:34:07 2023
+ * C/C++ source code generated on : Mon Jun  5 17:13:02 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -34,25 +34,25 @@ void TimeoutOverflowIRQ_TIMEOUT_MODULE_TIM4(void);
 real_T reqAngle;                       /* '<S27>/Data Store Read' */
 real_T t2Angle;                        /* '<S27>/Constant3' */
 real_T t1Angle;                        /* '<S27>/Constant2' */
-real_T Gamma2;                         /* '<S61>/Sum2' */
-real_T Gamma1;                         /* '<S61>/Sum1' */
-real_T steering;                       /* '<S60>/Gain2' */
-real_T position;                       /* '<S60>/Gain1' */
-real_T control;                        /* '<S60>/Sum' */
-uint32_T SI_FreeHeap;                  /* '<S152>/Level-2 M-file S-Function' */
-uint32_T SI_FreeStack;                 /* '<S153>/Level-2 M-file S-Function' */
-real32_T delta12K;                     /* '<S116>/tan 1' */
-uint16_T mospeed;                      /* '<S60>/Add' */
-uint16_T analogPot2;                   /* '<S54>/Level-2 M-file S-Function' */
-uint16_T analogPot1;                   /* '<S53>/Level-2 M-file S-Function' */
+real_T Gamma2;                         /* '<S59>/Sum2' */
+real_T Gamma1;                         /* '<S59>/Sum1' */
+real_T steering;                       /* '<S58>/Gain2' */
+real_T position;                       /* '<S58>/Gain1' */
+real_T control;                        /* '<S58>/Sum' */
+uint32_T SI_FreeHeap;                  /* '<S174>/Level-2 M-file S-Function' */
+uint32_T SI_FreeStack;                 /* '<S175>/Level-2 M-file S-Function' */
+real32_T delta12K;                     /* '<S114>/tan 1' */
+uint16_T mospeed;                      /* '<S58>/Add' */
+uint16_T analogPot1;                   /* '<S51>/Level-2 M-file S-Function' */
+uint16_T analogPot2;                   /* '<S52>/Level-2 M-file S-Function' */
 uint16_T testCounter;                  /* '<S25>/Data Store Read1' */
-uint16_T local_ticks_interrupt;        /* '<S10>/Switch' */
-uint8_T SI_CPUload;                    /* '<S151>/Level-2 M-file S-Function' */
+uint8_T SI_CPUload;                    /* '<S173>/Level-2 M-file S-Function' */
+uint8_T local_ticks_interrupt;         /* '<S10>/Switch' */
 uint8_T setSlotTime;                   /* '<S10>/Data Store Read3' */
 uint8_T slotSelected;                  /* '<S17>/Switch' */
 boolean_T boolCan;                     /* '<S11>/AND' */
-boolean_T cw;                          /* '<S60>/Cast1' */
-boolean_T ccw;                         /* '<S60>/NOT' */
+boolean_T cw;                          /* '<S58>/Cast1' */
+boolean_T ccw;                         /* '<S58>/NOT' */
 boolean_T canActive;                   /* '<S10>/Clock_State' */
 
 /* Exported block parameters */
@@ -60,19 +60,19 @@ real_T ClockOn = 0.0;                  /* Variable: ClockOn
                                         * Referenced by: '<S13>/Constant'
                                         */
 real_T controlWidth = 3.0;             /* Variable: controlWidth
-                                        * Referenced by: '<S60>/Constant'
+                                        * Referenced by: '<S58>/Constant'
                                         */
 real_T desiredAngle = 0.0;             /* Variable: desiredAngle
                                         * Referenced by: '<S48>/Constant2'
                                         */
 real_T intVal = 0.15;                  /* Variable: intVal
-                                        * Referenced by: '<S93>/Integral Gain'
+                                        * Referenced by: '<S91>/Integral Gain'
                                         */
 real_T matrixRows = 10.0;              /* Variable: matrixRows
                                         * Referenced by: '<S17>/Constant1'
                                         */
 real_T propVal = 1.0;                  /* Variable: propVal
-                                        * Referenced by: '<S101>/Proportional Gain'
+                                        * Referenced by: '<S99>/Proportional Gain'
                                         */
 real_T trailer1TestAngle = 0.0;        /* Variable: trailer1TestAngle
                                         * Referenced by: '<S27>/Constant2'
@@ -89,7 +89,7 @@ uint32_T SSTM1_ID = 13U;               /* Variable: SSTM1_ID
 uint32_T SYNC1_ID = 11U;               /* Variable: SYNC1_ID
                                         * Referenced by:
                                         *   '<S11>/Constant10'
-                                        *   '<S147>/Constant10'
+                                        *   '<S169>/Constant10'
                                         */
 uint32_T TRCK1_ID1 = 14U;              /* Variable: TRCK1_ID1
                                         * Referenced by: '<S11>/Constant3'
@@ -107,7 +107,7 @@ uint32_T TRLS1_ID5 = 59U;              /* Variable: TRLS1_ID5
                                         * Referenced by: '<S11>/Constant18'
                                         */
 uint8_T slotTime = 50U;                /* Variable: slotTime
-                                        * Referenced by: '<S146>/Constant3'
+                                        * Referenced by: '<S168>/Constant3'
                                         */
 
 /* Block signals (default storage) */
@@ -170,8 +170,8 @@ void TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12(void)
        *  DataStoreRead: '<S10>/Data Store Read'
        *  Sum: '<S10>/Sum1'
        */
-      local_ticks_interrupt = (uint16_T)((uint32_T)rtDWork.Local_Ticks +
-        ((uint16_T)1U));
+      local_ticks_interrupt = (uint8_T)((uint32_T)rtDWork.Local_Ticks +
+        ((uint8_T)1U));
     } else {
       /* Switch: '<S10>/Switch' incorporates:
        *  DataStoreRead: '<S10>/Data Store Read1'
@@ -230,7 +230,7 @@ void TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12(void)
       /* DataStoreWrite: '<S17>/Data Store Write1' incorporates:
        *  Constant: '<S17>/Constant3'
        */
-      rtDWork.Local_Ticks = ((uint16_T)0U);
+      rtDWork.Local_Ticks = ((uint8_T)0U);
     }
 
     rtPrevZCSigState.EnabledSubsystem_Trig_ZCE = rtb_Equal;
@@ -267,12 +267,12 @@ void TimeoutOverflowIRQ_TIMEOUT_MODULE_TIM4(void)
  *    '<S38>/Enabled Subsystem'
  *    '<S41>/Enabled Subsystem'
  *    '<S44>/Enabled Subsystem'
- *    '<S119>/Enabled Subsystem'
- *    '<S123>/Enabled Subsystem'
- *    '<S126>/Enabled Subsystem'
- *    '<S129>/Enabled Subsystem'
- *    '<S138>/Enabled Subsystem'
- *    '<S148>/Enabled Subsystem'
+ *    '<S117>/Enabled Subsystem'
+ *    '<S133>/Enabled Subsystem'
+ *    '<S142>/Enabled Subsystem'
+ *    '<S145>/Enabled Subsystem'
+ *    '<S157>/Enabled Subsystem'
+ *    '<S170>/Enabled Subsystem'
  */
 void EnabledSubsystem(int8_T rtu_Enable, uint8_T rtu_In1, uint8_T rtu_In2,
                       uint8_T rtu_In3, uint8_T rtu_In4, uint8_T rtu_In5, uint8_T
@@ -409,9 +409,6 @@ void MMBS1_RX(boolean_T rtu_Enable, uint32_T rtu_In1, rtB_MMBS1_RX *localB,
  * Output and update for trigger system:
  *    '<S11>/MMBS1_TX'
  *    '<S11>/SSTM1_TX'
- *    '<S11>/TRCK1_ID2_TX'
- *    '<S11>/TRCK1_ID3_TX'
- *    '<S11>/TRCK1_TX'
  */
 void MMBS1_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, rtZCE_MMBS1_TX *localZCE)
 {
@@ -436,28 +433,102 @@ void MMBS1_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, rtZCE_MMBS1_TX *localZCE)
 
 /*
  * Output and update for atomic system:
+ *    '<S120>/Bit Shift'
+ *    '<S121>/Bit Shift'
+ *    '<S127>/Bit Shift'
  *    '<S128>/Bit Shift'
+ *    '<S136>/Bit Shift'
  *    '<S137>/Bit Shift'
+ *    '<S150>/Bit Shift'
+ *    '<S151>/Bit Shift'
+ *    '<S162>/Bit Shift'
+ *    '<S163>/Bit Shift'
  */
 void BitShift(uint16_T rtu_u, rtB_BitShift *localB)
 {
-  /* MATLAB Function: '<S130>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S131>:1' */
-  /* '<S131>:1:6' */
-  localB->y = (uint16_T)(rtu_u << 8);
+  /* MATLAB Function: '<S122>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S123>:1' */
+  /* '<S123>:1:8' */
+  localB->y = (uint16_T)((uint32_T)rtu_u >> 8);
+}
+
+/*
+ * Output and update for trigger system:
+ *    '<S11>/TRCK1_ID2_TX'
+ *    '<S11>/TRCK1_ID3_TX'
+ *    '<S11>/TRCK1_TX'
+ *    '<S11>/TRLS_ID4_TX'
+ */
+void TRCK1_ID2_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, const uint8_T
+                  *rtd_Local_Ticks, const uint16_T *rtd_potentiometer1, const
+                  uint16_T *rtd_potentiometer2, rtB_TRCK1_ID2_TX *localB,
+                  rtZCE_TRCK1_ID2_TX *localZCE)
+{
+  /* Outputs for Triggered SubSystem: '<S11>/TRCK1_ID2_TX' incorporates:
+   *  TriggerPort: '<S29>/Trigger'
+   */
+  if (rtu_Trigger && (localZCE->TRCK1_ID2_TX_Trig_ZCE != POS_ZCSIG)) {
+    /* DataStoreRead: '<S29>/Data Store Read2' */
+    localB->DataStoreRead2 = *rtd_Local_Ticks;
+
+    /* Outputs for Atomic SubSystem: '<S120>/Bit Shift' */
+    /* DataStoreRead: '<S29>/Data Store Read1' */
+    BitShift(*rtd_potentiometer2, &localB->BitShift_o);
+
+    /* End of Outputs for SubSystem: '<S120>/Bit Shift' */
+
+    /* DataTypeConversion: '<S120>/Cast' */
+    localB->Cast = (uint8_T)localB->BitShift_o.y;
+
+    /* DataTypeConversion: '<S120>/Cast1' incorporates:
+     *  DataStoreRead: '<S29>/Data Store Read1'
+     */
+    localB->Cast1 = (uint8_T)*rtd_potentiometer2;
+
+    /* Outputs for Atomic SubSystem: '<S121>/Bit Shift' */
+    /* DataStoreRead: '<S29>/Data Store Read' */
+    BitShift(*rtd_potentiometer1, &localB->BitShift_h);
+
+    /* End of Outputs for SubSystem: '<S121>/Bit Shift' */
+
+    /* DataTypeConversion: '<S121>/Cast' */
+    localB->Cast_k = (uint8_T)localB->BitShift_h.y;
+
+    /* DataTypeConversion: '<S121>/Cast1' incorporates:
+     *  DataStoreRead: '<S29>/Data Store Read'
+     */
+    localB->Cast1_i = (uint8_T)*rtd_potentiometer1;
+
+    /* Update for M-S-Function: '<S119>/S-Function' */
+    {
+      /* prepare the data */
+      canTxData.uint8_T_info[0] = localB->Cast_k;
+      canTxData.uint8_T_info[1] = localB->Cast1_i;
+      canTxData.uint8_T_info[2] = localB->Cast;
+      canTxData.uint8_T_info[3] = localB->Cast1;
+      canTxData.uint8_T_info[4] = localB->DataStoreRead2;
+
+      /* send the data */
+      CanTransmit(0, rtu_In1, 5, &canTxData.uint8_T_info[0]);
+    }
+  }
+
+  localZCE->TRCK1_ID2_TX_Trig_ZCE = rtu_Trigger;
+
+  /* End of Outputs for SubSystem: '<S11>/TRCK1_ID2_TX' */
 }
 
 /*
  * Output and update for atomic system:
- *    '<S134>/Bit Shift'
- *    '<S143>/Bit Shift'
+ *    '<S144>/Bit Shift'
+ *    '<S156>/Bit Shift'
  */
-void BitShift_d(uint16_T rtu_u, rtB_BitShift_l *localB)
+void BitShift_j(uint16_T rtu_u, rtB_BitShift_i *localB)
 {
-  /* MATLAB Function: '<S135>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S136>:1' */
-  /* '<S136>:1:8' */
-  localB->y = (uint16_T)((uint32_T)rtu_u >> 8);
+  /* MATLAB Function: '<S146>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S147>:1' */
+  /* '<S147>:1:6' */
+  localB->y = (uint16_T)(rtu_u << 8);
 }
 
 /* Model step function */
@@ -528,6 +599,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
   boolean_T AND9;
   boolean_T rtb_AND;
   boolean_T rtb_AND10;
+  boolean_T rtb_AND12;
   boolean_T rtb_AND13;
   boolean_T rtb_AND15;
   boolean_T rtb_AND1_k;
@@ -722,7 +794,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         /* DataStoreWrite: '<S45>/Data Store Write1' incorporates:
          *  Constant: '<S45>/Constant'
          */
-        rtDWork.Local_Ticks = ((uint16_T)4U);
+        rtDWork.Local_Ticks = ((uint8_T)2U);
 
         /* DataStoreWrite: '<S45>/Data Store Write2' incorporates:
          *  Constant: '<S45>/Constant1'
@@ -820,55 +892,25 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       /* DataStoreWrite: '<S48>/Data Store Write' */
       rtDWork.encoderPosition = rtb_Level2MfileSFunction_o;
 
-      /* M-S-Function: '<S54>/Level-2 M-file S-Function' */
-      /* read from analog input for filtered inputs*/
-      analogPot2 = AninGet(ANIN_PORTF_PIN8,0);
-
-      /* Outputs for Enabled SubSystem: '<S48>/Subsystem' incorporates:
-       *  EnablePort: '<S51>/Enable'
-       */
-      /* RelationalOperator: '<S48>/Equal1' incorporates:
-       *  Constant: '<S48>/Constant1'
-       *  DataStoreRead: '<S26>/Data Store Read2'
-       */
-      if (rtDWork.nodeRole == ((uint8_T)5U)) {
-        /* Gain: '<S51>/Gain2' incorporates:
-         *  DataStoreWrite: '<S51>/Data Store Write'
-         */
-        rtDWork.trailerTwoAngle = (uint16_T)(((uint32_T)((uint16_T)62921U) *
-          analogPot2) >> 22);
-      }
-
-      /* End of RelationalOperator: '<S48>/Equal1' */
-      /* End of Outputs for SubSystem: '<S48>/Subsystem' */
-
-      /* M-S-Function: '<S53>/Level-2 M-file S-Function' */
+      /* M-S-Function: '<S51>/Level-2 M-file S-Function' */
       /* read from analog input for filtered inputs*/
       analogPot1 = AninGet(ANIN_PORTF_PIN7,0);
 
-      /* Outputs for Enabled SubSystem: '<S48>/Subsystem1' incorporates:
-       *  EnablePort: '<S52>/Enable'
-       */
-      /* RelationalOperator: '<S48>/Equal' incorporates:
-       *  Constant: '<S48>/Constant'
-       *  DataStoreRead: '<S26>/Data Store Read2'
-       */
-      if (rtDWork.nodeRole == ((uint8_T)4U)) {
-        /* Gain: '<S52>/Gain2' incorporates:
-         *  DataStoreWrite: '<S52>/Data Store Write'
-         */
-        rtDWork.trailerOneAngle = (uint16_T)(((uint32_T)((uint16_T)62921U) *
-          analogPot1) >> 22);
-      }
+      /* DataStoreWrite: '<S48>/Data Store Write1' */
+      rtDWork.potentiometer1 = analogPot1;
 
-      /* End of RelationalOperator: '<S48>/Equal' */
-      /* End of Outputs for SubSystem: '<S48>/Subsystem1' */
+      /* M-S-Function: '<S52>/Level-2 M-file S-Function' */
+      /* read from analog input for filtered inputs*/
+      analogPot2 = AninGet(ANIN_PORTF_PIN8,0);
+
+      /* DataStoreWrite: '<S48>/Data Store Write3' */
+      rtDWork.potentiometer2 = analogPot2;
 
       /* DataTypeConversion: '<S50>/Data Type Conversion' incorporates:
-       *  RelationalOperator: '<S55>/FixPt Relational Operator'
-       *  UnitDelay: '<S55>/Delay Input1'
+       *  RelationalOperator: '<S53>/FixPt Relational Operator'
+       *  UnitDelay: '<S53>/Delay Input1'
        *
-       * Block description for '<S55>/Delay Input1':
+       * Block description for '<S53>/Delay Input1':
        *
        *  Store in Global RAM
        */
@@ -881,21 +923,21 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       rtB.DataStoreRead1 = rtDWork.cwMotor;
 
       /* DataStoreRead: '<S26>/Data Store Read3' */
-      rtB.DataStoreRead3 = rtDWork.ccwMotor;
+      rtB.DataStoreRead3_n = rtDWork.ccwMotor;
 
-      /* Update for UnitDelay: '<S55>/Delay Input1'
+      /* Update for UnitDelay: '<S53>/Delay Input1'
        *
-       * Block description for '<S55>/Delay Input1':
+       * Block description for '<S53>/Delay Input1':
        *
        *  Store in Global RAM
        */
       rtDWork.DelayInput1_DSTATE = 0.0;
 
-      /* Update for M-S-Function: '<S58>/Level-2 M-file S-Function' */
+      /* Update for M-S-Function: '<S56>/Level-2 M-file S-Function' */
       /* set the new duty cycle */
       PwmoutSet(PWMOUT_TIM14_PIN_PF9, rtB.DataStoreRead);
 
-      /* Update for M-S-Function: '<S56>/Level-2 M-file S-Function' */
+      /* Update for M-S-Function: '<S54>/Level-2 M-file S-Function' */
       /* update digital output */
       if (rtB.DataStoreRead1 == 0) {
         DigoutSet(DIGOUT_PORTE_PIN5, DIGOUT_LOW);
@@ -903,9 +945,9 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         DigoutSet(DIGOUT_PORTE_PIN5, DIGOUT_HIGH);
       }
 
-      /* Update for M-S-Function: '<S57>/Level-2 M-file S-Function' */
+      /* Update for M-S-Function: '<S55>/Level-2 M-file S-Function' */
       /* update digital output */
-      if (rtB.DataStoreRead3 == 0) {
+      if (rtB.DataStoreRead3_n == 0) {
         DigoutSet(DIGOUT_PORTE_PIN6, DIGOUT_LOW);
       } else {
         DigoutSet(DIGOUT_PORTE_PIN6, DIGOUT_HIGH);
@@ -935,9 +977,9 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       /* DataStoreRead: '<S27>/Data Store Read' */
       reqAngle = rtDWork.requestedAngle;
 
-      /* Product: '<S115>/Product' incorporates:
-       *  Constant: '<S61>/TrailUnitWheelbase'
-       *  Trigonometry: '<S115>/tan '
+      /* Product: '<S113>/Product' incorporates:
+       *  Constant: '<S59>/TrailUnitWheelbase'
+       *  Trigonometry: '<S113>/tan '
        */
       rtb_DeadZone = tan(reqAngle) * rtConstB.Abs / 4.0;
 
@@ -947,119 +989,119 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       /* Constant: '<S27>/Constant2' */
       t1Angle = trailer1TestAngle;
 
-      /* Sum: '<S61>/Sum2' */
+      /* Sum: '<S59>/Sum2' */
       Gamma2 = t1Angle - t2Angle;
 
-      /* Trigonometry: '<S113>/tan 1' incorporates:
-       *  DataTypeConversion: '<S113>/Cast'
-       *  Trigonometry: '<S114>/tan '
+      /* Trigonometry: '<S111>/tan 1' incorporates:
+       *  DataTypeConversion: '<S111>/Cast'
+       *  Trigonometry: '<S112>/tan '
        */
       rtb_IntegralGain = sin(Gamma2);
 
-      /* Trigonometry: '<S113>/tan 2' incorporates:
-       *  DataTypeConversion: '<S113>/Cast'
-       *  Trigonometry: '<S114>/tan 1'
+      /* Trigonometry: '<S111>/tan 2' incorporates:
+       *  DataTypeConversion: '<S111>/Cast'
+       *  Trigonometry: '<S112>/tan 1'
        */
       rtb_Integrator_tmp = cos(Gamma2);
 
-      /* Sum: '<S113>/Add' incorporates:
+      /* Sum: '<S111>/Add' incorporates:
        *  Constant: '<S27>/Constant'
-       *  Constant: '<S61>/TrailUnitWheelbase'
-       *  Product: '<S113>/Product1'
-       *  Product: '<S113>/Product2'
-       *  Trigonometry: '<S113>/tan 1'
-       *  Trigonometry: '<S113>/tan 2'
+       *  Constant: '<S59>/TrailUnitWheelbase'
+       *  Product: '<S111>/Product1'
+       *  Product: '<S111>/Product2'
+       *  Trigonometry: '<S111>/tan 1'
+       *  Trigonometry: '<S111>/tan 2'
        */
       rtb_Integrator = rtb_DeadZone * 4.0 * rtb_IntegralGain +
         rtb_Integrator_tmp * 1.3;
 
-      /* Sum: '<S61>/Sum1' incorporates:
+      /* Sum: '<S59>/Sum1' incorporates:
        *  Constant: '<S27>/Constant1'
        */
       Gamma1 = 0.0 - t1Angle;
 
-      /* Product: '<S114>/Product' incorporates:
+      /* Product: '<S112>/Product' incorporates:
        *  Constant: '<S27>/Constant'
-       *  Constant: '<S61>/RearAxleToHitch'
-       *  Constant: '<S61>/TrailUnitWheelbase'
-       *  Gain: '<S114>/Gain'
-       *  Product: '<S114>/Product1'
-       *  Product: '<S114>/Product3'
-       *  Sum: '<S114>/Add'
+       *  Constant: '<S59>/RearAxleToHitch'
+       *  Constant: '<S59>/TrailUnitWheelbase'
+       *  Gain: '<S112>/Gain'
+       *  Product: '<S112>/Product1'
+       *  Product: '<S112>/Product3'
+       *  Sum: '<S112>/Add'
        */
       rtb_IntegralGain = (1.3 / 1.0 * rtb_IntegralGain * (-1.0) +
                           rtb_Integrator_tmp / 1.0 * 4.0 * rtb_DeadZone) *
         (rtConstB.signV2 * rtConstB.signL0b);
 
-      /* Trigonometry: '<S118>/tan ' incorporates:
-       *  DataTypeConversion: '<S118>/Cast'
-       *  Trigonometry: '<S117>/tan 1'
+      /* Trigonometry: '<S116>/tan ' incorporates:
+       *  DataTypeConversion: '<S116>/Cast'
+       *  Trigonometry: '<S115>/tan 1'
        */
       rtb_DeadZone = sin(Gamma1);
 
-      /* Trigonometry: '<S118>/tan 1' incorporates:
-       *  DataTypeConversion: '<S118>/Cast'
-       *  Trigonometry: '<S117>/tan 2'
+      /* Trigonometry: '<S116>/tan 1' incorporates:
+       *  DataTypeConversion: '<S116>/Cast'
+       *  Trigonometry: '<S115>/tan 2'
        */
       rtb_Integrator_tmp = cos(Gamma1);
 
-      /* Signum: '<S118>/Sign' */
+      /* Signum: '<S116>/Sign' */
       if (rtb_Integrator < 0.0) {
         tmp = -1.0;
       } else {
         tmp = (rtb_Integrator > 0.0);
       }
 
-      /* Trigonometry: '<S116>/tan 1' incorporates:
-       *  Constant: '<S61>/RearAxleToHitch'
-       *  Constant: '<S61>/TractorWheelbase'
-       *  Constant: '<S61>/TrailUnitWheelbase'
-       *  DataTypeConversion: '<S116>/Cast'
-       *  Gain: '<S118>/Gain'
+      /* Trigonometry: '<S114>/tan 1' incorporates:
+       *  Constant: '<S59>/RearAxleToHitch'
+       *  Constant: '<S59>/TractorWheelbase'
+       *  Constant: '<S59>/TrailUnitWheelbase'
+       *  DataTypeConversion: '<S114>/Cast'
+       *  Gain: '<S116>/Gain'
+       *  Product: '<S114>/Product1'
+       *  Product: '<S115>/Product1'
+       *  Product: '<S115>/Product2'
+       *  Product: '<S116>/Product'
        *  Product: '<S116>/Product1'
-       *  Product: '<S117>/Product1'
-       *  Product: '<S117>/Product2'
-       *  Product: '<S118>/Product'
-       *  Product: '<S118>/Product1'
-       *  Product: '<S118>/Product3'
-       *  Signum: '<S118>/Sign'
-       *  Sum: '<S117>/Add'
-       *  Sum: '<S118>/Add'
-       *  Trigonometry: '<S118>/tan '
-       *  Trigonometry: '<S118>/tan 1'
+       *  Product: '<S116>/Product3'
+       *  Signum: '<S116>/Sign'
+       *  Sum: '<S115>/Add'
+       *  Sum: '<S116>/Add'
+       *  Trigonometry: '<S116>/tan '
+       *  Trigonometry: '<S116>/tan 1'
        */
       delta12K = (real32_T)atan((real32_T)((rtb_Integrator / 1.0 * rtb_DeadZone *
         (-1.0) + rtb_Integrator_tmp / 1.0 * 4.0 * rtb_IntegralGain) * (tmp *
         rtConstB.signL0b_o) * 3.0 / (rtb_IntegralGain * 4.0 * rtb_DeadZone +
         rtb_Integrator_tmp * rtb_Integrator)));
 
-      /* Gain: '<S60>/Gain2' incorporates:
-       *  DataTypeConversion: '<S60>/Cast3'
+      /* Gain: '<S58>/Gain2' incorporates:
+       *  DataTypeConversion: '<S58>/Cast3'
        */
       steering = 45.6 * delta12K;
 
-      /* Gain: '<S60>/Gain1' incorporates:
-       *  DataStoreRead: '<S60>/Data Store Read'
+      /* Gain: '<S58>/Gain1' incorporates:
+       *  DataStoreRead: '<S58>/Data Store Read'
        */
       position = (real_T)1474666883 * 1.4551915228366852E-11 * (real_T)
         rtDWork.encoderPosition;
 
-      /* Sum: '<S60>/Sum' incorporates:
-       *  Rounding: '<S60>/Round'
-       *  Rounding: '<S60>/Round1'
+      /* Sum: '<S58>/Sum' incorporates:
+       *  Rounding: '<S58>/Round'
+       *  Rounding: '<S58>/Round1'
        */
       control = floor(steering) - floor(position);
 
-      /* Abs: '<S60>/Abs' */
+      /* Abs: '<S58>/Abs' */
       rtb_IntegralGain = fabs(control);
 
-      /* Sum: '<S105>/Sum' incorporates:
-       *  DiscreteIntegrator: '<S96>/Integrator'
-       *  Gain: '<S101>/Proportional Gain'
+      /* Sum: '<S103>/Sum' incorporates:
+       *  DiscreteIntegrator: '<S94>/Integrator'
+       *  Gain: '<S99>/Proportional Gain'
        */
       rtb_DeadZone = propVal * rtb_IntegralGain + rtDWork.Integrator_DSTATE;
 
-      /* Saturate: '<S103>/Saturation' */
+      /* Saturate: '<S101>/Saturation' */
       if (rtb_DeadZone > 300.0) {
         tmp = 300.0;
       } else if (rtb_DeadZone < 0.0) {
@@ -1068,41 +1110,41 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         tmp = rtb_DeadZone;
       }
 
-      /* Sum: '<S60>/Add' incorporates:
-       *  Constant: '<S60>/Motor dead zone'
-       *  DataTypeConversion: '<S60>/Cast'
-       *  Saturate: '<S103>/Saturation'
+      /* Sum: '<S58>/Add' incorporates:
+       *  Constant: '<S58>/Motor dead zone'
+       *  DataTypeConversion: '<S58>/Cast'
+       *  Saturate: '<S101>/Saturation'
        */
       mospeed = (uint16_T)((uint32_T)((uint16_T)500U) + (uint16_T)tmp);
 
       /* DataStoreWrite: '<S27>/Data Store Write' */
       rtDWork.pwmMotor = mospeed;
 
-      /* RelationalOperator: '<S60>/GreaterThan1' incorporates:
-       *  Constant: '<S60>/Constant'
+      /* RelationalOperator: '<S58>/GreaterThan1' incorporates:
+       *  Constant: '<S58>/Constant'
        */
       rtb_OR1 = (rtb_IntegralGain > controlWidth);
 
-      /* DataTypeConversion: '<S60>/Cast1' incorporates:
-       *  Constant: '<S60>/Constant1'
-       *  RelationalOperator: '<S60>/GreaterThan'
+      /* DataTypeConversion: '<S58>/Cast1' incorporates:
+       *  Constant: '<S58>/Constant1'
+       *  RelationalOperator: '<S58>/GreaterThan'
        */
       cw = (control > 0.0);
 
-      /* Logic: '<S60>/AND' incorporates:
+      /* Logic: '<S58>/AND' incorporates:
        *  DataStoreWrite: '<S27>/Data Store Write1'
        */
       rtDWork.cwMotor = (rtb_OR1 && cw);
 
-      /* Logic: '<S60>/NOT' */
+      /* Logic: '<S58>/NOT' */
       ccw = !cw;
 
-      /* Logic: '<S60>/AND1' incorporates:
+      /* Logic: '<S58>/AND1' incorporates:
        *  DataStoreWrite: '<S27>/Data Store Write8'
        */
       rtDWork.ccwMotor = (rtb_OR1 && ccw);
 
-      /* DeadZone: '<S89>/DeadZone' */
+      /* DeadZone: '<S87>/DeadZone' */
       if (rtb_DeadZone > 300.0) {
         rtb_DeadZone -= 300.0;
       } else if (rtb_DeadZone >= 0.0) {
@@ -1111,16 +1153,16 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtb_DeadZone -= 0.0;
       }
 
-      /* End of DeadZone: '<S89>/DeadZone' */
+      /* End of DeadZone: '<S87>/DeadZone' */
 
-      /* Gain: '<S93>/Integral Gain' */
+      /* Gain: '<S91>/Integral Gain' */
       rtb_IntegralGain *= intVal;
 
-      /* Switch: '<S87>/Switch1' incorporates:
-       *  Constant: '<S87>/Clamping_zero'
-       *  Constant: '<S87>/Constant'
-       *  Constant: '<S87>/Constant2'
-       *  RelationalOperator: '<S87>/fix for DT propagation issue'
+      /* Switch: '<S85>/Switch1' incorporates:
+       *  Constant: '<S85>/Clamping_zero'
+       *  Constant: '<S85>/Constant'
+       *  Constant: '<S85>/Constant2'
+       *  RelationalOperator: '<S85>/fix for DT propagation issue'
        */
       if (rtb_DeadZone > 0.0) {
         tmp_0 = 1;
@@ -1128,11 +1170,11 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         tmp_0 = (-1);
       }
 
-      /* Switch: '<S87>/Switch2' incorporates:
-       *  Constant: '<S87>/Clamping_zero'
-       *  Constant: '<S87>/Constant3'
-       *  Constant: '<S87>/Constant4'
-       *  RelationalOperator: '<S87>/fix for DT propagation issue1'
+      /* Switch: '<S85>/Switch2' incorporates:
+       *  Constant: '<S85>/Clamping_zero'
+       *  Constant: '<S85>/Constant3'
+       *  Constant: '<S85>/Constant4'
+       *  RelationalOperator: '<S85>/fix for DT propagation issue1'
        */
       if (rtb_IntegralGain > 0.0) {
         tmp_1 = 1;
@@ -1140,21 +1182,21 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         tmp_1 = (-1);
       }
 
-      /* Switch: '<S87>/Switch' incorporates:
-       *  Constant: '<S87>/Clamping_zero'
-       *  Constant: '<S87>/Constant1'
-       *  Logic: '<S87>/AND3'
-       *  RelationalOperator: '<S87>/Equal1'
-       *  RelationalOperator: '<S87>/Relational Operator'
-       *  Switch: '<S87>/Switch1'
-       *  Switch: '<S87>/Switch2'
+      /* Switch: '<S85>/Switch' incorporates:
+       *  Constant: '<S85>/Clamping_zero'
+       *  Constant: '<S85>/Constant1'
+       *  Logic: '<S85>/AND3'
+       *  RelationalOperator: '<S85>/Equal1'
+       *  RelationalOperator: '<S85>/Relational Operator'
+       *  Switch: '<S85>/Switch1'
+       *  Switch: '<S85>/Switch2'
        */
       if ((0.0 != rtb_DeadZone) && (tmp_0 == tmp_1)) {
         rtb_IntegralGain = 0.0;
       }
 
-      /* Update for DiscreteIntegrator: '<S96>/Integrator' incorporates:
-       *  Switch: '<S87>/Switch'
+      /* Update for DiscreteIntegrator: '<S94>/Integrator' incorporates:
+       *  Switch: '<S85>/Switch'
        */
       rtDWork.Integrator_DSTATE += 1.0 * rtb_IntegralGain;
       if (rtDWork.Integrator_DSTATE >= 100.0) {
@@ -1163,7 +1205,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtDWork.Integrator_DSTATE = 0.0;
       }
 
-      /* End of Update for DiscreteIntegrator: '<S96>/Integrator' */
+      /* End of Update for DiscreteIntegrator: '<S94>/Integrator' */
     }
 
     rtPrevZCSigState.Subsystem_Trig_ZCE_g = rtb_Equal14;
@@ -1198,7 +1240,9 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
     /* Outputs for Triggered SubSystem: '<S11>/TRCK1_ID2_TX' */
     /* Constant: '<S11>/Constant5' */
-    MMBS1_TX(rtb_AND8, TRCK1_ID2, &rtPrevZCSigState.TRCK1_ID2_TX);
+    TRCK1_ID2_TX(rtb_AND8, TRCK1_ID2, &rtDWork.Local_Ticks,
+                 &rtDWork.potentiometer1, &rtDWork.potentiometer2,
+                 &rtB.TRCK1_ID2_TX_f, &rtPrevZCSigState.TRCK1_ID2_TX_f);
 
     /* End of Outputs for SubSystem: '<S11>/TRCK1_ID2_TX' */
 
@@ -1219,7 +1263,9 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
     /* Outputs for Triggered SubSystem: '<S11>/TRCK1_ID3_TX' */
     /* Constant: '<S11>/Constant26' */
-    MMBS1_TX(rtb_AND10, TRCK1_ID3, &rtPrevZCSigState.TRCK1_ID3_TX);
+    TRCK1_ID2_TX(rtb_AND10, TRCK1_ID3, &rtDWork.Local_Ticks,
+                 &rtDWork.potentiometer1, &rtDWork.potentiometer2,
+                 &rtB.TRCK1_ID3_TX, &rtPrevZCSigState.TRCK1_ID3_TX);
 
     /* End of Outputs for SubSystem: '<S11>/TRCK1_ID3_TX' */
 
@@ -1250,7 +1296,9 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
     /* Outputs for Triggered SubSystem: '<S11>/TRCK1_TX' */
     /* Constant: '<S11>/Constant3' */
-    MMBS1_TX(rtb_AND6, TRCK1_ID1, &rtPrevZCSigState.TRCK1_TX);
+    TRCK1_ID2_TX(rtb_AND6, TRCK1_ID1, &rtDWork.Local_Ticks,
+                 &rtDWork.potentiometer1, &rtDWork.potentiometer2, &rtB.TRCK1_TX,
+                 &rtPrevZCSigState.TRCK1_TX);
 
     /* End of Outputs for SubSystem: '<S11>/TRCK1_TX' */
 
@@ -1263,7 +1311,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     if (rtb_Equal14 && (!rtb_Level2MfileSFunction_j)) {
       rtDWork.TRCK_ID3_RX_MODE = true;
 
-      /* M-S-Function: '<S126>/S-Function' incorporates:
+      /* M-S-Function: '<S142>/S-Function' incorporates:
        *  Constant: '<S11>/Constant26'
        */
 
@@ -1284,14 +1332,14 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtb_SFunction_o9_b = canRxData_0_TRCK1_ID3.uint8_T_info[7];
       }
 
-      /* Outputs for Enabled SubSystem: '<S126>/Enabled Subsystem' */
+      /* Outputs for Enabled SubSystem: '<S142>/Enabled Subsystem' */
       EnabledSubsystem(rtb_SFunction_o1_k1, rtb_SFunction_o2_j,
                        rtb_SFunction_o3_a, rtb_SFunction_o4_i,
                        rtb_SFunction_o5_k, rtb_SFunction_o6_c,
                        rtb_SFunction_o7_d, rtb_SFunction_o8_h,
                        rtb_SFunction_o9_b, &rtB.EnabledSubsystem_b);
 
-      /* End of Outputs for SubSystem: '<S126>/Enabled Subsystem' */
+      /* End of Outputs for SubSystem: '<S142>/Enabled Subsystem' */
     } else if (rtDWork.TRCK_ID3_RX_MODE) {
       rtDWork.TRCK_ID3_RX_MODE = false;
     }
@@ -1321,7 +1369,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     if (rtb_AND13) {
       rtDWork.TRLS_ID4_RX_MODE = true;
 
-      /* M-S-Function: '<S129>/S-Function' incorporates:
+      /* M-S-Function: '<S145>/S-Function' incorporates:
        *  Constant: '<S11>/Constant8'
        */
 
@@ -1342,29 +1390,22 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtb_SFunction_o9_h = canRxData_0_TRLS1_ID4.uint8_T_info[7];
       }
 
-      /* Outputs for Enabled SubSystem: '<S129>/Enabled Subsystem' */
+      /* Outputs for Enabled SubSystem: '<S145>/Enabled Subsystem' */
       EnabledSubsystem(rtb_SFunction_o1_k, rtb_SFunction_o2_e,
                        rtb_SFunction_o3_p, rtb_SFunction_o4_c,
                        rtb_SFunction_o5_c, rtb_SFunction_o6_e,
                        rtb_SFunction_o7_l, rtb_SFunction_o8_f,
                        rtb_SFunction_o9_h, &rtB.EnabledSubsystem_g);
 
-      /* End of Outputs for SubSystem: '<S129>/Enabled Subsystem' */
+      /* End of Outputs for SubSystem: '<S145>/Enabled Subsystem' */
 
-      /* DataTypeConversion: '<S128>/Cast' */
+      /* DataTypeConversion: '<S144>/Cast' */
       rtb_Cast_bt = rtB.EnabledSubsystem_g.In1;
 
-      /* Outputs for Atomic SubSystem: '<S128>/Bit Shift' */
-      BitShift(rtb_Cast_bt, &rtB.BitShift_j);
+      /* Outputs for Atomic SubSystem: '<S144>/Bit Shift' */
+      BitShift_j(rtb_Cast_bt, &rtB.BitShift_jm);
 
-      /* End of Outputs for SubSystem: '<S128>/Bit Shift' */
-
-      /* Sum: '<S128>/Add' incorporates:
-       *  DataStoreWrite: '<S34>/Data Store Write'
-       *  DataTypeConversion: '<S128>/Cast1'
-       */
-      rtDWork.trailerOneAngle = (uint16_T)((uint32_T)rtB.BitShift_j.y +
-        rtB.EnabledSubsystem_g.In2);
+      /* End of Outputs for SubSystem: '<S144>/Bit Shift' */
     } else if (rtDWork.TRLS_ID4_RX_MODE) {
       rtDWork.TRLS_ID4_RX_MODE = false;
     }
@@ -1372,40 +1413,13 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     /* End of Outputs for SubSystem: '<S11>/TRLS_ID4_RX' */
 
     /* Logic: '<S11>/AND12' */
-    rtb_OR1 = (rtb_OR1 && rtb_Equal16);
+    rtb_AND12 = (rtb_OR1 && rtb_Equal16);
 
-    /* Outputs for Triggered SubSystem: '<S11>/TRLS_ID4_TX' incorporates:
-     *  TriggerPort: '<S35>/Trigger'
-     */
-    if (rtb_OR1 && (rtPrevZCSigState.TRLS_ID4_TX_Trig_ZCE != POS_ZCSIG)) {
-      /* Outputs for Atomic SubSystem: '<S134>/Bit Shift' */
-      /* DataStoreRead: '<S35>/Data Store Read' */
-      BitShift_d(rtDWork.trailerOneAngle, &rtB.BitShift_dn);
-
-      /* End of Outputs for SubSystem: '<S134>/Bit Shift' */
-
-      /* DataTypeConversion: '<S134>/Cast' */
-      rtB.Cast_n = (uint8_T)rtB.BitShift_dn.y;
-
-      /* DataTypeConversion: '<S134>/Cast1' incorporates:
-       *  DataStoreRead: '<S35>/Data Store Read'
-       */
-      rtB.Cast1_i = (uint8_T)rtDWork.trailerOneAngle;
-
-      /* Update for M-S-Function: '<S133>/S-Function' incorporates:
-       *  Constant: '<S11>/Constant8'
-       */
-      {
-        /* prepare the data */
-        canTxData.uint8_T_info[0] = rtB.Cast_n;
-        canTxData.uint8_T_info[1] = rtB.Cast1_i;
-
-        /* send the data */
-        CanTransmit(0, TRLS1_ID4, 2, &canTxData.uint8_T_info[0]);
-      }
-    }
-
-    rtPrevZCSigState.TRLS_ID4_TX_Trig_ZCE = rtb_OR1;
+    /* Outputs for Triggered SubSystem: '<S11>/TRLS_ID4_TX' */
+    /* Constant: '<S11>/Constant8' */
+    TRCK1_ID2_TX(rtb_AND12, TRLS1_ID4, &rtDWork.Local_Ticks,
+                 &rtDWork.potentiometer1, &rtDWork.potentiometer2,
+                 &rtB.TRLS_ID4_TX, &rtPrevZCSigState.TRLS_ID4_TX);
 
     /* End of Outputs for SubSystem: '<S11>/TRLS_ID4_TX' */
 
@@ -1431,7 +1445,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     if (rtb_AND15) {
       rtDWork.TRLS_ID5_RX_MODE = true;
 
-      /* M-S-Function: '<S138>/S-Function' incorporates:
+      /* M-S-Function: '<S157>/S-Function' incorporates:
        *  Constant: '<S11>/Constant18'
        */
 
@@ -1452,29 +1466,22 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtb_SFunction_o9_l = canRxData_0_TRLS1_ID5.uint8_T_info[7];
       }
 
-      /* Outputs for Enabled SubSystem: '<S138>/Enabled Subsystem' */
+      /* Outputs for Enabled SubSystem: '<S157>/Enabled Subsystem' */
       EnabledSubsystem(rtb_SFunction_o1_n, rtb_SFunction_o2_l,
                        rtb_SFunction_o3_m, rtb_SFunction_o4_b,
                        rtb_SFunction_o5_o, rtb_SFunction_o6_i,
                        rtb_SFunction_o7_f, rtb_SFunction_o8_p,
                        rtb_SFunction_o9_l, &rtB.EnabledSubsystem_e);
 
-      /* End of Outputs for SubSystem: '<S138>/Enabled Subsystem' */
+      /* End of Outputs for SubSystem: '<S157>/Enabled Subsystem' */
 
-      /* DataTypeConversion: '<S137>/Cast' */
+      /* DataTypeConversion: '<S156>/Cast' */
       rtb_Cast_g1 = rtB.EnabledSubsystem_e.In1;
 
-      /* Outputs for Atomic SubSystem: '<S137>/Bit Shift' */
-      BitShift(rtb_Cast_g1, &rtB.BitShift_c);
+      /* Outputs for Atomic SubSystem: '<S156>/Bit Shift' */
+      BitShift_j(rtb_Cast_g1, &rtB.BitShift_c);
 
-      /* End of Outputs for SubSystem: '<S137>/Bit Shift' */
-
-      /* Sum: '<S137>/Add' incorporates:
-       *  DataStoreWrite: '<S36>/Data Store Write1'
-       *  DataTypeConversion: '<S137>/Cast1'
-       */
-      rtDWork.trailerTwoAngle = (uint16_T)((uint32_T)rtB.BitShift_c.y +
-        rtB.EnabledSubsystem_e.In2);
+      /* End of Outputs for SubSystem: '<S156>/Bit Shift' */
     } else if (rtDWork.TRLS_ID5_RX_MODE) {
       rtDWork.TRLS_ID5_RX_MODE = false;
     }
@@ -1488,30 +1495,50 @@ void HANcoder_E407_TTA_CombineModel_step(void)
      *  TriggerPort: '<S37>/Trigger'
      */
     if (rtb_OR1 && (rtPrevZCSigState.TRLS_ID5_TX_Trig_ZCE != POS_ZCSIG)) {
-      /* Outputs for Atomic SubSystem: '<S143>/Bit Shift' */
-      /* DataStoreRead: '<S37>/Data Store Read' */
-      BitShift_d(rtDWork.trailerTwoAngle, &rtB.BitShift_p);
+      /* DataStoreRead: '<S37>/Data Store Read3' */
+      rtB.DataStoreRead3 = rtDWork.Local_Ticks;
 
-      /* End of Outputs for SubSystem: '<S143>/Bit Shift' */
+      /* Outputs for Atomic SubSystem: '<S162>/Bit Shift' */
+      /* DataStoreRead: '<S37>/Data Store Read2' */
+      BitShift(rtDWork.potentiometer2, &rtB.BitShift_g);
 
-      /* DataTypeConversion: '<S143>/Cast' */
-      rtB.Cast = (uint8_T)rtB.BitShift_p.y;
+      /* End of Outputs for SubSystem: '<S162>/Bit Shift' */
 
-      /* DataTypeConversion: '<S143>/Cast1' incorporates:
-       *  DataStoreRead: '<S37>/Data Store Read'
+      /* DataTypeConversion: '<S162>/Cast' */
+      rtB.Cast = (uint8_T)rtB.BitShift_g.y;
+
+      /* DataTypeConversion: '<S162>/Cast1' incorporates:
+       *  DataStoreRead: '<S37>/Data Store Read2'
        */
-      rtB.Cast1 = (uint8_T)rtDWork.trailerTwoAngle;
+      rtB.Cast1 = (uint8_T)rtDWork.potentiometer2;
 
-      /* Update for M-S-Function: '<S142>/S-Function' incorporates:
+      /* Outputs for Atomic SubSystem: '<S163>/Bit Shift' */
+      /* DataStoreRead: '<S37>/Data Store Read1' */
+      BitShift(rtDWork.potentiometer1, &rtB.BitShift_gu);
+
+      /* End of Outputs for SubSystem: '<S163>/Bit Shift' */
+
+      /* DataTypeConversion: '<S163>/Cast' */
+      rtB.Cast_f = (uint8_T)rtB.BitShift_gu.y;
+
+      /* DataTypeConversion: '<S163>/Cast1' incorporates:
+       *  DataStoreRead: '<S37>/Data Store Read1'
+       */
+      rtB.Cast1_m = (uint8_T)rtDWork.potentiometer1;
+
+      /* Update for M-S-Function: '<S161>/S-Function' incorporates:
        *  Constant: '<S11>/Constant18'
        */
       {
         /* prepare the data */
-        canTxData.uint8_T_info[0] = rtB.Cast;
-        canTxData.uint8_T_info[1] = rtB.Cast1;
+        canTxData.uint8_T_info[0] = rtB.Cast_f;
+        canTxData.uint8_T_info[1] = rtB.Cast1_m;
+        canTxData.uint8_T_info[2] = rtB.Cast;
+        canTxData.uint8_T_info[3] = rtB.Cast1;
+        canTxData.uint8_T_info[4] = rtB.DataStoreRead3;
 
         /* send the data */
-        CanTransmit(0, TRLS1_ID5, 2, &canTxData.uint8_T_info[0]);
+        CanTransmit(0, TRLS1_ID5, 5, &canTxData.uint8_T_info[0]);
       }
     }
 
@@ -1580,6 +1607,9 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     }
 
     /* End of Disable for SubSystem: '<S11>/TRLS_ID4_RX' */
+
+    /* Disable for Triggered SubSystem: '<S11>/TRLS_ID4_TX' */
+    /* Constant: '<S11>/Constant8' */
     /* Disable for Enabled SubSystem: '<S11>/TRLS_ID5_RX' */
     if (rtDWork.TRLS_ID5_RX_MODE) {
       rtDWork.TRLS_ID5_RX_MODE = false;
@@ -1592,16 +1622,16 @@ void HANcoder_E407_TTA_CombineModel_step(void)
   /* End of Outputs for SubSystem: '<S1>/Message selector' */
 
   /* Outputs for Triggered SubSystem: '<S13>/Subsystem' incorporates:
-   *  TriggerPort: '<S146>/Trigger'
+   *  TriggerPort: '<S168>/Trigger'
    */
   if (rtb_AND && (rtPrevZCSigState.Subsystem_Trig_ZCE != POS_ZCSIG)) {
-    /* DataStoreWrite: '<S146>/Data Store Write1' incorporates:
-     *  Constant: '<S146>/Constant1'
+    /* DataStoreWrite: '<S168>/Data Store Write1' incorporates:
+     *  Constant: '<S168>/Constant1'
      */
-    rtDWork.Local_Ticks = ((uint16_T)0U);
+    rtDWork.Local_Ticks = ((uint8_T)0U);
 
-    /* DataStoreWrite: '<S146>/Data Store Write' incorporates:
-     *  Constant: '<S146>/Constant3'
+    /* DataStoreWrite: '<S168>/Data Store Write' incorporates:
+     *  Constant: '<S168>/Constant3'
      */
     rtDWork.SlotTime = slotTime;
   }
@@ -1611,7 +1641,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
   /* End of Outputs for SubSystem: '<S13>/Subsystem' */
 
   /* Outputs for Enabled SubSystem: '<S13>/Subsystem2' incorporates:
-   *  EnablePort: '<S147>/Enable'
+   *  EnablePort: '<S169>/Enable'
    */
   /* Logic: '<S13>/AND1' incorporates:
    *  Constant: '<S13>/Constant1'
@@ -1623,8 +1653,8 @@ void HANcoder_E407_TTA_CombineModel_step(void)
   if ((rtDWork.nodeRole > ((uint8_T)3U)) && (!rtDWork.slaveClockOn)) {
     rtDWork.Subsystem2_MODE = true;
 
-    /* M-S-Function: '<S148>/S-Function' incorporates:
-     *  Constant: '<S147>/Constant10'
+    /* M-S-Function: '<S170>/S-Function' incorporates:
+     *  Constant: '<S169>/Constant10'
      */
 
     /* read the message data and store the new parameter */
@@ -1644,41 +1674,41 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       rtb_SFunction_o9 = canRxData_0_SYNC1_ID.uint8_T_info[7];
     }
 
-    /* Outputs for Enabled SubSystem: '<S148>/Enabled Subsystem' */
+    /* Outputs for Enabled SubSystem: '<S170>/Enabled Subsystem' */
     EnabledSubsystem(rtb_SFunction_o1, rtb_SFunction_o2, rtb_SFunction_o3,
                      rtb_SFunction_o4, rtb_SFunction_o5, rtb_SFunction_o6,
                      rtb_SFunction_o7, rtb_SFunction_o8, rtb_SFunction_o9,
                      &rtB.EnabledSubsystem_i);
 
-    /* End of Outputs for SubSystem: '<S148>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S170>/Enabled Subsystem' */
 
-    /* Outputs for Triggered SubSystem: '<S147>/Subsystem1' incorporates:
-     *  TriggerPort: '<S149>/Trigger'
+    /* Outputs for Triggered SubSystem: '<S169>/Subsystem1' incorporates:
+     *  TriggerPort: '<S171>/Trigger'
      */
     zcEvent = rt_I32ZCFcn(RISING_ZERO_CROSSING,
                           &rtPrevZCSigState.Subsystem1_Trig_ZCE,
                           (rtb_SFunction_o1));
     if (zcEvent != NO_ZCEVENT) {
-      /* DataStoreWrite: '<S149>/Data Store Write' */
+      /* DataStoreWrite: '<S171>/Data Store Write' */
       rtDWork.SlotTime = rtB.EnabledSubsystem_i.In1;
 
-      /* DataStoreWrite: '<S149>/Data Store Write1' incorporates:
-       *  Constant: '<S149>/Constant'
+      /* DataStoreWrite: '<S171>/Data Store Write1' incorporates:
+       *  Constant: '<S171>/Constant'
        */
-      rtDWork.Local_Ticks = ((uint16_T)0U);
+      rtDWork.Local_Ticks = ((uint8_T)0U);
 
-      /* DataStoreWrite: '<S149>/Data Store Write2' incorporates:
-       *  Constant: '<S149>/Constant1'
+      /* DataStoreWrite: '<S171>/Data Store Write2' incorporates:
+       *  Constant: '<S171>/Constant1'
        */
       rtDWork.slaveClockOn = true;
 
-      /* DataStoreWrite: '<S149>/Data Store Write3' incorporates:
-       *  Constant: '<S149>/Constant2'
+      /* DataStoreWrite: '<S171>/Data Store Write3' incorporates:
+       *  Constant: '<S171>/Constant2'
        */
       rtDWork.slot = ((uint8_T)1U);
     }
 
-    /* End of Outputs for SubSystem: '<S147>/Subsystem1' */
+    /* End of Outputs for SubSystem: '<S169>/Subsystem1' */
   } else if (rtDWork.Subsystem2_MODE) {
     rtDWork.Subsystem2_MODE = false;
   }
@@ -1714,15 +1744,15 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     (uint32_T)(rtb_Level2MfileSFunction_j ? (int32_T)((uint32_T)((uint8_T)128U) >>
     5) : 0));
 
-  /* M-S-Function: '<S151>/Level-2 M-file S-Function' */
+  /* M-S-Function: '<S173>/Level-2 M-file S-Function' */
   /* read the current CPU load */
   SI_CPUload = OsGetCpuLoad();
 
-  /* M-S-Function: '<S152>/Level-2 M-file S-Function' */
+  /* M-S-Function: '<S174>/Level-2 M-file S-Function' */
   /* read the free heap size */
   SI_FreeHeap = OsGetFreeHeapSize();
 
-  /* M-S-Function: '<S153>/Level-2 M-file S-Function' */
+  /* M-S-Function: '<S175>/Level-2 M-file S-Function' */
   /* read the task's free stack size */
   SI_FreeStack = OsGetTaskFreeStackSize("AppCtrlTask");
 }
@@ -1785,27 +1815,27 @@ void HANcoder_E407_TTA_CombineModel_initialize(void)
     /* configure the quadrature encoder module */
     QuadEncConfigure(QUADENC_TIM3_PA6_PB5, QUADENC_CFG_FLOATING);
 
-    /* Start for M-S-Function: '<S54>/Level-2 M-file S-Function' */
-
-    /* configure the analog input for filtered inputs */
-    AninConfigure(ANIN_PORTF_PIN8,0);
-
-    /* Start for M-S-Function: '<S53>/Level-2 M-file S-Function' */
+    /* Start for M-S-Function: '<S51>/Level-2 M-file S-Function' */
 
     /* configure the analog input for filtered inputs */
     AninConfigure(ANIN_PORTF_PIN7,0);
 
-    /* Start for M-S-Function: '<S56>/Level-2 M-file S-Function' */
+    /* Start for M-S-Function: '<S52>/Level-2 M-file S-Function' */
+
+    /* configure the analog input for filtered inputs */
+    AninConfigure(ANIN_PORTF_PIN8,0);
+
+    /* Start for M-S-Function: '<S54>/Level-2 M-file S-Function' */
 
     /* configure the digital output */
     DigoutConfigure(DIGOUT_PORTE_PIN5, DIGOUT_CFG_PUSHPULL);
 
-    /* Start for M-S-Function: '<S57>/Level-2 M-file S-Function' */
+    /* Start for M-S-Function: '<S55>/Level-2 M-file S-Function' */
 
     /* configure the digital output */
     DigoutConfigure(DIGOUT_PORTE_PIN6, DIGOUT_CFG_PUSHPULL);
 
-    /* Start for S-Function (sfcn_pwmout_init): '<S59>/S-Function' */
+    /* Start for S-Function (sfcn_pwmout_init): '<S57>/S-Function' */
 
     /* initialize the PWM module and register the callback handler */
     PwmoutInit(PWMOUT_MODULE_TIM14, 10253, PWMOUT_EDGE_ALIGNMENT);
@@ -1831,7 +1861,7 @@ void HANcoder_E407_TTA_CombineModel_initialize(void)
     /* End of Start for SubSystem: '<S11>/TRCK1_RX' */
 
     /* Start for Enabled SubSystem: '<S11>/TRCK_ID3_RX' */
-    /* Start for M-S-Function: '<S126>/S-Function' incorporates:
+    /* Start for M-S-Function: '<S142>/S-Function' incorporates:
      *  Constant: '<S11>/Constant26'
      */
 
@@ -1841,7 +1871,7 @@ void HANcoder_E407_TTA_CombineModel_initialize(void)
     /* End of Start for SubSystem: '<S11>/TRCK_ID3_RX' */
 
     /* Start for Enabled SubSystem: '<S11>/TRLS_ID4_RX' */
-    /* Start for M-S-Function: '<S129>/S-Function' incorporates:
+    /* Start for M-S-Function: '<S145>/S-Function' incorporates:
      *  Constant: '<S11>/Constant8'
      */
 
@@ -1851,7 +1881,7 @@ void HANcoder_E407_TTA_CombineModel_initialize(void)
     /* End of Start for SubSystem: '<S11>/TRLS_ID4_RX' */
 
     /* Start for Enabled SubSystem: '<S11>/TRLS_ID5_RX' */
-    /* Start for M-S-Function: '<S138>/S-Function' incorporates:
+    /* Start for M-S-Function: '<S157>/S-Function' incorporates:
      *  Constant: '<S11>/Constant18'
      */
 
@@ -1862,8 +1892,8 @@ void HANcoder_E407_TTA_CombineModel_initialize(void)
     /* End of Start for SubSystem: '<S1>/Message selector' */
 
     /* Start for Enabled SubSystem: '<S13>/Subsystem2' */
-    /* Start for M-S-Function: '<S148>/S-Function' incorporates:
-     *  Constant: '<S147>/Constant10'
+    /* Start for M-S-Function: '<S170>/S-Function' incorporates:
+     *  Constant: '<S169>/Constant10'
      */
 
     /* register a CAN storage buffer for the message with this ID */
@@ -1927,13 +1957,13 @@ void HANcoder_E407_TTA_CombineModel_initialize(void)
   rtPrevZCSigState.SYNC1_TX_Trig_ZCE = POS_ZCSIG;
   rtPrevZCSigState.Slot5execution_Trig_ZCE = POS_ZCSIG;
   rtPrevZCSigState.Subsystem_Trig_ZCE_g = POS_ZCSIG;
-  rtPrevZCSigState.TRLS_ID4_TX_Trig_ZCE = POS_ZCSIG;
   rtPrevZCSigState.TRLS_ID5_TX_Trig_ZCE = POS_ZCSIG;
   rtPrevZCSigState.Subsystem_Trig_ZCE = POS_ZCSIG;
   rtPrevZCSigState.Subsystem1_Trig_ZCE = UNINITIALIZED_ZCSIG;
-  rtPrevZCSigState.TRCK1_TX.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.TRCK1_ID3_TX.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.TRCK1_ID2_TX.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.TRLS_ID4_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.TRCK1_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.TRCK1_ID3_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.TRCK1_ID2_TX_f.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
   rtPrevZCSigState.SSTM1_TX.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
   rtPrevZCSigState.MMBS1_TX_a.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
 }
