@@ -5,7 +5,7 @@
 % model callbacks: see File->Model Properties->Model Properties->Callbacks
 
 % In this m-file the signals and parameters for HANtune can be defined. As
-% an example the signal LedValue and parameter HANtuneOverride are already
+%  an example the signal LedValue and parameter HANtuneOverride are already
 % defined.
 % You can add your own signals and parameters to this m-file below
 %% Variables

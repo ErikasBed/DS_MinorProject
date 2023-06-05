@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.22
+ * Model version                  : 17.23
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Mon Jun  5 17:23:15 2023
+ * C/C++ source code generated on : Mon Jun  5 20:39:27 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -25,8 +25,8 @@
 #include "timeout.h"
 #include "canio.h"
 #include "can.h"
-#include "quadencoder.h"
 #include "anin.h"
+#include "quadencoder.h"
 #include "pwmout.h"
 #include "digout.h"
 #include "timein.h"
@@ -73,6 +73,17 @@ typedef struct {
 typedef struct {
   ZCSigState MMBS1_TX_Trig_ZCE;        /* '<S11>/MMBS1_TX' */
 } rtZCE_MMBS1_TX;
+
+/* Block signals for system '<S48>/Moving Average' */
+typedef struct {
+  real32_T MovingAverage_n;            /* '<S48>/Moving Average' */
+} rtB_MovingAverage;
+
+/* Block states (default storage) for system '<S48>/Moving Average' */
+typedef struct {
+  dsp_simulink_MovingAverage obj;      /* '<S48>/Moving Average' */
+  boolean_T objisempty;                /* '<S48>/Moving Average' */
+} rtDW_MovingAverage;
 
 /* Block signals for system '<S120>/Bit Shift' */
 typedef struct {
@@ -128,6 +139,8 @@ typedef struct {
   rtB_TRCK1_ID2_TX TRCK1_ID3_TX;       /* '<S11>/TRCK1_ID3_TX' */
   rtB_TRCK1_ID2_TX TRCK1_ID2_TX_f;     /* '<S11>/TRCK1_ID2_TX' */
   rtB_MMBS1_RX TRCK1_ID2_RX;           /* '<S11>/TRCK1_ID2_RX' */
+  rtB_MovingAverage MovingAverage1;    /* '<S48>/Moving Average' */
+  rtB_MovingAverage MovingAverage_p;   /* '<S48>/Moving Average' */
   rtB_EnabledSubsystem EnabledSubsystem_c;/* '<S44>/Enabled Subsystem' */
   rtB_MMBS1_RX SSTM1_RX;               /* '<S11>/SSTM1_RX' */
   rtB_MMBS1_RX MMBS1_RX_j;             /* '<S11>/MMBS1_RX' */
@@ -146,6 +159,8 @@ typedef struct {
   uint16_T potentiometer1;             /* '<S1>/Data Store Memory1' */
   uint16_T pwmMotor;                   /* '<S1>/Data Store Memory12' */
   uint16_T potentiometer2;             /* '<S1>/Data Store Memory4' */
+  uint16_T trailerOneAngle;            /* '<S1>/Data Store Memory8' */
+  uint16_T trailerTwoAngle;            /* '<S1>/Data Store Memory9' */
   uint16_T testCount;                  /* '<S25>/Data Store Memory' */
   uint8_T velocity;                    /* '<S1>/Data Store Memory11' */
   uint8_T Local_Ticks;                 /* '<S1>/Data Store Memory' */
@@ -164,6 +179,8 @@ typedef struct {
   boolean_T InitializeClockSchedule_MODE;/* '<S1>/Initialize Clock Schedule' */
   rtDW_MMBS1_RX TRCK1_RX;              /* '<S11>/TRCK1_RX' */
   rtDW_MMBS1_RX TRCK1_ID2_RX;          /* '<S11>/TRCK1_ID2_RX' */
+  rtDW_MovingAverage MovingAverage1;   /* '<S48>/Moving Average' */
+  rtDW_MovingAverage MovingAverage_p;  /* '<S48>/Moving Average' */
   rtDW_MMBS1_RX SSTM1_RX;              /* '<S11>/SSTM1_RX' */
   rtDW_MMBS1_RX MMBS1_RX_j;            /* '<S11>/MMBS1_RX' */
 } D_Work;
@@ -213,9 +230,6 @@ extern const ConstBlockIO rtConstB;    /* constant block i/o */
  *
  */
 extern real_T reqAngle;                /* '<S27>/Data Store Read' */
-extern real_T t2Angle;                 /* '<S27>/Constant3' */
-extern real_T t1Angle;                 /* '<S27>/Constant2' */
-extern real_T Gamma2;                  /* '<S59>/Sum2' */
 extern real_T Gamma1;                  /* '<S59>/Sum1' */
 extern real_T steering;                /* '<S58>/Gain2' */
 extern real_T position;                /* '<S58>/Gain1' */
@@ -223,9 +237,14 @@ extern real_T control;                 /* '<S58>/Sum' */
 extern uint32_T SI_FreeHeap;           /* '<S174>/Level-2 M-file S-Function' */
 extern uint32_T SI_FreeStack;          /* '<S175>/Level-2 M-file S-Function' */
 extern real32_T delta12K;              /* '<S114>/tan 1' */
+extern uint16_T t2Angle;               /* '<S27>/Data Store Read2' */
+extern uint16_T t1Angle;               /* '<S27>/Data Store Read1' */
+extern uint16_T Gamma2;                /* '<S59>/Sum2' */
 extern uint16_T mospeed;               /* '<S58>/Add' */
 extern uint16_T analogPot1;            /* '<S51>/Level-2 M-file S-Function' */
+extern uint16_T pot1;                  /* '<S48>/Cast1' */
 extern uint16_T analogPot2;            /* '<S52>/Level-2 M-file S-Function' */
+extern uint16_T pot2;                  /* '<S48>/Cast2' */
 extern uint16_T testCounter;           /* '<S25>/Data Store Read1' */
 extern uint8_T SI_CPUload;             /* '<S173>/Level-2 M-file S-Function' */
 extern uint8_T local_ticks_interrupt;  /* '<S10>/Switch' */
@@ -261,12 +280,6 @@ extern real_T matrixRows;              /* Variable: matrixRows
                                         */
 extern real_T propVal;                 /* Variable: propVal
                                         * Referenced by: '<S99>/Proportional Gain'
-                                        */
-extern real_T trailer1TestAngle;       /* Variable: trailer1TestAngle
-                                        * Referenced by: '<S27>/Constant2'
-                                        */
-extern real_T trailer2TestAngle;       /* Variable: trailer2TestAngle
-                                        * Referenced by: '<S27>/Constant3'
                                         */
 extern uint32_T MMBS1_ID;              /* Variable: MMBS1_ID
                                         * Referenced by: '<S11>/Constant12'

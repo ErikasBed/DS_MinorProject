@@ -8,9 +8,9 @@
  *
  * Code generation for model "HANcoder_E407_TTA_CombineModel".
  *
- * Model version              : 17.22
+ * Model version              : 17.23
  * Simulink Coder version : 9.8 (R2022b) 13-May-2022
- * C source code generated on : Mon Jun  5 17:23:15 2023
+ * C source code generated on : Mon Jun  5 20:39:27 2023
  * 
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -23,7 +23,7 @@
 
 ASAP2_VERSION  1 31   /* Version 1.31 */
 
-/begin PROJECT ProjectName "HANcoder_E407_TTA_CombineModel_softwareID_v1_050623_172305"
+/begin PROJECT ProjectName "HANcoder_E407_TTA_CombineModel_softwareID_v1_050623_203814"
   
   /begin HEADER "Header Comments go here"
     
@@ -37,9 +37,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     	ADDR_EPK		0x0800c038
 		CPU_TYPE		"STM32F407"
 		ECU				"E407"
-		EPK				"HANcoder_E407_TTA_CombineModel_softwareID_v1_050623_172305"
+		EPK				"HANcoder_E407_TTA_CombineModel_softwareID_v1_050623_203814"
 		SYSTEM_CONSTANT	"XcpStationID string length"  "0x0000003a"
-		SYSTEM_CONSTANT	"RAM-FlashOffset"  "-402536928"
+		SYSTEM_CONSTANT	"RAM-FlashOffset"  "-402536288"
 	/end MOD_PAR
     
     /begin MOD_COMMON  "Mod Common Comment Here" 
@@ -291,32 +291,6 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC 
-      /* Name                   */      trailer1TestAngle  
-      /* Long Identifier        */      ""
-      /* Type                   */      VALUE 
-      /* ECU Address            */      0x20000060 
-      /* Record Layout          */      Scalar_FLOAT64_IEEE 
-      /* Maximum Difference     */      0 
-      /* Conversion Method      */      HANcoder_E407_TTA_CombineModel_CM_double 
-      /* Lower Limit            */      -1.7E+308 
-      /* Upper Limit            */      1.7E+308
-    /end CHARACTERISTIC
-    
-    
-    /begin CHARACTERISTIC 
-      /* Name                   */      trailer2TestAngle  
-      /* Long Identifier        */      ""
-      /* Type                   */      VALUE 
-      /* ECU Address            */      0x20000068 
-      /* Record Layout          */      Scalar_FLOAT64_IEEE 
-      /* Maximum Difference     */      0 
-      /* Conversion Method      */      HANcoder_E407_TTA_CombineModel_CM_double 
-      /* Lower Limit            */      -1.7E+308 
-      /* Upper Limit            */      1.7E+308
-    /end CHARACTERISTIC
-    
-    
-    /begin CHARACTERISTIC 
       /* Name                   */      MMBS1_ID  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -443,46 +417,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x200002e0
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      t2Angle
-      /* Long identifier        */      ""
-      /* Data type              */      FLOAT64_IEEE
-      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_double
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      -1.7E+308
-      /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x200003b0
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      t1Angle
-      /* Long identifier        */      ""
-      /* Data type              */      FLOAT64_IEEE
-      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_double
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      -1.7E+308
-      /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x200003a8
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      Gamma2
-      /* Long identifier        */      ""
-      /* Data type              */      FLOAT64_IEEE
-      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_double
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      -1.7E+308
-      /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x20000270
+      ECU_ADDRESS                       0x200002c8
     /end MEASUREMENT
     
     
@@ -495,7 +430,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x20000268
+      ECU_ADDRESS                       0x20000250
     /end MEASUREMENT
     
     
@@ -508,7 +443,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x200003a0
+      ECU_ADDRESS                       0x20000618
     /end MEASUREMENT
     
     
@@ -521,7 +456,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x200002d8
+      ECU_ADDRESS                       0x200002b8
     /end MEASUREMENT
     
     
@@ -534,7 +469,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x200002c0
+      ECU_ADDRESS                       0x200002a0
     /end MEASUREMENT
     
     
@@ -547,7 +482,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x2000027c
+      ECU_ADDRESS                       0x2000025c
     /end MEASUREMENT
     
     
@@ -560,7 +495,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x20000280
+      ECU_ADDRESS                       0x20000260
     /end MEASUREMENT
     
     
@@ -573,7 +508,46 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -3.4E+38
       /* Upper limit            */      3.4E+38
-      ECU_ADDRESS                       0x200002cc
+      ECU_ADDRESS                       0x200002ac
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      t2Angle
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x20000622
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      t1Angle
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x20000620
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Gamma2
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x20000258
     /end MEASUREMENT
     
     
@@ -586,7 +560,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x200002d2
+      ECU_ADDRESS                       0x200002b2
     /end MEASUREMENT
     
     
@@ -599,7 +573,20 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x20000284
+      ECU_ADDRESS                       0x20000264
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      pot1
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x200002c0
     /end MEASUREMENT
     
     
@@ -612,7 +599,20 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x20000286
+      ECU_ADDRESS                       0x20000266
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      pot2
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      HANcoder_E407_TTA_CombineModel_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x200002c2
     /end MEASUREMENT
     
     
@@ -625,7 +625,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x200003b8
+      ECU_ADDRESS                       0x20000624
     /end MEASUREMENT
     
     
@@ -638,7 +638,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x20000278
+      ECU_ADDRESS                       0x2000025a
     /end MEASUREMENT
     
     
@@ -651,7 +651,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x200002d0
+      ECU_ADDRESS                       0x200002b0
     /end MEASUREMENT
     
     
@@ -664,7 +664,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x2000039e
+      ECU_ADDRESS                       0x20000616
     /end MEASUREMENT
     
     
@@ -677,7 +677,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x2000039f
+      ECU_ADDRESS                       0x20000617
     /end MEASUREMENT
     
     
@@ -690,7 +690,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x20000288
+      ECU_ADDRESS                       0x20000268
     /end MEASUREMENT
     
     
@@ -703,7 +703,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x200002c8
+      ECU_ADDRESS                       0x200002a8
     /end MEASUREMENT
     
     
@@ -716,7 +716,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x200002bc
+      ECU_ADDRESS                       0x2000029c
     /end MEASUREMENT
     
     
@@ -729,7 +729,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x20000289
+      ECU_ADDRESS                       0x20000269
     /end MEASUREMENT
     
     /begin COMPU_METHOD
@@ -898,10 +898,6 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
         S27_Control_Algorithm
         S27_Kinematic_Algorithm
       /end SUB_GROUP
-      /begin REF_CHARACTERISTIC
-        trailer1TestAngle
-        trailer2TestAngle
-      /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
         reqAngle
         t1Angle
@@ -959,6 +955,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /begin REF_CHARACTERISTIC
         desiredAngle
       /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        pot1
+        pot2
+      /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP

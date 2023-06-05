@@ -10,10 +10,6 @@
     
         propVal
     
-        trailer1TestAngle
-    
-        trailer2TestAngle
-    
         MMBS1_ID
     
         SSTM1_ID
@@ -33,9 +29,6 @@
         slotTime
     
     reqAngle
-t2Angle
-t1Angle
-Gamma2
 Gamma1
 steering
 position
@@ -43,9 +36,14 @@ control
 SI_FreeHeap
 SI_FreeStack
 delta12K
+t2Angle
+t1Angle
+Gamma2
 mospeed
 analogPot1
+pot1
 analogPot2
+pot2
 testCounter
 SI_CPUload
 local_ticks_interrupt

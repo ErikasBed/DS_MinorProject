@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.22
+ * Model version                  : 17.23
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Mon Jun  5 17:23:15 2023
+ * C/C++ source code generated on : Mon Jun  5 20:39:27 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -19,6 +19,7 @@
 
 #include "HANcoder_E407_TTA_CombineModel.h"
 #include "rtwtypes.h"
+#include "HANcoder_E407_TTA_CombineModel_types.h"
 #include "HANcoder_E407_TTA_CombineModel_private.h"
 #include <math.h>
 #include "zero_crossing_types.h"
@@ -32,9 +33,6 @@ void TimeoutOverflowIRQ_TIMEOUT_MODULE_TIM4(void);
 
 /* Exported block signals */
 real_T reqAngle;                       /* '<S27>/Data Store Read' */
-real_T t2Angle;                        /* '<S27>/Constant3' */
-real_T t1Angle;                        /* '<S27>/Constant2' */
-real_T Gamma2;                         /* '<S59>/Sum2' */
 real_T Gamma1;                         /* '<S59>/Sum1' */
 real_T steering;                       /* '<S58>/Gain2' */
 real_T position;                       /* '<S58>/Gain1' */
@@ -42,9 +40,14 @@ real_T control;                        /* '<S58>/Sum' */
 uint32_T SI_FreeHeap;                  /* '<S174>/Level-2 M-file S-Function' */
 uint32_T SI_FreeStack;                 /* '<S175>/Level-2 M-file S-Function' */
 real32_T delta12K;                     /* '<S114>/tan 1' */
+uint16_T t2Angle;                      /* '<S27>/Data Store Read2' */
+uint16_T t1Angle;                      /* '<S27>/Data Store Read1' */
+uint16_T Gamma2;                       /* '<S59>/Sum2' */
 uint16_T mospeed;                      /* '<S58>/Add' */
 uint16_T analogPot1;                   /* '<S51>/Level-2 M-file S-Function' */
+uint16_T pot1;                         /* '<S48>/Cast1' */
 uint16_T analogPot2;                   /* '<S52>/Level-2 M-file S-Function' */
+uint16_T pot2;                         /* '<S48>/Cast2' */
 uint16_T testCounter;                  /* '<S25>/Data Store Read1' */
 uint8_T SI_CPUload;                    /* '<S173>/Level-2 M-file S-Function' */
 uint8_T local_ticks_interrupt;         /* '<S10>/Switch' */
@@ -73,12 +76,6 @@ real_T matrixRows = 10.0;              /* Variable: matrixRows
                                         */
 real_T propVal = 1.0;                  /* Variable: propVal
                                         * Referenced by: '<S99>/Proportional Gain'
-                                        */
-real_T trailer1TestAngle = 0.0;        /* Variable: trailer1TestAngle
-                                        * Referenced by: '<S27>/Constant2'
-                                        */
-real_T trailer2TestAngle = 0.0;        /* Variable: trailer2TestAngle
-                                        * Referenced by: '<S27>/Constant3'
                                         */
 uint32_T MMBS1_ID = 12U;               /* Variable: MMBS1_ID
                                         * Referenced by: '<S11>/Constant12'
@@ -118,6 +115,9 @@ D_Work rtDWork;
 
 /* Previous zero-crossings (trigger) states */
 PrevZCSigStates rtPrevZCSigState;
+
+/* Forward declaration for local functions */
+static void SystemCore_setup(dsp_simulink_MovingAverage *obj);
 static tCanDataTypes canRxData_0_rtu_In1;
 static tCanDataTypes canTxData;
 static tCanDataTypes canRxData_0_SYNC1_ID;
@@ -431,6 +431,137 @@ void MMBS1_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, rtZCE_MMBS1_TX *localZCE)
   /* End of Outputs for SubSystem: '<S11>/MMBS1_TX' */
 }
 
+static void SystemCore_setup(dsp_simulink_MovingAverage *obj)
+{
+  obj->isSetupComplete = false;
+  obj->isInitialized = 1;
+  obj->NumChannels = 1;
+  obj->FrameLength = 1;
+  obj->_pobj0.isInitialized = 0;
+  obj->_pobj0.isInitialized = 0;
+  obj->pStatistic = &obj->_pobj0;
+  obj->isSetupComplete = true;
+  obj->TunablePropsChanged = false;
+}
+
+/* System initialize for atomic system: */
+void MovingAverage_Init(rtDW_MovingAverage *localDW)
+{
+  g_dsp_internal_SlidingWindowAve *obj;
+  int32_T i;
+
+  /* InitializeConditions for MATLABSystem: '<S48>/Moving Average' */
+  obj = localDW->obj.pStatistic;
+  if (obj->isInitialized == 1) {
+    obj->pCumSum = 0.0F;
+    for (i = 0; i < 59; i++) {
+      obj->pCumSumRev[i] = 0.0F;
+    }
+
+    obj->pCumRevIndex = 1.0F;
+    obj->pModValueRev = 0.0F;
+  }
+
+  /* End of InitializeConditions for MATLABSystem: '<S48>/Moving Average' */
+}
+
+/* Start for atomic system: */
+void MovingAverage_Start(rtDW_MovingAverage *localDW)
+{
+  /* Start for MATLABSystem: '<S48>/Moving Average' */
+  localDW->obj.isInitialized = 0;
+  localDW->obj.NumChannels = -1;
+  localDW->obj.FrameLength = -1;
+  localDW->obj.matlabCodegenIsDeleted = false;
+  localDW->objisempty = true;
+  SystemCore_setup(&localDW->obj);
+}
+
+/* Output and update for atomic system: */
+void MovingAverage(real32_T rtu_0, rtB_MovingAverage *localB, rtDW_MovingAverage
+                   *localDW)
+{
+  g_dsp_internal_SlidingWindowAve *obj;
+  int32_T i;
+  real32_T csumrev[59];
+  real32_T csum;
+  real32_T cumRevIndex;
+  real32_T modValueRev;
+  real32_T z;
+
+  /* MATLABSystem: '<S48>/Moving Average' */
+  if (localDW->obj.TunablePropsChanged) {
+    localDW->obj.TunablePropsChanged = false;
+  }
+
+  obj = localDW->obj.pStatistic;
+  if (obj->isInitialized != 1) {
+    obj->isSetupComplete = false;
+    obj->isInitialized = 1;
+    obj->pCumSum = 0.0F;
+    for (i = 0; i < 59; i++) {
+      obj->pCumSumRev[i] = 0.0F;
+    }
+
+    obj->pCumRevIndex = 1.0F;
+    obj->pModValueRev = 0.0F;
+    obj->isSetupComplete = true;
+    obj->pCumSum = 0.0F;
+    for (i = 0; i < 59; i++) {
+      obj->pCumSumRev[i] = 0.0F;
+    }
+
+    obj->pCumRevIndex = 1.0F;
+    obj->pModValueRev = 0.0F;
+  }
+
+  cumRevIndex = obj->pCumRevIndex;
+  csum = obj->pCumSum;
+  for (i = 0; i < 59; i++) {
+    csumrev[i] = obj->pCumSumRev[i];
+  }
+
+  modValueRev = obj->pModValueRev;
+  z = 0.0F;
+
+  /* MATLABSystem: '<S48>/Moving Average' */
+  localB->MovingAverage_n = 0.0F;
+
+  /* MATLABSystem: '<S48>/Moving Average' */
+  csum += rtu_0;
+  if (modValueRev == 0.0F) {
+    z = csumrev[(int32_T)cumRevIndex - 1] + csum;
+  }
+
+  csumrev[(int32_T)cumRevIndex - 1] = rtu_0;
+  if (cumRevIndex != 59.0F) {
+    cumRevIndex++;
+  } else {
+    cumRevIndex = 1.0F;
+    csum = 0.0F;
+    for (i = 57; i >= 0; i--) {
+      csumrev[i] += csumrev[i + 1];
+    }
+  }
+
+  if (modValueRev == 0.0F) {
+    /* MATLABSystem: '<S48>/Moving Average' */
+    localB->MovingAverage_n = z / 60.0F;
+  }
+
+  obj->pCumSum = csum;
+  for (i = 0; i < 59; i++) {
+    obj->pCumSumRev[i] = csumrev[i];
+  }
+
+  obj->pCumRevIndex = cumRevIndex;
+  if (modValueRev > 0.0F) {
+    obj->pModValueRev = modValueRev - 1.0F;
+  } else {
+    obj->pModValueRev = 0.0F;
+  }
+}
+
 /*
  * Output and update for atomic system:
  *    '<S120>/Bit Shift'
@@ -535,6 +666,8 @@ void BitShift_j(uint16_T rtu_u, rtB_BitShift_i *localB)
 void HANcoder_E407_TTA_CombineModel_step(void)
 {
   /* local block i/o variables */
+  real32_T rtb_Cast_m;
+  real32_T rtb_Cast3;
   int32_T rtb_Level2MfileSFunction_o;
   uint8_T rtb_SFunction_o2;
   uint8_T rtb_SFunction_o3;
@@ -586,11 +719,12 @@ void HANcoder_E407_TTA_CombineModel_step(void)
   real_T rtb_IntegralGain;
   real_T rtb_Integrator;
   real_T rtb_Integrator_tmp;
-  real_T tmp;
+  real_T tmp_0;
+  uint32_T tmp;
   uint16_T rtb_Cast_bt;
   uint16_T rtb_Cast_g1;
-  int8_T tmp_0;
   int8_T tmp_1;
+  int8_T tmp_2;
   uint8_T rtb_Multiply;
   uint8_T rtb_Multiply1;
   boolean_T AND3;
@@ -874,6 +1008,34 @@ void HANcoder_E407_TTA_CombineModel_step(void)
      *  TriggerPort: '<S26>/Trigger'
      */
     if (rtb_OR1 && (rtPrevZCSigState.Slot5execution_Trig_ZCE != POS_ZCSIG)) {
+      /* M-S-Function: '<S51>/Level-2 M-file S-Function' */
+      /* read from analog input for filtered inputs*/
+      analogPot1 = AninGet(ANIN_PORTF_PIN7,0);
+
+      /* DataTypeConversion: '<S48>/Cast' */
+      rtb_Cast_m = analogPot1;
+      MovingAverage(rtb_Cast_m, &rtB.MovingAverage_p, &rtDWork.MovingAverage_p);
+
+      /* DataTypeConversion: '<S48>/Cast1' */
+      pot1 = (uint16_T)rtB.MovingAverage_p.MovingAverage_n;
+
+      /* DataStoreWrite: '<S48>/Data Store Write1' */
+      rtDWork.potentiometer1 = pot1;
+
+      /* M-S-Function: '<S52>/Level-2 M-file S-Function' */
+      /* read from analog input for filtered inputs*/
+      analogPot2 = AninGet(ANIN_PORTF_PIN8,0);
+
+      /* DataTypeConversion: '<S48>/Cast3' */
+      rtb_Cast3 = analogPot2;
+      MovingAverage(rtb_Cast3, &rtB.MovingAverage1, &rtDWork.MovingAverage1);
+
+      /* DataTypeConversion: '<S48>/Cast2' */
+      pot2 = (uint16_T)rtB.MovingAverage1.MovingAverage_n;
+
+      /* DataStoreWrite: '<S48>/Data Store Write3' */
+      rtDWork.potentiometer2 = pot2;
+
       /* Gain: '<S48>/Gain' incorporates:
        *  Constant: '<S48>/Constant2'
        *  DataStoreWrite: '<S48>/Data Store Write2'
@@ -891,20 +1053,6 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
       /* DataStoreWrite: '<S48>/Data Store Write' */
       rtDWork.encoderPosition = rtb_Level2MfileSFunction_o;
-
-      /* M-S-Function: '<S51>/Level-2 M-file S-Function' */
-      /* read from analog input for filtered inputs*/
-      analogPot1 = AninGet(ANIN_PORTF_PIN7,0);
-
-      /* DataStoreWrite: '<S48>/Data Store Write1' */
-      rtDWork.potentiometer1 = analogPot1;
-
-      /* M-S-Function: '<S52>/Level-2 M-file S-Function' */
-      /* read from analog input for filtered inputs*/
-      analogPot2 = AninGet(ANIN_PORTF_PIN8,0);
-
-      /* DataStoreWrite: '<S48>/Data Store Write3' */
-      rtDWork.potentiometer2 = analogPot2;
 
       /* DataTypeConversion: '<S50>/Data Type Conversion' incorporates:
        *  RelationalOperator: '<S53>/FixPt Relational Operator'
@@ -983,14 +1131,14 @@ void HANcoder_E407_TTA_CombineModel_step(void)
        */
       rtb_DeadZone = tan(reqAngle) * rtConstB.Abs / 4.0;
 
-      /* Constant: '<S27>/Constant3' */
-      t2Angle = trailer2TestAngle;
+      /* DataStoreRead: '<S27>/Data Store Read2' */
+      t2Angle = rtDWork.trailerTwoAngle;
 
-      /* Constant: '<S27>/Constant2' */
-      t1Angle = trailer1TestAngle;
+      /* DataStoreRead: '<S27>/Data Store Read1' */
+      t1Angle = rtDWork.trailerOneAngle;
 
       /* Sum: '<S59>/Sum2' */
-      Gamma2 = t1Angle - t2Angle;
+      Gamma2 = (uint16_T)(t1Angle - t2Angle);
 
       /* Trigonometry: '<S111>/tan 1' incorporates:
        *  DataTypeConversion: '<S111>/Cast'
@@ -1018,7 +1166,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       /* Sum: '<S59>/Sum1' incorporates:
        *  Constant: '<S27>/Constant1'
        */
-      Gamma1 = 0.0 - t1Angle;
+      Gamma1 = 0.0 - (real_T)t1Angle;
 
       /* Product: '<S112>/Product' incorporates:
        *  Constant: '<S27>/Constant'
@@ -1047,9 +1195,9 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
       /* Signum: '<S116>/Sign' */
       if (rtb_Integrator < 0.0) {
-        tmp = -1.0;
+        tmp_0 = -1.0;
       } else {
-        tmp = (rtb_Integrator > 0.0);
+        tmp_0 = (rtb_Integrator > 0.0);
       }
 
       /* Trigonometry: '<S114>/tan 1' incorporates:
@@ -1071,7 +1219,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
        *  Trigonometry: '<S116>/tan 1'
        */
       delta12K = (real32_T)atan((real32_T)((rtb_Integrator / 1.0 * rtb_DeadZone *
-        (-1.0) + rtb_Integrator_tmp / 1.0 * 4.0 * rtb_IntegralGain) * (tmp *
+        (-1.0) + rtb_Integrator_tmp / 1.0 * 4.0 * rtb_IntegralGain) * (tmp_0 *
         rtConstB.signL0b_o) * 3.0 / (rtb_IntegralGain * 4.0 * rtb_DeadZone +
         rtb_Integrator_tmp * rtb_Integrator)));
 
@@ -1083,7 +1231,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       /* Gain: '<S58>/Gain1' incorporates:
        *  DataStoreRead: '<S58>/Data Store Read'
        */
-      position = (real_T)1474666883 * 1.4551915228366852E-11 * (real_T)
+      position = (real_T)1717986918 * 5.8207660913467407E-11 * (real_T)
         rtDWork.encoderPosition;
 
       /* Sum: '<S58>/Sum' incorporates:
@@ -1103,11 +1251,11 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
       /* Saturate: '<S101>/Saturation' */
       if (rtb_DeadZone > 300.0) {
-        tmp = 300.0;
+        tmp_0 = 300.0;
       } else if (rtb_DeadZone < 0.0) {
-        tmp = 0.0;
+        tmp_0 = 0.0;
       } else {
-        tmp = rtb_DeadZone;
+        tmp_0 = rtb_DeadZone;
       }
 
       /* Sum: '<S58>/Add' incorporates:
@@ -1115,7 +1263,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
        *  DataTypeConversion: '<S58>/Cast'
        *  Saturate: '<S101>/Saturation'
        */
-      mospeed = (uint16_T)((uint32_T)((uint16_T)500U) + (uint16_T)tmp);
+      mospeed = (uint16_T)((uint32_T)((uint16_T)500U) + (uint16_T)tmp_0);
 
       /* DataStoreWrite: '<S27>/Data Store Write' */
       rtDWork.pwmMotor = mospeed;
@@ -1165,9 +1313,9 @@ void HANcoder_E407_TTA_CombineModel_step(void)
        *  RelationalOperator: '<S85>/fix for DT propagation issue'
        */
       if (rtb_DeadZone > 0.0) {
-        tmp_0 = 1;
+        tmp_1 = 1;
       } else {
-        tmp_0 = (-1);
+        tmp_1 = (-1);
       }
 
       /* Switch: '<S85>/Switch2' incorporates:
@@ -1177,9 +1325,9 @@ void HANcoder_E407_TTA_CombineModel_step(void)
        *  RelationalOperator: '<S85>/fix for DT propagation issue1'
        */
       if (rtb_IntegralGain > 0.0) {
-        tmp_1 = 1;
+        tmp_2 = 1;
       } else {
-        tmp_1 = (-1);
+        tmp_2 = (-1);
       }
 
       /* Switch: '<S85>/Switch' incorporates:
@@ -1191,7 +1339,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
        *  Switch: '<S85>/Switch1'
        *  Switch: '<S85>/Switch2'
        */
-      if ((0.0 != rtb_DeadZone) && (tmp_0 == tmp_1)) {
+      if ((0.0 != rtb_DeadZone) && (tmp_1 == tmp_2)) {
         rtb_IntegralGain = 0.0;
       }
 
@@ -1406,6 +1554,16 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       BitShift_j(rtb_Cast_bt, &rtB.BitShift_jm);
 
       /* End of Outputs for SubSystem: '<S144>/Bit Shift' */
+
+      /* Gain: '<S34>/Gain' incorporates:
+       *  DataStoreWrite: '<S34>/Data Store Write'
+       *  DataTypeConversion: '<S144>/Cast1'
+       *  Sum: '<S144>/Add'
+       */
+      tmp = (uint32_T)(uint16_T)((uint32_T)rtB.BitShift_jm.y +
+        rtB.EnabledSubsystem_g.In2) * ((uint16_T)62921U);
+      rtDWork.trailerOneAngle = (uint16_T)((uint32_T)((tmp & 2097152U) != 0U) +
+        (tmp >> 22));
     } else if (rtDWork.TRLS_ID4_RX_MODE) {
       rtDWork.TRLS_ID4_RX_MODE = false;
     }
@@ -1482,6 +1640,16 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       BitShift_j(rtb_Cast_g1, &rtB.BitShift_c);
 
       /* End of Outputs for SubSystem: '<S156>/Bit Shift' */
+
+      /* Gain: '<S36>/Gain' incorporates:
+       *  DataStoreWrite: '<S36>/Data Store Write1'
+       *  DataTypeConversion: '<S156>/Cast1'
+       *  Sum: '<S156>/Add'
+       */
+      tmp = (uint32_T)(uint16_T)((uint32_T)rtB.BitShift_c.y +
+        rtB.EnabledSubsystem_e.In2) * ((uint16_T)62921U);
+      rtDWork.trailerTwoAngle = (uint16_T)((uint32_T)((tmp & 2097152U) != 0U) +
+        (tmp >> 22));
     } else if (rtDWork.TRLS_ID5_RX_MODE) {
       rtDWork.TRLS_ID5_RX_MODE = false;
     }
@@ -1810,20 +1978,22 @@ void HANcoder_E407_TTA_CombineModel_initialize(void)
     /* End of Start for SubSystem: '<S11>/SYNC1_RX' */
 
     /* Start for Triggered SubSystem: '<S11>/Slot 5 execution' */
-    /* Start for M-S-Function: '<S50>/Level-2 M-file S-Function' */
-
-    /* configure the quadrature encoder module */
-    QuadEncConfigure(QUADENC_TIM3_PA6_PB5, QUADENC_CFG_FLOATING);
-
     /* Start for M-S-Function: '<S51>/Level-2 M-file S-Function' */
 
     /* configure the analog input for filtered inputs */
     AninConfigure(ANIN_PORTF_PIN7,0);
+    MovingAverage_Start(&rtDWork.MovingAverage_p);
 
     /* Start for M-S-Function: '<S52>/Level-2 M-file S-Function' */
 
     /* configure the analog input for filtered inputs */
     AninConfigure(ANIN_PORTF_PIN8,0);
+    MovingAverage_Start(&rtDWork.MovingAverage1);
+
+    /* Start for M-S-Function: '<S50>/Level-2 M-file S-Function' */
+
+    /* configure the quadrature encoder module */
+    QuadEncConfigure(QUADENC_TIM3_PA6_PB5, QUADENC_CFG_FLOATING);
 
     /* Start for M-S-Function: '<S54>/Level-2 M-file S-Function' */
 
@@ -1966,6 +2136,18 @@ void HANcoder_E407_TTA_CombineModel_initialize(void)
   rtPrevZCSigState.TRCK1_ID2_TX_f.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
   rtPrevZCSigState.SSTM1_TX.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
   rtPrevZCSigState.MMBS1_TX_a.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
+
+  /* SystemInitialize for Enabled SubSystem: '<S1>/Message selector'
+   *
+   * Block description for '<S1>/Message selector':
+   *  Truck 1
+   */
+  /* SystemInitialize for Triggered SubSystem: '<S11>/Slot 5 execution' */
+  MovingAverage_Init(&rtDWork.MovingAverage_p);
+  MovingAverage_Init(&rtDWork.MovingAverage1);
+
+  /* End of SystemInitialize for SubSystem: '<S11>/Slot 5 execution' */
+  /* End of SystemInitialize for SubSystem: '<S1>/Message selector' */
 }
 
 /*
