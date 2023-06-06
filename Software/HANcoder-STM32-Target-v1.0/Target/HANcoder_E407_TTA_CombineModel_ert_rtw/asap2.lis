@@ -36,6 +36,8 @@ control
 SI_FreeHeap
 SI_FreeStack
 delta12K
+trail2Angle
+trail1Angle
 t2Angle
 t1Angle
 Gamma2

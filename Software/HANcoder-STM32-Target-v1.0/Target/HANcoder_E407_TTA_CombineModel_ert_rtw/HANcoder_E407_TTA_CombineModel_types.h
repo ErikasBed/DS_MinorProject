@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.23
+ * Model version                  : 17.24
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Mon Jun  5 20:39:27 2023
+ * C/C++ source code generated on : Tue Jun  6 11:55:30 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -83,6 +83,53 @@ struct tag_ZKdIQuck2mXbyGfLk4EJZB
 typedef struct tag_ZKdIQuck2mXbyGfLk4EJZB dsp_simulink_MovingAverage;
 
 #endif                                 /* typedef_dsp_simulink_MovingAverage */
+
+#ifndef struct_tag_ECRg1ObDlXbVq65I0v9MbH
+#define struct_tag_ECRg1ObDlXbVq65I0v9MbH
+
+struct tag_ECRg1ObDlXbVq65I0v9MbH
+{
+  int32_T isInitialized;
+  boolean_T isSetupComplete;
+  real32_T pCumSum;
+  real32_T pCumSumRev[3];
+  real32_T pCumRevIndex;
+  real32_T pModValueRev;
+};
+
+#endif                                 /* struct_tag_ECRg1ObDlXbVq65I0v9MbH */
+
+#ifndef typedef_g_dsp_internal_SlidingWindowA_l
+#define typedef_g_dsp_internal_SlidingWindowA_l
+
+typedef struct tag_ECRg1ObDlXbVq65I0v9MbH g_dsp_internal_SlidingWindowA_l;
+
+#endif                             /* typedef_g_dsp_internal_SlidingWindowA_l */
+
+#ifndef struct_tag_oIf643pAEa31ChWM0kC2v
+#define struct_tag_oIf643pAEa31ChWM0kC2v
+
+struct tag_oIf643pAEa31ChWM0kC2v
+{
+  boolean_T matlabCodegenIsDeleted;
+  int32_T isInitialized;
+  boolean_T isSetupComplete;
+  boolean_T TunablePropsChanged;
+  cell_wrap inputVarSize;
+  g_dsp_internal_SlidingWindowA_l *pStatistic;
+  int32_T NumChannels;
+  int32_T FrameLength;
+  g_dsp_internal_SlidingWindowA_l _pobj0;
+};
+
+#endif                                 /* struct_tag_oIf643pAEa31ChWM0kC2v */
+
+#ifndef typedef_dsp_simulink_MovingAverage_l
+#define typedef_dsp_simulink_MovingAverage_l
+
+typedef struct tag_oIf643pAEa31ChWM0kC2v dsp_simulink_MovingAverage_l;
+
+#endif                                /* typedef_dsp_simulink_MovingAverage_l */
 #endif                  /* RTW_HEADER_HANcoder_E407_TTA_CombineModel_types_h_ */
 
 /*

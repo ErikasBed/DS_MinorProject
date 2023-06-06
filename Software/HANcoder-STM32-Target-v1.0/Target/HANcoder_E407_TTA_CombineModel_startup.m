@@ -15,7 +15,7 @@ frequency_IRQ = 1000; % IRQ every 1000 ticks of hardware clock -> local clock: 1
 idA = 4;
 idB = 6;
 
-V2 = 1.3889; % velocity 
+V2 = 0.5; % velocity 
 L0F = 3; % Wheelbase of tractor
 L0b = 1; % Distance between rear axle & hitch
 L1F = 4; % Wheelbase of the trailing units
