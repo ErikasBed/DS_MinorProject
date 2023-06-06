@@ -23,8 +23,8 @@
   25 0004 0000F03F 		.word	1072693248
   26 0008 00000000 		.word	0
   27 000c 0000F03F 		.word	1072693248
-  28 0010 000000C0 		.word	-1073741824
-  29 0014 CCCCF43F 		.word	1073007820
+  28 0010 00000000 		.word	0
+  29 0014 0000E03F 		.word	1071644672
   30 0018 00000000 		.word	0
   31 001c 0000F03F 		.word	1072693248
   32              		.text
@@ -36,7 +36,7 @@
   38              		.file 5 "HANcoder_E407_TTA_CombineModel_data.c"
 DEFINED SYMBOLS
                             *ABS*:00000000 HANcoder_E407_TTA_CombineModel_data.c
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\cc5WziMv.s:23     .rodata.rtConstB:00000000 rtConstB
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\cc5WziMv.s:20     .rodata.rtConstB:00000000 $d
+C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccaFvXdh.s:23     .rodata.rtConstB:00000000 rtConstB
+C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccaFvXdh.s:20     .rodata.rtConstB:00000000 $d
 
 NO UNDEFINED SYMBOLS

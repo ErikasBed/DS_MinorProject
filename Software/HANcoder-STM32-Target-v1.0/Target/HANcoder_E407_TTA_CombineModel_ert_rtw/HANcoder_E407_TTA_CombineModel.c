@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.24
+ * Model version                  : 17.25
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jun  6 11:55:30 2023
+ * C/C++ source code generated on : Tue Jun  6 12:39:01 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -120,9 +120,6 @@ PrevZCSigStates rtPrevZCSigState;
 
 /* Forward declaration for local functions */
 static void SystemCore_setup(dsp_simulink_MovingAverage *obj);
-
-/* Forward declaration for local functions */
-static void SystemCore_setup_l(dsp_simulink_MovingAverage_l *obj);
 static tCanDataTypes canRxData_0_rtu_In1;
 static tCanDataTypes canTxData;
 static tCanDataTypes canRxData_0_SYNC1_ID;
@@ -667,19 +664,6 @@ void BitShift_j(uint16_T rtu_u, rtB_BitShift_i *localB)
   localB->y = (uint16_T)(rtu_u << 8);
 }
 
-static void SystemCore_setup_l(dsp_simulink_MovingAverage_l *obj)
-{
-  obj->isSetupComplete = false;
-  obj->isInitialized = 1;
-  obj->NumChannels = 1;
-  obj->FrameLength = 1;
-  obj->_pobj0.isInitialized = 0;
-  obj->_pobj0.isInitialized = 0;
-  obj->pStatistic = &obj->_pobj0;
-  obj->isSetupComplete = true;
-  obj->TunablePropsChanged = false;
-}
-
 /* Model step function */
 void HANcoder_E407_TTA_CombineModel_step(void)
 {
@@ -733,22 +717,14 @@ void HANcoder_E407_TTA_CombineModel_step(void)
   int8_T rtb_SFunction_o1_k1;
   int8_T rtb_SFunction_o1_h;
   boolean_T rtb_Level2MfileSFunction_j;
-  g_dsp_internal_SlidingWindowA_l *obj;
   real_T rtb_DeadZone;
   real_T rtb_IntegralGain;
   real_T rtb_Integrator;
   real_T rtb_Integrator_tmp;
   real_T tmp_0;
-  real32_T csumrev[3];
-  real32_T csum;
-  real32_T cumRevIndex;
-  real32_T modValueRev;
-  real32_T rtb_Abs1;
-  real32_T rtb_MovingAverage_0;
-  real32_T z;
   uint32_T tmp;
-  uint16_T rtb_Cast_b;
-  uint16_T rtb_Cast_le;
+  uint16_T rtb_Cast_bt;
+  uint16_T rtb_Cast_g1;
   int8_T tmp_1;
   int8_T tmp_2;
   uint8_T rtb_Multiply;
@@ -806,7 +782,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
    *  DataStoreRead: '<S13>/Data Store Read1'
    *  RelationalOperator: '<S13>/Less Than'
    */
-  rtb_AND = ((ClockOn != 0.0) && (rtDWork.nodeRole < ((uint8_T)4U)));
+  rtb_AND = ((ClockOn != 0.0) && (rtDWork.nodeRole == ((uint8_T)1U)));
 
   /* Logic: '<S13>/OR' incorporates:
    *  DataStoreRead: '<S13>/Data Store Read2'
@@ -954,7 +930,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         /* DataStoreWrite: '<S45>/Data Store Write1' incorporates:
          *  Constant: '<S45>/Constant'
          */
-        rtDWork.Local_Ticks = ((uint8_T)2U);
+        rtDWork.Local_Ticks = ((uint8_T)1U);
 
         /* DataStoreWrite: '<S45>/Data Store Write2' incorporates:
          *  Constant: '<S45>/Constant1'
@@ -1187,7 +1163,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
        *  Trigonometry: '<S111>/tan 2'
        */
       rtb_Integrator = rtb_DeadZone * 4.0 * rtb_IntegralGain +
-        rtb_Integrator_tmp * 1.3;
+        rtb_Integrator_tmp * 0.5;
 
       /* Sum: '<S59>/Sum1' incorporates:
        *  Constant: '<S27>/Constant1'
@@ -1203,7 +1179,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
        *  Product: '<S112>/Product3'
        *  Sum: '<S112>/Add'
        */
-      rtb_IntegralGain = (1.3 / 1.0 * rtb_IntegralGain * (-1.0) +
+      rtb_IntegralGain = (0.5 / 1.0 * rtb_IntegralGain * (-1.0) +
                           rtb_Integrator_tmp / 1.0 * 4.0 * rtb_DeadZone) *
         (rtConstB.signV2 * rtConstB.signL0b);
 
@@ -1249,78 +1225,10 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtConstB.signL0b_o) * 3.0 / (rtb_IntegralGain * 4.0 * rtb_DeadZone +
         rtb_Integrator_tmp * rtb_Integrator)));
 
-      /* Abs: '<S58>/Abs1' incorporates:
-       *  DataTypeConversion: '<S58>/Cast2'
-       */
-      rtb_Abs1 = (real32_T)fabs(delta12K);
-
-      /* MATLABSystem: '<S58>/Moving Average' */
-      if (rtDWork.obj.TunablePropsChanged) {
-        rtDWork.obj.TunablePropsChanged = false;
-      }
-
-      obj = rtDWork.obj.pStatistic;
-      if (obj->isInitialized != 1) {
-        obj->isSetupComplete = false;
-        obj->isInitialized = 1;
-        obj->pCumSum = 0.0F;
-        obj->pCumSumRev[0] = 0.0F;
-        obj->pCumSumRev[1] = 0.0F;
-        obj->pCumSumRev[2] = 0.0F;
-        obj->pCumRevIndex = 1.0F;
-        obj->pModValueRev = 0.0F;
-        obj->isSetupComplete = true;
-        obj->pCumSum = 0.0F;
-        obj->pCumSumRev[0] = 0.0F;
-        obj->pCumSumRev[1] = 0.0F;
-        obj->pCumSumRev[2] = 0.0F;
-        obj->pCumRevIndex = 1.0F;
-        obj->pModValueRev = 0.0F;
-      }
-
-      cumRevIndex = obj->pCumRevIndex;
-      csum = obj->pCumSum;
-      csumrev[0] = obj->pCumSumRev[0];
-      csumrev[1] = obj->pCumSumRev[1];
-      csumrev[2] = obj->pCumSumRev[2];
-      modValueRev = obj->pModValueRev;
-      z = 0.0F;
-      rtb_MovingAverage_0 = 0.0F;
-      csum += rtb_Abs1;
-      if (modValueRev == 0.0F) {
-        z = csumrev[(int32_T)cumRevIndex - 1] + csum;
-      }
-
-      csumrev[(int32_T)cumRevIndex - 1] = rtb_Abs1;
-      if (cumRevIndex != 3.0F) {
-        cumRevIndex++;
-      } else {
-        cumRevIndex = 1.0F;
-        csum = 0.0F;
-        csumrev[1] += csumrev[2];
-        csumrev[0] += csumrev[1];
-      }
-
-      if (modValueRev == 0.0F) {
-        rtb_MovingAverage_0 = z / 4.0F;
-      }
-
-      obj->pCumSum = csum;
-      obj->pCumSumRev[0] = csumrev[0];
-      obj->pCumSumRev[1] = csumrev[1];
-      obj->pCumSumRev[2] = csumrev[2];
-      obj->pCumRevIndex = cumRevIndex;
-      if (modValueRev > 0.0F) {
-        obj->pModValueRev = modValueRev - 1.0F;
-      } else {
-        obj->pModValueRev = 0.0F;
-      }
-
       /* Gain: '<S58>/Gain2' incorporates:
        *  DataTypeConversion: '<S58>/Cast3'
-       *  MATLABSystem: '<S58>/Moving Average'
        */
-      steering = 45.6 * rtb_MovingAverage_0;
+      steering = 45.6 * delta12K;
 
       /* Gain: '<S58>/Gain1' incorporates:
        *  DataStoreRead: '<S58>/Data Store Read'
@@ -1642,10 +1550,10 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       /* End of Outputs for SubSystem: '<S145>/Enabled Subsystem' */
 
       /* DataTypeConversion: '<S144>/Cast' */
-      rtb_Cast_le = rtB.EnabledSubsystem_g.In1;
+      rtb_Cast_bt = rtB.EnabledSubsystem_g.In1;
 
       /* Outputs for Atomic SubSystem: '<S144>/Bit Shift' */
-      BitShift_j(rtb_Cast_le, &rtB.BitShift_jm);
+      BitShift_j(rtb_Cast_bt, &rtB.BitShift_jm);
 
       /* End of Outputs for SubSystem: '<S144>/Bit Shift' */
 
@@ -1731,10 +1639,10 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       /* End of Outputs for SubSystem: '<S157>/Enabled Subsystem' */
 
       /* DataTypeConversion: '<S156>/Cast' */
-      rtb_Cast_b = rtB.EnabledSubsystem_e.In1;
+      rtb_Cast_g1 = rtB.EnabledSubsystem_e.In1;
 
       /* Outputs for Atomic SubSystem: '<S156>/Bit Shift' */
-      BitShift_j(rtb_Cast_b, &rtB.BitShift_c);
+      BitShift_j(rtb_Cast_g1, &rtB.BitShift_c);
 
       /* End of Outputs for SubSystem: '<S156>/Bit Shift' */
 
@@ -1918,7 +1826,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
    *  Logic: '<S13>/NOT'
    *  RelationalOperator: '<S13>/GreaterThan'
    */
-  if ((rtDWork.nodeRole > ((uint8_T)3U)) && (!rtDWork.slaveClockOn)) {
+  if ((rtDWork.nodeRole > ((uint8_T)1U)) && (!rtDWork.slaveClockOn)) {
     rtDWork.Subsystem2_MODE = true;
 
     /* M-S-Function: '<S170>/S-Function' incorporates:
@@ -2029,254 +1937,225 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 void HANcoder_E407_TTA_CombineModel_initialize(void)
 {
   {
-    g_dsp_internal_SlidingWindowA_l *obj;
+    /* user code (Start function Header) */
+    uint8_t canResult1;
+    tCanFilter canFilter1;
 
-    {
-      /* user code (Start function Header) */
-      uint8_t canResult1;
-      tCanFilter canFilter1;
+    /* user code (Start function Body) */
 
-      /* user code (Start function Body) */
+    /* initialize the CAN driver. */
+    CanInit(64, 8);
 
-      /* initialize the CAN driver. */
-      CanInit(64, 8);
+    /* initialize the CAN I/O module for channel 1 */
+    CanIoInit(0);
 
-      /* initialize the CAN I/O module for channel 1 */
-      CanIoInit(0);
+    /* initialize the timer module for output compare. */
+    TimeoutInitModule(TIMEOUT_MODULE_TIM4, 1000000);
 
-      /* initialize the timer module for output compare. */
-      TimeoutInitModule(TIMEOUT_MODULE_TIM4, 1000000);
+    /* register the callback handler */
+    TimeoutRegisterCompareEventCallback(TIMEOUT_TIM4_PIN_PD12,
+      TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12);
 
-      /* register the callback handler */
-      TimeoutRegisterCompareEventCallback(TIMEOUT_TIM4_PIN_PD12,
-        TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12);
+    /* End of Start for S-Function (sfcn_timeout_event_irq): '<S4>/S-Function' */
 
-      /* End of Start for S-Function (sfcn_timeout_event_irq): '<S4>/S-Function' */
-
-      /* Start for Enabled SubSystem: '<S1>/Message selector'
-       *
-       * Block description for '<S1>/Message selector':
-       *  Truck 1
-       */
-      /* Start for Enabled SubSystem: '<S11>/MMBS1_RX' */
-      /* Constant: '<S11>/Constant12' */
-      MMBS1_RX_Start(MMBS1_ID);
-
-      /* End of Start for SubSystem: '<S11>/MMBS1_RX' */
-
-      /* Start for Enabled SubSystem: '<S11>/SSTM1_RX' */
-      /* Constant: '<S11>/Constant14' */
-      MMBS1_RX_Start(SSTM1_ID);
-
-      /* End of Start for SubSystem: '<S11>/SSTM1_RX' */
-
-      /* Start for Enabled SubSystem: '<S11>/SYNC1_RX' */
-      /* Start for M-S-Function: '<S44>/S-Function' incorporates:
-       *  Constant: '<S11>/Constant10'
-       */
-
-      /* register a CAN storage buffer for the message with this ID */
-      CanIoCreateMessageReceivedStorage(0, SYNC1_ID);
-
-      /* End of Start for SubSystem: '<S11>/SYNC1_RX' */
-
-      /* Start for Triggered SubSystem: '<S11>/Slot 5 execution' */
-      /* Start for M-S-Function: '<S51>/Level-2 M-file S-Function' */
-
-      /* configure the analog input for filtered inputs */
-      AninConfigure(ANIN_PORTF_PIN7,0);
-      MovingAverage_Start(&rtDWork.MovingAverage_p);
-
-      /* Start for M-S-Function: '<S52>/Level-2 M-file S-Function' */
-
-      /* configure the analog input for filtered inputs */
-      AninConfigure(ANIN_PORTF_PIN8,0);
-      MovingAverage_Start(&rtDWork.MovingAverage1);
-
-      /* Start for M-S-Function: '<S50>/Level-2 M-file S-Function' */
-
-      /* configure the quadrature encoder module */
-      QuadEncConfigure(QUADENC_TIM3_PA6_PB5, QUADENC_CFG_FLOATING);
-
-      /* Start for M-S-Function: '<S54>/Level-2 M-file S-Function' */
-
-      /* configure the digital output */
-      DigoutConfigure(DIGOUT_PORTE_PIN5, DIGOUT_CFG_PUSHPULL);
-
-      /* Start for M-S-Function: '<S55>/Level-2 M-file S-Function' */
-
-      /* configure the digital output */
-      DigoutConfigure(DIGOUT_PORTE_PIN6, DIGOUT_CFG_PUSHPULL);
-
-      /* Start for S-Function (sfcn_pwmout_init): '<S57>/S-Function' */
-
-      /* initialize the PWM module and register the callback handler */
-      PwmoutInit(PWMOUT_MODULE_TIM14, 10253, PWMOUT_EDGE_ALIGNMENT);
-      PwmoutRegisterPeriodCompleteCallback(PWMOUT_MODULE_TIM14,
-        PwmoutIRQ_PWMOUT_MODULE_TIM14);
-
-      /* configures channel 1 */
-      PwmoutConfigure(PWMOUT_TIM14_PIN_PF9, PWMOUT_ACTIVE_HIGH,
-                      PWMOUT_INVERTED_OUTPUT_OFF);
-
-      /* End of Start for SubSystem: '<S11>/Slot 5 execution' */
-
-      /* Start for Triggered SubSystem: '<S11>/Subsystem' */
-      /* Start for MATLABSystem: '<S58>/Moving Average' */
-      rtDWork.obj.isInitialized = 0;
-      rtDWork.obj.NumChannels = -1;
-      rtDWork.obj.FrameLength = -1;
-      rtDWork.obj.matlabCodegenIsDeleted = false;
-      SystemCore_setup_l(&rtDWork.obj);
-
-      /* End of Start for SubSystem: '<S11>/Subsystem' */
-
-      /* Start for Enabled SubSystem: '<S11>/TRCK1_ID2_RX' */
-      /* Constant: '<S11>/Constant5' */
-      MMBS1_RX_Start(TRCK1_ID2);
-
-      /* End of Start for SubSystem: '<S11>/TRCK1_ID2_RX' */
-
-      /* Start for Enabled SubSystem: '<S11>/TRCK1_RX' */
-      /* Constant: '<S11>/Constant3' */
-      MMBS1_RX_Start(TRCK1_ID1);
-
-      /* End of Start for SubSystem: '<S11>/TRCK1_RX' */
-
-      /* Start for Enabled SubSystem: '<S11>/TRCK_ID3_RX' */
-      /* Start for M-S-Function: '<S142>/S-Function' incorporates:
-       *  Constant: '<S11>/Constant26'
-       */
-
-      /* register a CAN storage buffer for the message with this ID */
-      CanIoCreateMessageReceivedStorage(0, TRCK1_ID3);
-
-      /* End of Start for SubSystem: '<S11>/TRCK_ID3_RX' */
-
-      /* Start for Enabled SubSystem: '<S11>/TRLS_ID4_RX' */
-      /* Start for M-S-Function: '<S145>/S-Function' incorporates:
-       *  Constant: '<S11>/Constant8'
-       */
-
-      /* register a CAN storage buffer for the message with this ID */
-      CanIoCreateMessageReceivedStorage(0, TRLS1_ID4);
-
-      /* End of Start for SubSystem: '<S11>/TRLS_ID4_RX' */
-
-      /* Start for Enabled SubSystem: '<S11>/TRLS_ID5_RX' */
-      /* Start for M-S-Function: '<S157>/S-Function' incorporates:
-       *  Constant: '<S11>/Constant18'
-       */
-
-      /* register a CAN storage buffer for the message with this ID */
-      CanIoCreateMessageReceivedStorage(0, TRLS1_ID5);
-
-      /* End of Start for SubSystem: '<S11>/TRLS_ID5_RX' */
-      /* End of Start for SubSystem: '<S1>/Message selector' */
-
-      /* Start for Enabled SubSystem: '<S13>/Subsystem2' */
-      /* Start for M-S-Function: '<S170>/S-Function' incorporates:
-       *  Constant: '<S169>/Constant10'
-       */
-
-      /* register a CAN storage buffer for the message with this ID */
-      CanIoCreateMessageReceivedStorage(0, SYNC1_ID);
-
-      /* End of Start for SubSystem: '<S13>/Subsystem2' */
-
-      /* Start for M-S-Function: '<S6>/Level-2 M-file S-Function' */
-
-      /* configure the digital input */
-      DiginConfigure(DIGIN_PORTG_PIN12, DIGIN_CFG_PULLDOWN);
-
-      /* Start for M-S-Function: '<S7>/Level-2 M-file S-Function' */
-
-      /* configure the digital input */
-      DiginConfigure(DIGIN_PORTG_PIN15, DIGIN_CFG_PULLDOWN);
-
-      /* Start for M-S-Function: '<S8>/Level-2 M-file S-Function' */
-
-      /* configure the digital input */
-      DiginConfigure(DIGIN_PORTA_PIN4, DIGIN_CFG_PULLDOWN);
-
-      /* Start for M-S-Function: '<S2>/Level-2 M-file S-Function' */
-
-      /* configure the stack size for the task that executes the model */
-      AppCtrlTaskSetStackSize((configMINIMAL_STACK_SIZE*sizeof(portBASE_TYPE)) +
-        100);
-
-      /* configure the sample time of the model in microseconds */
-      AppCtrlTaskSetPeriod(1000);
-
-      /* Run the ADC conversions ten times faster than the Simulink model */
-      ADCconversionTaskSetPeriod(1000/10);
-
-      /* Start for M-S-Function: '<S3>/Level-2 M-file S-Function' */
-
-      /* store the CAN controller's filter configuration */
-      canFilter1.mask = 0x00000000;
-      canFilter1.code = 0x00000000;
-      canFilter1.mode = CAN_FILTER_MODE_STDID_ONLY;
-
-      /* connect and synchronize the CAN bus */
-      canResult1 = CanConnect(0, 1000000, &canFilter1);
-      configASSERT(canResult1 == TRUE);
-
-      /* Start for S-Function (sfcn_timeout_init): '<S12>/S-Function' */
-
-      /* register the free running counter overflow callback handler */
-      TimeoutRegisterOverflowCallback(TIMEOUT_MODULE_TIM4,
-        TimeoutOverflowIRQ_TIMEOUT_MODULE_TIM4);
-
-      /* Start for M-S-Function: '<S15>/Level-2 M-file S-Function' */
-
-      /* initialize the measurement and calibration interface */
-      MacUsbComInit();
-      MacInit();
-    }
-
-    rtPrevZCSigState.EnabledSubsystem_Trig_ZCE = POS_ZCSIG;
-    rtPrevZCSigState.Subsystem_Trig_ZCE_h = UNINITIALIZED_ZCSIG;
-    rtPrevZCSigState.SYNC1_TX_Trig_ZCE = POS_ZCSIG;
-    rtPrevZCSigState.Slot5execution_Trig_ZCE = POS_ZCSIG;
-    rtPrevZCSigState.Subsystem_Trig_ZCE_g = POS_ZCSIG;
-    rtPrevZCSigState.TRLS_ID5_TX_Trig_ZCE = POS_ZCSIG;
-    rtPrevZCSigState.Subsystem_Trig_ZCE = POS_ZCSIG;
-    rtPrevZCSigState.Subsystem1_Trig_ZCE = UNINITIALIZED_ZCSIG;
-    rtPrevZCSigState.TRLS_ID4_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
-    rtPrevZCSigState.TRCK1_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
-    rtPrevZCSigState.TRCK1_ID3_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
-    rtPrevZCSigState.TRCK1_ID2_TX_f.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
-    rtPrevZCSigState.SSTM1_TX.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
-    rtPrevZCSigState.MMBS1_TX_a.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
-
-    /* SystemInitialize for Enabled SubSystem: '<S1>/Message selector'
+    /* Start for Enabled SubSystem: '<S1>/Message selector'
      *
      * Block description for '<S1>/Message selector':
      *  Truck 1
      */
-    /* SystemInitialize for Triggered SubSystem: '<S11>/Slot 5 execution' */
-    MovingAverage_Init(&rtDWork.MovingAverage_p);
-    MovingAverage_Init(&rtDWork.MovingAverage1);
+    /* Start for Enabled SubSystem: '<S11>/MMBS1_RX' */
+    /* Constant: '<S11>/Constant12' */
+    MMBS1_RX_Start(MMBS1_ID);
 
-    /* End of SystemInitialize for SubSystem: '<S11>/Slot 5 execution' */
+    /* End of Start for SubSystem: '<S11>/MMBS1_RX' */
 
-    /* SystemInitialize for Triggered SubSystem: '<S11>/Subsystem' */
-    /* InitializeConditions for MATLABSystem: '<S58>/Moving Average' */
-    obj = rtDWork.obj.pStatistic;
-    if (obj->isInitialized == 1) {
-      obj->pCumSum = 0.0F;
-      obj->pCumSumRev[0] = 0.0F;
-      obj->pCumSumRev[1] = 0.0F;
-      obj->pCumSumRev[2] = 0.0F;
-      obj->pCumRevIndex = 1.0F;
-      obj->pModValueRev = 0.0F;
-    }
+    /* Start for Enabled SubSystem: '<S11>/SSTM1_RX' */
+    /* Constant: '<S11>/Constant14' */
+    MMBS1_RX_Start(SSTM1_ID);
 
-    /* End of InitializeConditions for MATLABSystem: '<S58>/Moving Average' */
-    /* End of SystemInitialize for SubSystem: '<S11>/Subsystem' */
-    /* End of SystemInitialize for SubSystem: '<S1>/Message selector' */
+    /* End of Start for SubSystem: '<S11>/SSTM1_RX' */
+
+    /* Start for Enabled SubSystem: '<S11>/SYNC1_RX' */
+    /* Start for M-S-Function: '<S44>/S-Function' incorporates:
+     *  Constant: '<S11>/Constant10'
+     */
+
+    /* register a CAN storage buffer for the message with this ID */
+    CanIoCreateMessageReceivedStorage(0, SYNC1_ID);
+
+    /* End of Start for SubSystem: '<S11>/SYNC1_RX' */
+
+    /* Start for Triggered SubSystem: '<S11>/Slot 5 execution' */
+    /* Start for M-S-Function: '<S51>/Level-2 M-file S-Function' */
+
+    /* configure the analog input for filtered inputs */
+    AninConfigure(ANIN_PORTF_PIN7,0);
+    MovingAverage_Start(&rtDWork.MovingAverage_p);
+
+    /* Start for M-S-Function: '<S52>/Level-2 M-file S-Function' */
+
+    /* configure the analog input for filtered inputs */
+    AninConfigure(ANIN_PORTF_PIN8,0);
+    MovingAverage_Start(&rtDWork.MovingAverage1);
+
+    /* Start for M-S-Function: '<S50>/Level-2 M-file S-Function' */
+
+    /* configure the quadrature encoder module */
+    QuadEncConfigure(QUADENC_TIM3_PA6_PB5, QUADENC_CFG_FLOATING);
+
+    /* Start for M-S-Function: '<S54>/Level-2 M-file S-Function' */
+
+    /* configure the digital output */
+    DigoutConfigure(DIGOUT_PORTE_PIN5, DIGOUT_CFG_PUSHPULL);
+
+    /* Start for M-S-Function: '<S55>/Level-2 M-file S-Function' */
+
+    /* configure the digital output */
+    DigoutConfigure(DIGOUT_PORTE_PIN6, DIGOUT_CFG_PUSHPULL);
+
+    /* Start for S-Function (sfcn_pwmout_init): '<S57>/S-Function' */
+
+    /* initialize the PWM module and register the callback handler */
+    PwmoutInit(PWMOUT_MODULE_TIM14, 10253, PWMOUT_EDGE_ALIGNMENT);
+    PwmoutRegisterPeriodCompleteCallback(PWMOUT_MODULE_TIM14,
+      PwmoutIRQ_PWMOUT_MODULE_TIM14);
+
+    /* configures channel 1 */
+    PwmoutConfigure(PWMOUT_TIM14_PIN_PF9, PWMOUT_ACTIVE_HIGH,
+                    PWMOUT_INVERTED_OUTPUT_OFF);
+
+    /* End of Start for SubSystem: '<S11>/Slot 5 execution' */
+
+    /* Start for Enabled SubSystem: '<S11>/TRCK1_ID2_RX' */
+    /* Constant: '<S11>/Constant5' */
+    MMBS1_RX_Start(TRCK1_ID2);
+
+    /* End of Start for SubSystem: '<S11>/TRCK1_ID2_RX' */
+
+    /* Start for Enabled SubSystem: '<S11>/TRCK1_RX' */
+    /* Constant: '<S11>/Constant3' */
+    MMBS1_RX_Start(TRCK1_ID1);
+
+    /* End of Start for SubSystem: '<S11>/TRCK1_RX' */
+
+    /* Start for Enabled SubSystem: '<S11>/TRCK_ID3_RX' */
+    /* Start for M-S-Function: '<S142>/S-Function' incorporates:
+     *  Constant: '<S11>/Constant26'
+     */
+
+    /* register a CAN storage buffer for the message with this ID */
+    CanIoCreateMessageReceivedStorage(0, TRCK1_ID3);
+
+    /* End of Start for SubSystem: '<S11>/TRCK_ID3_RX' */
+
+    /* Start for Enabled SubSystem: '<S11>/TRLS_ID4_RX' */
+    /* Start for M-S-Function: '<S145>/S-Function' incorporates:
+     *  Constant: '<S11>/Constant8'
+     */
+
+    /* register a CAN storage buffer for the message with this ID */
+    CanIoCreateMessageReceivedStorage(0, TRLS1_ID4);
+
+    /* End of Start for SubSystem: '<S11>/TRLS_ID4_RX' */
+
+    /* Start for Enabled SubSystem: '<S11>/TRLS_ID5_RX' */
+    /* Start for M-S-Function: '<S157>/S-Function' incorporates:
+     *  Constant: '<S11>/Constant18'
+     */
+
+    /* register a CAN storage buffer for the message with this ID */
+    CanIoCreateMessageReceivedStorage(0, TRLS1_ID5);
+
+    /* End of Start for SubSystem: '<S11>/TRLS_ID5_RX' */
+    /* End of Start for SubSystem: '<S1>/Message selector' */
+
+    /* Start for Enabled SubSystem: '<S13>/Subsystem2' */
+    /* Start for M-S-Function: '<S170>/S-Function' incorporates:
+     *  Constant: '<S169>/Constant10'
+     */
+
+    /* register a CAN storage buffer for the message with this ID */
+    CanIoCreateMessageReceivedStorage(0, SYNC1_ID);
+
+    /* End of Start for SubSystem: '<S13>/Subsystem2' */
+
+    /* Start for M-S-Function: '<S6>/Level-2 M-file S-Function' */
+
+    /* configure the digital input */
+    DiginConfigure(DIGIN_PORTG_PIN12, DIGIN_CFG_PULLDOWN);
+
+    /* Start for M-S-Function: '<S7>/Level-2 M-file S-Function' */
+
+    /* configure the digital input */
+    DiginConfigure(DIGIN_PORTG_PIN15, DIGIN_CFG_PULLDOWN);
+
+    /* Start for M-S-Function: '<S8>/Level-2 M-file S-Function' */
+
+    /* configure the digital input */
+    DiginConfigure(DIGIN_PORTA_PIN4, DIGIN_CFG_PULLDOWN);
+
+    /* Start for M-S-Function: '<S2>/Level-2 M-file S-Function' */
+
+    /* configure the stack size for the task that executes the model */
+    AppCtrlTaskSetStackSize((configMINIMAL_STACK_SIZE*sizeof(portBASE_TYPE)) +
+      100);
+
+    /* configure the sample time of the model in microseconds */
+    AppCtrlTaskSetPeriod(1000);
+
+    /* Run the ADC conversions ten times faster than the Simulink model */
+    ADCconversionTaskSetPeriod(1000/10);
+
+    /* Start for M-S-Function: '<S3>/Level-2 M-file S-Function' */
+
+    /* store the CAN controller's filter configuration */
+    canFilter1.mask = 0x00000000;
+    canFilter1.code = 0x00000000;
+    canFilter1.mode = CAN_FILTER_MODE_STDID_ONLY;
+
+    /* connect and synchronize the CAN bus */
+    canResult1 = CanConnect(0, 1000000, &canFilter1);
+    configASSERT(canResult1 == TRUE);
+
+    /* Start for S-Function (sfcn_timeout_init): '<S12>/S-Function' */
+
+    /* register the free running counter overflow callback handler */
+    TimeoutRegisterOverflowCallback(TIMEOUT_MODULE_TIM4,
+      TimeoutOverflowIRQ_TIMEOUT_MODULE_TIM4);
+
+    /* Start for M-S-Function: '<S15>/Level-2 M-file S-Function' */
+
+    /* initialize the measurement and calibration interface */
+    MacUsbComInit();
+    MacInit();
   }
+
+  rtPrevZCSigState.EnabledSubsystem_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.Subsystem_Trig_ZCE_h = UNINITIALIZED_ZCSIG;
+  rtPrevZCSigState.SYNC1_TX_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.Slot5execution_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.Subsystem_Trig_ZCE_g = POS_ZCSIG;
+  rtPrevZCSigState.TRLS_ID5_TX_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.Subsystem_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.Subsystem1_Trig_ZCE = UNINITIALIZED_ZCSIG;
+  rtPrevZCSigState.TRLS_ID4_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.TRCK1_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.TRCK1_ID3_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.TRCK1_ID2_TX_f.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.SSTM1_TX.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
+  rtPrevZCSigState.MMBS1_TX_a.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
+
+  /* SystemInitialize for Enabled SubSystem: '<S1>/Message selector'
+   *
+   * Block description for '<S1>/Message selector':
+   *  Truck 1
+   */
+  /* SystemInitialize for Triggered SubSystem: '<S11>/Slot 5 execution' */
+  MovingAverage_Init(&rtDWork.MovingAverage_p);
+  MovingAverage_Init(&rtDWork.MovingAverage1);
+
+  /* End of SystemInitialize for SubSystem: '<S11>/Slot 5 execution' */
+  /* End of SystemInitialize for SubSystem: '<S1>/Message selector' */
 }
 
 /*

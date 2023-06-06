@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.24
+ * Model version                  : 17.25
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jun  6 11:55:30 2023
+ * C/C++ source code generated on : Tue Jun  6 12:39:01 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -148,7 +148,6 @@ typedef struct {
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  dsp_simulink_MovingAverage_l obj;    /* '<S58>/Moving Average' */
   real_T Integrator_DSTATE;            /* '<S94>/Integrator' */
   real_T DelayInput1_DSTATE;           /* '<S53>/Delay Input1' */
   real_T setAngle;                     /* '<S1>/Data Store Memory2' */
