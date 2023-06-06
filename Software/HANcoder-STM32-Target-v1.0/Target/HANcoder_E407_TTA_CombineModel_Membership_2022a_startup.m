@@ -19,6 +19,7 @@ V2 = 0.5; % velocity
 L0F = 3; % Wheelbase of tractor
 L0b = 1; % Distance between rear axle & hitch
 L1F = 4; % Wheelbase of the trailing units
+
 %% Signals
 % Defining signals for viewing in HANtune
 
@@ -75,6 +76,27 @@ boolCan.StorageClass ='ExportedGlobal';
 
 %% Parameters
 % Defining a parameter for editing in HANtune
+
+ErrorBoard1 = Simulink.Parameter; % Define as parameter
+ErrorBoard1.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+ErrorBoard1.Value = 0; % Initial value is set to zero
+
+ErrorBoard2 = Simulink.Parameter; % Define as parameter
+ErrorBoard2.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+ErrorBoard2.Value = 0; % Initial value is set to zero
+
+ErrorBoard3 = Simulink.Parameter; % Define as parameter
+ErrorBoard3.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+ErrorBoard3.Value = 0; % Initial value is set to zero
+
+ErrorBoard4 = Simulink.Parameter; % Define as parameter
+ErrorBoard4.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+ErrorBoard4.Value = 0; % Initial value is set to zero
+
+ErrorBoard5 = Simulink.Parameter; % Define as parameter
+ErrorBoard5.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+ErrorBoard5.Value = 0; % Initial value is set to zero
+
 desiredAngle = Simulink.Parameter; % Define as parameter
 desiredAngle.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 desiredAngle.Value = 0; % Initial value is set to zero
