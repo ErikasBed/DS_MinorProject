@@ -1,0 +1,55 @@
+    ClockOn
+    
+        controlWidth
+    
+        desiredAngle
+    
+        intVal
+    
+        matrixRows
+    
+        propVal
+    
+        MMBS1_ID
+    
+        SSTM1_ID
+    
+        SYNC1_ID
+    
+        TRCK1_ID1
+    
+        TRCK1_ID2
+    
+        TRCK1_ID3
+    
+        TRLS1_ID4
+    
+        TRLS1_ID5
+    
+        slotTime
+    
+    reqAngle
+Gamma1
+steering
+position
+control
+SI_FreeHeap
+SI_FreeStack
+delta12K
+t2Angle
+t1Angle
+Gamma2
+mospeed
+analogPot1
+pot1
+analogPot2
+pot2
+testCounter
+SI_CPUload
+local_ticks_interrupt
+setSlotTime
+slotSelected
+boolCan
+cw
+ccw
+canActive
