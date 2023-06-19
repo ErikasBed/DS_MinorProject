@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.26
+ * Model version                  : 17.32
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Sun Jun 11 21:49:47 2023
+ * C/C++ source code generated on : Thu Jun 15 16:05:00 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -79,10 +79,6 @@ extern void MovingAverage(real32_T rtu_0, rtB_MovingAverage *localB,
 extern void EnabledSubsystem(int8_T rtu_Enable, uint8_T rtu_In1, uint8_T rtu_In2,
   uint8_T rtu_In3, uint8_T rtu_In4, uint8_T rtu_In5, uint8_T rtu_In6, uint8_T
   rtu_In7, uint8_T rtu_In8, rtB_EnabledSubsystem *localB);
-extern void MMBS1_RX_Start(uint32_T rtu_In1);
-extern void MMBS1_RX_Disable(rtDW_MMBS1_RX *localDW);
-extern void MMBS1_RX(boolean_T rtu_Enable, uint32_T rtu_In1, rtB_MMBS1_RX
-                     *localB, rtDW_MMBS1_RX *localDW);
 extern void MMBS1_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, rtZCE_MMBS1_TX
                      *localZCE);
 extern void BitShift(uint16_T rtu_u, rtB_BitShift *localB);

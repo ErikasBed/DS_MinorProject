@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.26
+ * Model version                  : 17.32
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Sun Jun 11 21:49:47 2023
+ * C/C++ source code generated on : Thu Jun 15 16:05:00 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -37,17 +37,21 @@ real_T Gamma1;                         /* '<S20>/Sum1' */
 real_T steering;                       /* '<S19>/Gain2' */
 real_T position;                       /* '<S19>/Gain1' */
 real_T control;                        /* '<S19>/Sum' */
-uint32_T SI_FreeHeap;                  /* '<S366>/Level-2 M-file S-Function' */
-uint32_T SI_FreeStack;                 /* '<S367>/Level-2 M-file S-Function' */
+uint32_T SI_FreeHeap;                  /* '<S369>/Level-2 M-file S-Function' */
+uint32_T SI_FreeStack;                 /* '<S370>/Level-2 M-file S-Function' */
+real32_T derivativeMean;               /* '<S80>/Moving Average' */
 real32_T delta12K;                     /* '<S75>/tan 1' */
 int32_T motorPos;                      /* '<S81>/Level-2 M-file S-Function' */
-uint16_T pot31;                        /* '<S242>/Add' */
-uint16_T pot32;                        /* '<S241>/Add' */
-uint16_T pot11;                        /* '<S195>/Add' */
-uint16_T pot12;                        /* '<S194>/Add' */
-uint16_T pot21;                        /* '<S126>/Add' */
-uint16_T pot22;                        /* '<S125>/Add' */
-uint16_T testCounter;                  /* '<S104>/Data Store Read1' */
+uint16_T pot31;                        /* '<S245>/Add' */
+uint16_T pot32;                        /* '<S244>/Add' */
+uint16_T pot11;                        /* '<S198>/Add' */
+uint16_T pot12;                        /* '<S197>/Add' */
+uint16_T pot21;                        /* '<S129>/Add' */
+uint16_T pot22;                        /* '<S128>/Add' */
+uint16_T testCounter;                  /* '<S107>/Data Store Read1' */
+uint16_T potRaw;                       /* '<S80>/Data Store Read5' */
+uint16_T lastPot;                      /* '<S80>/Data Store Read6' */
+uint16_T derivative;                   /* '<S90>/Diff' */
 uint16_T analogPot1;                   /* '<S82>/Level-2 M-file S-Function' */
 uint16_T pot1;                         /* '<S78>/Cast1' */
 uint16_T analogPot2;                   /* '<S83>/Level-2 M-file S-Function' */
@@ -56,11 +60,20 @@ uint16_T t2Angle;                      /* '<S5>/Data Store Read2' */
 uint16_T t1Angle;                      /* '<S5>/Data Store Read1' */
 uint16_T Gamma2;                       /* '<S20>/Sum2' */
 uint16_T mospeed;                      /* '<S19>/Add' */
-uint8_T SI_CPUload;                    /* '<S365>/Level-2 M-file S-Function' */
+uint8_T SI_CPUload;                    /* '<S368>/Level-2 M-file S-Function' */
 uint8_T local_ticks_interrupt;         /* '<S12>/Switch' */
 uint8_T setSlotTime;                   /* '<S12>/Data Store Read3' */
-uint8_T slotSelected;                  /* '<S96>/Switch' */
+uint8_T slotSelected;                  /* '<S98>/Switch' */
 boolean_T boolCan;                     /* '<S13>/AND' */
+boolean_T potFaultDetected;            /* '<S112>/Data Store Read4' */
+boolean_T masterCanFail;               /* '<S102>/NOT' */
+boolean_T mf1;                         /* '<S80>/Delay' */
+boolean_T mf2;                         /* '<S80>/Delay1' */
+boolean_T mf3;                         /* '<S80>/Delay2' */
+boolean_T mf4;                         /* '<S80>/Delay4' */
+boolean_T mf5;                         /* '<S80>/Delay3' */
+boolean_T motorFaultDetected;          /* '<S80>/AND2' */
+boolean_T ioInit;                      /* '<S78>/Constant' */
 boolean_T cw;                          /* '<S19>/Cast1' */
 boolean_T ccw;                         /* '<S19>/NOT' */
 boolean_T canActive;                   /* '<S12>/Clock_State' */
@@ -69,7 +82,7 @@ boolean_T canActive;                   /* '<S12>/Clock_State' */
 real_T ClockOn = 0.0;                  /* Variable: ClockOn
                                         * Referenced by: '<S15>/Constant'
                                         */
-real_T controlWidth = 3.0;             /* Variable: controlWidth
+real_T controlWidth = 10.0;            /* Variable: controlWidth
                                         * Referenced by: '<S19>/Constant'
                                         */
 real_T desiredAngle = 0.0;             /* Variable: desiredAngle
@@ -79,7 +92,7 @@ real_T intVal = 0.15;                  /* Variable: intVal
                                         * Referenced by: '<S52>/Integral Gain'
                                         */
 real_T matrixRows = 10.0;              /* Variable: matrixRows
-                                        * Referenced by: '<S96>/Constant1'
+                                        * Referenced by: '<S98>/Constant1'
                                         */
 real_T propVal = 1.0;                  /* Variable: propVal
                                         * Referenced by: '<S60>/Proportional Gain'
@@ -93,7 +106,7 @@ uint32_T SSTM1_ID = 13U;               /* Variable: SSTM1_ID
 uint32_T SYNC1_ID = 11U;               /* Variable: SYNC1_ID
                                         * Referenced by:
                                         *   '<S13>/Constant10'
-                                        *   '<S361>/Constant10'
+                                        *   '<S364>/Constant10'
                                         */
 uint32_T TRCK1_ID1 = 14U;              /* Variable: TRCK1_ID1
                                         * Referenced by: '<S13>/Constant3'
@@ -110,8 +123,8 @@ uint32_T TRLS1_ID4 = 48U;              /* Variable: TRLS1_ID4
 uint32_T TRLS1_ID5 = 59U;              /* Variable: TRLS1_ID5
                                         * Referenced by: '<S13>/Constant18'
                                         */
-uint8_T slotTime = 50U;                /* Variable: slotTime
-                                        * Referenced by: '<S360>/Constant3'
+uint8_T slotTime = 10U;                /* Variable: slotTime
+                                        * Referenced by: '<S363>/Constant3'
                                         */
 
 /* Block signals (default storage) */
@@ -123,10 +136,18 @@ D_Work rtDWork;
 /* Previous zero-crossings (trigger) states */
 PrevZCSigStates rtPrevZCSigState;
 
+/* Real-time model */
+static RT_MODEL rtM_;
+RT_MODEL *const rtM = &rtM_;
+
 /* Forward declaration for local functions */
 static void SystemCore_setup(dsp_simulink_MovingAverage *obj);
-static tCanDataTypes canRxData_0_rtu_In1;
+
+/* Forward declaration for local functions */
+static void SystemCore_setup_l(dsp_simulink_MovingAverage *obj);
+static tCanDataTypes canRxData_0_MMBS1_ID;
 static tCanDataTypes canTxData;
+static tCanDataTypes canRxData_0_SSTM1_ID;
 static tCanDataTypes canRxData_0_SYNC1_ID;
 static tCanDataTypes canRxData_0_TRCK1_ID2;
 static tCanDataTypes canRxData_0_TRCK1_ID1;
@@ -196,7 +217,7 @@ void TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12(void)
     /* DataStoreRead: '<S12>/Data Store Read3' */
     setSlotTime = rtDWork.SlotTime;
 
-    /* M-S-Function: '<S97>/Level-2 M-file S-Function' incorporates:
+    /* M-S-Function: '<S99>/Level-2 M-file S-Function' incorporates:
      *  DataTypeConversion: '<S12>/Cast'
      */
     rtb_Level2MfileSFunction = setSlotTime;
@@ -207,37 +228,37 @@ void TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12(void)
     rtb_Equal = (rtDWork.Local_Ticks >= rtb_Level2MfileSFunction);
 
     /* Outputs for Triggered SubSystem: '<S12>/Enabled Subsystem' incorporates:
-     *  TriggerPort: '<S96>/Trigger'
+     *  TriggerPort: '<S98>/Trigger'
      */
     if (rtb_Equal && (rtPrevZCSigState.EnabledSubsystem_Trig_ZCE != POS_ZCSIG))
     {
-      /* Switch: '<S96>/Switch' incorporates:
-       *  Constant: '<S96>/Constant1'
-       *  DataStoreRead: '<S96>/Data Store Read1'
-       *  DataTypeConversion: '<S96>/Cast'
-       *  RelationalOperator: '<S96>/Equal'
+      /* Switch: '<S98>/Switch' incorporates:
+       *  Constant: '<S98>/Constant1'
+       *  DataStoreRead: '<S98>/Data Store Read1'
+       *  DataTypeConversion: '<S98>/Cast'
+       *  RelationalOperator: '<S98>/Equal'
        */
       if (rtDWork.slot < (uint8_T)matrixRows) {
-        /* Switch: '<S96>/Switch' incorporates:
-         *  Constant: '<S96>/Constant'
-         *  DataStoreRead: '<S96>/Data Store Read'
-         *  Sum: '<S96>/Plus'
+        /* Switch: '<S98>/Switch' incorporates:
+         *  Constant: '<S98>/Constant'
+         *  DataStoreRead: '<S98>/Data Store Read'
+         *  Sum: '<S98>/Plus'
          */
         slotSelected = (uint8_T)((uint32_T)rtDWork.slot + ((uint8_T)1U));
       } else {
-        /* Switch: '<S96>/Switch' incorporates:
-         *  Constant: '<S96>/Constant2'
+        /* Switch: '<S98>/Switch' incorporates:
+         *  Constant: '<S98>/Constant2'
          */
         slotSelected = (uint8_T)1.0;
       }
 
-      /* End of Switch: '<S96>/Switch' */
+      /* End of Switch: '<S98>/Switch' */
 
-      /* DataStoreWrite: '<S96>/Data Store Write' */
+      /* DataStoreWrite: '<S98>/Data Store Write' */
       rtDWork.slot = slotSelected;
 
-      /* DataStoreWrite: '<S96>/Data Store Write1' incorporates:
-       *  Constant: '<S96>/Constant3'
+      /* DataStoreWrite: '<S98>/Data Store Write1' incorporates:
+       *  Constant: '<S98>/Constant3'
        */
       rtDWork.Local_Ticks = ((uint8_T)0U);
     }
@@ -245,7 +266,7 @@ void TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12(void)
     rtPrevZCSigState.EnabledSubsystem_Trig_ZCE = rtb_Equal;
 
     /* End of Outputs for SubSystem: '<S12>/Enabled Subsystem' */
-    /* M-S-Function: '<S97>/Level-2 M-file S-Function' */
+    /* M-S-Function: '<S99>/Level-2 M-file S-Function' */
     /* read 16-bit free running counter timestamp of the last output compare event */
     rtb_Level2MfileSFunction = TimeoutGetLastEventCounter(TIMEOUT_TIM4_PIN_PD12);
 
@@ -254,7 +275,7 @@ void TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12(void)
      */
     rtB.Sum = (uint16_T)((uint32_T)rtb_Level2MfileSFunction + ((uint16_T)1000U));
 
-    /* Update for M-S-Function: '<S98>/Level-2 M-file S-Function' incorporates:
+    /* Update for M-S-Function: '<S100>/Level-2 M-file S-Function' incorporates:
      *  Constant: '<S12>/Constant1'
      */
     /* schedule the next output compare event */
@@ -404,15 +425,15 @@ void MovingAverage(real32_T rtu_0, rtB_MovingAverage *localB, rtDW_MovingAverage
 
 /*
  * Output and update for enable system:
- *    '<S115>/Enabled Subsystem'
  *    '<S118>/Enabled Subsystem'
  *    '<S121>/Enabled Subsystem'
- *    '<S127>/Enabled Subsystem'
- *    '<S196>/Enabled Subsystem'
- *    '<S243>/Enabled Subsystem'
- *    '<S268>/Enabled Subsystem'
- *    '<S315>/Enabled Subsystem'
- *    '<S362>/Enabled Subsystem'
+ *    '<S124>/Enabled Subsystem'
+ *    '<S130>/Enabled Subsystem'
+ *    '<S199>/Enabled Subsystem'
+ *    '<S246>/Enabled Subsystem'
+ *    '<S271>/Enabled Subsystem'
+ *    '<S318>/Enabled Subsystem'
+ *    '<S365>/Enabled Subsystem'
  */
 void EnabledSubsystem(int8_T rtu_Enable, uint8_T rtu_In1, uint8_T rtu_In2,
                       uint8_T rtu_In3, uint8_T rtu_In4, uint8_T rtu_In5, uint8_T
@@ -423,117 +444,36 @@ void EnabledSubsystem(int8_T rtu_Enable, uint8_T rtu_In1, uint8_T rtu_In2,
   uint8_T rtb_In6;
   uint8_T rtb_In8;
 
-  /* Outputs for Enabled SubSystem: '<S115>/Enabled Subsystem' incorporates:
-   *  EnablePort: '<S116>/Enable'
+  /* Outputs for Enabled SubSystem: '<S118>/Enabled Subsystem' incorporates:
+   *  EnablePort: '<S119>/Enable'
    */
   if (rtu_Enable > 0) {
-    /* SignalConversion generated from: '<S116>/In1' */
+    /* SignalConversion generated from: '<S119>/In1' */
     localB->In1 = rtu_In1;
 
-    /* SignalConversion generated from: '<S116>/In2' */
+    /* SignalConversion generated from: '<S119>/In2' */
     localB->In2 = rtu_In2;
 
-    /* SignalConversion generated from: '<S116>/In3' */
+    /* SignalConversion generated from: '<S119>/In3' */
     localB->In3 = rtu_In3;
 
-    /* SignalConversion generated from: '<S116>/In4' */
+    /* SignalConversion generated from: '<S119>/In4' */
     localB->In4 = rtu_In4;
 
-    /* SignalConversion generated from: '<S116>/In5' */
+    /* SignalConversion generated from: '<S119>/In5' */
     rtb_In5 = rtu_In5;
 
-    /* SignalConversion generated from: '<S116>/In6' */
+    /* SignalConversion generated from: '<S119>/In6' */
     rtb_In6 = rtu_In6;
 
-    /* SignalConversion generated from: '<S116>/In7' */
+    /* SignalConversion generated from: '<S119>/In7' */
     localB->In7 = rtu_In7;
 
-    /* SignalConversion generated from: '<S116>/In8' */
+    /* SignalConversion generated from: '<S119>/In8' */
     rtb_In8 = rtu_In8;
   }
 
-  /* End of Outputs for SubSystem: '<S115>/Enabled Subsystem' */
-}
-
-/*
- * Disable for enable system:
- *    '<S13>/MMBS1_RX'
- *    '<S13>/SSTM1_RX'
- */
-void MMBS1_RX_Disable(rtDW_MMBS1_RX *localDW)
-{
-  localDW->MMBS1_RX_MODE = false;
-}
-
-/*
- * Start for enable system:
- *    '<S13>/MMBS1_RX'
- *    '<S13>/SSTM1_RX'
- */
-void MMBS1_RX_Start(uint32_T rtu_In1)
-{
-  /* Start for M-S-Function: '<S115>/S-Function' */
-
-  /* register a CAN storage buffer for the message with this ID */
-  CanIoCreateMessageReceivedStorage(0, rtu_In1);
-}
-
-/*
- * Outputs for enable system:
- *    '<S13>/MMBS1_RX'
- *    '<S13>/SSTM1_RX'
- */
-void MMBS1_RX(boolean_T rtu_Enable, uint32_T rtu_In1, rtB_MMBS1_RX *localB,
-              rtDW_MMBS1_RX *localDW)
-{
-  /* local block i/o variables */
-  uint8_T rtb_SFunction_o2_n2;
-  uint8_T rtb_SFunction_o3_b;
-  uint8_T rtb_SFunction_o4_l;
-  uint8_T rtb_SFunction_o5_e;
-  uint8_T rtb_SFunction_o6_k;
-  uint8_T rtb_SFunction_o7_dj;
-  uint8_T rtb_SFunction_o8_n1;
-  uint8_T rtb_SFunction_o9_ok;
-  int8_T rtb_SFunction_o1_g;
-
-  /* Outputs for Enabled SubSystem: '<S13>/MMBS1_RX' incorporates:
-   *  EnablePort: '<S99>/Enable'
-   */
-  if (rtu_Enable) {
-    localDW->MMBS1_RX_MODE = true;
-
-    /* M-S-Function: '<S115>/S-Function' */
-
-    /* read the message data and store the new parameter */
-    rtb_SFunction_o1_g = CanIoGetMessage(0, rtu_In1, NULL,
-      &canRxData_0_rtu_In1.uint8_T_info[0], NULL);
-
-    /* process the message data */
-    if (rtb_SFunction_o1_g > 0) {
-      /* read the data */
-      rtb_SFunction_o2_n2 = canRxData_0_rtu_In1.uint8_T_info[0];
-      rtb_SFunction_o3_b = canRxData_0_rtu_In1.uint8_T_info[1];
-      rtb_SFunction_o4_l = canRxData_0_rtu_In1.uint8_T_info[2];
-      rtb_SFunction_o5_e = canRxData_0_rtu_In1.uint8_T_info[3];
-      rtb_SFunction_o6_k = canRxData_0_rtu_In1.uint8_T_info[4];
-      rtb_SFunction_o7_dj = canRxData_0_rtu_In1.uint8_T_info[5];
-      rtb_SFunction_o8_n1 = canRxData_0_rtu_In1.uint8_T_info[6];
-      rtb_SFunction_o9_ok = canRxData_0_rtu_In1.uint8_T_info[7];
-    }
-
-    /* Outputs for Enabled SubSystem: '<S115>/Enabled Subsystem' */
-    EnabledSubsystem(rtb_SFunction_o1_g, rtb_SFunction_o2_n2, rtb_SFunction_o3_b,
-                     rtb_SFunction_o4_l, rtb_SFunction_o5_e, rtb_SFunction_o6_k,
-                     rtb_SFunction_o7_dj, rtb_SFunction_o8_n1,
-                     rtb_SFunction_o9_ok, &localB->EnabledSubsystem_k);
-
-    /* End of Outputs for SubSystem: '<S115>/Enabled Subsystem' */
-  } else if (localDW->MMBS1_RX_MODE) {
-    MMBS1_RX_Disable(localDW);
-  }
-
-  /* End of Outputs for SubSystem: '<S13>/MMBS1_RX' */
+  /* End of Outputs for SubSystem: '<S118>/Enabled Subsystem' */
 }
 
 /*
@@ -544,10 +484,10 @@ void MMBS1_RX(boolean_T rtu_Enable, uint32_T rtu_In1, rtB_MMBS1_RX *localB,
 void MMBS1_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, rtZCE_MMBS1_TX *localZCE)
 {
   /* Outputs for Triggered SubSystem: '<S13>/MMBS1_TX' incorporates:
-   *  TriggerPort: '<S100>/Trigger'
+   *  TriggerPort: '<S103>/Trigger'
    */
   if (rtu_Trigger && (localZCE->MMBS1_TX_Trig_ZCE != POS_ZCSIG)) {
-    /* Update for M-S-Function: '<S117>/S-Function' */
+    /* Update for M-S-Function: '<S120>/S-Function' */
     {
       /* prepare the data */
       canTxData.uint8_T_info[0] = 0U;
@@ -564,272 +504,272 @@ void MMBS1_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, rtZCE_MMBS1_TX *localZCE)
 
 /*
  * Output and update for atomic system:
- *    '<S125>/Bit Shift'
- *    '<S126>/Bit Shift'
- *    '<S194>/Bit Shift'
- *    '<S195>/Bit Shift'
- *    '<S241>/Bit Shift'
- *    '<S242>/Bit Shift'
- *    '<S266>/Bit Shift'
- *    '<S267>/Bit Shift'
- *    '<S313>/Bit Shift'
- *    '<S314>/Bit Shift'
+ *    '<S128>/Bit Shift'
+ *    '<S129>/Bit Shift'
+ *    '<S197>/Bit Shift'
+ *    '<S198>/Bit Shift'
+ *    '<S244>/Bit Shift'
+ *    '<S245>/Bit Shift'
+ *    '<S269>/Bit Shift'
+ *    '<S270>/Bit Shift'
+ *    '<S316>/Bit Shift'
+ *    '<S317>/Bit Shift'
  */
 void BitShift(uint16_T rtu_u, rtB_BitShift *localB)
 {
-  /* MATLAB Function: '<S129>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S130>:1' */
-  /* '<S130>:1:6' */
+  /* MATLAB Function: '<S132>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S133>:1' */
+  /* '<S133>:1:6' */
   localB->y = (uint16_T)(rtu_u << 8);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S128>/Bit Shift'
- *    '<S128>/Bit Shift7'
- *    '<S197>/Bit Shift'
- *    '<S197>/Bit Shift7'
- *    '<S244>/Bit Shift'
- *    '<S244>/Bit Shift7'
- *    '<S269>/Bit Shift'
- *    '<S269>/Bit Shift7'
- *    '<S316>/Bit Shift'
- *    '<S316>/Bit Shift7'
+ *    '<S131>/Bit Shift'
+ *    '<S131>/Bit Shift7'
+ *    '<S200>/Bit Shift'
+ *    '<S200>/Bit Shift7'
+ *    '<S247>/Bit Shift'
+ *    '<S247>/Bit Shift7'
+ *    '<S272>/Bit Shift'
+ *    '<S272>/Bit Shift7'
+ *    '<S319>/Bit Shift'
+ *    '<S319>/Bit Shift7'
  */
 void BitShift_g(uint8_T rtu_u, rtB_BitShift_l *localB)
 {
-  /* MATLAB Function: '<S134>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S142>:1' */
-  /* '<S142>:1:8' */
+  /* MATLAB Function: '<S137>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S145>:1' */
+  /* '<S145>:1:8' */
   localB->y = (uint8_T)((uint32_T)rtu_u >> 1);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S128>/Bit Shift1'
- *    '<S197>/Bit Shift1'
- *    '<S244>/Bit Shift1'
- *    '<S269>/Bit Shift1'
- *    '<S316>/Bit Shift1'
+ *    '<S131>/Bit Shift1'
+ *    '<S200>/Bit Shift1'
+ *    '<S247>/Bit Shift1'
+ *    '<S272>/Bit Shift1'
+ *    '<S319>/Bit Shift1'
  */
 void BitShift1(uint8_T rtu_u, rtB_BitShift1 *localB)
 {
-  /* MATLAB Function: '<S135>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S143>:1' */
-  /* '<S143>:1:8' */
+  /* MATLAB Function: '<S138>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S146>:1' */
+  /* '<S146>:1:8' */
   localB->y = (uint8_T)((uint32_T)rtu_u >> 2);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S128>/Bit Shift2'
- *    '<S197>/Bit Shift2'
- *    '<S244>/Bit Shift2'
- *    '<S269>/Bit Shift2'
- *    '<S316>/Bit Shift2'
+ *    '<S131>/Bit Shift2'
+ *    '<S200>/Bit Shift2'
+ *    '<S247>/Bit Shift2'
+ *    '<S272>/Bit Shift2'
+ *    '<S319>/Bit Shift2'
  */
 void BitShift2(uint8_T rtu_u, rtB_BitShift2 *localB)
 {
-  /* MATLAB Function: '<S136>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S144>:1' */
-  /* '<S144>:1:8' */
+  /* MATLAB Function: '<S139>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S147>:1' */
+  /* '<S147>:1:8' */
   localB->y = (uint8_T)((uint32_T)rtu_u >> 3);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S128>/Bit Shift3'
- *    '<S197>/Bit Shift3'
- *    '<S244>/Bit Shift3'
- *    '<S269>/Bit Shift3'
- *    '<S316>/Bit Shift3'
+ *    '<S131>/Bit Shift3'
+ *    '<S200>/Bit Shift3'
+ *    '<S247>/Bit Shift3'
+ *    '<S272>/Bit Shift3'
+ *    '<S319>/Bit Shift3'
  */
 void BitShift3(uint8_T rtu_u, rtB_BitShift3 *localB)
 {
-  /* MATLAB Function: '<S137>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S145>:1' */
-  /* '<S145>:1:8' */
+  /* MATLAB Function: '<S140>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S148>:1' */
+  /* '<S148>:1:8' */
   localB->y = (uint8_T)((uint32_T)rtu_u >> 4);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S128>/Bit Shift4'
- *    '<S197>/Bit Shift4'
- *    '<S244>/Bit Shift4'
- *    '<S269>/Bit Shift4'
- *    '<S316>/Bit Shift4'
+ *    '<S131>/Bit Shift4'
+ *    '<S200>/Bit Shift4'
+ *    '<S247>/Bit Shift4'
+ *    '<S272>/Bit Shift4'
+ *    '<S319>/Bit Shift4'
  */
 void BitShift4(uint8_T rtu_u, rtB_BitShift4 *localB)
 {
-  /* MATLAB Function: '<S138>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S146>:1' */
-  /* '<S146>:1:8' */
+  /* MATLAB Function: '<S141>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S149>:1' */
+  /* '<S149>:1:8' */
   localB->y = (uint8_T)((uint32_T)rtu_u >> 5);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S128>/Bit Shift5'
- *    '<S197>/Bit Shift5'
- *    '<S244>/Bit Shift5'
- *    '<S269>/Bit Shift5'
- *    '<S316>/Bit Shift5'
+ *    '<S131>/Bit Shift5'
+ *    '<S200>/Bit Shift5'
+ *    '<S247>/Bit Shift5'
+ *    '<S272>/Bit Shift5'
+ *    '<S319>/Bit Shift5'
  */
 void BitShift5(uint8_T rtu_u, rtB_BitShift5 *localB)
 {
-  /* MATLAB Function: '<S139>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S147>:1' */
-  /* '<S147>:1:8' */
+  /* MATLAB Function: '<S142>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S150>:1' */
+  /* '<S150>:1:8' */
   localB->y = (uint8_T)((uint32_T)rtu_u >> 6);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S128>/Bit Shift6'
- *    '<S197>/Bit Shift6'
- *    '<S244>/Bit Shift6'
- *    '<S269>/Bit Shift6'
- *    '<S316>/Bit Shift6'
+ *    '<S131>/Bit Shift6'
+ *    '<S200>/Bit Shift6'
+ *    '<S247>/Bit Shift6'
+ *    '<S272>/Bit Shift6'
+ *    '<S319>/Bit Shift6'
  */
 void BitShift6(uint8_T rtu_u, rtB_BitShift6 *localB)
 {
-  /* MATLAB Function: '<S140>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S148>:1' */
-  /* '<S148>:1:8' */
+  /* MATLAB Function: '<S143>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S151>:1' */
+  /* '<S151>:1:8' */
   localB->y = (uint8_T)((uint32_T)rtu_u >> 7);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S151>/Bit Shift'
- *    '<S173>/Bit Shift'
- *    '<S220>/Bit Shift'
- *    '<S292>/Bit Shift'
- *    '<S339>/Bit Shift'
+ *    '<S154>/Bit Shift'
+ *    '<S176>/Bit Shift'
+ *    '<S223>/Bit Shift'
+ *    '<S295>/Bit Shift'
+ *    '<S342>/Bit Shift'
  */
 void BitShift_gy(uint8_T rtu_u, rtB_BitShift_o *localB)
 {
-  /* MATLAB Function: '<S154>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S161>:1' */
-  /* '<S161>:1:6' */
+  /* MATLAB Function: '<S157>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S164>:1' */
+  /* '<S164>:1:6' */
   localB->y = (uint8_T)(rtu_u << 2);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S151>/Bit Shift1'
- *    '<S173>/Bit Shift1'
- *    '<S220>/Bit Shift1'
- *    '<S292>/Bit Shift1'
- *    '<S339>/Bit Shift1'
+ *    '<S154>/Bit Shift1'
+ *    '<S176>/Bit Shift1'
+ *    '<S223>/Bit Shift1'
+ *    '<S295>/Bit Shift1'
+ *    '<S342>/Bit Shift1'
  */
 void BitShift1_b(uint8_T rtu_u, rtB_BitShift1_j *localB)
 {
-  /* MATLAB Function: '<S155>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S162>:1' */
-  /* '<S162>:1:6' */
+  /* MATLAB Function: '<S158>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S165>:1' */
+  /* '<S165>:1:6' */
   localB->y = (uint8_T)(rtu_u << 1);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S151>/Bit Shift2'
- *    '<S173>/Bit Shift2'
- *    '<S220>/Bit Shift2'
- *    '<S292>/Bit Shift2'
- *    '<S339>/Bit Shift2'
+ *    '<S154>/Bit Shift2'
+ *    '<S176>/Bit Shift2'
+ *    '<S223>/Bit Shift2'
+ *    '<S295>/Bit Shift2'
+ *    '<S342>/Bit Shift2'
  */
 void BitShift2_p(uint8_T rtu_u, rtB_BitShift2_e *localB)
 {
-  /* MATLAB Function: '<S156>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S163>:1' */
-  /* '<S163>:1:6' */
+  /* MATLAB Function: '<S159>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S166>:1' */
+  /* '<S166>:1:6' */
   localB->y = (uint8_T)(rtu_u << 3);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S151>/Bit Shift3'
- *    '<S173>/Bit Shift3'
- *    '<S220>/Bit Shift3'
- *    '<S292>/Bit Shift3'
- *    '<S339>/Bit Shift3'
+ *    '<S154>/Bit Shift3'
+ *    '<S176>/Bit Shift3'
+ *    '<S223>/Bit Shift3'
+ *    '<S295>/Bit Shift3'
+ *    '<S342>/Bit Shift3'
  */
 void BitShift3_l(uint8_T rtu_u, rtB_BitShift3_g *localB)
 {
-  /* MATLAB Function: '<S157>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S164>:1' */
-  /* '<S164>:1:6' */
+  /* MATLAB Function: '<S160>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S167>:1' */
+  /* '<S167>:1:6' */
   localB->y = (uint8_T)(rtu_u << 4);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S151>/Bit Shift4'
- *    '<S173>/Bit Shift4'
- *    '<S220>/Bit Shift4'
- *    '<S292>/Bit Shift4'
- *    '<S339>/Bit Shift4'
+ *    '<S154>/Bit Shift4'
+ *    '<S176>/Bit Shift4'
+ *    '<S223>/Bit Shift4'
+ *    '<S295>/Bit Shift4'
+ *    '<S342>/Bit Shift4'
  */
 void BitShift4_g(uint8_T rtu_u, rtB_BitShift4_g *localB)
 {
-  /* MATLAB Function: '<S158>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S165>:1' */
-  /* '<S165>:1:6' */
+  /* MATLAB Function: '<S161>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S168>:1' */
+  /* '<S168>:1:6' */
   localB->y = (uint8_T)(rtu_u << 5);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S151>/Bit Shift5'
- *    '<S173>/Bit Shift5'
- *    '<S220>/Bit Shift5'
- *    '<S292>/Bit Shift5'
- *    '<S339>/Bit Shift5'
+ *    '<S154>/Bit Shift5'
+ *    '<S176>/Bit Shift5'
+ *    '<S223>/Bit Shift5'
+ *    '<S295>/Bit Shift5'
+ *    '<S342>/Bit Shift5'
  */
 void BitShift5_n(uint8_T rtu_u, rtB_BitShift5_e *localB)
 {
-  /* MATLAB Function: '<S159>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S166>:1' */
-  /* '<S166>:1:6' */
+  /* MATLAB Function: '<S162>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S169>:1' */
+  /* '<S169>:1:6' */
   localB->y = (uint8_T)(rtu_u << 6);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S151>/Bit Shift6'
- *    '<S173>/Bit Shift6'
- *    '<S220>/Bit Shift6'
- *    '<S292>/Bit Shift6'
- *    '<S339>/Bit Shift6'
+ *    '<S154>/Bit Shift6'
+ *    '<S176>/Bit Shift6'
+ *    '<S223>/Bit Shift6'
+ *    '<S295>/Bit Shift6'
+ *    '<S342>/Bit Shift6'
  */
 void BitShift6_d(uint8_T rtu_u, rtB_BitShift6_b *localB)
 {
-  /* MATLAB Function: '<S160>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S167>:1' */
-  /* '<S167>:1:6' */
+  /* MATLAB Function: '<S163>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S170>:1' */
+  /* '<S170>:1:6' */
   localB->y = (uint8_T)(rtu_u << 7);
 }
 
 /*
  * Output and update for atomic system:
- *    '<S152>/Bit Shift'
- *    '<S153>/Bit Shift'
- *    '<S174>/Bit Shift'
- *    '<S175>/Bit Shift'
- *    '<S221>/Bit Shift'
- *    '<S222>/Bit Shift'
- *    '<S293>/Bit Shift'
- *    '<S294>/Bit Shift'
- *    '<S340>/Bit Shift'
- *    '<S341>/Bit Shift'
+ *    '<S155>/Bit Shift'
+ *    '<S156>/Bit Shift'
+ *    '<S177>/Bit Shift'
+ *    '<S178>/Bit Shift'
+ *    '<S224>/Bit Shift'
+ *    '<S225>/Bit Shift'
+ *    '<S296>/Bit Shift'
+ *    '<S297>/Bit Shift'
+ *    '<S343>/Bit Shift'
+ *    '<S344>/Bit Shift'
  */
 void BitShift_o(uint16_T rtu_u, rtB_BitShift_c *localB)
 {
-  /* MATLAB Function: '<S168>/bit_shift' */
-  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S169>:1' */
-  /* '<S169>:1:8' */
+  /* MATLAB Function: '<S171>/bit_shift' */
+  /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S172>:1' */
+  /* '<S172>:1:8' */
   localB->y = (uint16_T)((uint32_T)rtu_u >> 8);
 }
 
@@ -837,7 +777,6 @@ void BitShift_o(uint16_T rtu_u, rtB_BitShift_c *localB)
  * Output and update for trigger system:
  *    '<S13>/TRCK1_ID2_TX'
  *    '<S13>/TRCK1_ID3_TX'
- *    '<S13>/TRCK1_TX'
  */
 void TRCK1_ID2_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, const uint8_T
                   *rtd_Local_Ticks, const boolean_T *rtd_motorFailed, const
@@ -848,55 +787,55 @@ void TRCK1_ID2_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, const uint8_T
   uint8_T rtb_Cast1_j;
 
   /* Outputs for Triggered SubSystem: '<S13>/TRCK1_ID2_TX' incorporates:
-   *  TriggerPort: '<S106>/Trigger'
+   *  TriggerPort: '<S109>/Trigger'
    */
   if (rtu_Trigger && (localZCE->TRCK1_ID2_TX_Trig_ZCE != POS_ZCSIG)) {
-    /* DataStoreRead: '<S106>/Data Store Read2' */
+    /* DataStoreRead: '<S109>/Data Store Read2' */
     localB->DataStoreRead2 = *rtd_Local_Ticks;
 
-    /* DataTypeConversion: '<S151>/Cast1' incorporates:
-     *  DataStoreRead: '<S106>/Data Store Read4'
+    /* DataTypeConversion: '<S154>/Cast1' incorporates:
+     *  DataStoreRead: '<S109>/Data Store Read4'
      */
     rtb_Cast1_j = *rtd_potFault;
 
-    /* Outputs for Atomic SubSystem: '<S151>/Bit Shift1' */
+    /* Outputs for Atomic SubSystem: '<S154>/Bit Shift1' */
     BitShift1_b(rtb_Cast1_j, &localB->BitShift1_b0);
 
-    /* End of Outputs for SubSystem: '<S151>/Bit Shift1' */
+    /* End of Outputs for SubSystem: '<S154>/Bit Shift1' */
 
-    /* Outputs for Atomic SubSystem: '<S151>/Bit Shift' */
+    /* Outputs for Atomic SubSystem: '<S154>/Bit Shift' */
     BitShift_gy(localC->Cast, &localB->BitShift_gyk);
 
-    /* End of Outputs for SubSystem: '<S151>/Bit Shift' */
+    /* End of Outputs for SubSystem: '<S154>/Bit Shift' */
 
-    /* Outputs for Atomic SubSystem: '<S151>/Bit Shift2' */
+    /* Outputs for Atomic SubSystem: '<S154>/Bit Shift2' */
     BitShift2_p(localC->Cast2, &localB->BitShift2_pw);
 
-    /* End of Outputs for SubSystem: '<S151>/Bit Shift2' */
+    /* End of Outputs for SubSystem: '<S154>/Bit Shift2' */
 
-    /* Outputs for Atomic SubSystem: '<S151>/Bit Shift3' */
+    /* Outputs for Atomic SubSystem: '<S154>/Bit Shift3' */
     BitShift3_l(localC->Cast3, &localB->BitShift3_lh);
 
-    /* End of Outputs for SubSystem: '<S151>/Bit Shift3' */
+    /* End of Outputs for SubSystem: '<S154>/Bit Shift3' */
 
-    /* Outputs for Atomic SubSystem: '<S151>/Bit Shift4' */
+    /* Outputs for Atomic SubSystem: '<S154>/Bit Shift4' */
     BitShift4_g(localC->Cast4, &localB->BitShift4_g2);
 
-    /* End of Outputs for SubSystem: '<S151>/Bit Shift4' */
+    /* End of Outputs for SubSystem: '<S154>/Bit Shift4' */
 
-    /* Outputs for Atomic SubSystem: '<S151>/Bit Shift5' */
+    /* Outputs for Atomic SubSystem: '<S154>/Bit Shift5' */
     BitShift5_n(localC->Cast5, &localB->BitShift5_nr);
 
-    /* End of Outputs for SubSystem: '<S151>/Bit Shift5' */
+    /* End of Outputs for SubSystem: '<S154>/Bit Shift5' */
 
-    /* Outputs for Atomic SubSystem: '<S151>/Bit Shift6' */
+    /* Outputs for Atomic SubSystem: '<S154>/Bit Shift6' */
     BitShift6_d(localC->Cast6, &localB->BitShift6_dc);
 
-    /* End of Outputs for SubSystem: '<S151>/Bit Shift6' */
+    /* End of Outputs for SubSystem: '<S154>/Bit Shift6' */
 
-    /* Sum: '<S151>/Add' incorporates:
-     *  DataStoreRead: '<S106>/Data Store Read3'
-     *  DataTypeConversion: '<S151>/Cast7'
+    /* Sum: '<S154>/Add' incorporates:
+     *  DataStoreRead: '<S109>/Data Store Read3'
+     *  DataTypeConversion: '<S154>/Cast7'
      */
     localB->Add = (uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)((uint32_T)
       (uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)
@@ -905,37 +844,37 @@ void TRCK1_ID2_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, const uint8_T
       + localB->BitShift4_g2.y) + localB->BitShift5_nr.y) +
       localB->BitShift6_dc.y);
 
-    /* Outputs for Atomic SubSystem: '<S152>/Bit Shift' */
-    /* DataStoreRead: '<S106>/Data Store Read1' */
+    /* Outputs for Atomic SubSystem: '<S155>/Bit Shift' */
+    /* DataStoreRead: '<S109>/Data Store Read1' */
     BitShift_o(*rtd_potentiometer2, &localB->BitShift_of);
 
-    /* End of Outputs for SubSystem: '<S152>/Bit Shift' */
+    /* End of Outputs for SubSystem: '<S155>/Bit Shift' */
 
-    /* DataTypeConversion: '<S152>/Cast' */
+    /* DataTypeConversion: '<S155>/Cast' */
     localB->Cast = (uint8_T)localB->BitShift_of.y;
 
-    /* DataTypeConversion: '<S152>/Cast1' incorporates:
-     *  DataStoreRead: '<S106>/Data Store Read1'
+    /* DataTypeConversion: '<S155>/Cast1' incorporates:
+     *  DataStoreRead: '<S109>/Data Store Read1'
      */
     localB->Cast1 = (uint8_T)*rtd_potentiometer2;
 
-    /* Outputs for Atomic SubSystem: '<S153>/Bit Shift' */
-    /* DataStoreRead: '<S106>/Data Store Read' */
+    /* Outputs for Atomic SubSystem: '<S156>/Bit Shift' */
+    /* DataStoreRead: '<S109>/Data Store Read' */
     BitShift_o(*rtd_potentiometer1, &localB->BitShift_h);
 
-    /* End of Outputs for SubSystem: '<S153>/Bit Shift' */
+    /* End of Outputs for SubSystem: '<S156>/Bit Shift' */
 
-    /* DataTypeConversion: '<S153>/Cast' */
+    /* DataTypeConversion: '<S156>/Cast' */
     localB->Cast_k = (uint8_T)localB->BitShift_h.y;
 
-    /* DataTypeConversion: '<S153>/Cast1' incorporates:
-     *  DataStoreRead: '<S106>/Data Store Read'
+    /* DataTypeConversion: '<S156>/Cast1' incorporates:
+     *  DataStoreRead: '<S109>/Data Store Read'
      */
     localB->Cast1_i = (uint8_T)*rtd_potentiometer1;
 
-    /* Update for M-S-Function: '<S150>/S-Function' incorporates:
-     *  Constant: '<S106>/Constant'
-     *  Constant: '<S106>/Constant1'
+    /* Update for M-S-Function: '<S153>/S-Function' incorporates:
+     *  Constant: '<S109>/Constant'
+     *  Constant: '<S109>/Constant1'
      */
     {
       /* prepare the data */
@@ -956,6 +895,19 @@ void TRCK1_ID2_TX(boolean_T rtu_Trigger, uint32_T rtu_In1, const uint8_T
   localZCE->TRCK1_ID2_TX_Trig_ZCE = rtu_Trigger;
 
   /* End of Outputs for SubSystem: '<S13>/TRCK1_ID2_TX' */
+}
+
+static void SystemCore_setup_l(dsp_simulink_MovingAverage *obj)
+{
+  obj->isSetupComplete = false;
+  obj->isInitialized = 1;
+  obj->NumChannels = 1;
+  obj->FrameLength = 1;
+  obj->_pobj0.isInitialized = 0;
+  obj->_pobj0.isInitialized = 0;
+  obj->pStatistic = &obj->_pobj0;
+  obj->isSetupComplete = true;
+  obj->TunablePropsChanged = false;
 }
 
 /* Model step function */
@@ -1020,6 +972,22 @@ void HANcoder_E407_TTA_CombineModel_step(void)
   uint8_T rtb_SFunction_o7_k;
   uint8_T rtb_SFunction_o8_n;
   uint8_T rtb_SFunction_o9_b1;
+  uint8_T rtb_SFunction_o2_c;
+  uint8_T rtb_SFunction_o3_f;
+  uint8_T rtb_SFunction_o4_k;
+  uint8_T rtb_SFunction_o5_h;
+  uint8_T rtb_SFunction_o6_k;
+  uint8_T rtb_SFunction_o7_e;
+  uint8_T rtb_SFunction_o8_pe;
+  uint8_T rtb_SFunction_o9_f;
+  uint8_T rtb_SFunction_o2_n2;
+  uint8_T rtb_SFunction_o3_b;
+  uint8_T rtb_SFunction_o4_l;
+  uint8_T rtb_SFunction_o5_e;
+  uint8_T rtb_SFunction_o6_k1;
+  uint8_T rtb_SFunction_o7_dj;
+  uint8_T rtb_SFunction_o8_n1;
+  uint8_T rtb_SFunction_o9_ok;
   int8_T rtb_SFunction_o1;
   int8_T rtb_SFunction_o1_n;
   int8_T rtb_SFunction_o1_k;
@@ -1027,44 +995,59 @@ void HANcoder_E407_TTA_CombineModel_step(void)
   int8_T rtb_SFunction_o1_ns;
   int8_T rtb_SFunction_o1_p;
   int8_T rtb_SFunction_o1_h;
+  int8_T rtb_SFunction_o1_b;
+  int8_T rtb_SFunction_o1_g;
   boolean_T rtb_Level2MfileSFunction_j;
+  g_dsp_internal_SlidingWindowAve *obj;
   real_T rtb_IntegralGain;
   real_T rtb_Integrator;
   real_T rtb_Integrator_tmp;
   real_T rtb_Uk1;
   real_T tmp;
+  int32_T i;
   int_T idxDelay;
+  real32_T csumrev[9];
+  real32_T csum;
+  real32_T cumRevIndex;
+  real32_T modValueRev;
+  real32_T z;
+  uint32_T IOexecution_ELAPS_T[2];
+  uint32_T IOexecution_ELAPS_T_tmp;
   int16_T u;
-  uint16_T rtb_Cast_b0;
-  uint16_T rtb_Cast_c;
-  uint16_T rtb_Cast_ci;
-  uint16_T rtb_Cast_d1;
-  uint16_T rtb_Cast_gr;
+  uint16_T rtb_Cast_d;
+  uint16_T rtb_Cast_e1;
+  uint16_T rtb_Cast_g;
+  uint16_T rtb_Cast_gh;
   uint16_T rtb_Cast_i;
-  uint16_T rtb_Cast_i1;
-  uint16_T rtb_Cast_k;
+  uint16_T rtb_Cast_j;
+  uint16_T rtb_Cast_ky;
+  uint16_T rtb_Cast_lr;
   uint16_T rtb_Cast_o;
-  uint16_T rtb_Cast_p;
+  uint16_T rtb_Cast_ow;
+  uint16_T rtb_DataStoreRead8;
+  uint16_T rtb_TSamp;
   int8_T tmp_0;
   int8_T tmp_1;
-  uint8_T rtb_Cast1_e;
-  uint8_T rtb_Cast1_l;
+  uint8_T rtb_Cast1_cy;
+  uint8_T rtb_Cast1_j;
+  uint8_T rtb_Cast1_m;
   uint8_T rtb_Multiply;
   uint8_T rtb_Multiply1;
-  boolean_T AND3;
-  boolean_T AND5;
   boolean_T rtb_AND;
   boolean_T rtb_AND10;
   boolean_T rtb_AND13;
   boolean_T rtb_AND15;
   boolean_T rtb_AND1_k;
   boolean_T rtb_AND2;
+  boolean_T rtb_AND3;
   boolean_T rtb_AND4;
-  boolean_T rtb_AND6;
+  boolean_T rtb_AND5;
   boolean_T rtb_AND7;
   boolean_T rtb_AND8;
   boolean_T rtb_AND9;
+  boolean_T rtb_DataStoreRead11;
   boolean_T rtb_Equal17;
+  boolean_T rtb_Logic_f_idx_0;
   boolean_T rtb_Logic_idx_0;
   boolean_T rtb_OR1;
   ZCEventType zcEvent;
@@ -1083,7 +1066,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
      */
     rtDWork.init_clock = 1.0;
 
-    /* Update for M-S-Function: '<S95>/Level-2 M-file S-Function' incorporates:
+    /* Update for M-S-Function: '<S97>/Level-2 M-file S-Function' incorporates:
      *  Constant: '<S11>/Constant'
      *  Constant: '<S11>/Constant1'
      */
@@ -1369,117 +1352,258 @@ void HANcoder_E407_TTA_CombineModel_step(void)
    *  TriggerPort: '<S10>/Trigger'
    */
   if (rtb_OR1 && (rtPrevZCSigState.IOexecution_Trig_ZCE != POS_ZCSIG)) {
-    /* CombinatorialLogic: '<S90>/Logic' incorporates:
-     *  Delay: '<S80>/Delay'
-     *  Delay: '<S80>/Delay1'
-     *  Delay: '<S80>/Delay2'
+    IOexecution_ELAPS_T_tmp = rtM->Timing.clockTick0;
+    IOexecution_ELAPS_T[0] = IOexecution_ELAPS_T_tmp -
+      rtDWork.IOexecution_PREV_T[0];
+    rtDWork.IOexecution_PREV_T[0] = IOexecution_ELAPS_T_tmp;
+    rtDWork.IOexecution_PREV_T[1] = rtM->Timing.clockTickH0;
+
+    /* Delay: '<S80>/Delay' */
+    mf1 = rtDWork.Delay_DSTATE[0];
+
+    /* Delay: '<S80>/Delay1' */
+    mf2 = rtDWork.Delay1_DSTATE[0];
+
+    /* Delay: '<S80>/Delay2' */
+    mf3 = rtDWork.Delay2_DSTATE[0];
+
+    /* Delay: '<S80>/Delay4' */
+    mf4 = rtDWork.Delay4_DSTATE[0];
+
+    /* Delay: '<S80>/Delay3' */
+    mf5 = rtDWork.Delay3_DSTATE[0];
+
+    /* CombinatorialLogic: '<S91>/Logic' incorporates:
      *  Logic: '<S80>/AND1'
-     *  Memory: '<S90>/Memory'
+     *  Memory: '<S91>/Memory'
      */
-    rtb_Logic_idx_0 = rtConstP.Logic_table[((((uint32_T)(rtDWork.Delay_DSTATE[0]
-      && rtDWork.Delay1_DSTATE[0] && rtDWork.Delay2_DSTATE[0]) << 1) + false) <<
-      1) + rtDWork.Memory_PreviousInput];
+    rtb_Logic_idx_0 = rtConstP.pooled23[((((uint32_T)(mf1 && mf2 && mf3 && mf4 &&
+      mf5) << 1) + false) << 1) + rtDWork.Memory_PreviousInput];
 
     /* Logic: '<S80>/AND2' incorporates:
      *  Constant: '<S80>/Constant2'
      *  DataStoreRead: '<S1>/Data Store Read'
-     *  DataStoreWrite: '<S80>/Data Store Write'
      *  RelationalOperator: '<S80>/Equal1'
      */
-    rtDWork.motorFailed = (rtb_Logic_idx_0 && (rtDWork.nodeRole == ((uint8_T)1U)));
+    motorFaultDetected = (rtb_Logic_idx_0 && (rtDWork.nodeRole == ((uint8_T)1U)));
+
+    /* DataStoreWrite: '<S80>/Data Store Write' */
+    rtDWork.motorFailed = motorFaultDetected;
+
+    /* DataStoreRead: '<S80>/Data Store Read5' */
+    potRaw = rtDWork.potentiometer1Raw;
+
+    /* DataStoreRead: '<S80>/Data Store Read6' */
+    lastPot = rtDWork.lastPot1;
 
     /* Sum: '<S80>/Add' incorporates:
-     *  DataStoreRead: '<S80>/Data Store Read5'
-     *  DataStoreRead: '<S80>/Data Store Read6'
      *  DataTypeConversion: '<S80>/Cast'
      *  DataTypeConversion: '<S80>/Cast1'
      */
-    u = (int16_T)((int16_T)rtDWork.potentiometer1 - (int16_T)rtDWork.lastPot1);
+    u = (int16_T)((int16_T)potRaw - (int16_T)lastPot);
 
     /* Abs: '<S80>/Abs' */
     if (u < 0) {
       u = (int16_T)-u;
     }
 
-    /* RelationalOperator: '<S80>/GreaterThan1' incorporates:
+    /* CombinatorialLogic: '<S92>/Logic' incorporates:
      *  Abs: '<S80>/Abs'
      *  Constant: '<S80>/Constant1'
-     *  DataStoreWrite: '<S80>/Data Store Write2'
+     *  Delay: '<S80>/Delay6'
+     *  Logic: '<S80>/AND3'
+     *  Memory: '<S92>/Memory'
+     *  RelationalOperator: '<S80>/GreaterThan1'
      */
-    rtDWork.potFault = (u > 500);
+    rtb_Logic_f_idx_0 = rtConstP.pooled23[((((uint32_T)((u > 500) &&
+      rtDWork.Delay6_DSTATE[0]) << 1) + false) << 1) +
+      rtDWork.Memory_PreviousInput_a];
+
+    /* DataStoreWrite: '<S80>/Data Store Write2' */
+    rtDWork.potFault = rtb_Logic_f_idx_0;
+
+    /* Delay: '<S80>/Delay7' incorporates:
+     *  DataStoreWrite: '<S80>/Data Store Write1'
+     */
+    rtDWork.lastPot1 = rtDWork.Delay7_DSTATE[0];
 
     /* Logic: '<S80>/AND' incorporates:
      *  Constant: '<S80>/Constant'
+     *  DataStoreRead: '<S80>/Data Store Read2'
      *  DataStoreRead: '<S80>/Data Store Read4'
+     *  Delay: '<S80>/Delay5'
+     *  RelationalOperator: '<S80>/Equal'
      *  RelationalOperator: '<S80>/GreaterThan'
      */
-    rtb_Equal17 = (rtDWork.pwmMotor > ((uint16_T)600U));
+    rtb_Equal17 = ((rtDWork.Delay5_DSTATE[0] == rtDWork.encoderPosition) &&
+                   (rtDWork.pwmMotor > ((uint16_T)650U)));
+
+    /* SampleTimeMath: '<S90>/TSamp'
+     *
+     * About '<S90>/TSamp':
+     *  y = u * K where K = 1 / ( w * Ts )
+     */
+    rtb_TSamp = (uint16_T)(potRaw * 1000U / IOexecution_ELAPS_T[0]);
+
+    /* Sum: '<S90>/Diff' incorporates:
+     *  UnitDelay: '<S90>/UD'
+     *
+     * Block description for '<S90>/Diff':
+     *
+     *  Add in CPU
+     *
+     * Block description for '<S90>/UD':
+     *
+     *  Store in Global RAM
+     */
+    derivative = (uint16_T)(rtb_TSamp - rtDWork.UD_DSTATE);
+
+    /* DataStoreRead: '<S80>/Data Store Read11' */
+    rtb_DataStoreRead11 = rtDWork.ioInitialized;
+
+    /* MATLABSystem: '<S80>/Moving Average' */
+    if (rtDWork.obj.TunablePropsChanged) {
+      rtDWork.obj.TunablePropsChanged = false;
+    }
+
+    obj = rtDWork.obj.pStatistic;
+    if (obj->isInitialized != 1) {
+      obj->isSetupComplete = false;
+      obj->isInitialized = 1;
+      obj->pCumSum = 0.0F;
+      for (i = 0; i < 9; i++) {
+        obj->pCumSumRev[i] = 0.0F;
+      }
+
+      obj->pCumRevIndex = 1.0F;
+      obj->pModValueRev = 0.0F;
+      obj->isSetupComplete = true;
+      obj->pCumSum = 0.0F;
+      for (i = 0; i < 9; i++) {
+        obj->pCumSumRev[i] = 0.0F;
+      }
+
+      obj->pCumRevIndex = 1.0F;
+      obj->pModValueRev = 0.0F;
+    }
+
+    cumRevIndex = obj->pCumRevIndex;
+    csum = obj->pCumSum;
+    for (i = 0; i < 9; i++) {
+      csumrev[i] = obj->pCumSumRev[i];
+    }
+
+    modValueRev = obj->pModValueRev;
+    z = 0.0F;
+
+    /* MATLABSystem: '<S80>/Moving Average' */
+    derivativeMean = 0.0F;
+
+    /* MATLABSystem: '<S80>/Moving Average' incorporates:
+     *  DataTypeConversion: '<S80>/Cast2'
+     */
+    csum += (real32_T)derivative;
+    if (modValueRev == 0.0F) {
+      z = csumrev[(int32_T)cumRevIndex - 1] + csum;
+    }
+
+    csumrev[(int32_T)cumRevIndex - 1] = derivative;
+    if (cumRevIndex != 9.0F) {
+      cumRevIndex++;
+    } else {
+      cumRevIndex = 1.0F;
+      csum = 0.0F;
+      for (i = 7; i >= 0; i--) {
+        csumrev[i] += csumrev[i + 1];
+      }
+    }
+
+    if (modValueRev == 0.0F) {
+      /* MATLABSystem: '<S80>/Moving Average' */
+      derivativeMean = z / 10.0F;
+    }
+
+    obj->pCumSum = csum;
+    for (i = 0; i < 9; i++) {
+      obj->pCumSumRev[i] = csumrev[i];
+    }
+
+    obj->pCumRevIndex = cumRevIndex;
+    if (modValueRev > 0.0F) {
+      obj->pModValueRev = modValueRev - 1.0F;
+    } else {
+      obj->pModValueRev = 0.0F;
+    }
 
     /* Outputs for Enabled SubSystem: '<S80>/Triggered Subsystem' incorporates:
-     *  EnablePort: '<S91>/Enable'
+     *  EnablePort: '<S93>/Enable'
      */
     /* Logic: '<S80>/NOT' incorporates:
      *  DataStoreRead: '<S80>/Data Store Read1'
+     *  DataStoreRead: '<S80>/Data Store Read9'
+     *  Logic: '<S80>/OR'
      */
-    if (!rtDWork.node4Active) {
-      /* Gain: '<S91>/Gain' incorporates:
-       *  DataStoreRead: '<S91>/Data Store Read'
-       *  DataStoreWrite: '<S91>/Data Store Write1'
-       */
-      rtDWork.trailerOneAngle = (uint16_T)(((uint32_T)((uint16_T)62602U) *
-        rtDWork.potentiometer2) >> 22);
-    }
-
-    /* End of Logic: '<S80>/NOT' */
-    /* End of Outputs for SubSystem: '<S80>/Triggered Subsystem' */
-
-    /* Outputs for Enabled SubSystem: '<S80>/Triggered Subsystem1' incorporates:
-     *  EnablePort: '<S92>/Enable'
-     */
-    /* DataStoreRead: '<S80>/Data Store Read1' */
-    if (rtDWork.node4Active) {
-      /* Gain: '<S92>/Gain' incorporates:
-       *  DataStoreRead: '<S92>/Data Store Read1'
-       *  DataStoreWrite: '<S92>/Data Store Write1'
-       */
-      rtDWork.trailerOneAngle = (uint16_T)(((uint32_T)((uint16_T)62602U) *
-        rtDWork.pot4_1) >> 22);
-    }
-
-    /* End of Outputs for SubSystem: '<S80>/Triggered Subsystem1' */
-
-    /* Outputs for Enabled SubSystem: '<S80>/Triggered Subsystem2' incorporates:
-     *  EnablePort: '<S93>/Enable'
-     */
-    /* Logic: '<S80>/NOT1' incorporates:
-     *  DataStoreRead: '<S80>/Data Store Read3'
-     */
-    if (!rtDWork.node5Active) {
+    if ((!rtDWork.node4Active) && (!rtDWork.potReadNode4Fail)) {
       /* Gain: '<S93>/Gain' incorporates:
        *  DataStoreRead: '<S93>/Data Store Read'
        *  DataStoreWrite: '<S93>/Data Store Write1'
        */
       rtDWork.trailerOneAngle = (uint16_T)(((uint32_T)((uint16_T)62602U) *
-        rtDWork.pot4_2) >> 22);
-    }
-
-    /* End of Logic: '<S80>/NOT1' */
-    /* End of Outputs for SubSystem: '<S80>/Triggered Subsystem2' */
-
-    /* Outputs for Enabled SubSystem: '<S80>/Triggered Subsystem3' incorporates:
-     *  EnablePort: '<S94>/Enable'
-     */
-    /* DataStoreRead: '<S80>/Data Store Read3' */
-    if (rtDWork.node5Active) {
+        rtDWork.potentiometer2) >> 22);
+    } else {
+      /* Outputs for Enabled SubSystem: '<S80>/Triggered Subsystem1' incorporates:
+       *  EnablePort: '<S94>/Enable'
+       */
       /* Gain: '<S94>/Gain' incorporates:
        *  DataStoreRead: '<S94>/Data Store Read1'
        *  DataStoreWrite: '<S94>/Data Store Write1'
        */
       rtDWork.trailerOneAngle = (uint16_T)(((uint32_T)((uint16_T)62602U) *
-        rtDWork.pot5_1) >> 22);
+        rtDWork.pot4_1) >> 22);
+
+      /* End of Outputs for SubSystem: '<S80>/Triggered Subsystem1' */
     }
 
-    /* End of Outputs for SubSystem: '<S80>/Triggered Subsystem3' */
+    /* End of Logic: '<S80>/NOT' */
+    /* End of Outputs for SubSystem: '<S80>/Triggered Subsystem' */
+
+    /* Outputs for Enabled SubSystem: '<S80>/Triggered Subsystem2' incorporates:
+     *  EnablePort: '<S95>/Enable'
+     */
+    /* Logic: '<S80>/NOT1' incorporates:
+     *  DataStoreRead: '<S80>/Data Store Read10'
+     *  DataStoreRead: '<S80>/Data Store Read3'
+     *  Logic: '<S80>/OR1'
+     */
+    if ((!rtDWork.node5Active) && (!rtDWork.potReadNode5Fail)) {
+      /* Gain: '<S95>/Gain' incorporates:
+       *  DataStoreRead: '<S95>/Data Store Read'
+       *  DataStoreWrite: '<S95>/Data Store Write1'
+       */
+      rtDWork.trailerOneAngle = (uint16_T)(((uint32_T)((uint16_T)62602U) *
+        rtDWork.pot4_2) >> 22);
+    } else {
+      /* Outputs for Enabled SubSystem: '<S80>/Triggered Subsystem3' incorporates:
+       *  EnablePort: '<S96>/Enable'
+       */
+      /* Gain: '<S96>/Gain' incorporates:
+       *  DataStoreRead: '<S96>/Data Store Read1'
+       *  DataStoreWrite: '<S96>/Data Store Write1'
+       */
+      rtDWork.trailerOneAngle = (uint16_T)(((uint32_T)((uint16_T)62602U) *
+        rtDWork.pot5_1) >> 22);
+
+      /* End of Outputs for SubSystem: '<S80>/Triggered Subsystem3' */
+    }
+
+    /* End of Logic: '<S80>/NOT1' */
+    /* End of Outputs for SubSystem: '<S80>/Triggered Subsystem2' */
+
+    /* DataStoreRead: '<S80>/Data Store Read7' */
+    i = rtDWork.encoderPosition;
+
+    /* DataStoreRead: '<S80>/Data Store Read8' */
+    rtb_DataStoreRead8 = rtDWork.potentiometer1Raw;
 
     /* M-S-Function: '<S82>/Level-2 M-file S-Function' */
     /* read from analog input for filtered inputs*/
@@ -1495,6 +1619,9 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     /* DataStoreWrite: '<S78>/Data Store Write1' */
     rtDWork.potentiometer1 = pot1;
 
+    /* DataStoreWrite: '<S78>/Data Store Write4' */
+    rtDWork.potentiometer1Raw = analogPot1;
+
     /* M-S-Function: '<S83>/Level-2 M-file S-Function' */
     /* read from analog input for filtered inputs*/
     analogPot2 = AninGet(ANIN_PORTF_PIN8,0);
@@ -1508,6 +1635,9 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
     /* DataStoreWrite: '<S78>/Data Store Write3' */
     rtDWork.potentiometer2 = pot2;
+
+    /* DataStoreWrite: '<S78>/Data Store Write5' */
+    rtDWork.ioInitialized = ioInit;
 
     /* Gain: '<S78>/Gain' incorporates:
      *  Constant: '<S78>/Constant2'
@@ -1579,23 +1709,76 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     rtDWork.Delay_DSTATE[1] = rtb_Equal17;
 
     /* Update for Delay: '<S80>/Delay1' */
-    rtDWork.Delay1_DSTATE[0] = rtDWork.Delay1_DSTATE[1];
-    rtDWork.Delay1_DSTATE[1] = rtDWork.Delay1_DSTATE[2];
-    rtDWork.Delay1_DSTATE[2] = rtDWork.Delay1_DSTATE[3];
-    rtDWork.Delay1_DSTATE[3] = rtDWork.Delay1_DSTATE[4];
-    rtDWork.Delay1_DSTATE[4] = rtb_Equal17;
+    for (idxDelay = 0; idxDelay < 8; idxDelay++) {
+      rtDWork.Delay1_DSTATE[idxDelay] = rtDWork.Delay1_DSTATE[idxDelay + 1];
+    }
+
+    rtDWork.Delay1_DSTATE[8] = rtb_Equal17;
+
+    /* End of Update for Delay: '<S80>/Delay1' */
 
     /* Update for Delay: '<S80>/Delay2' */
-    for (idxDelay = 0; idxDelay < 9; idxDelay++) {
+    for (idxDelay = 0; idxDelay < 15; idxDelay++) {
       rtDWork.Delay2_DSTATE[idxDelay] = rtDWork.Delay2_DSTATE[idxDelay + 1];
     }
 
-    rtDWork.Delay2_DSTATE[9] = rtb_Equal17;
+    rtDWork.Delay2_DSTATE[15] = rtb_Equal17;
 
     /* End of Update for Delay: '<S80>/Delay2' */
 
-    /* Update for Memory: '<S90>/Memory' */
+    /* Update for Delay: '<S80>/Delay4' */
+    for (idxDelay = 0; idxDelay < 24; idxDelay++) {
+      rtDWork.Delay4_DSTATE[idxDelay] = rtDWork.Delay4_DSTATE[idxDelay + 1];
+    }
+
+    rtDWork.Delay4_DSTATE[24] = rtb_Equal17;
+
+    /* End of Update for Delay: '<S80>/Delay4' */
+
+    /* Update for Delay: '<S80>/Delay3' */
+    for (idxDelay = 0; idxDelay < 34; idxDelay++) {
+      rtDWork.Delay3_DSTATE[idxDelay] = rtDWork.Delay3_DSTATE[idxDelay + 1];
+    }
+
+    rtDWork.Delay3_DSTATE[34] = rtb_Equal17;
+
+    /* End of Update for Delay: '<S80>/Delay3' */
+
+    /* Update for Memory: '<S91>/Memory' */
     rtDWork.Memory_PreviousInput = rtb_Logic_idx_0;
+
+    /* Update for Delay: '<S80>/Delay6' */
+    for (idxDelay = 0; idxDelay < 9; idxDelay++) {
+      rtDWork.Delay6_DSTATE[idxDelay] = rtDWork.Delay6_DSTATE[idxDelay + 1];
+    }
+
+    rtDWork.Delay6_DSTATE[9] = rtb_DataStoreRead11;
+
+    /* End of Update for Delay: '<S80>/Delay6' */
+
+    /* Update for Memory: '<S92>/Memory' */
+    rtDWork.Memory_PreviousInput_a = rtb_Logic_f_idx_0;
+
+    /* Update for Delay: '<S80>/Delay5' */
+    for (idxDelay = 0; idxDelay < 6; idxDelay++) {
+      rtDWork.Delay5_DSTATE[idxDelay] = rtDWork.Delay5_DSTATE[idxDelay + 1];
+    }
+
+    rtDWork.Delay5_DSTATE[6] = i;
+
+    /* End of Update for Delay: '<S80>/Delay5' */
+
+    /* Update for Delay: '<S80>/Delay7' */
+    rtDWork.Delay7_DSTATE[0] = rtDWork.Delay7_DSTATE[1];
+    rtDWork.Delay7_DSTATE[1] = rtb_DataStoreRead8;
+
+    /* Update for UnitDelay: '<S90>/UD'
+     *
+     * Block description for '<S90>/UD':
+     *
+     *  Store in Global RAM
+     */
+    rtDWork.UD_DSTATE = rtb_TSamp;
 
     /* Update for UnitDelay: '<S84>/Delay Input1'
      *
@@ -1657,25 +1840,84 @@ void HANcoder_E407_TTA_CombineModel_step(void)
      */
     rtb_Level2MfileSFunction_j = (slotSelected == 2.0);
 
-    /* RelationalOperator: '<S13>/Equal11' incorporates:
+    /* Logic: '<S101>/AND16' incorporates:
+     *  Constant: '<S101>/Constant4'
+     *  DataStoreRead: '<S101>/Data Store Read'
+     *  DataStoreRead: '<S1>/Data Store Read'
+     *  RelationalOperator: '<S101>/Equal4'
+     */
+    rtb_OR1 = ((rtDWork.nodeRole == 2.0) && rtDWork.node1CanFailed);
+
+    /* Logic: '<S13>/OR' incorporates:
      *  Constant: '<S13>/Constant13'
      *  DataStoreRead: '<S1>/Data Store Read'
+     *  RelationalOperator: '<S13>/Equal11'
      */
-    rtb_OR1 = (rtDWork.nodeRole == 1.0);
+    rtb_DataStoreRead11 = ((rtDWork.nodeRole == 1.0) || rtb_OR1);
 
     /* Logic: '<S13>/AND3' incorporates:
      *  Logic: '<S13>/NOT1'
      */
-    AND3 = (rtb_Level2MfileSFunction_j && (!rtb_OR1));
+    rtb_AND3 = (rtb_Level2MfileSFunction_j && (!rtb_DataStoreRead11));
 
-    /* Outputs for Enabled SubSystem: '<S13>/MMBS1_RX' */
-    /* Constant: '<S13>/Constant12' */
-    MMBS1_RX(AND3, MMBS1_ID, &rtB.MMBS1_RX_j, &rtDWork.MMBS1_RX_j);
+    /* Outputs for Enabled SubSystem: '<S13>/MMBS1_RX' incorporates:
+     *  EnablePort: '<S102>/Enable'
+     */
+    if (rtb_AND3) {
+      rtDWork.MMBS1_RX_MODE = true;
+
+      /* Logic: '<S102>/NOT' incorporates:
+       *  Constant: '<S102>/Constant'
+       *  DataStoreRead: '<S102>/Data Store Read'
+       *  RelationalOperator: '<S102>/Equal'
+       */
+      masterCanFail = (rtDWork.receiveSync != true);
+
+      /* DataStoreWrite: '<S102>/Data Store Write' */
+      rtDWork.node1CanFailed = masterCanFail;
+
+      /* DataStoreWrite: '<S102>/Data Store Write1' incorporates:
+       *  Constant: '<S102>/Constant1'
+       */
+      rtDWork.receiveSync = false;
+
+      /* M-S-Function: '<S118>/S-Function' incorporates:
+       *  Constant: '<S13>/Constant12'
+       */
+
+      /* read the message data and store the new parameter */
+      rtb_SFunction_o1_g = CanIoGetMessage(0, MMBS1_ID, NULL,
+        &canRxData_0_MMBS1_ID.uint8_T_info[0], NULL);
+
+      /* process the message data */
+      if (rtb_SFunction_o1_g > 0) {
+        /* read the data */
+        rtb_SFunction_o2_n2 = canRxData_0_MMBS1_ID.uint8_T_info[0];
+        rtb_SFunction_o3_b = canRxData_0_MMBS1_ID.uint8_T_info[1];
+        rtb_SFunction_o4_l = canRxData_0_MMBS1_ID.uint8_T_info[2];
+        rtb_SFunction_o5_e = canRxData_0_MMBS1_ID.uint8_T_info[3];
+        rtb_SFunction_o6_k1 = canRxData_0_MMBS1_ID.uint8_T_info[4];
+        rtb_SFunction_o7_dj = canRxData_0_MMBS1_ID.uint8_T_info[5];
+        rtb_SFunction_o8_n1 = canRxData_0_MMBS1_ID.uint8_T_info[6];
+        rtb_SFunction_o9_ok = canRxData_0_MMBS1_ID.uint8_T_info[7];
+      }
+
+      /* Outputs for Enabled SubSystem: '<S118>/Enabled Subsystem' */
+      EnabledSubsystem(rtb_SFunction_o1_g, rtb_SFunction_o2_n2,
+                       rtb_SFunction_o3_b, rtb_SFunction_o4_l,
+                       rtb_SFunction_o5_e, rtb_SFunction_o6_k1,
+                       rtb_SFunction_o7_dj, rtb_SFunction_o8_n1,
+                       rtb_SFunction_o9_ok, &rtB.EnabledSubsystem_k);
+
+      /* End of Outputs for SubSystem: '<S118>/Enabled Subsystem' */
+    } else if (rtDWork.MMBS1_RX_MODE) {
+      rtDWork.MMBS1_RX_MODE = false;
+    }
 
     /* End of Outputs for SubSystem: '<S13>/MMBS1_RX' */
 
     /* Logic: '<S13>/AND2' */
-    rtb_AND2 = (rtb_Level2MfileSFunction_j && rtb_OR1);
+    rtb_AND2 = (rtb_Level2MfileSFunction_j && rtb_DataStoreRead11);
 
     /* Outputs for Triggered SubSystem: '<S13>/MMBS1_TX' */
     /* Constant: '<S13>/Constant12' */
@@ -1689,25 +1931,61 @@ void HANcoder_E407_TTA_CombineModel_step(void)
      */
     rtb_Level2MfileSFunction_j = (slotSelected == 3.0);
 
-    /* RelationalOperator: '<S13>/Equal12' incorporates:
+    /* Logic: '<S13>/OR2' incorporates:
      *  Constant: '<S13>/Constant15'
      *  DataStoreRead: '<S1>/Data Store Read'
+     *  RelationalOperator: '<S13>/Equal12'
      */
-    rtb_OR1 = (rtDWork.nodeRole == 1.0);
+    rtb_DataStoreRead11 = ((rtDWork.nodeRole == 1.0) || rtb_OR1);
 
     /* Logic: '<S13>/AND5' incorporates:
      *  Logic: '<S13>/NOT2'
      */
-    AND5 = (rtb_Level2MfileSFunction_j && (!rtb_OR1));
+    rtb_AND5 = (rtb_Level2MfileSFunction_j && (!rtb_DataStoreRead11));
 
-    /* Outputs for Enabled SubSystem: '<S13>/SSTM1_RX' */
-    /* Constant: '<S13>/Constant14' */
-    MMBS1_RX(AND5, SSTM1_ID, &rtB.SSTM1_RX, &rtDWork.SSTM1_RX);
+    /* Outputs for Enabled SubSystem: '<S13>/SSTM1_RX' incorporates:
+     *  EnablePort: '<S104>/Enable'
+     */
+    if (rtb_AND5) {
+      rtDWork.SSTM1_RX_MODE = true;
+
+      /* M-S-Function: '<S121>/S-Function' incorporates:
+       *  Constant: '<S13>/Constant14'
+       */
+
+      /* read the message data and store the new parameter */
+      rtb_SFunction_o1_b = CanIoGetMessage(0, SSTM1_ID, NULL,
+        &canRxData_0_SSTM1_ID.uint8_T_info[0], NULL);
+
+      /* process the message data */
+      if (rtb_SFunction_o1_b > 0) {
+        /* read the data */
+        rtb_SFunction_o2_c = canRxData_0_SSTM1_ID.uint8_T_info[0];
+        rtb_SFunction_o3_f = canRxData_0_SSTM1_ID.uint8_T_info[1];
+        rtb_SFunction_o4_k = canRxData_0_SSTM1_ID.uint8_T_info[2];
+        rtb_SFunction_o5_h = canRxData_0_SSTM1_ID.uint8_T_info[3];
+        rtb_SFunction_o6_k = canRxData_0_SSTM1_ID.uint8_T_info[4];
+        rtb_SFunction_o7_e = canRxData_0_SSTM1_ID.uint8_T_info[5];
+        rtb_SFunction_o8_pe = canRxData_0_SSTM1_ID.uint8_T_info[6];
+        rtb_SFunction_o9_f = canRxData_0_SSTM1_ID.uint8_T_info[7];
+      }
+
+      /* Outputs for Enabled SubSystem: '<S121>/Enabled Subsystem' */
+      EnabledSubsystem(rtb_SFunction_o1_b, rtb_SFunction_o2_c,
+                       rtb_SFunction_o3_f, rtb_SFunction_o4_k,
+                       rtb_SFunction_o5_h, rtb_SFunction_o6_k,
+                       rtb_SFunction_o7_e, rtb_SFunction_o8_pe,
+                       rtb_SFunction_o9_f, &rtB.EnabledSubsystem_h);
+
+      /* End of Outputs for SubSystem: '<S121>/Enabled Subsystem' */
+    } else if (rtDWork.SSTM1_RX_MODE) {
+      rtDWork.SSTM1_RX_MODE = false;
+    }
 
     /* End of Outputs for SubSystem: '<S13>/SSTM1_RX' */
 
     /* Logic: '<S13>/AND4' */
-    rtb_AND4 = (rtb_Level2MfileSFunction_j && rtb_OR1);
+    rtb_AND4 = (rtb_Level2MfileSFunction_j && rtb_DataStoreRead11);
 
     /* Outputs for Triggered SubSystem: '<S13>/SSTM1_TX' */
     /* Constant: '<S13>/Constant14' */
@@ -1721,11 +1999,12 @@ void HANcoder_E407_TTA_CombineModel_step(void)
      */
     rtb_Level2MfileSFunction_j = (slotSelected == ((uint8_T)1U));
 
-    /* RelationalOperator: '<S13>/Equal10' incorporates:
+    /* Logic: '<S13>/OR1' incorporates:
      *  Constant: '<S13>/Constant11'
      *  DataStoreRead: '<S1>/Data Store Read'
+     *  RelationalOperator: '<S13>/Equal10'
      */
-    rtb_OR1 = (rtDWork.nodeRole == ((uint8_T)1U));
+    rtb_OR1 = ((rtDWork.nodeRole == ((uint8_T)1U)) || rtb_OR1);
 
     /* Logic: '<S13>/AND1' incorporates:
      *  Logic: '<S13>/NOT'
@@ -1733,12 +2012,12 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     rtb_AND1_k = (rtb_Level2MfileSFunction_j && (!rtb_OR1));
 
     /* Outputs for Enabled SubSystem: '<S13>/SYNC1_RX' incorporates:
-     *  EnablePort: '<S103>/Enable'
+     *  EnablePort: '<S106>/Enable'
      */
     if (rtb_AND1_k) {
       rtDWork.SYNC1_RX_MODE = true;
 
-      /* M-S-Function: '<S121>/S-Function' incorporates:
+      /* M-S-Function: '<S124>/S-Function' incorporates:
        *  Constant: '<S13>/Constant10'
        */
 
@@ -1759,37 +2038,42 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtb_SFunction_o9_b1 = canRxData_0_SYNC1_ID.uint8_T_info[7];
       }
 
-      /* Outputs for Enabled SubSystem: '<S121>/Enabled Subsystem' */
+      /* Outputs for Enabled SubSystem: '<S124>/Enabled Subsystem' */
       EnabledSubsystem(rtb_SFunction_o1_h, rtb_SFunction_o2_ib,
                        rtb_SFunction_o3_g, rtb_SFunction_o4_j,
                        rtb_SFunction_o5_f, rtb_SFunction_o6_gy,
                        rtb_SFunction_o7_k, rtb_SFunction_o8_n,
                        rtb_SFunction_o9_b1, &rtB.EnabledSubsystem_c);
 
-      /* End of Outputs for SubSystem: '<S121>/Enabled Subsystem' */
+      /* End of Outputs for SubSystem: '<S124>/Enabled Subsystem' */
 
-      /* Outputs for Triggered SubSystem: '<S103>/Subsystem' incorporates:
-       *  TriggerPort: '<S122>/Trigger'
+      /* Outputs for Triggered SubSystem: '<S106>/Subsystem' incorporates:
+       *  TriggerPort: '<S125>/Trigger'
        */
       zcEvent = rt_I32ZCFcn(RISING_ZERO_CROSSING,
                             &rtPrevZCSigState.Subsystem_Trig_ZCE_h,
                             (rtb_SFunction_o1_h));
       if (zcEvent != NO_ZCEVENT) {
-        /* DataStoreWrite: '<S122>/Data Store Write' */
+        /* DataStoreWrite: '<S125>/Data Store Write' */
         rtDWork.SlotTime = rtB.EnabledSubsystem_c.In1;
 
-        /* DataStoreWrite: '<S122>/Data Store Write1' incorporates:
-         *  Constant: '<S122>/Constant'
+        /* DataStoreWrite: '<S125>/Data Store Write1' incorporates:
+         *  Constant: '<S125>/Constant'
          */
         rtDWork.Local_Ticks = ((uint8_T)1U);
 
-        /* DataStoreWrite: '<S122>/Data Store Write2' incorporates:
-         *  Constant: '<S122>/Constant1'
+        /* DataStoreWrite: '<S125>/Data Store Write2' incorporates:
+         *  Constant: '<S125>/Constant1'
          */
         rtDWork.slot = ((uint8_T)1U);
+
+        /* DataStoreWrite: '<S125>/Data Store Write3' incorporates:
+         *  Constant: '<S125>/Constant2'
+         */
+        rtDWork.receiveSync = true;
       }
 
-      /* End of Outputs for SubSystem: '<S103>/Subsystem' */
+      /* End of Outputs for SubSystem: '<S106>/Subsystem' */
     } else if (rtDWork.SYNC1_RX_MODE) {
       rtDWork.SYNC1_RX_MODE = false;
     }
@@ -1800,29 +2084,29 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     boolCan = (rtb_Level2MfileSFunction_j && rtb_OR1);
 
     /* Outputs for Triggered SubSystem: '<S13>/SYNC1_TX' incorporates:
-     *  TriggerPort: '<S104>/Trigger'
+     *  TriggerPort: '<S107>/Trigger'
      */
     if (boolCan && (rtPrevZCSigState.SYNC1_TX_Trig_ZCE != POS_ZCSIG)) {
-      /* DataStoreRead: '<S104>/Data Store Read1' */
+      /* DataStoreRead: '<S107>/Data Store Read1' */
       testCounter = rtDWork.testCount;
 
-      /* Sum: '<S104>/Add' incorporates:
-       *  Constant: '<S104>/Constant7'
-       *  DataStoreWrite: '<S104>/Data Store Write'
+      /* Sum: '<S107>/Add' incorporates:
+       *  Constant: '<S107>/Constant7'
+       *  DataStoreWrite: '<S107>/Data Store Write'
        */
       rtDWork.testCount = (uint16_T)((uint32_T)testCounter + ((uint16_T)1U));
 
-      /* DataStoreRead: '<S104>/Data Store Read' */
+      /* DataStoreRead: '<S107>/Data Store Read' */
       rtB.DataStoreRead = rtDWork.SlotTime;
 
-      /* Update for M-S-Function: '<S124>/S-Function' incorporates:
-       *  Constant: '<S104>/Constant'
-       *  Constant: '<S104>/Constant1'
-       *  Constant: '<S104>/Constant2'
-       *  Constant: '<S104>/Constant3'
-       *  Constant: '<S104>/Constant4'
-       *  Constant: '<S104>/Constant5'
-       *  Constant: '<S104>/Constant6'
+      /* Update for M-S-Function: '<S127>/S-Function' incorporates:
+       *  Constant: '<S107>/Constant'
+       *  Constant: '<S107>/Constant1'
+       *  Constant: '<S107>/Constant2'
+       *  Constant: '<S107>/Constant3'
+       *  Constant: '<S107>/Constant4'
+       *  Constant: '<S107>/Constant5'
+       *  Constant: '<S107>/Constant6'
        *  Constant: '<S13>/Constant10'
        */
       {
@@ -1845,30 +2129,30 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
     /* End of Outputs for SubSystem: '<S13>/SYNC1_TX' */
 
-    /* M-S-Function: '<S9>/Level-2 M-file S-Function' incorporates:
+    /* RelationalOperator: '<S13>/Equal6' incorporates:
      *  Constant: '<S13>/Constant7'
-     *  RelationalOperator: '<S13>/Equal6'
      */
-    rtb_Level2MfileSFunction_j = (slotSelected == 6.0);
+    rtb_OR1 = (slotSelected == 6.0);
 
-    /* RelationalOperator: '<S13>/Equal5' incorporates:
+    /* M-S-Function: '<S9>/Level-2 M-file S-Function' incorporates:
      *  Constant: '<S13>/Constant6'
      *  DataStoreRead: '<S1>/Data Store Read'
+     *  RelationalOperator: '<S13>/Equal5'
      */
-    rtb_OR1 = (rtDWork.nodeRole == 2.0);
+    rtb_Level2MfileSFunction_j = (rtDWork.nodeRole == 2.0);
 
     /* Logic: '<S13>/AND9' incorporates:
      *  Logic: '<S13>/NOT4'
      */
-    rtb_AND9 = (rtb_Level2MfileSFunction_j && (!rtb_OR1));
+    rtb_AND9 = (rtb_OR1 && (!rtb_Level2MfileSFunction_j));
 
     /* Outputs for Enabled SubSystem: '<S13>/TRCK1_ID2_RX' incorporates:
-     *  EnablePort: '<S105>/Enable'
+     *  EnablePort: '<S108>/Enable'
      */
     if (rtb_AND9) {
       rtDWork.TRCK1_ID2_RX_MODE = true;
 
-      /* M-S-Function: '<S127>/S-Function' incorporates:
+      /* M-S-Function: '<S130>/S-Function' incorporates:
        *  Constant: '<S13>/Constant5'
        */
 
@@ -1889,82 +2173,82 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtb_SFunction_o9_lv = canRxData_0_TRCK1_ID2.uint8_T_info[7];
       }
 
-      /* Outputs for Enabled SubSystem: '<S127>/Enabled Subsystem' */
+      /* Outputs for Enabled SubSystem: '<S130>/Enabled Subsystem' */
       EnabledSubsystem(rtb_SFunction_o1_p, rtb_SFunction_o2_n,
                        rtb_SFunction_o3_l, rtb_SFunction_o4_m,
                        rtb_SFunction_o5_i, rtb_SFunction_o6_o,
                        rtb_SFunction_o7_j, rtb_SFunction_o8_d,
                        rtb_SFunction_o9_lv, &rtB.EnabledSubsystem_b);
 
-      /* End of Outputs for SubSystem: '<S127>/Enabled Subsystem' */
+      /* End of Outputs for SubSystem: '<S130>/Enabled Subsystem' */
 
-      /* DataTypeConversion: '<S126>/Cast' */
-      rtb_Cast_i = rtB.EnabledSubsystem_b.In1;
+      /* DataTypeConversion: '<S129>/Cast' */
+      rtb_Cast_o = rtB.EnabledSubsystem_b.In1;
 
-      /* Outputs for Atomic SubSystem: '<S126>/Bit Shift' */
-      BitShift(rtb_Cast_i, &rtB.BitShift_gvk);
+      /* Outputs for Atomic SubSystem: '<S129>/Bit Shift' */
+      BitShift(rtb_Cast_o, &rtB.BitShift_gvk);
 
-      /* End of Outputs for SubSystem: '<S126>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S129>/Bit Shift' */
 
-      /* Sum: '<S126>/Add' incorporates:
-       *  DataTypeConversion: '<S126>/Cast1'
+      /* Sum: '<S129>/Add' incorporates:
+       *  DataTypeConversion: '<S129>/Cast1'
        */
       pot21 = (uint16_T)((uint32_T)rtB.BitShift_gvk.y +
                          rtB.EnabledSubsystem_b.In2);
 
-      /* DataTypeConversion: '<S125>/Cast' */
-      rtb_Cast_b0 = rtB.EnabledSubsystem_b.In3;
+      /* DataTypeConversion: '<S128>/Cast' */
+      rtb_Cast_j = rtB.EnabledSubsystem_b.In3;
 
-      /* Outputs for Atomic SubSystem: '<S125>/Bit Shift' */
-      BitShift(rtb_Cast_b0, &rtB.BitShift_gv);
+      /* Outputs for Atomic SubSystem: '<S128>/Bit Shift' */
+      BitShift(rtb_Cast_j, &rtB.BitShift_gv);
 
-      /* End of Outputs for SubSystem: '<S125>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S128>/Bit Shift' */
 
-      /* Sum: '<S125>/Add' incorporates:
-       *  DataTypeConversion: '<S125>/Cast1'
+      /* Sum: '<S128>/Add' incorporates:
+       *  DataTypeConversion: '<S128>/Cast1'
        */
       pot22 = (uint16_T)((uint32_T)rtB.BitShift_gv.y +
                          rtB.EnabledSubsystem_b.In4);
 
-      /* Outputs for Atomic SubSystem: '<S128>/Bit Shift' */
+      /* Outputs for Atomic SubSystem: '<S131>/Bit Shift' */
       BitShift_g(rtB.EnabledSubsystem_b.In7, &rtB.BitShift_gy3);
 
-      /* End of Outputs for SubSystem: '<S128>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S131>/Bit Shift' */
 
-      /* Outputs for Atomic SubSystem: '<S128>/Bit Shift1' */
+      /* Outputs for Atomic SubSystem: '<S131>/Bit Shift1' */
       BitShift1(rtB.EnabledSubsystem_b.In7, &rtB.BitShift1_g);
 
-      /* End of Outputs for SubSystem: '<S128>/Bit Shift1' */
+      /* End of Outputs for SubSystem: '<S131>/Bit Shift1' */
 
-      /* Outputs for Atomic SubSystem: '<S128>/Bit Shift2' */
+      /* Outputs for Atomic SubSystem: '<S131>/Bit Shift2' */
       BitShift2(rtB.EnabledSubsystem_b.In7, &rtB.BitShift2_i);
 
-      /* End of Outputs for SubSystem: '<S128>/Bit Shift2' */
+      /* End of Outputs for SubSystem: '<S131>/Bit Shift2' */
 
-      /* Outputs for Atomic SubSystem: '<S128>/Bit Shift3' */
+      /* Outputs for Atomic SubSystem: '<S131>/Bit Shift3' */
       BitShift3(rtB.EnabledSubsystem_b.In7, &rtB.BitShift3_c);
 
-      /* End of Outputs for SubSystem: '<S128>/Bit Shift3' */
+      /* End of Outputs for SubSystem: '<S131>/Bit Shift3' */
 
-      /* Outputs for Atomic SubSystem: '<S128>/Bit Shift4' */
+      /* Outputs for Atomic SubSystem: '<S131>/Bit Shift4' */
       BitShift4(rtB.EnabledSubsystem_b.In7, &rtB.BitShift4_e);
 
-      /* End of Outputs for SubSystem: '<S128>/Bit Shift4' */
+      /* End of Outputs for SubSystem: '<S131>/Bit Shift4' */
 
-      /* Outputs for Atomic SubSystem: '<S128>/Bit Shift5' */
+      /* Outputs for Atomic SubSystem: '<S131>/Bit Shift5' */
       BitShift5(rtB.EnabledSubsystem_b.In7, &rtB.BitShift5_b);
 
-      /* End of Outputs for SubSystem: '<S128>/Bit Shift5' */
+      /* End of Outputs for SubSystem: '<S131>/Bit Shift5' */
 
-      /* Outputs for Atomic SubSystem: '<S128>/Bit Shift6' */
+      /* Outputs for Atomic SubSystem: '<S131>/Bit Shift6' */
       BitShift6(rtB.EnabledSubsystem_b.In7, &rtB.BitShift6_o);
 
-      /* End of Outputs for SubSystem: '<S128>/Bit Shift6' */
+      /* End of Outputs for SubSystem: '<S131>/Bit Shift6' */
 
-      /* Outputs for Atomic SubSystem: '<S128>/Bit Shift7' */
+      /* Outputs for Atomic SubSystem: '<S131>/Bit Shift7' */
       BitShift_g(rtB.EnabledSubsystem_b.In7, &rtB.BitShift7);
 
-      /* End of Outputs for SubSystem: '<S128>/Bit Shift7' */
+      /* End of Outputs for SubSystem: '<S131>/Bit Shift7' */
     } else if (rtDWork.TRCK1_ID2_RX_MODE) {
       rtDWork.TRCK1_ID2_RX_MODE = false;
     }
@@ -1972,7 +2256,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     /* End of Outputs for SubSystem: '<S13>/TRCK1_ID2_RX' */
 
     /* Logic: '<S13>/AND8' */
-    rtb_AND8 = (rtb_Level2MfileSFunction_j && rtb_OR1);
+    rtb_AND8 = (rtb_OR1 && rtb_Level2MfileSFunction_j);
 
     /* Outputs for Triggered SubSystem: '<S13>/TRCK1_ID2_TX' */
     /* Constant: '<S13>/Constant5' */
@@ -1983,20 +2267,20 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
     /* End of Outputs for SubSystem: '<S13>/TRCK1_ID2_TX' */
 
-    /* M-S-Function: '<S9>/Level-2 M-file S-Function' incorporates:
+    /* RelationalOperator: '<S13>/Equal14' incorporates:
      *  Constant: '<S13>/Constant20'
-     *  RelationalOperator: '<S13>/Equal14'
      */
-    rtb_Level2MfileSFunction_j = (slotSelected == 7.0);
+    rtb_OR1 = (slotSelected == 7.0);
 
-    /* RelationalOperator: '<S13>/Equal7' incorporates:
+    /* M-S-Function: '<S9>/Level-2 M-file S-Function' incorporates:
      *  Constant: '<S13>/Constant19'
      *  DataStoreRead: '<S1>/Data Store Read'
+     *  RelationalOperator: '<S13>/Equal7'
      */
-    rtb_OR1 = (rtDWork.nodeRole == 3.0);
+    rtb_Level2MfileSFunction_j = (rtDWork.nodeRole == 3.0);
 
     /* Logic: '<S13>/AND10' */
-    rtb_AND10 = (rtb_Level2MfileSFunction_j && rtb_OR1);
+    rtb_AND10 = (rtb_OR1 && rtb_Level2MfileSFunction_j);
 
     /* Outputs for Triggered SubSystem: '<S13>/TRCK1_ID3_TX' */
     /* Constant: '<S13>/Constant26' */
@@ -2011,7 +2295,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     /* RelationalOperator: '<S13>/Equal13' incorporates:
      *  Constant: '<S13>/Constant17'
      */
-    rtb_Logic_idx_0 = (slotSelected == 4.0);
+    rtb_DataStoreRead11 = (slotSelected == 4.0);
 
     /* RelationalOperator: '<S13>/Equal3' incorporates:
      *  Constant: '<S13>/Constant16'
@@ -2022,15 +2306,15 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     /* Logic: '<S13>/AND7' incorporates:
      *  Logic: '<S13>/NOT3'
      */
-    rtb_AND7 = (rtb_Logic_idx_0 && (!rtb_Equal17));
+    rtb_AND7 = (rtb_DataStoreRead11 && (!rtb_Equal17));
 
     /* Outputs for Enabled SubSystem: '<S13>/TRCK1_RX' incorporates:
-     *  EnablePort: '<S108>/Enable'
+     *  EnablePort: '<S111>/Enable'
      */
     if (rtb_AND7) {
       rtDWork.TRCK1_RX_MODE = true;
 
-      /* M-S-Function: '<S196>/S-Function' incorporates:
+      /* M-S-Function: '<S199>/S-Function' incorporates:
        *  Constant: '<S13>/Constant3'
        */
 
@@ -2051,80 +2335,82 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtb_SFunction_o9_o = canRxData_0_TRCK1_ID1.uint8_T_info[7];
       }
 
-      /* Outputs for Enabled SubSystem: '<S196>/Enabled Subsystem' */
+      /* Outputs for Enabled SubSystem: '<S199>/Enabled Subsystem' */
       EnabledSubsystem(rtb_SFunction_o1_ns, rtb_SFunction_o2_i,
                        rtb_SFunction_o3_i, rtb_SFunction_o4_n,
                        rtb_SFunction_o5_p, rtb_SFunction_o6_g,
                        rtb_SFunction_o7_fg, rtb_SFunction_o8_i,
-                       rtb_SFunction_o9_o, &rtB.EnabledSubsystem_h);
+                       rtb_SFunction_o9_o, &rtB.EnabledSubsystem_hn);
 
-      /* End of Outputs for SubSystem: '<S196>/Enabled Subsystem' */
+      /* End of Outputs for SubSystem: '<S199>/Enabled Subsystem' */
 
-      /* DataTypeConversion: '<S195>/Cast' */
-      rtb_Cast_ci = rtB.EnabledSubsystem_h.In1;
+      /* DataTypeConversion: '<S198>/Cast' */
+      rtb_Cast_d = rtB.EnabledSubsystem_hn.In1;
 
-      /* Outputs for Atomic SubSystem: '<S195>/Bit Shift' */
-      BitShift(rtb_Cast_ci, &rtB.BitShift_j);
+      /* Outputs for Atomic SubSystem: '<S198>/Bit Shift' */
+      BitShift(rtb_Cast_d, &rtB.BitShift_j);
 
-      /* End of Outputs for SubSystem: '<S195>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S198>/Bit Shift' */
 
-      /* Sum: '<S195>/Add' incorporates:
-       *  DataTypeConversion: '<S195>/Cast1'
+      /* Sum: '<S198>/Add' incorporates:
+       *  DataTypeConversion: '<S198>/Cast1'
        */
-      pot11 = (uint16_T)((uint32_T)rtB.BitShift_j.y + rtB.EnabledSubsystem_h.In2);
+      pot11 = (uint16_T)((uint32_T)rtB.BitShift_j.y +
+                         rtB.EnabledSubsystem_hn.In2);
 
-      /* DataTypeConversion: '<S194>/Cast' */
-      rtb_Cast_o = rtB.EnabledSubsystem_h.In3;
-
-      /* Outputs for Atomic SubSystem: '<S194>/Bit Shift' */
-      BitShift(rtb_Cast_o, &rtB.BitShift_k);
-
-      /* End of Outputs for SubSystem: '<S194>/Bit Shift' */
-
-      /* Sum: '<S194>/Add' incorporates:
-       *  DataTypeConversion: '<S194>/Cast1'
-       */
-      pot12 = (uint16_T)((uint32_T)rtB.BitShift_k.y + rtB.EnabledSubsystem_h.In4);
+      /* DataTypeConversion: '<S197>/Cast' */
+      rtb_Cast_lr = rtB.EnabledSubsystem_hn.In3;
 
       /* Outputs for Atomic SubSystem: '<S197>/Bit Shift' */
-      BitShift_g(rtB.EnabledSubsystem_h.In7, &rtB.BitShift_c);
+      BitShift(rtb_Cast_lr, &rtB.BitShift_k);
 
       /* End of Outputs for SubSystem: '<S197>/Bit Shift' */
 
-      /* Outputs for Atomic SubSystem: '<S197>/Bit Shift1' */
-      BitShift1(rtB.EnabledSubsystem_h.In7, &rtB.BitShift1_l);
+      /* Sum: '<S197>/Add' incorporates:
+       *  DataTypeConversion: '<S197>/Cast1'
+       */
+      pot12 = (uint16_T)((uint32_T)rtB.BitShift_k.y +
+                         rtB.EnabledSubsystem_hn.In4);
 
-      /* End of Outputs for SubSystem: '<S197>/Bit Shift1' */
+      /* Outputs for Atomic SubSystem: '<S200>/Bit Shift' */
+      BitShift_g(rtB.EnabledSubsystem_hn.In7, &rtB.BitShift_c);
 
-      /* Outputs for Atomic SubSystem: '<S197>/Bit Shift2' */
-      BitShift2(rtB.EnabledSubsystem_h.In7, &rtB.BitShift2_c);
+      /* End of Outputs for SubSystem: '<S200>/Bit Shift' */
 
-      /* End of Outputs for SubSystem: '<S197>/Bit Shift2' */
+      /* Outputs for Atomic SubSystem: '<S200>/Bit Shift7' */
+      BitShift_g(rtB.EnabledSubsystem_hn.In7, &rtB.BitShift7_e);
 
-      /* Outputs for Atomic SubSystem: '<S197>/Bit Shift3' */
-      BitShift3(rtB.EnabledSubsystem_h.In7, &rtB.BitShift3_lj);
+      /* End of Outputs for SubSystem: '<S200>/Bit Shift7' */
 
-      /* End of Outputs for SubSystem: '<S197>/Bit Shift3' */
+      /* Outputs for Atomic SubSystem: '<S200>/Bit Shift1' */
+      BitShift1(rtB.EnabledSubsystem_hn.In7, &rtB.BitShift1_l);
 
-      /* Outputs for Atomic SubSystem: '<S197>/Bit Shift4' */
-      BitShift4(rtB.EnabledSubsystem_h.In7, &rtB.BitShift4_a);
+      /* End of Outputs for SubSystem: '<S200>/Bit Shift1' */
 
-      /* End of Outputs for SubSystem: '<S197>/Bit Shift4' */
+      /* Outputs for Atomic SubSystem: '<S200>/Bit Shift2' */
+      BitShift2(rtB.EnabledSubsystem_hn.In7, &rtB.BitShift2_c);
 
-      /* Outputs for Atomic SubSystem: '<S197>/Bit Shift5' */
-      BitShift5(rtB.EnabledSubsystem_h.In7, &rtB.BitShift5_bs);
+      /* End of Outputs for SubSystem: '<S200>/Bit Shift2' */
 
-      /* End of Outputs for SubSystem: '<S197>/Bit Shift5' */
+      /* Outputs for Atomic SubSystem: '<S200>/Bit Shift3' */
+      BitShift3(rtB.EnabledSubsystem_hn.In7, &rtB.BitShift3_lj);
 
-      /* Outputs for Atomic SubSystem: '<S197>/Bit Shift6' */
-      BitShift6(rtB.EnabledSubsystem_h.In7, &rtB.BitShift6_i);
+      /* End of Outputs for SubSystem: '<S200>/Bit Shift3' */
 
-      /* End of Outputs for SubSystem: '<S197>/Bit Shift6' */
+      /* Outputs for Atomic SubSystem: '<S200>/Bit Shift4' */
+      BitShift4(rtB.EnabledSubsystem_hn.In7, &rtB.BitShift4_a);
 
-      /* Outputs for Atomic SubSystem: '<S197>/Bit Shift7' */
-      BitShift_g(rtB.EnabledSubsystem_h.In7, &rtB.BitShift7_e);
+      /* End of Outputs for SubSystem: '<S200>/Bit Shift4' */
 
-      /* End of Outputs for SubSystem: '<S197>/Bit Shift7' */
+      /* Outputs for Atomic SubSystem: '<S200>/Bit Shift5' */
+      BitShift5(rtB.EnabledSubsystem_hn.In7, &rtB.BitShift5_bs);
+
+      /* End of Outputs for SubSystem: '<S200>/Bit Shift5' */
+
+      /* Outputs for Atomic SubSystem: '<S200>/Bit Shift6' */
+      BitShift6(rtB.EnabledSubsystem_hn.In7, &rtB.BitShift6_i);
+
+      /* End of Outputs for SubSystem: '<S200>/Bit Shift6' */
     } else if (rtDWork.TRCK1_RX_MODE) {
       rtDWork.TRCK1_RX_MODE = false;
     }
@@ -2132,27 +2418,129 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     /* End of Outputs for SubSystem: '<S13>/TRCK1_RX' */
 
     /* Logic: '<S13>/AND6' */
-    rtb_AND6 = (rtb_Logic_idx_0 && rtb_Equal17);
+    rtb_Equal17 = (rtb_DataStoreRead11 && rtb_Equal17);
 
-    /* Outputs for Triggered SubSystem: '<S13>/TRCK1_TX' */
-    /* Constant: '<S13>/Constant3' */
-    TRCK1_ID2_TX(rtb_AND6, TRCK1_ID1, &rtDWork.Local_Ticks, &rtDWork.motorFailed,
-                 &rtDWork.potFault, &rtDWork.potentiometer1,
-                 &rtDWork.potentiometer2, &rtB.TRCK1_TX, &rtConstB.TRCK1_TX,
-                 &rtPrevZCSigState.TRCK1_TX);
+    /* Outputs for Triggered SubSystem: '<S13>/TRCK1_TX' incorporates:
+     *  TriggerPort: '<S112>/Trigger'
+     */
+    if (rtb_Equal17 && (rtPrevZCSigState.TRCK1_TX_Trig_ZCE != POS_ZCSIG)) {
+      /* DataStoreRead: '<S112>/Data Store Read2' */
+      rtB.DataStoreRead2_h = rtDWork.Local_Ticks;
+
+      /* DataStoreRead: '<S112>/Data Store Read4' */
+      potFaultDetected = rtDWork.potFault;
+
+      /* DataTypeConversion: '<S223>/Cast1' */
+      rtb_Cast1_cy = potFaultDetected;
+
+      /* Outputs for Atomic SubSystem: '<S223>/Bit Shift1' */
+      BitShift1_b(rtb_Cast1_cy, &rtB.BitShift1_n);
+
+      /* End of Outputs for SubSystem: '<S223>/Bit Shift1' */
+
+      /* Outputs for Atomic SubSystem: '<S223>/Bit Shift' */
+      BitShift_gy(rtConstB.Cast_f, &rtB.BitShift_gk);
+
+      /* End of Outputs for SubSystem: '<S223>/Bit Shift' */
+
+      /* Outputs for Atomic SubSystem: '<S223>/Bit Shift2' */
+      BitShift2_p(rtConstB.Cast2_i, &rtB.BitShift2_b);
+
+      /* End of Outputs for SubSystem: '<S223>/Bit Shift2' */
+
+      /* Outputs for Atomic SubSystem: '<S223>/Bit Shift3' */
+      BitShift3_l(rtConstB.Cast3_k, &rtB.BitShift3_b);
+
+      /* End of Outputs for SubSystem: '<S223>/Bit Shift3' */
+
+      /* Outputs for Atomic SubSystem: '<S223>/Bit Shift4' */
+      BitShift4_g(rtConstB.Cast4_b, &rtB.BitShift4_f);
+
+      /* End of Outputs for SubSystem: '<S223>/Bit Shift4' */
+
+      /* Outputs for Atomic SubSystem: '<S223>/Bit Shift5' */
+      BitShift5_n(rtConstB.Cast5_k, &rtB.BitShift5_i);
+
+      /* End of Outputs for SubSystem: '<S223>/Bit Shift5' */
+
+      /* Outputs for Atomic SubSystem: '<S223>/Bit Shift6' */
+      BitShift6_d(rtConstB.Cast6_i, &rtB.BitShift6_e);
+
+      /* End of Outputs for SubSystem: '<S223>/Bit Shift6' */
+
+      /* Sum: '<S223>/Add' incorporates:
+       *  DataStoreRead: '<S112>/Data Store Read3'
+       *  DataTypeConversion: '<S223>/Cast7'
+       */
+      rtB.Add_j = (uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)((uint32_T)
+        (uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)
+        ((uint32_T)rtDWork.motorFailed + rtB.BitShift1_n.y) + rtB.BitShift_gk.y)
+        + rtB.BitShift2_b.y) + rtB.BitShift3_b.y) + rtB.BitShift4_f.y) +
+        rtB.BitShift5_i.y) + rtB.BitShift6_e.y);
+
+      /* Outputs for Atomic SubSystem: '<S224>/Bit Shift' */
+      /* DataStoreRead: '<S112>/Data Store Read1' */
+      BitShift_o(rtDWork.potentiometer2, &rtB.BitShift_jy);
+
+      /* End of Outputs for SubSystem: '<S224>/Bit Shift' */
+
+      /* DataTypeConversion: '<S224>/Cast' */
+      rtB.Cast_p = (uint8_T)rtB.BitShift_jy.y;
+
+      /* DataTypeConversion: '<S224>/Cast1' incorporates:
+       *  DataStoreRead: '<S112>/Data Store Read1'
+       */
+      rtB.Cast1_b = (uint8_T)rtDWork.potentiometer2;
+
+      /* Outputs for Atomic SubSystem: '<S225>/Bit Shift' */
+      /* DataStoreRead: '<S112>/Data Store Read' */
+      BitShift_o(rtDWork.potentiometer1, &rtB.BitShift_b);
+
+      /* End of Outputs for SubSystem: '<S225>/Bit Shift' */
+
+      /* DataTypeConversion: '<S225>/Cast' */
+      rtB.Cast_a = (uint8_T)rtB.BitShift_b.y;
+
+      /* DataTypeConversion: '<S225>/Cast1' incorporates:
+       *  DataStoreRead: '<S112>/Data Store Read'
+       */
+      rtB.Cast1_n = (uint8_T)rtDWork.potentiometer1;
+
+      /* Update for M-S-Function: '<S222>/S-Function' incorporates:
+       *  Constant: '<S112>/Constant'
+       *  Constant: '<S112>/Constant1'
+       *  Constant: '<S13>/Constant3'
+       */
+      {
+        /* prepare the data */
+        canTxData.uint8_T_info[0] = rtB.Cast_a;
+        canTxData.uint8_T_info[1] = rtB.Cast1_n;
+        canTxData.uint8_T_info[2] = rtB.Cast_p;
+        canTxData.uint8_T_info[3] = rtB.Cast1_b;
+        canTxData.uint8_T_info[4] = rtB.DataStoreRead2_h;
+        canTxData.uint8_T_info[5] = ((uint8_T)0U);
+        canTxData.uint8_T_info[6] = rtB.Add_j;
+        canTxData.uint8_T_info[7] = ((uint8_T)0U);
+
+        /* send the data */
+        CanTransmit(0, TRCK1_ID1, 8, &canTxData.uint8_T_info[0]);
+      }
+    }
+
+    rtPrevZCSigState.TRCK1_TX_Trig_ZCE = rtb_Equal17;
 
     /* End of Outputs for SubSystem: '<S13>/TRCK1_TX' */
 
     /* Outputs for Enabled SubSystem: '<S13>/TRCK_ID3_RX' incorporates:
-     *  EnablePort: '<S110>/Enable'
+     *  EnablePort: '<S113>/Enable'
      */
     /* Logic: '<S13>/AND11' incorporates:
      *  Logic: '<S13>/NOT5'
      */
-    if (rtb_Level2MfileSFunction_j && (!rtb_OR1)) {
+    if (rtb_OR1 && (!rtb_Level2MfileSFunction_j)) {
       rtDWork.TRCK_ID3_RX_MODE = true;
 
-      /* M-S-Function: '<S243>/S-Function' incorporates:
+      /* M-S-Function: '<S246>/S-Function' incorporates:
        *  Constant: '<S13>/Constant26'
        */
 
@@ -2173,82 +2561,82 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtb_SFunction_o9_b = canRxData_0_TRCK1_ID3.uint8_T_info[7];
       }
 
-      /* Outputs for Enabled SubSystem: '<S243>/Enabled Subsystem' */
+      /* Outputs for Enabled SubSystem: '<S246>/Enabled Subsystem' */
       EnabledSubsystem(rtb_SFunction_o1_k1, rtb_SFunction_o2_j,
                        rtb_SFunction_o3_a, rtb_SFunction_o4_i,
                        rtb_SFunction_o5_k, rtb_SFunction_o6_c,
                        rtb_SFunction_o7_d, rtb_SFunction_o8_h,
                        rtb_SFunction_o9_b, &rtB.EnabledSubsystem_bj);
 
-      /* End of Outputs for SubSystem: '<S243>/Enabled Subsystem' */
+      /* End of Outputs for SubSystem: '<S246>/Enabled Subsystem' */
 
-      /* DataTypeConversion: '<S242>/Cast' */
-      rtb_Cast_k = rtB.EnabledSubsystem_bj.In1;
+      /* DataTypeConversion: '<S245>/Cast' */
+      rtb_Cast_e1 = rtB.EnabledSubsystem_bj.In1;
 
-      /* Outputs for Atomic SubSystem: '<S242>/Bit Shift' */
-      BitShift(rtb_Cast_k, &rtB.BitShift_p);
+      /* Outputs for Atomic SubSystem: '<S245>/Bit Shift' */
+      BitShift(rtb_Cast_e1, &rtB.BitShift_p);
 
-      /* End of Outputs for SubSystem: '<S242>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S245>/Bit Shift' */
 
-      /* Sum: '<S242>/Add' incorporates:
-       *  DataTypeConversion: '<S242>/Cast1'
+      /* Sum: '<S245>/Add' incorporates:
+       *  DataTypeConversion: '<S245>/Cast1'
        */
       pot31 = (uint16_T)((uint32_T)rtB.BitShift_p.y +
                          rtB.EnabledSubsystem_bj.In2);
 
-      /* DataTypeConversion: '<S241>/Cast' */
-      rtb_Cast_d1 = rtB.EnabledSubsystem_bj.In3;
+      /* DataTypeConversion: '<S244>/Cast' */
+      rtb_Cast_i = rtB.EnabledSubsystem_bj.In3;
 
-      /* Outputs for Atomic SubSystem: '<S241>/Bit Shift' */
-      BitShift(rtb_Cast_d1, &rtB.BitShift_e);
+      /* Outputs for Atomic SubSystem: '<S244>/Bit Shift' */
+      BitShift(rtb_Cast_i, &rtB.BitShift_e);
 
-      /* End of Outputs for SubSystem: '<S241>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S244>/Bit Shift' */
 
-      /* Sum: '<S241>/Add' incorporates:
-       *  DataTypeConversion: '<S241>/Cast1'
+      /* Sum: '<S244>/Add' incorporates:
+       *  DataTypeConversion: '<S244>/Cast1'
        */
       pot32 = (uint16_T)((uint32_T)rtB.BitShift_e.y +
                          rtB.EnabledSubsystem_bj.In4);
 
-      /* Outputs for Atomic SubSystem: '<S244>/Bit Shift' */
+      /* Outputs for Atomic SubSystem: '<S247>/Bit Shift' */
       BitShift_g(rtB.EnabledSubsystem_bj.In7, &rtB.BitShift_f);
 
-      /* End of Outputs for SubSystem: '<S244>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S247>/Bit Shift' */
 
-      /* Outputs for Atomic SubSystem: '<S244>/Bit Shift1' */
+      /* Outputs for Atomic SubSystem: '<S247>/Bit Shift1' */
       BitShift1(rtB.EnabledSubsystem_bj.In7, &rtB.BitShift1_a);
 
-      /* End of Outputs for SubSystem: '<S244>/Bit Shift1' */
+      /* End of Outputs for SubSystem: '<S247>/Bit Shift1' */
 
-      /* Outputs for Atomic SubSystem: '<S244>/Bit Shift2' */
+      /* Outputs for Atomic SubSystem: '<S247>/Bit Shift2' */
       BitShift2(rtB.EnabledSubsystem_bj.In7, &rtB.BitShift2_cw);
 
-      /* End of Outputs for SubSystem: '<S244>/Bit Shift2' */
+      /* End of Outputs for SubSystem: '<S247>/Bit Shift2' */
 
-      /* Outputs for Atomic SubSystem: '<S244>/Bit Shift3' */
+      /* Outputs for Atomic SubSystem: '<S247>/Bit Shift3' */
       BitShift3(rtB.EnabledSubsystem_bj.In7, &rtB.BitShift3_d);
 
-      /* End of Outputs for SubSystem: '<S244>/Bit Shift3' */
+      /* End of Outputs for SubSystem: '<S247>/Bit Shift3' */
 
-      /* Outputs for Atomic SubSystem: '<S244>/Bit Shift4' */
+      /* Outputs for Atomic SubSystem: '<S247>/Bit Shift4' */
       BitShift4(rtB.EnabledSubsystem_bj.In7, &rtB.BitShift4_d);
 
-      /* End of Outputs for SubSystem: '<S244>/Bit Shift4' */
+      /* End of Outputs for SubSystem: '<S247>/Bit Shift4' */
 
-      /* Outputs for Atomic SubSystem: '<S244>/Bit Shift5' */
+      /* Outputs for Atomic SubSystem: '<S247>/Bit Shift5' */
       BitShift5(rtB.EnabledSubsystem_bj.In7, &rtB.BitShift5_c);
 
-      /* End of Outputs for SubSystem: '<S244>/Bit Shift5' */
+      /* End of Outputs for SubSystem: '<S247>/Bit Shift5' */
 
-      /* Outputs for Atomic SubSystem: '<S244>/Bit Shift6' */
+      /* Outputs for Atomic SubSystem: '<S247>/Bit Shift6' */
       BitShift6(rtB.EnabledSubsystem_bj.In7, &rtB.BitShift6_b);
 
-      /* End of Outputs for SubSystem: '<S244>/Bit Shift6' */
+      /* End of Outputs for SubSystem: '<S247>/Bit Shift6' */
 
-      /* Outputs for Atomic SubSystem: '<S244>/Bit Shift7' */
+      /* Outputs for Atomic SubSystem: '<S247>/Bit Shift7' */
       BitShift_g(rtB.EnabledSubsystem_bj.In7, &rtB.BitShift7_j);
 
-      /* End of Outputs for SubSystem: '<S244>/Bit Shift7' */
+      /* End of Outputs for SubSystem: '<S247>/Bit Shift7' */
     } else if (rtDWork.TRCK_ID3_RX_MODE) {
       rtDWork.TRCK_ID3_RX_MODE = false;
     }
@@ -2265,20 +2653,20 @@ void HANcoder_E407_TTA_CombineModel_step(void)
      *  Constant: '<S13>/Constant21'
      *  DataStoreRead: '<S1>/Data Store Read'
      */
-    rtb_Logic_idx_0 = (rtDWork.nodeRole == 4.0);
+    rtb_OR1 = (rtDWork.nodeRole == 4.0);
 
     /* Logic: '<S13>/AND13' incorporates:
      *  Logic: '<S13>/NOT6'
      */
-    rtb_AND13 = (rtb_Equal17 && (!rtb_Logic_idx_0));
+    rtb_AND13 = (rtb_Equal17 && (!rtb_OR1));
 
     /* Outputs for Enabled SubSystem: '<S13>/TRLS_ID4_RX' incorporates:
-     *  EnablePort: '<S111>/Enable'
+     *  EnablePort: '<S114>/Enable'
      */
     if (rtb_AND13) {
       rtDWork.TRLS_ID4_RX_MODE = true;
 
-      /* M-S-Function: '<S268>/S-Function' incorporates:
+      /* M-S-Function: '<S271>/S-Function' incorporates:
        *  Constant: '<S13>/Constant8'
        */
 
@@ -2299,84 +2687,89 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtb_SFunction_o9_h = canRxData_0_TRLS1_ID4.uint8_T_info[7];
       }
 
-      /* Outputs for Enabled SubSystem: '<S268>/Enabled Subsystem' */
+      /* Outputs for Enabled SubSystem: '<S271>/Enabled Subsystem' */
       EnabledSubsystem(rtb_SFunction_o1_k, rtb_SFunction_o2_e,
                        rtb_SFunction_o3_p, rtb_SFunction_o4_c,
                        rtb_SFunction_o5_c, rtb_SFunction_o6_e,
                        rtb_SFunction_o7_l, rtb_SFunction_o8_f,
                        rtb_SFunction_o9_h, &rtB.EnabledSubsystem_g);
 
-      /* End of Outputs for SubSystem: '<S268>/Enabled Subsystem' */
+      /* End of Outputs for SubSystem: '<S271>/Enabled Subsystem' */
 
-      /* DataTypeConversion: '<S267>/Cast' */
-      rtb_Cast_p = rtB.EnabledSubsystem_g.In1;
+      /* DataTypeConversion: '<S270>/Cast' */
+      rtb_Cast_gh = rtB.EnabledSubsystem_g.In1;
 
-      /* Outputs for Atomic SubSystem: '<S267>/Bit Shift' */
-      BitShift(rtb_Cast_p, &rtB.BitShift_n);
+      /* Outputs for Atomic SubSystem: '<S270>/Bit Shift' */
+      BitShift(rtb_Cast_gh, &rtB.BitShift_n);
 
-      /* End of Outputs for SubSystem: '<S267>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S270>/Bit Shift' */
 
-      /* Sum: '<S267>/Add' incorporates:
-       *  DataStoreWrite: '<S111>/Data Store Write1'
-       *  DataTypeConversion: '<S267>/Cast1'
+      /* Sum: '<S270>/Add' incorporates:
+       *  DataStoreWrite: '<S114>/Data Store Write1'
+       *  DataTypeConversion: '<S270>/Cast1'
        */
       rtDWork.pot4_1 = (uint16_T)((uint32_T)rtB.BitShift_n.y +
         rtB.EnabledSubsystem_g.In2);
 
-      /* DataTypeConversion: '<S266>/Cast' */
-      rtb_Cast_c = rtB.EnabledSubsystem_g.In3;
+      /* DataTypeConversion: '<S269>/Cast' */
+      rtb_Cast_ow = rtB.EnabledSubsystem_g.In3;
 
-      /* Outputs for Atomic SubSystem: '<S266>/Bit Shift' */
-      BitShift(rtb_Cast_c, &rtB.BitShift_gu);
+      /* Outputs for Atomic SubSystem: '<S269>/Bit Shift' */
+      BitShift(rtb_Cast_ow, &rtB.BitShift_gu);
 
-      /* End of Outputs for SubSystem: '<S266>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S269>/Bit Shift' */
 
-      /* Sum: '<S266>/Add' incorporates:
-       *  DataStoreWrite: '<S111>/Data Store Write2'
-       *  DataTypeConversion: '<S266>/Cast1'
+      /* Sum: '<S269>/Add' incorporates:
+       *  DataStoreWrite: '<S114>/Data Store Write2'
+       *  DataTypeConversion: '<S269>/Cast1'
        */
       rtDWork.pot4_2 = (uint16_T)((uint32_T)rtB.BitShift_gu.y +
         rtB.EnabledSubsystem_g.In4);
 
-      /* Outputs for Atomic SubSystem: '<S269>/Bit Shift' */
+      /* Outputs for Atomic SubSystem: '<S272>/Bit Shift' */
       BitShift_g(rtB.EnabledSubsystem_g.In7, &rtB.BitShift_l);
 
-      /* End of Outputs for SubSystem: '<S269>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S272>/Bit Shift' */
 
-      /* Outputs for Atomic SubSystem: '<S269>/Bit Shift1' */
+      /* DataTypeConversion: '<S272>/Cast' incorporates:
+       *  DataStoreWrite: '<S114>/Data Store Write4'
+       */
+      rtDWork.potReadNode4Fail = (rtB.BitShift_l.y != 0);
+
+      /* Outputs for Atomic SubSystem: '<S272>/Bit Shift1' */
       BitShift1(rtB.EnabledSubsystem_g.In7, &rtB.BitShift1_e);
 
-      /* End of Outputs for SubSystem: '<S269>/Bit Shift1' */
+      /* End of Outputs for SubSystem: '<S272>/Bit Shift1' */
 
-      /* Outputs for Atomic SubSystem: '<S269>/Bit Shift2' */
+      /* Outputs for Atomic SubSystem: '<S272>/Bit Shift2' */
       BitShift2(rtB.EnabledSubsystem_g.In7, &rtB.BitShift2_l);
 
-      /* End of Outputs for SubSystem: '<S269>/Bit Shift2' */
+      /* End of Outputs for SubSystem: '<S272>/Bit Shift2' */
 
-      /* Outputs for Atomic SubSystem: '<S269>/Bit Shift3' */
+      /* Outputs for Atomic SubSystem: '<S272>/Bit Shift3' */
       BitShift3(rtB.EnabledSubsystem_g.In7, &rtB.BitShift3_f);
 
-      /* End of Outputs for SubSystem: '<S269>/Bit Shift3' */
+      /* End of Outputs for SubSystem: '<S272>/Bit Shift3' */
 
-      /* Outputs for Atomic SubSystem: '<S269>/Bit Shift4' */
+      /* Outputs for Atomic SubSystem: '<S272>/Bit Shift4' */
       BitShift4(rtB.EnabledSubsystem_g.In7, &rtB.BitShift4_j);
 
-      /* End of Outputs for SubSystem: '<S269>/Bit Shift4' */
+      /* End of Outputs for SubSystem: '<S272>/Bit Shift4' */
 
-      /* Outputs for Atomic SubSystem: '<S269>/Bit Shift5' */
+      /* Outputs for Atomic SubSystem: '<S272>/Bit Shift5' */
       BitShift5(rtB.EnabledSubsystem_g.In7, &rtB.BitShift5_o);
 
-      /* End of Outputs for SubSystem: '<S269>/Bit Shift5' */
+      /* End of Outputs for SubSystem: '<S272>/Bit Shift5' */
 
-      /* Outputs for Atomic SubSystem: '<S269>/Bit Shift6' */
+      /* Outputs for Atomic SubSystem: '<S272>/Bit Shift6' */
       BitShift6(rtB.EnabledSubsystem_g.In7, &rtB.BitShift6_o5);
 
-      /* End of Outputs for SubSystem: '<S269>/Bit Shift6' */
+      /* End of Outputs for SubSystem: '<S272>/Bit Shift6' */
 
-      /* Outputs for Atomic SubSystem: '<S269>/Bit Shift7' */
+      /* Outputs for Atomic SubSystem: '<S272>/Bit Shift7' */
       BitShift_g(rtB.EnabledSubsystem_g.In7, &rtB.BitShift7_m);
 
-      /* End of Outputs for SubSystem: '<S269>/Bit Shift7' */
+      /* End of Outputs for SubSystem: '<S272>/Bit Shift7' */
     } else if (rtDWork.TRLS_ID4_RX_MODE) {
       rtDWork.TRLS_ID4_RX_MODE = false;
     }
@@ -2384,93 +2777,93 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     /* End of Outputs for SubSystem: '<S13>/TRLS_ID4_RX' */
 
     /* Logic: '<S13>/AND12' */
-    rtb_Equal17 = (rtb_Equal17 && rtb_Logic_idx_0);
+    rtb_OR1 = (rtb_Equal17 && rtb_OR1);
 
     /* Outputs for Triggered SubSystem: '<S13>/TRLS_ID4_TX' incorporates:
-     *  TriggerPort: '<S112>/Trigger'
+     *  TriggerPort: '<S115>/Trigger'
      */
-    if (rtb_Equal17 && (rtPrevZCSigState.TRLS_ID4_TX_Trig_ZCE != POS_ZCSIG)) {
-      /* DataStoreRead: '<S112>/Data Store Read2' */
+    if (rtb_OR1 && (rtPrevZCSigState.TRLS_ID4_TX_Trig_ZCE != POS_ZCSIG)) {
+      /* DataStoreRead: '<S115>/Data Store Read2' */
       rtB.DataStoreRead2 = rtDWork.Local_Ticks;
 
-      /* DataTypeConversion: '<S292>/Cast1' incorporates:
-       *  DataStoreRead: '<S112>/Data Store Read4'
+      /* DataTypeConversion: '<S295>/Cast1' incorporates:
+       *  DataStoreRead: '<S115>/Data Store Read4'
        */
-      rtb_Cast1_l = rtDWork.potFault;
+      rtb_Cast1_m = rtDWork.potFault;
 
-      /* Outputs for Atomic SubSystem: '<S292>/Bit Shift1' */
-      BitShift1_b(rtb_Cast1_l, &rtB.BitShift1_c);
+      /* Outputs for Atomic SubSystem: '<S295>/Bit Shift1' */
+      BitShift1_b(rtb_Cast1_m, &rtB.BitShift1_c);
 
-      /* End of Outputs for SubSystem: '<S292>/Bit Shift1' */
+      /* End of Outputs for SubSystem: '<S295>/Bit Shift1' */
 
-      /* Outputs for Atomic SubSystem: '<S292>/Bit Shift' */
+      /* Outputs for Atomic SubSystem: '<S295>/Bit Shift' */
       BitShift_gy(rtConstB.Cast_j, &rtB.BitShift_eg);
 
-      /* End of Outputs for SubSystem: '<S292>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S295>/Bit Shift' */
 
-      /* Outputs for Atomic SubSystem: '<S292>/Bit Shift2' */
+      /* Outputs for Atomic SubSystem: '<S295>/Bit Shift2' */
       BitShift2_p(rtConstB.Cast2_o, &rtB.BitShift2_l4);
 
-      /* End of Outputs for SubSystem: '<S292>/Bit Shift2' */
+      /* End of Outputs for SubSystem: '<S295>/Bit Shift2' */
 
-      /* Outputs for Atomic SubSystem: '<S292>/Bit Shift3' */
+      /* Outputs for Atomic SubSystem: '<S295>/Bit Shift3' */
       BitShift3_l(rtConstB.Cast3_g, &rtB.BitShift3_m);
 
-      /* End of Outputs for SubSystem: '<S292>/Bit Shift3' */
+      /* End of Outputs for SubSystem: '<S295>/Bit Shift3' */
 
-      /* Outputs for Atomic SubSystem: '<S292>/Bit Shift4' */
+      /* Outputs for Atomic SubSystem: '<S295>/Bit Shift4' */
       BitShift4_g(rtConstB.Cast4_l, &rtB.BitShift4_c);
 
-      /* End of Outputs for SubSystem: '<S292>/Bit Shift4' */
+      /* End of Outputs for SubSystem: '<S295>/Bit Shift4' */
 
-      /* Outputs for Atomic SubSystem: '<S292>/Bit Shift5' */
+      /* Outputs for Atomic SubSystem: '<S295>/Bit Shift5' */
       BitShift5_n(rtConstB.Cast5_h, &rtB.BitShift5_og);
 
-      /* End of Outputs for SubSystem: '<S292>/Bit Shift5' */
+      /* End of Outputs for SubSystem: '<S295>/Bit Shift5' */
 
-      /* Outputs for Atomic SubSystem: '<S292>/Bit Shift6' */
+      /* Outputs for Atomic SubSystem: '<S295>/Bit Shift6' */
       BitShift6_d(rtConstB.Cast6_e, &rtB.BitShift6_k);
 
-      /* End of Outputs for SubSystem: '<S292>/Bit Shift6' */
+      /* End of Outputs for SubSystem: '<S295>/Bit Shift6' */
 
-      /* Sum: '<S292>/Add' */
+      /* Sum: '<S295>/Add' */
       rtB.Add_f = (uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)((uint32_T)
         (uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)
         ((uint32_T)rtConstB.Cast7_e + rtB.BitShift1_c.y) + rtB.BitShift_eg.y) +
         rtB.BitShift2_l4.y) + rtB.BitShift3_m.y) + rtB.BitShift4_c.y) +
         rtB.BitShift5_og.y) + rtB.BitShift6_k.y);
 
-      /* Outputs for Atomic SubSystem: '<S293>/Bit Shift' */
-      /* DataStoreRead: '<S112>/Data Store Read1' */
+      /* Outputs for Atomic SubSystem: '<S296>/Bit Shift' */
+      /* DataStoreRead: '<S115>/Data Store Read1' */
       BitShift_o(rtDWork.potentiometer2, &rtB.BitShift_h);
 
-      /* End of Outputs for SubSystem: '<S293>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S296>/Bit Shift' */
 
-      /* DataTypeConversion: '<S293>/Cast' */
+      /* DataTypeConversion: '<S296>/Cast' */
       rtB.Cast_d = (uint8_T)rtB.BitShift_h.y;
 
-      /* DataTypeConversion: '<S293>/Cast1' incorporates:
-       *  DataStoreRead: '<S112>/Data Store Read1'
+      /* DataTypeConversion: '<S296>/Cast1' incorporates:
+       *  DataStoreRead: '<S115>/Data Store Read1'
        */
       rtB.Cast1_c = (uint8_T)rtDWork.potentiometer2;
 
-      /* Outputs for Atomic SubSystem: '<S294>/Bit Shift' */
-      /* DataStoreRead: '<S112>/Data Store Read' */
+      /* Outputs for Atomic SubSystem: '<S297>/Bit Shift' */
+      /* DataStoreRead: '<S115>/Data Store Read' */
       BitShift_o(rtDWork.potentiometer1, &rtB.BitShift_d);
 
-      /* End of Outputs for SubSystem: '<S294>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S297>/Bit Shift' */
 
-      /* DataTypeConversion: '<S294>/Cast' */
+      /* DataTypeConversion: '<S297>/Cast' */
       rtB.Cast_n = (uint8_T)rtB.BitShift_d.y;
 
-      /* DataTypeConversion: '<S294>/Cast1' incorporates:
-       *  DataStoreRead: '<S112>/Data Store Read'
+      /* DataTypeConversion: '<S297>/Cast1' incorporates:
+       *  DataStoreRead: '<S115>/Data Store Read'
        */
       rtB.Cast1_i = (uint8_T)rtDWork.potentiometer1;
 
-      /* Update for M-S-Function: '<S291>/S-Function' incorporates:
-       *  Constant: '<S112>/Constant'
-       *  Constant: '<S112>/Constant1'
+      /* Update for M-S-Function: '<S294>/S-Function' incorporates:
+       *  Constant: '<S115>/Constant'
+       *  Constant: '<S115>/Constant1'
        *  Constant: '<S13>/Constant8'
        */
       {
@@ -2489,7 +2882,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       }
     }
 
-    rtPrevZCSigState.TRLS_ID4_TX_Trig_ZCE = rtb_Equal17;
+    rtPrevZCSigState.TRLS_ID4_TX_Trig_ZCE = rtb_OR1;
 
     /* End of Outputs for SubSystem: '<S13>/TRLS_ID4_TX' */
 
@@ -2502,20 +2895,20 @@ void HANcoder_E407_TTA_CombineModel_step(void)
      *  Constant: '<S13>/Constant24'
      *  DataStoreRead: '<S1>/Data Store Read'
      */
-    rtb_Logic_idx_0 = (rtDWork.nodeRole == 5.0);
+    rtb_OR1 = (rtDWork.nodeRole == 5.0);
 
     /* Logic: '<S13>/AND15' incorporates:
      *  Logic: '<S13>/NOT7'
      */
-    rtb_AND15 = (rtb_Equal17 && (!rtb_Logic_idx_0));
+    rtb_AND15 = (rtb_Equal17 && (!rtb_OR1));
 
     /* Outputs for Enabled SubSystem: '<S13>/TRLS_ID5_RX' incorporates:
-     *  EnablePort: '<S113>/Enable'
+     *  EnablePort: '<S116>/Enable'
      */
     if (rtb_AND15) {
       rtDWork.TRLS_ID5_RX_MODE = true;
 
-      /* M-S-Function: '<S315>/S-Function' incorporates:
+      /* M-S-Function: '<S318>/S-Function' incorporates:
        *  Constant: '<S13>/Constant18'
        */
 
@@ -2536,77 +2929,82 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         rtb_SFunction_o9_l = canRxData_0_TRLS1_ID5.uint8_T_info[7];
       }
 
-      /* Outputs for Enabled SubSystem: '<S315>/Enabled Subsystem' */
+      /* Outputs for Enabled SubSystem: '<S318>/Enabled Subsystem' */
       EnabledSubsystem(rtb_SFunction_o1_n, rtb_SFunction_o2_l,
                        rtb_SFunction_o3_m, rtb_SFunction_o4_b,
                        rtb_SFunction_o5_o, rtb_SFunction_o6_i,
                        rtb_SFunction_o7_f, rtb_SFunction_o8_p,
                        rtb_SFunction_o9_l, &rtB.EnabledSubsystem_e);
 
-      /* End of Outputs for SubSystem: '<S315>/Enabled Subsystem' */
+      /* End of Outputs for SubSystem: '<S318>/Enabled Subsystem' */
 
-      /* DataTypeConversion: '<S314>/Cast' */
-      rtb_Cast_gr = rtB.EnabledSubsystem_e.In1;
+      /* DataTypeConversion: '<S317>/Cast' */
+      rtb_Cast_g = rtB.EnabledSubsystem_e.In1;
 
-      /* Outputs for Atomic SubSystem: '<S314>/Bit Shift' */
-      BitShift(rtb_Cast_gr, &rtB.BitShift_jx);
+      /* Outputs for Atomic SubSystem: '<S317>/Bit Shift' */
+      BitShift(rtb_Cast_g, &rtB.BitShift_jx);
 
-      /* End of Outputs for SubSystem: '<S314>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S317>/Bit Shift' */
 
-      /* Sum: '<S314>/Add' incorporates:
-       *  DataStoreWrite: '<S113>/Data Store Write1'
-       *  DataTypeConversion: '<S314>/Cast1'
+      /* Sum: '<S317>/Add' incorporates:
+       *  DataStoreWrite: '<S116>/Data Store Write1'
+       *  DataTypeConversion: '<S317>/Cast1'
        */
       rtDWork.pot5_1 = (uint16_T)((uint32_T)rtB.BitShift_jx.y +
         rtB.EnabledSubsystem_e.In2);
 
-      /* DataTypeConversion: '<S313>/Cast' */
-      rtb_Cast_i1 = rtB.EnabledSubsystem_e.In3;
-
-      /* Outputs for Atomic SubSystem: '<S313>/Bit Shift' */
-      BitShift(rtb_Cast_i1, &rtB.BitShift_a);
-
-      /* End of Outputs for SubSystem: '<S313>/Bit Shift' */
+      /* DataTypeConversion: '<S316>/Cast' */
+      rtb_Cast_ky = rtB.EnabledSubsystem_e.In3;
 
       /* Outputs for Atomic SubSystem: '<S316>/Bit Shift' */
-      BitShift_g(rtB.EnabledSubsystem_e.In7, &rtB.BitShift_dp);
+      BitShift(rtb_Cast_ky, &rtB.BitShift_a);
 
       /* End of Outputs for SubSystem: '<S316>/Bit Shift' */
 
-      /* Outputs for Atomic SubSystem: '<S316>/Bit Shift1' */
+      /* Outputs for Atomic SubSystem: '<S319>/Bit Shift' */
+      BitShift_g(rtB.EnabledSubsystem_e.In7, &rtB.BitShift_dp);
+
+      /* End of Outputs for SubSystem: '<S319>/Bit Shift' */
+
+      /* DataTypeConversion: '<S319>/Cast' incorporates:
+       *  DataStoreWrite: '<S116>/Data Store Write5'
+       */
+      rtDWork.potReadNode5Fail = (rtB.BitShift_dp.y != 0);
+
+      /* Outputs for Atomic SubSystem: '<S319>/Bit Shift1' */
       BitShift1(rtB.EnabledSubsystem_e.In7, &rtB.BitShift1_au);
 
-      /* End of Outputs for SubSystem: '<S316>/Bit Shift1' */
+      /* End of Outputs for SubSystem: '<S319>/Bit Shift1' */
 
-      /* Outputs for Atomic SubSystem: '<S316>/Bit Shift2' */
+      /* Outputs for Atomic SubSystem: '<S319>/Bit Shift2' */
       BitShift2(rtB.EnabledSubsystem_e.In7, &rtB.BitShift2_d);
 
-      /* End of Outputs for SubSystem: '<S316>/Bit Shift2' */
+      /* End of Outputs for SubSystem: '<S319>/Bit Shift2' */
 
-      /* Outputs for Atomic SubSystem: '<S316>/Bit Shift3' */
+      /* Outputs for Atomic SubSystem: '<S319>/Bit Shift3' */
       BitShift3(rtB.EnabledSubsystem_e.In7, &rtB.BitShift3_dx);
 
-      /* End of Outputs for SubSystem: '<S316>/Bit Shift3' */
+      /* End of Outputs for SubSystem: '<S319>/Bit Shift3' */
 
-      /* Outputs for Atomic SubSystem: '<S316>/Bit Shift4' */
+      /* Outputs for Atomic SubSystem: '<S319>/Bit Shift4' */
       BitShift4(rtB.EnabledSubsystem_e.In7, &rtB.BitShift4_o);
 
-      /* End of Outputs for SubSystem: '<S316>/Bit Shift4' */
+      /* End of Outputs for SubSystem: '<S319>/Bit Shift4' */
 
-      /* Outputs for Atomic SubSystem: '<S316>/Bit Shift5' */
+      /* Outputs for Atomic SubSystem: '<S319>/Bit Shift5' */
       BitShift5(rtB.EnabledSubsystem_e.In7, &rtB.BitShift5_ni);
 
-      /* End of Outputs for SubSystem: '<S316>/Bit Shift5' */
+      /* End of Outputs for SubSystem: '<S319>/Bit Shift5' */
 
-      /* Outputs for Atomic SubSystem: '<S316>/Bit Shift6' */
+      /* Outputs for Atomic SubSystem: '<S319>/Bit Shift6' */
       BitShift6(rtB.EnabledSubsystem_e.In7, &rtB.BitShift6_a);
 
-      /* End of Outputs for SubSystem: '<S316>/Bit Shift6' */
+      /* End of Outputs for SubSystem: '<S319>/Bit Shift6' */
 
-      /* Outputs for Atomic SubSystem: '<S316>/Bit Shift7' */
+      /* Outputs for Atomic SubSystem: '<S319>/Bit Shift7' */
       BitShift_g(rtB.EnabledSubsystem_e.In7, &rtB.BitShift7_ms);
 
-      /* End of Outputs for SubSystem: '<S316>/Bit Shift7' */
+      /* End of Outputs for SubSystem: '<S319>/Bit Shift7' */
     } else if (rtDWork.TRLS_ID5_RX_MODE) {
       rtDWork.TRLS_ID5_RX_MODE = false;
     }
@@ -2614,93 +3012,93 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     /* End of Outputs for SubSystem: '<S13>/TRLS_ID5_RX' */
 
     /* Logic: '<S13>/AND14' */
-    rtb_Equal17 = (rtb_Equal17 && rtb_Logic_idx_0);
+    rtb_OR1 = (rtb_Equal17 && rtb_OR1);
 
     /* Outputs for Triggered SubSystem: '<S13>/TRLS_ID5_TX' incorporates:
-     *  TriggerPort: '<S114>/Trigger'
+     *  TriggerPort: '<S117>/Trigger'
      */
-    if (rtb_Equal17 && (rtPrevZCSigState.TRLS_ID5_TX_Trig_ZCE != POS_ZCSIG)) {
-      /* DataStoreRead: '<S114>/Data Store Read3' */
+    if (rtb_OR1 && (rtPrevZCSigState.TRLS_ID5_TX_Trig_ZCE != POS_ZCSIG)) {
+      /* DataStoreRead: '<S117>/Data Store Read3' */
       rtB.DataStoreRead3 = rtDWork.Local_Ticks;
 
-      /* DataTypeConversion: '<S339>/Cast1' incorporates:
-       *  DataStoreRead: '<S114>/Data Store Read5'
+      /* DataTypeConversion: '<S342>/Cast1' incorporates:
+       *  DataStoreRead: '<S117>/Data Store Read5'
        */
-      rtb_Cast1_e = rtDWork.potFault;
+      rtb_Cast1_j = rtDWork.potFault;
 
-      /* Outputs for Atomic SubSystem: '<S339>/Bit Shift1' */
-      BitShift1_b(rtb_Cast1_e, &rtB.BitShift1_n);
+      /* Outputs for Atomic SubSystem: '<S342>/Bit Shift1' */
+      BitShift1_b(rtb_Cast1_j, &rtB.BitShift1_n4);
 
-      /* End of Outputs for SubSystem: '<S339>/Bit Shift1' */
+      /* End of Outputs for SubSystem: '<S342>/Bit Shift1' */
 
-      /* Outputs for Atomic SubSystem: '<S339>/Bit Shift' */
+      /* Outputs for Atomic SubSystem: '<S342>/Bit Shift' */
       BitShift_gy(rtConstB.Cast_h, &rtB.BitShift_a0);
 
-      /* End of Outputs for SubSystem: '<S339>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S342>/Bit Shift' */
 
-      /* Outputs for Atomic SubSystem: '<S339>/Bit Shift2' */
+      /* Outputs for Atomic SubSystem: '<S342>/Bit Shift2' */
       BitShift2_p(rtConstB.Cast2, &rtB.BitShift2_f);
 
-      /* End of Outputs for SubSystem: '<S339>/Bit Shift2' */
+      /* End of Outputs for SubSystem: '<S342>/Bit Shift2' */
 
-      /* Outputs for Atomic SubSystem: '<S339>/Bit Shift3' */
+      /* Outputs for Atomic SubSystem: '<S342>/Bit Shift3' */
       BitShift3_l(rtConstB.Cast3, &rtB.BitShift3_a);
 
-      /* End of Outputs for SubSystem: '<S339>/Bit Shift3' */
+      /* End of Outputs for SubSystem: '<S342>/Bit Shift3' */
 
-      /* Outputs for Atomic SubSystem: '<S339>/Bit Shift4' */
+      /* Outputs for Atomic SubSystem: '<S342>/Bit Shift4' */
       BitShift4_g(rtConstB.Cast4, &rtB.BitShift4_ew);
 
-      /* End of Outputs for SubSystem: '<S339>/Bit Shift4' */
+      /* End of Outputs for SubSystem: '<S342>/Bit Shift4' */
 
-      /* Outputs for Atomic SubSystem: '<S339>/Bit Shift5' */
+      /* Outputs for Atomic SubSystem: '<S342>/Bit Shift5' */
       BitShift5_n(rtConstB.Cast5, &rtB.BitShift5_nm);
 
-      /* End of Outputs for SubSystem: '<S339>/Bit Shift5' */
+      /* End of Outputs for SubSystem: '<S342>/Bit Shift5' */
 
-      /* Outputs for Atomic SubSystem: '<S339>/Bit Shift6' */
+      /* Outputs for Atomic SubSystem: '<S342>/Bit Shift6' */
       BitShift6_d(rtConstB.Cast6, &rtB.BitShift6_ab);
 
-      /* End of Outputs for SubSystem: '<S339>/Bit Shift6' */
+      /* End of Outputs for SubSystem: '<S342>/Bit Shift6' */
 
-      /* Sum: '<S339>/Add' */
+      /* Sum: '<S342>/Add' */
       rtB.Add = (uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)((uint32_T)
         (uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)((uint32_T)(uint8_T)
-        ((uint32_T)rtConstB.Cast7 + rtB.BitShift1_n.y) + rtB.BitShift_a0.y) +
+        ((uint32_T)rtConstB.Cast7 + rtB.BitShift1_n4.y) + rtB.BitShift_a0.y) +
         rtB.BitShift2_f.y) + rtB.BitShift3_a.y) + rtB.BitShift4_ew.y) +
         rtB.BitShift5_nm.y) + rtB.BitShift6_ab.y);
 
-      /* Outputs for Atomic SubSystem: '<S340>/Bit Shift' */
-      /* DataStoreRead: '<S114>/Data Store Read2' */
+      /* Outputs for Atomic SubSystem: '<S343>/Bit Shift' */
+      /* DataStoreRead: '<S117>/Data Store Read2' */
       BitShift_o(rtDWork.potentiometer2, &rtB.BitShift_g3);
 
-      /* End of Outputs for SubSystem: '<S340>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S343>/Bit Shift' */
 
-      /* DataTypeConversion: '<S340>/Cast' */
+      /* DataTypeConversion: '<S343>/Cast' */
       rtB.Cast = (uint8_T)rtB.BitShift_g3.y;
 
-      /* DataTypeConversion: '<S340>/Cast1' incorporates:
-       *  DataStoreRead: '<S114>/Data Store Read2'
+      /* DataTypeConversion: '<S343>/Cast1' incorporates:
+       *  DataStoreRead: '<S117>/Data Store Read2'
        */
       rtB.Cast1 = (uint8_T)rtDWork.potentiometer2;
 
-      /* Outputs for Atomic SubSystem: '<S341>/Bit Shift' */
-      /* DataStoreRead: '<S114>/Data Store Read1' */
+      /* Outputs for Atomic SubSystem: '<S344>/Bit Shift' */
+      /* DataStoreRead: '<S117>/Data Store Read1' */
       BitShift_o(rtDWork.potentiometer1, &rtB.BitShift_gul);
 
-      /* End of Outputs for SubSystem: '<S341>/Bit Shift' */
+      /* End of Outputs for SubSystem: '<S344>/Bit Shift' */
 
-      /* DataTypeConversion: '<S341>/Cast' */
+      /* DataTypeConversion: '<S344>/Cast' */
       rtB.Cast_f = (uint8_T)rtB.BitShift_gul.y;
 
-      /* DataTypeConversion: '<S341>/Cast1' incorporates:
-       *  DataStoreRead: '<S114>/Data Store Read1'
+      /* DataTypeConversion: '<S344>/Cast1' incorporates:
+       *  DataStoreRead: '<S117>/Data Store Read1'
        */
       rtB.Cast1_m = (uint8_T)rtDWork.potentiometer1;
 
-      /* Update for M-S-Function: '<S338>/S-Function' incorporates:
-       *  Constant: '<S114>/Constant'
-       *  Constant: '<S114>/Constant1'
+      /* Update for M-S-Function: '<S341>/S-Function' incorporates:
+       *  Constant: '<S117>/Constant'
+       *  Constant: '<S117>/Constant1'
        *  Constant: '<S13>/Constant18'
        */
       {
@@ -2719,14 +3117,13 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       }
     }
 
-    rtPrevZCSigState.TRLS_ID5_TX_Trig_ZCE = rtb_Equal17;
+    rtPrevZCSigState.TRLS_ID5_TX_Trig_ZCE = rtb_OR1;
 
     /* End of Outputs for SubSystem: '<S13>/TRLS_ID5_TX' */
   } else if (rtDWork.Messageselector_MODE) {
     /* Disable for Enabled SubSystem: '<S13>/MMBS1_RX' */
-    if (rtDWork.MMBS1_RX_j.MMBS1_RX_MODE) {
-      /* Constant: '<S13>/Constant12' */
-      MMBS1_RX_Disable(&rtDWork.MMBS1_RX_j);
+    if (rtDWork.MMBS1_RX_MODE) {
+      rtDWork.MMBS1_RX_MODE = false;
     }
 
     /* End of Disable for SubSystem: '<S13>/MMBS1_RX' */
@@ -2734,9 +3131,8 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     /* Disable for Triggered SubSystem: '<S13>/MMBS1_TX' */
     /* Constant: '<S13>/Constant12' */
     /* Disable for Enabled SubSystem: '<S13>/SSTM1_RX' */
-    if (rtDWork.SSTM1_RX.MMBS1_RX_MODE) {
-      /* Constant: '<S13>/Constant14' */
-      MMBS1_RX_Disable(&rtDWork.SSTM1_RX);
+    if (rtDWork.SSTM1_RX_MODE) {
+      rtDWork.SSTM1_RX_MODE = false;
     }
 
     /* End of Disable for SubSystem: '<S13>/SSTM1_RX' */
@@ -2766,9 +3162,6 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     }
 
     /* End of Disable for SubSystem: '<S13>/TRCK1_RX' */
-
-    /* Disable for Triggered SubSystem: '<S13>/TRCK1_TX' */
-    /* Constant: '<S13>/Constant3' */
     /* Disable for Enabled SubSystem: '<S13>/TRCK_ID3_RX' */
     if (rtDWork.TRCK_ID3_RX_MODE) {
       rtDWork.TRCK_ID3_RX_MODE = false;
@@ -2794,16 +3187,16 @@ void HANcoder_E407_TTA_CombineModel_step(void)
   /* End of Outputs for SubSystem: '<S1>/Message selector' */
 
   /* Outputs for Triggered SubSystem: '<S15>/Subsystem' incorporates:
-   *  TriggerPort: '<S360>/Trigger'
+   *  TriggerPort: '<S363>/Trigger'
    */
   if (rtb_AND && (rtPrevZCSigState.Subsystem_Trig_ZCE != POS_ZCSIG)) {
-    /* DataStoreWrite: '<S360>/Data Store Write1' incorporates:
-     *  Constant: '<S360>/Constant1'
+    /* DataStoreWrite: '<S363>/Data Store Write1' incorporates:
+     *  Constant: '<S363>/Constant1'
      */
     rtDWork.Local_Ticks = ((uint8_T)0U);
 
-    /* DataStoreWrite: '<S360>/Data Store Write' incorporates:
-     *  Constant: '<S360>/Constant3'
+    /* DataStoreWrite: '<S363>/Data Store Write' incorporates:
+     *  Constant: '<S363>/Constant3'
      */
     rtDWork.SlotTime = slotTime;
   }
@@ -2813,7 +3206,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
   /* End of Outputs for SubSystem: '<S15>/Subsystem' */
 
   /* Outputs for Enabled SubSystem: '<S15>/Subsystem2' incorporates:
-   *  EnablePort: '<S361>/Enable'
+   *  EnablePort: '<S364>/Enable'
    */
   /* Logic: '<S15>/AND1' incorporates:
    *  Constant: '<S15>/Constant1'
@@ -2825,8 +3218,8 @@ void HANcoder_E407_TTA_CombineModel_step(void)
   if ((rtDWork.nodeRole > ((uint8_T)1U)) && (!rtDWork.slaveClockOn)) {
     rtDWork.Subsystem2_MODE = true;
 
-    /* M-S-Function: '<S362>/S-Function' incorporates:
-     *  Constant: '<S361>/Constant10'
+    /* M-S-Function: '<S365>/S-Function' incorporates:
+     *  Constant: '<S364>/Constant10'
      */
 
     /* read the message data and store the new parameter */
@@ -2846,41 +3239,41 @@ void HANcoder_E407_TTA_CombineModel_step(void)
       rtb_SFunction_o9 = canRxData_0_SYNC1_ID.uint8_T_info[7];
     }
 
-    /* Outputs for Enabled SubSystem: '<S362>/Enabled Subsystem' */
+    /* Outputs for Enabled SubSystem: '<S365>/Enabled Subsystem' */
     EnabledSubsystem(rtb_SFunction_o1, rtb_SFunction_o2, rtb_SFunction_o3,
                      rtb_SFunction_o4, rtb_SFunction_o5, rtb_SFunction_o6,
                      rtb_SFunction_o7, rtb_SFunction_o8, rtb_SFunction_o9,
                      &rtB.EnabledSubsystem_i);
 
-    /* End of Outputs for SubSystem: '<S362>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S365>/Enabled Subsystem' */
 
-    /* Outputs for Triggered SubSystem: '<S361>/Subsystem1' incorporates:
-     *  TriggerPort: '<S363>/Trigger'
+    /* Outputs for Triggered SubSystem: '<S364>/Subsystem1' incorporates:
+     *  TriggerPort: '<S366>/Trigger'
      */
     zcEvent = rt_I32ZCFcn(RISING_ZERO_CROSSING,
                           &rtPrevZCSigState.Subsystem1_Trig_ZCE,
                           (rtb_SFunction_o1));
     if (zcEvent != NO_ZCEVENT) {
-      /* DataStoreWrite: '<S363>/Data Store Write' */
+      /* DataStoreWrite: '<S366>/Data Store Write' */
       rtDWork.SlotTime = rtB.EnabledSubsystem_i.In1;
 
-      /* DataStoreWrite: '<S363>/Data Store Write1' incorporates:
-       *  Constant: '<S363>/Constant'
+      /* DataStoreWrite: '<S366>/Data Store Write1' incorporates:
+       *  Constant: '<S366>/Constant'
        */
       rtDWork.Local_Ticks = ((uint8_T)0U);
 
-      /* DataStoreWrite: '<S363>/Data Store Write2' incorporates:
-       *  Constant: '<S363>/Constant1'
+      /* DataStoreWrite: '<S366>/Data Store Write2' incorporates:
+       *  Constant: '<S366>/Constant1'
        */
       rtDWork.slaveClockOn = true;
 
-      /* DataStoreWrite: '<S363>/Data Store Write3' incorporates:
-       *  Constant: '<S363>/Constant2'
+      /* DataStoreWrite: '<S366>/Data Store Write3' incorporates:
+       *  Constant: '<S366>/Constant2'
        */
       rtDWork.slot = ((uint8_T)1U);
     }
 
-    /* End of Outputs for SubSystem: '<S361>/Subsystem1' */
+    /* End of Outputs for SubSystem: '<S364>/Subsystem1' */
   } else if (rtDWork.Subsystem2_MODE) {
     rtDWork.Subsystem2_MODE = false;
   }
@@ -2916,249 +3309,305 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     (uint32_T)(rtb_Level2MfileSFunction_j ? (int32_T)((uint32_T)((uint8_T)128U) >>
     5) : 0));
 
-  /* M-S-Function: '<S365>/Level-2 M-file S-Function' */
+  /* M-S-Function: '<S368>/Level-2 M-file S-Function' */
   /* read the current CPU load */
   SI_CPUload = OsGetCpuLoad();
 
-  /* M-S-Function: '<S366>/Level-2 M-file S-Function' */
+  /* M-S-Function: '<S369>/Level-2 M-file S-Function' */
   /* read the free heap size */
   SI_FreeHeap = OsGetFreeHeapSize();
 
-  /* M-S-Function: '<S367>/Level-2 M-file S-Function' */
+  /* M-S-Function: '<S370>/Level-2 M-file S-Function' */
   /* read the task's free stack size */
   SI_FreeStack = OsGetTaskFreeStackSize("AppCtrlTask");
+
+  /* Update absolute time for base rate */
+  /* The "clockTick0" counts the number of times the code of this task has
+   * been executed. The resolution of this integer timer is 0.001, which is the step size
+   * of the task. Size of "clockTick0" ensures timer will not overflow during the
+   * application lifespan selected.
+   * Timer of this task consists of two 32 bit unsigned integers.
+   * The two integers represent the low bits Timing.clockTick0 and the high bits
+   * Timing.clockTickH0. When the low bit overflows to 0, the high bits increment.
+   */
+  rtM->Timing.clockTick0++;
+  if (!rtM->Timing.clockTick0) {
+    rtM->Timing.clockTickH0++;
+  }
 }
 
 /* Model initialize function */
 void HANcoder_E407_TTA_CombineModel_initialize(void)
 {
   {
-    /* user code (Start function Header) */
-    uint8_t canResult1;
-    tCanFilter canFilter1;
+    g_dsp_internal_SlidingWindowAve *obj;
+    int32_T i;
 
-    /* user code (Start function Body) */
+    {
+      /* user code (Start function Header) */
+      uint8_t canResult1;
+      tCanFilter canFilter1;
 
-    /* initialize the CAN driver. */
-    CanInit(64, 8);
+      /* user code (Start function Body) */
 
-    /* initialize the CAN I/O module for channel 1 */
-    CanIoInit(0);
+      /* initialize the CAN driver. */
+      CanInit(64, 8);
 
-    /* initialize the timer module for output compare. */
-    TimeoutInitModule(TIMEOUT_MODULE_TIM4, 1000000);
+      /* initialize the CAN I/O module for channel 1 */
+      CanIoInit(0);
 
-    /* register the callback handler */
-    TimeoutRegisterCompareEventCallback(TIMEOUT_TIM4_PIN_PD12,
-      TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12);
+      /* initialize the timer module for output compare. */
+      TimeoutInitModule(TIMEOUT_MODULE_TIM4, 1000000);
 
-    /* End of Start for S-Function (sfcn_timeout_event_irq): '<S4>/S-Function' */
+      /* register the callback handler */
+      TimeoutRegisterCompareEventCallback(TIMEOUT_TIM4_PIN_PD12,
+        TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12);
 
-    /* Start for Triggered SubSystem: '<S1>/IO execution' */
-    /* Start for M-S-Function: '<S82>/Level-2 M-file S-Function' */
+      /* End of Start for S-Function (sfcn_timeout_event_irq): '<S4>/S-Function' */
 
-    /* configure the analog input for filtered inputs */
-    AninConfigure(ANIN_PORTF_PIN7,0);
-    MovingAverage_Start(&rtDWork.MovingAverage_p);
+      /* Start for Triggered SubSystem: '<S1>/IO execution' */
+      /* Start for MATLABSystem: '<S80>/Moving Average' */
+      rtDWork.obj.isInitialized = 0;
+      rtDWork.obj.NumChannels = -1;
+      rtDWork.obj.FrameLength = -1;
+      rtDWork.obj.matlabCodegenIsDeleted = false;
+      SystemCore_setup_l(&rtDWork.obj);
 
-    /* Start for M-S-Function: '<S83>/Level-2 M-file S-Function' */
+      /* Start for M-S-Function: '<S82>/Level-2 M-file S-Function' */
 
-    /* configure the analog input for filtered inputs */
-    AninConfigure(ANIN_PORTF_PIN8,0);
-    MovingAverage_Start(&rtDWork.MovingAverage1);
+      /* configure the analog input for filtered inputs */
+      AninConfigure(ANIN_PORTF_PIN7,0);
+      MovingAverage_Start(&rtDWork.MovingAverage_p);
 
-    /* Start for M-S-Function: '<S81>/Level-2 M-file S-Function' */
+      /* Start for M-S-Function: '<S83>/Level-2 M-file S-Function' */
 
-    /* configure the quadrature encoder module */
-    QuadEncConfigure(QUADENC_TIM3_PA6_PB5, QUADENC_CFG_FLOATING);
+      /* configure the analog input for filtered inputs */
+      AninConfigure(ANIN_PORTF_PIN8,0);
+      MovingAverage_Start(&rtDWork.MovingAverage1);
 
-    /* Start for M-S-Function: '<S85>/Level-2 M-file S-Function' */
+      /* Start for M-S-Function: '<S81>/Level-2 M-file S-Function' */
 
-    /* configure the digital output */
-    DigoutConfigure(DIGOUT_PORTE_PIN5, DIGOUT_CFG_PUSHPULL);
+      /* configure the quadrature encoder module */
+      QuadEncConfigure(QUADENC_TIM3_PA6_PB5, QUADENC_CFG_FLOATING);
 
-    /* Start for M-S-Function: '<S86>/Level-2 M-file S-Function' */
+      /* Start for M-S-Function: '<S85>/Level-2 M-file S-Function' */
 
-    /* configure the digital output */
-    DigoutConfigure(DIGOUT_PORTE_PIN6, DIGOUT_CFG_PUSHPULL);
+      /* configure the digital output */
+      DigoutConfigure(DIGOUT_PORTE_PIN5, DIGOUT_CFG_PUSHPULL);
 
-    /* Start for M-S-Function: '<S87>/Level-2 M-file S-Function' */
+      /* Start for M-S-Function: '<S86>/Level-2 M-file S-Function' */
 
-    /* configure the digital output */
-    DigoutConfigure(DIGOUT_PORTC_PIN13, DIGOUT_CFG_PUSHPULL);
+      /* configure the digital output */
+      DigoutConfigure(DIGOUT_PORTE_PIN6, DIGOUT_CFG_PUSHPULL);
 
-    /* Start for S-Function (sfcn_pwmout_init): '<S89>/S-Function' */
+      /* Start for M-S-Function: '<S87>/Level-2 M-file S-Function' */
 
-    /* initialize the PWM module and register the callback handler */
-    PwmoutInit(PWMOUT_MODULE_TIM14, 10253, PWMOUT_EDGE_ALIGNMENT);
-    PwmoutRegisterPeriodCompleteCallback(PWMOUT_MODULE_TIM14,
-      PwmoutIRQ_PWMOUT_MODULE_TIM14);
+      /* configure the digital output */
+      DigoutConfigure(DIGOUT_PORTC_PIN13, DIGOUT_CFG_PUSHPULL);
 
-    /* configures channel 1 */
-    PwmoutConfigure(PWMOUT_TIM14_PIN_PF9, PWMOUT_ACTIVE_HIGH,
-                    PWMOUT_INVERTED_OUTPUT_OFF);
+      /* Start for S-Function (sfcn_pwmout_init): '<S89>/S-Function' */
 
-    /* End of Start for SubSystem: '<S1>/IO execution' */
+      /* initialize the PWM module and register the callback handler */
+      PwmoutInit(PWMOUT_MODULE_TIM14, 10253, PWMOUT_EDGE_ALIGNMENT);
+      PwmoutRegisterPeriodCompleteCallback(PWMOUT_MODULE_TIM14,
+        PwmoutIRQ_PWMOUT_MODULE_TIM14);
 
-    /* Start for Enabled SubSystem: '<S1>/Message selector'
-     *
-     * Block description for '<S1>/Message selector':
-     *  Truck 1
-     */
-    /* Start for Enabled SubSystem: '<S13>/MMBS1_RX' */
-    /* Constant: '<S13>/Constant12' */
-    MMBS1_RX_Start(MMBS1_ID);
+      /* configures channel 1 */
+      PwmoutConfigure(PWMOUT_TIM14_PIN_PF9, PWMOUT_ACTIVE_HIGH,
+                      PWMOUT_INVERTED_OUTPUT_OFF);
 
-    /* End of Start for SubSystem: '<S13>/MMBS1_RX' */
+      /* End of Start for SubSystem: '<S1>/IO execution' */
 
-    /* Start for Enabled SubSystem: '<S13>/SSTM1_RX' */
-    /* Constant: '<S13>/Constant14' */
-    MMBS1_RX_Start(SSTM1_ID);
+      /* Start for Enabled SubSystem: '<S1>/Message selector'
+       *
+       * Block description for '<S1>/Message selector':
+       *  Truck 1
+       */
+      /* Start for Enabled SubSystem: '<S13>/MMBS1_RX' */
+      /* Start for M-S-Function: '<S118>/S-Function' incorporates:
+       *  Constant: '<S13>/Constant12'
+       */
 
-    /* End of Start for SubSystem: '<S13>/SSTM1_RX' */
+      /* register a CAN storage buffer for the message with this ID */
+      CanIoCreateMessageReceivedStorage(0, MMBS1_ID);
 
-    /* Start for Enabled SubSystem: '<S13>/SYNC1_RX' */
-    /* Start for M-S-Function: '<S121>/S-Function' incorporates:
-     *  Constant: '<S13>/Constant10'
-     */
+      /* End of Start for SubSystem: '<S13>/MMBS1_RX' */
 
-    /* register a CAN storage buffer for the message with this ID */
-    CanIoCreateMessageReceivedStorage(0, SYNC1_ID);
+      /* Start for Enabled SubSystem: '<S13>/SSTM1_RX' */
+      /* Start for M-S-Function: '<S121>/S-Function' incorporates:
+       *  Constant: '<S13>/Constant14'
+       */
 
-    /* End of Start for SubSystem: '<S13>/SYNC1_RX' */
+      /* register a CAN storage buffer for the message with this ID */
+      CanIoCreateMessageReceivedStorage(0, SSTM1_ID);
 
-    /* Start for Enabled SubSystem: '<S13>/TRCK1_ID2_RX' */
-    /* Start for M-S-Function: '<S127>/S-Function' incorporates:
-     *  Constant: '<S13>/Constant5'
-     */
+      /* End of Start for SubSystem: '<S13>/SSTM1_RX' */
 
-    /* register a CAN storage buffer for the message with this ID */
-    CanIoCreateMessageReceivedStorage(0, TRCK1_ID2);
+      /* Start for Enabled SubSystem: '<S13>/SYNC1_RX' */
+      /* Start for M-S-Function: '<S124>/S-Function' incorporates:
+       *  Constant: '<S13>/Constant10'
+       */
 
-    /* End of Start for SubSystem: '<S13>/TRCK1_ID2_RX' */
+      /* register a CAN storage buffer for the message with this ID */
+      CanIoCreateMessageReceivedStorage(0, SYNC1_ID);
 
-    /* Start for Enabled SubSystem: '<S13>/TRCK1_RX' */
-    /* Start for M-S-Function: '<S196>/S-Function' incorporates:
-     *  Constant: '<S13>/Constant3'
-     */
+      /* End of Start for SubSystem: '<S13>/SYNC1_RX' */
 
-    /* register a CAN storage buffer for the message with this ID */
-    CanIoCreateMessageReceivedStorage(0, TRCK1_ID1);
+      /* Start for Enabled SubSystem: '<S13>/TRCK1_ID2_RX' */
+      /* Start for M-S-Function: '<S130>/S-Function' incorporates:
+       *  Constant: '<S13>/Constant5'
+       */
 
-    /* End of Start for SubSystem: '<S13>/TRCK1_RX' */
+      /* register a CAN storage buffer for the message with this ID */
+      CanIoCreateMessageReceivedStorage(0, TRCK1_ID2);
 
-    /* Start for Enabled SubSystem: '<S13>/TRCK_ID3_RX' */
-    /* Start for M-S-Function: '<S243>/S-Function' incorporates:
-     *  Constant: '<S13>/Constant26'
-     */
+      /* End of Start for SubSystem: '<S13>/TRCK1_ID2_RX' */
 
-    /* register a CAN storage buffer for the message with this ID */
-    CanIoCreateMessageReceivedStorage(0, TRCK1_ID3);
+      /* Start for Enabled SubSystem: '<S13>/TRCK1_RX' */
+      /* Start for M-S-Function: '<S199>/S-Function' incorporates:
+       *  Constant: '<S13>/Constant3'
+       */
 
-    /* End of Start for SubSystem: '<S13>/TRCK_ID3_RX' */
+      /* register a CAN storage buffer for the message with this ID */
+      CanIoCreateMessageReceivedStorage(0, TRCK1_ID1);
 
-    /* Start for Enabled SubSystem: '<S13>/TRLS_ID4_RX' */
-    /* Start for M-S-Function: '<S268>/S-Function' incorporates:
-     *  Constant: '<S13>/Constant8'
-     */
+      /* End of Start for SubSystem: '<S13>/TRCK1_RX' */
 
-    /* register a CAN storage buffer for the message with this ID */
-    CanIoCreateMessageReceivedStorage(0, TRLS1_ID4);
+      /* Start for Enabled SubSystem: '<S13>/TRCK_ID3_RX' */
+      /* Start for M-S-Function: '<S246>/S-Function' incorporates:
+       *  Constant: '<S13>/Constant26'
+       */
 
-    /* End of Start for SubSystem: '<S13>/TRLS_ID4_RX' */
+      /* register a CAN storage buffer for the message with this ID */
+      CanIoCreateMessageReceivedStorage(0, TRCK1_ID3);
 
-    /* Start for Enabled SubSystem: '<S13>/TRLS_ID5_RX' */
-    /* Start for M-S-Function: '<S315>/S-Function' incorporates:
-     *  Constant: '<S13>/Constant18'
-     */
+      /* End of Start for SubSystem: '<S13>/TRCK_ID3_RX' */
 
-    /* register a CAN storage buffer for the message with this ID */
-    CanIoCreateMessageReceivedStorage(0, TRLS1_ID5);
+      /* Start for Enabled SubSystem: '<S13>/TRLS_ID4_RX' */
+      /* Start for M-S-Function: '<S271>/S-Function' incorporates:
+       *  Constant: '<S13>/Constant8'
+       */
 
-    /* End of Start for SubSystem: '<S13>/TRLS_ID5_RX' */
-    /* End of Start for SubSystem: '<S1>/Message selector' */
+      /* register a CAN storage buffer for the message with this ID */
+      CanIoCreateMessageReceivedStorage(0, TRLS1_ID4);
 
-    /* Start for Enabled SubSystem: '<S15>/Subsystem2' */
-    /* Start for M-S-Function: '<S362>/S-Function' incorporates:
-     *  Constant: '<S361>/Constant10'
-     */
+      /* End of Start for SubSystem: '<S13>/TRLS_ID4_RX' */
 
-    /* register a CAN storage buffer for the message with this ID */
-    CanIoCreateMessageReceivedStorage(0, SYNC1_ID);
+      /* Start for Enabled SubSystem: '<S13>/TRLS_ID5_RX' */
+      /* Start for M-S-Function: '<S318>/S-Function' incorporates:
+       *  Constant: '<S13>/Constant18'
+       */
 
-    /* End of Start for SubSystem: '<S15>/Subsystem2' */
+      /* register a CAN storage buffer for the message with this ID */
+      CanIoCreateMessageReceivedStorage(0, TRLS1_ID5);
 
-    /* Start for M-S-Function: '<S7>/Level-2 M-file S-Function' */
+      /* End of Start for SubSystem: '<S13>/TRLS_ID5_RX' */
+      /* End of Start for SubSystem: '<S1>/Message selector' */
 
-    /* configure the digital input */
-    DiginConfigure(DIGIN_PORTG_PIN12, DIGIN_CFG_PULLDOWN);
+      /* Start for Enabled SubSystem: '<S15>/Subsystem2' */
+      /* Start for M-S-Function: '<S365>/S-Function' incorporates:
+       *  Constant: '<S364>/Constant10'
+       */
 
-    /* Start for M-S-Function: '<S8>/Level-2 M-file S-Function' */
+      /* register a CAN storage buffer for the message with this ID */
+      CanIoCreateMessageReceivedStorage(0, SYNC1_ID);
 
-    /* configure the digital input */
-    DiginConfigure(DIGIN_PORTG_PIN15, DIGIN_CFG_PULLDOWN);
+      /* End of Start for SubSystem: '<S15>/Subsystem2' */
 
-    /* Start for M-S-Function: '<S9>/Level-2 M-file S-Function' */
+      /* Start for M-S-Function: '<S7>/Level-2 M-file S-Function' */
 
-    /* configure the digital input */
-    DiginConfigure(DIGIN_PORTA_PIN4, DIGIN_CFG_PULLDOWN);
+      /* configure the digital input */
+      DiginConfigure(DIGIN_PORTG_PIN12, DIGIN_CFG_PULLDOWN);
 
-    /* Start for M-S-Function: '<S2>/Level-2 M-file S-Function' */
+      /* Start for M-S-Function: '<S8>/Level-2 M-file S-Function' */
 
-    /* configure the stack size for the task that executes the model */
-    AppCtrlTaskSetStackSize((configMINIMAL_STACK_SIZE*sizeof(portBASE_TYPE)) +
-      100);
+      /* configure the digital input */
+      DiginConfigure(DIGIN_PORTG_PIN15, DIGIN_CFG_PULLDOWN);
 
-    /* configure the sample time of the model in microseconds */
-    AppCtrlTaskSetPeriod(1000);
+      /* Start for M-S-Function: '<S9>/Level-2 M-file S-Function' */
 
-    /* Run the ADC conversions ten times faster than the Simulink model */
-    ADCconversionTaskSetPeriod(1000/10);
+      /* configure the digital input */
+      DiginConfigure(DIGIN_PORTA_PIN4, DIGIN_CFG_PULLDOWN);
 
-    /* Start for M-S-Function: '<S3>/Level-2 M-file S-Function' */
+      /* Start for M-S-Function: '<S2>/Level-2 M-file S-Function' */
 
-    /* store the CAN controller's filter configuration */
-    canFilter1.mask = 0x00000000;
-    canFilter1.code = 0x00000000;
-    canFilter1.mode = CAN_FILTER_MODE_STDID_ONLY;
+      /* configure the stack size for the task that executes the model */
+      AppCtrlTaskSetStackSize((configMINIMAL_STACK_SIZE*sizeof(portBASE_TYPE)) +
+        100);
 
-    /* connect and synchronize the CAN bus */
-    canResult1 = CanConnect(0, 1000000, &canFilter1);
-    configASSERT(canResult1 == TRUE);
+      /* configure the sample time of the model in microseconds */
+      AppCtrlTaskSetPeriod(1000);
 
-    /* Start for S-Function (sfcn_timeout_init): '<S14>/S-Function' */
+      /* Run the ADC conversions ten times faster than the Simulink model */
+      ADCconversionTaskSetPeriod(1000/10);
 
-    /* register the free running counter overflow callback handler */
-    TimeoutRegisterOverflowCallback(TIMEOUT_MODULE_TIM4,
-      TimeoutOverflowIRQ_TIMEOUT_MODULE_TIM4);
+      /* Start for M-S-Function: '<S3>/Level-2 M-file S-Function' */
 
-    /* Start for M-S-Function: '<S18>/Level-2 M-file S-Function' */
+      /* store the CAN controller's filter configuration */
+      canFilter1.mask = 0x00000000;
+      canFilter1.code = 0x00000000;
+      canFilter1.mode = CAN_FILTER_MODE_STDID_ONLY;
 
-    /* initialize the measurement and calibration interface */
-    MacUsbComInit();
-    MacInit();
+      /* connect and synchronize the CAN bus */
+      canResult1 = CanConnect(0, 1000000, &canFilter1);
+      configASSERT(canResult1 == TRUE);
+
+      /* Start for S-Function (sfcn_timeout_init): '<S14>/S-Function' */
+
+      /* register the free running counter overflow callback handler */
+      TimeoutRegisterOverflowCallback(TIMEOUT_MODULE_TIM4,
+        TimeoutOverflowIRQ_TIMEOUT_MODULE_TIM4);
+
+      /* Start for M-S-Function: '<S18>/Level-2 M-file S-Function' */
+
+      /* initialize the measurement and calibration interface */
+      MacUsbComInit();
+      MacInit();
+    }
+
+    rtPrevZCSigState.EnabledSubsystem_Trig_ZCE = POS_ZCSIG;
+    rtPrevZCSigState.Controlexecution_Trig_ZCE = POS_ZCSIG;
+    rtPrevZCSigState.IOexecution_Trig_ZCE = POS_ZCSIG;
+    rtPrevZCSigState.Subsystem_Trig_ZCE_h = UNINITIALIZED_ZCSIG;
+    rtPrevZCSigState.SYNC1_TX_Trig_ZCE = POS_ZCSIG;
+    rtPrevZCSigState.TRCK1_TX_Trig_ZCE = POS_ZCSIG;
+    rtPrevZCSigState.TRLS_ID4_TX_Trig_ZCE = POS_ZCSIG;
+    rtPrevZCSigState.TRLS_ID5_TX_Trig_ZCE = POS_ZCSIG;
+    rtPrevZCSigState.Subsystem_Trig_ZCE = POS_ZCSIG;
+    rtPrevZCSigState.Subsystem1_Trig_ZCE = UNINITIALIZED_ZCSIG;
+    rtPrevZCSigState.TRCK1_ID3_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
+    rtPrevZCSigState.TRCK1_ID2_TX_f.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
+    rtPrevZCSigState.SSTM1_TX.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
+    rtPrevZCSigState.MMBS1_TX_a.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
+
+    /* ConstCode for Triggered SubSystem: '<S1>/IO execution' */
+    /* ConstCode for Constant: '<S78>/Constant' */
+    ioInit = true;
+
+    /* End of ConstCode for SubSystem: '<S1>/IO execution' */
+
+    /* SystemInitialize for Triggered SubSystem: '<S1>/IO execution' */
+    rtDWork.IOexecution_PREV_T[0] = rtM->Timing.clockTick0;
+    rtDWork.IOexecution_PREV_T[1] = rtM->Timing.clockTickH0;
+
+    /* InitializeConditions for MATLABSystem: '<S80>/Moving Average' */
+    obj = rtDWork.obj.pStatistic;
+    if (obj->isInitialized == 1) {
+      obj->pCumSum = 0.0F;
+      for (i = 0; i < 9; i++) {
+        obj->pCumSumRev[i] = 0.0F;
+      }
+
+      obj->pCumRevIndex = 1.0F;
+      obj->pModValueRev = 0.0F;
+    }
+
+    /* End of InitializeConditions for MATLABSystem: '<S80>/Moving Average' */
+    MovingAverage_Init(&rtDWork.MovingAverage_p);
+    MovingAverage_Init(&rtDWork.MovingAverage1);
+
+    /* End of SystemInitialize for SubSystem: '<S1>/IO execution' */
   }
-
-  rtPrevZCSigState.EnabledSubsystem_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.Controlexecution_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.IOexecution_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.Subsystem_Trig_ZCE_h = UNINITIALIZED_ZCSIG;
-  rtPrevZCSigState.SYNC1_TX_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.TRLS_ID4_TX_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.TRLS_ID5_TX_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.Subsystem_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.Subsystem1_Trig_ZCE = UNINITIALIZED_ZCSIG;
-  rtPrevZCSigState.TRCK1_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.TRCK1_ID3_TX.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.TRCK1_ID2_TX_f.TRCK1_ID2_TX_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.SSTM1_TX.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
-  rtPrevZCSigState.MMBS1_TX_a.MMBS1_TX_Trig_ZCE = POS_ZCSIG;
-
-  /* SystemInitialize for Triggered SubSystem: '<S1>/IO execution' */
-  MovingAverage_Init(&rtDWork.MovingAverage_p);
-  MovingAverage_Init(&rtDWork.MovingAverage1);
-
-  /* End of SystemInitialize for SubSystem: '<S1>/IO execution' */
 }
 
 /*
