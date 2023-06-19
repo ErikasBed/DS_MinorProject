@@ -77,6 +77,14 @@ boolCan.StorageClass ='ExportedGlobal';
 %% Parameters
 % Defining a parameter for editing in HANtune
 
+potentiometer1 = Simulink.Parameter; % Define as parameter
+potentiometer1.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+potentiometer1.Value = 0; % Initial value is set to zero
+
+ResetPosition = Simulink.Parameter; % Define as parameter
+ResetPosition.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+ResetPosition.Value = 0; % Initial value is set to zero
+
 ErrorBoard1 = Simulink.Parameter; % Define as parameter
 ErrorBoard1.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 ErrorBoard1.Value = 0; % Initial value is set to zero
