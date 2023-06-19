@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.32
+ * Model version                  : 17.33
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Thu Jun 15 16:05:00 2023
+ * C/C++ source code generated on : Mon Jun 19 10:01:47 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -24,13 +24,13 @@
 #include "rtwtypes.h"
 #include "timeout.h"
 #include "anin.h"
+#include "digin.h"
 #include "quadencoder.h"
 #include "digout.h"
 #include "pwmout.h"
 #include "canio.h"
 #include "can.h"
 #include "timein.h"
-#include "digin.h"
 #include "app.h"
 #include "SYS_config.h"
 #include "os.h"
@@ -54,15 +54,15 @@ typedef union t_can_data_types
   uint8_t boolean_T_info[CAN_MAX_DATA_LEN/sizeof(uint8_t)];
 } __attribute__((packed)) tCanDataTypes;
 
-/* Block signals for system '<S78>/Moving Average' */
+/* Block signals for system '<S77>/Moving Average' */
 typedef struct {
-  real32_T MovingAverage_n;            /* '<S78>/Moving Average' */
+  real32_T MovingAverage_n;            /* '<S77>/Moving Average' */
 } rtB_MovingAverage;
 
-/* Block states (default storage) for system '<S78>/Moving Average' */
+/* Block states (default storage) for system '<S77>/Moving Average' */
 typedef struct {
-  dsp_simulink_MovingAverage obj;      /* '<S78>/Moving Average' */
-  boolean_T objisempty;                /* '<S78>/Moving Average' */
+  dsp_simulink_MovingAverage obj;      /* '<S77>/Moving Average' */
+  boolean_T objisempty;                /* '<S77>/Moving Average' */
 } rtDW_MovingAverage;
 
 /* Block signals for system '<S118>/Enabled Subsystem' */
@@ -74,9 +74,9 @@ typedef struct {
   uint8_T In7;                         /* '<S119>/In7' */
 } rtB_EnabledSubsystem;
 
-/* Zero-crossing (trigger) state for system '<S13>/MMBS1_TX' */
+/* Zero-crossing (trigger) state for system '<S10>/MMBS1_TX' */
 typedef struct {
-  ZCSigState MMBS1_TX_Trig_ZCE;        /* '<S13>/MMBS1_TX' */
+  ZCSigState MMBS1_TX_Trig_ZCE;        /* '<S10>/MMBS1_TX' */
 } rtZCE_MMBS1_TX;
 
 /* Block signals for system '<S128>/Bit Shift' */
@@ -159,7 +159,7 @@ typedef struct {
   uint16_T y;                          /* '<S171>/bit_shift' */
 } rtB_BitShift_c;
 
-/* Block signals for system '<S13>/TRCK1_ID2_TX' */
+/* Block signals for system '<S10>/TRCK1_ID2_TX' */
 typedef struct {
   uint8_T DataStoreRead2;              /* '<S109>/Data Store Read2' */
   uint8_T Add;                         /* '<S154>/Add' */
@@ -178,27 +178,38 @@ typedef struct {
   rtB_BitShift_o BitShift_gyk;         /* '<S154>/Bit Shift' */
 } rtB_TRCK1_ID2_TX;
 
-/* Zero-crossing (trigger) state for system '<S13>/TRCK1_ID2_TX' */
+/* Zero-crossing (trigger) state for system '<S10>/TRCK1_ID2_TX' */
 typedef struct {
-  ZCSigState TRCK1_ID2_TX_Trig_ZCE;    /* '<S13>/TRCK1_ID2_TX' */
+  ZCSigState TRCK1_ID2_TX_Trig_ZCE;    /* '<S10>/TRCK1_ID2_TX' */
 } rtZCE_TRCK1_ID2_TX;
 
 /* Block signals (default storage) */
 typedef struct {
-  uint16_T Switch;                     /* '<S79>/Switch' */
-  uint16_T Sum;                        /* '<S12>/Sum' */
+  uint16_T Switch;                     /* '<S78>/Switch' */
+  uint16_T Sum;                        /* '<S9>/Sum' */
   uint8_T DataStoreRead3;              /* '<S117>/Data Store Read3' */
+  uint8_T DataStoreRead4;              /* '<S117>/Data Store Read4' */
   uint8_T Add;                         /* '<S342>/Add' */
   uint8_T Cast;                        /* '<S343>/Cast' */
   uint8_T Cast1;                       /* '<S343>/Cast1' */
   uint8_T Cast_f;                      /* '<S344>/Cast' */
   uint8_T Cast1_m;                     /* '<S344>/Cast1' */
+  uint8_T In1;                         /* '<S324>/In1' */
+  uint8_T In2;                         /* '<S324>/In2' */
+  uint8_T In3;                         /* '<S324>/In3' */
+  uint8_T In7;                         /* '<S324>/In7' */
   uint8_T DataStoreRead2;              /* '<S115>/Data Store Read2' */
+  uint8_T DataStoreRead3_c;            /* '<S115>/Data Store Read3' */
   uint8_T Add_f;                       /* '<S295>/Add' */
   uint8_T Cast_d;                      /* '<S296>/Cast' */
   uint8_T Cast1_c;                     /* '<S296>/Cast1' */
   uint8_T Cast_n;                      /* '<S297>/Cast' */
   uint8_T Cast1_i;                     /* '<S297>/Cast1' */
+  uint8_T In1_e;                       /* '<S277>/In1' */
+  uint8_T In2_e;                       /* '<S277>/In2' */
+  uint8_T In3_g;                       /* '<S277>/In3' */
+  uint8_T In4_a;                       /* '<S277>/In4' */
+  uint8_T In7_g;                       /* '<S277>/In7' */
   uint8_T DataStoreRead2_h;            /* '<S112>/Data Store Read2' */
   uint8_T Add_j;                       /* '<S223>/Add' */
   uint8_T Cast_p;                      /* '<S224>/Cast' */
@@ -206,11 +217,18 @@ typedef struct {
   uint8_T Cast_a;                      /* '<S225>/Cast' */
   uint8_T Cast1_n;                     /* '<S225>/Cast1' */
   uint8_T DataStoreRead;               /* '<S107>/Data Store Read' */
-  boolean_T OR;                        /* '<S15>/OR' */
+  uint8_T Add_i;                       /* '<S13>/Add' */
+  uint8_T Gain;                        /* '<S377>/Gain' */
+  uint8_T Gain_j;                      /* '<S379>/Gain' */
+  uint8_T Add1;                        /* '<S375>/Add1' */
+  uint8_T Add2;                        /* '<S375>/Add2' */
+  uint8_T Gain_n;                      /* '<S376>/Gain' */
+  uint8_T Gain_d;                      /* '<S378>/Gain' */
+  boolean_T OR;                        /* '<S12>/OR' */
   boolean_T DataTypeConversion;        /* '<S81>/Data Type Conversion' */
-  boolean_T Switch1;                   /* '<S79>/Switch1' */
-  boolean_T Switch2;                   /* '<S79>/Switch2' */
-  boolean_T NotEqual;                  /* '<S79>/NotEqual' */
+  boolean_T Switch1;                   /* '<S78>/Switch1' */
+  boolean_T Switch2;                   /* '<S78>/Switch2' */
+  boolean_T NotEqual;                  /* '<S78>/NotEqual' */
   rtB_EnabledSubsystem EnabledSubsystem_i;/* '<S365>/Enabled Subsystem' */
   rtB_BitShift_c BitShift_gul;         /* '<S344>/Bit Shift' */
   rtB_BitShift_c BitShift_g3;          /* '<S343>/Bit Shift' */
@@ -229,7 +247,6 @@ typedef struct {
   rtB_BitShift2 BitShift2_d;           /* '<S319>/Bit Shift2' */
   rtB_BitShift1 BitShift1_au;          /* '<S319>/Bit Shift1' */
   rtB_BitShift_l BitShift_dp;          /* '<S319>/Bit Shift' */
-  rtB_EnabledSubsystem EnabledSubsystem_e;/* '<S318>/Enabled Subsystem' */
   rtB_BitShift BitShift_jx;            /* '<S317>/Bit Shift' */
   rtB_BitShift BitShift_a;             /* '<S316>/Bit Shift' */
   rtB_BitShift_c BitShift_d;           /* '<S297>/Bit Shift' */
@@ -249,7 +266,6 @@ typedef struct {
   rtB_BitShift2 BitShift2_l;           /* '<S272>/Bit Shift2' */
   rtB_BitShift1 BitShift1_e;           /* '<S272>/Bit Shift1' */
   rtB_BitShift_l BitShift_l;           /* '<S272>/Bit Shift' */
-  rtB_EnabledSubsystem EnabledSubsystem_g;/* '<S271>/Enabled Subsystem' */
   rtB_BitShift BitShift_n;             /* '<S270>/Bit Shift' */
   rtB_BitShift BitShift_gu;            /* '<S269>/Bit Shift' */
   rtB_BitShift_l BitShift7_j;          /* '<S247>/Bit Shift7' */
@@ -283,8 +299,8 @@ typedef struct {
   rtB_EnabledSubsystem EnabledSubsystem_hn;/* '<S199>/Enabled Subsystem' */
   rtB_BitShift BitShift_j;             /* '<S198>/Bit Shift' */
   rtB_BitShift BitShift_k;             /* '<S197>/Bit Shift' */
-  rtB_TRCK1_ID2_TX TRCK1_ID3_TX;       /* '<S13>/TRCK1_ID3_TX' */
-  rtB_TRCK1_ID2_TX TRCK1_ID2_TX_f;     /* '<S13>/TRCK1_ID2_TX' */
+  rtB_TRCK1_ID2_TX TRCK1_ID3_TX;       /* '<S10>/TRCK1_ID3_TX' */
+  rtB_TRCK1_ID2_TX TRCK1_ID2_TX_f;     /* '<S10>/TRCK1_ID2_TX' */
   rtB_BitShift_l BitShift7;            /* '<S131>/Bit Shift7' */
   rtB_BitShift6 BitShift6_o;           /* '<S131>/Bit Shift6' */
   rtB_BitShift5 BitShift5_b;           /* '<S131>/Bit Shift5' */
@@ -299,24 +315,23 @@ typedef struct {
   rtB_EnabledSubsystem EnabledSubsystem_c;/* '<S124>/Enabled Subsystem' */
   rtB_EnabledSubsystem EnabledSubsystem_h;/* '<S121>/Enabled Subsystem' */
   rtB_EnabledSubsystem EnabledSubsystem_k;/* '<S118>/Enabled Subsystem' */
-  rtB_MovingAverage MovingAverage1;    /* '<S78>/Moving Average' */
-  rtB_MovingAverage MovingAverage_p;   /* '<S78>/Moving Average' */
+  rtB_MovingAverage MovingAverage1;    /* '<S77>/Moving Average' */
+  rtB_MovingAverage MovingAverage_p;   /* '<S77>/Moving Average' */
 } BlockIO;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  dsp_simulink_MovingAverage obj;      /* '<S80>/Moving Average' */
+  dsp_simulink_MovingAverage obj;      /* '<S79>/Moving Average' */
   real_T DelayInput1_DSTATE;           /* '<S84>/Delay Input1' */
-  real_T Integrator_DSTATE;            /* '<S55>/Integrator' */
+  real_T Integrator_DSTATE;            /* '<S54>/Integrator' */
   real_T setAngle;                     /* '<S1>/Data Store Memory2' */
-  real_T amountOfTrailers;             /* '<S1>/Data Store Memory5' */
   real_T systemState;                  /* '<S1>/Data Store Memory6' */
   real_T init_clock;                   /* '<S1>/Data Store Memory18' */
   real_T requestedAngle;               /* '<S1>/Data Store Memory7' */
-  int32_T Delay5_DSTATE[7];            /* '<S80>/Delay5' */
+  int32_T Delay5_DSTATE[7];            /* '<S79>/Delay5' */
   int32_T encoderPosition;             /* '<S1>/Data Store Memory16' */
   uint32_T IOexecution_PREV_T[2];      /* '<S1>/IO execution' */
-  uint16_T Delay7_DSTATE[2];           /* '<S80>/Delay7' */
+  uint16_T Delay7_DSTATE[2];           /* '<S79>/Delay7' */
   uint16_T UD_DSTATE;                  /* '<S90>/UD' */
   uint16_T potentiometer1;             /* '<S1>/Data Store Memory1' */
   uint16_T pwmMotor;                   /* '<S1>/Data Store Memory12' */
@@ -329,18 +344,25 @@ typedef struct {
   uint16_T trailerOneAngle;            /* '<S1>/Data Store Memory8' */
   uint16_T trailerTwoAngle;            /* '<S1>/Data Store Memory9' */
   uint16_T testCount;                  /* '<S107>/Data Store Memory' */
-  boolean_T Delay_DSTATE[2];           /* '<S80>/Delay' */
-  boolean_T Delay1_DSTATE[9];          /* '<S80>/Delay1' */
-  boolean_T Delay2_DSTATE[16];         /* '<S80>/Delay2' */
-  boolean_T Delay4_DSTATE[25];         /* '<S80>/Delay4' */
-  boolean_T Delay3_DSTATE[35];         /* '<S80>/Delay3' */
-  boolean_T Delay6_DSTATE[10];         /* '<S80>/Delay6' */
+  boolean_T Delay_DSTATE[2];           /* '<S79>/Delay' */
+  boolean_T Delay1_DSTATE[9];          /* '<S79>/Delay1' */
+  boolean_T Delay2_DSTATE[16];         /* '<S79>/Delay2' */
+  boolean_T Delay4_DSTATE[25];         /* '<S79>/Delay4' */
+  boolean_T Delay3_DSTATE[35];         /* '<S79>/Delay3' */
+  boolean_T Delay6_DSTATE[10];         /* '<S79>/Delay6' */
+  int8_T If1_ActiveSubsystem;          /* '<S1>/If1' */
+  int8_T If_ActiveSubsystem;           /* '<S1>/If' */
   uint8_T velocity;                    /* '<S1>/Data Store Memory11' */
+  uint8_T Board_ID;                    /* '<S1>/Data Store Memory44' */
   uint8_T Local_Ticks;                 /* '<S1>/Data Store Memory' */
-  uint8_T nodeRole;                    /* '<S1>/Data Store Memory10' */
+  uint8_T buttonPress;                 /* '<S1>/Data Store Memory10' */
   uint8_T slot;                        /* '<S1>/Data Store Memory15' */
   uint8_T SlotTime;                    /* '<S1>/Data Store Memory3' */
-  boolean_T slaveClockOn;              /* '<S15>/Data Store Memory' */
+  uint8_T PositionID5;                 /* '<S1>/Data Store Memory42' */
+  uint8_T PositionID4;                 /* '<S1>/Data Store Memory43' */
+  uint8_T trailer2buttonPress;         /* '<S1>/Data Store Memory45' */
+  uint8_T trailer1buttonPress;         /* '<S1>/Data Store Memory46' */
+  boolean_T slaveClockOn;              /* '<S12>/Data Store Memory' */
   boolean_T cwMotor;                   /* '<S1>/Data Store Memory13' */
   boolean_T ccwMotor;                  /* '<S1>/Data Store Memory14' */
   boolean_T node4Active;               /* '<S1>/Data Store Memory26' */
@@ -352,42 +374,44 @@ typedef struct {
   boolean_T receiveSync;               /* '<S1>/Data Store Memory39' */
   boolean_T node1CanFailed;            /* '<S1>/Data Store Memory40' */
   boolean_T ioInitialized;             /* '<S1>/Data Store Memory41' */
-  boolean_T Memory_PreviousInput;      /* '<S91>/Memory' */
+  boolean_T Memory_PreviousInput;      /* '<S381>/Memory' */
+  boolean_T Memory_PreviousInput_d;    /* '<S380>/Memory' */
+  boolean_T Memory_PreviousInput_d1;   /* '<S91>/Memory' */
   boolean_T Memory_PreviousInput_a;    /* '<S92>/Memory' */
-  boolean_T Subsystem2_MODE;           /* '<S15>/Subsystem2' */
+  boolean_T Subsystem2_MODE;           /* '<S12>/Subsystem2' */
   boolean_T Messageselector_MODE;      /* '<S1>/Message selector' */
-  boolean_T TRLS_ID5_RX_MODE;          /* '<S13>/TRLS_ID5_RX' */
-  boolean_T TRLS_ID4_RX_MODE;          /* '<S13>/TRLS_ID4_RX' */
-  boolean_T TRCK_ID3_RX_MODE;          /* '<S13>/TRCK_ID3_RX' */
-  boolean_T TRCK1_RX_MODE;             /* '<S13>/TRCK1_RX' */
-  boolean_T TRCK1_ID2_RX_MODE;         /* '<S13>/TRCK1_ID2_RX' */
-  boolean_T SYNC1_RX_MODE;             /* '<S13>/SYNC1_RX' */
-  boolean_T SSTM1_RX_MODE;             /* '<S13>/SSTM1_RX' */
-  boolean_T MMBS1_RX_MODE;             /* '<S13>/MMBS1_RX' */
+  boolean_T TRLS_ID5_RX_MODE;          /* '<S10>/TRLS_ID5_RX' */
+  boolean_T TRLS_ID4_RX_MODE;          /* '<S10>/TRLS_ID4_RX' */
+  boolean_T TRCK_ID3_RX_MODE;          /* '<S10>/TRCK_ID3_RX' */
+  boolean_T TRCK1_RX_MODE;             /* '<S10>/TRCK1_RX' */
+  boolean_T TRCK1_ID2_RX_MODE;         /* '<S10>/TRCK1_ID2_RX' */
+  boolean_T SYNC1_RX_MODE;             /* '<S10>/SYNC1_RX' */
+  boolean_T SSTM1_RX_MODE;             /* '<S10>/SSTM1_RX' */
+  boolean_T MMBS1_RX_MODE;             /* '<S10>/MMBS1_RX' */
   boolean_T InitializeClockSchedule_MODE;/* '<S1>/Initialize Clock Schedule' */
-  rtDW_MovingAverage MovingAverage1;   /* '<S78>/Moving Average' */
-  rtDW_MovingAverage MovingAverage_p;  /* '<S78>/Moving Average' */
+  rtDW_MovingAverage MovingAverage1;   /* '<S77>/Moving Average' */
+  rtDW_MovingAverage MovingAverage_p;  /* '<S77>/Moving Average' */
 } D_Work;
 
 /* Zero-crossing (trigger) state */
 typedef struct {
   ZCSigState Subsystem1_Trig_ZCE;      /* '<S364>/Subsystem1' */
-  ZCSigState Subsystem_Trig_ZCE;       /* '<S15>/Subsystem' */
-  ZCSigState TRLS_ID5_TX_Trig_ZCE;     /* '<S13>/TRLS_ID5_TX' */
-  ZCSigState TRLS_ID4_TX_Trig_ZCE;     /* '<S13>/TRLS_ID4_TX' */
-  ZCSigState TRCK1_TX_Trig_ZCE;        /* '<S13>/TRCK1_TX' */
-  rtZCE_TRCK1_ID2_TX TRCK1_ID3_TX;     /* '<S13>/TRCK1_ID3_TX' */
-  rtZCE_TRCK1_ID2_TX TRCK1_ID2_TX_f;   /* '<S13>/TRCK1_ID2_TX' */
-  ZCSigState SYNC1_TX_Trig_ZCE;        /* '<S13>/SYNC1_TX' */
+  ZCSigState Subsystem_Trig_ZCE;       /* '<S12>/Subsystem' */
+  ZCSigState TRLS_ID5_TX_Trig_ZCE;     /* '<S10>/TRLS_ID5_TX' */
+  ZCSigState TRLS_ID4_TX_Trig_ZCE;     /* '<S10>/TRLS_ID4_TX' */
+  ZCSigState TRCK1_TX_Trig_ZCE;        /* '<S10>/TRCK1_TX' */
+  rtZCE_TRCK1_ID2_TX TRCK1_ID3_TX;     /* '<S10>/TRCK1_ID3_TX' */
+  rtZCE_TRCK1_ID2_TX TRCK1_ID2_TX_f;   /* '<S10>/TRCK1_ID2_TX' */
+  ZCSigState SYNC1_TX_Trig_ZCE;        /* '<S10>/SYNC1_TX' */
   ZCSigState Subsystem_Trig_ZCE_h;     /* '<S106>/Subsystem' */
-  rtZCE_MMBS1_TX SSTM1_TX;             /* '<S13>/SSTM1_TX' */
-  rtZCE_MMBS1_TX MMBS1_TX_a;           /* '<S13>/MMBS1_TX' */
+  rtZCE_MMBS1_TX SSTM1_TX;             /* '<S10>/SSTM1_TX' */
+  rtZCE_MMBS1_TX MMBS1_TX_a;           /* '<S10>/MMBS1_TX' */
   ZCSigState IOexecution_Trig_ZCE;     /* '<S1>/IO execution' */
   ZCSigState Controlexecution_Trig_ZCE;/* '<S1>/Control execution' */
-  ZCSigState EnabledSubsystem_Trig_ZCE;/* '<S12>/Enabled Subsystem' */
+  ZCSigState EnabledSubsystem_Trig_ZCE;/* '<S9>/Enabled Subsystem' */
 } PrevZCSigStates;
 
-/* Invariant block signals for system '<S13>/TRCK1_ID2_TX' */
+/* Invariant block signals for system '<S10>/TRCK1_ID2_TX' */
 typedef struct {
   const uint8_T Cast;                  /* '<S154>/Cast' */
   const uint8_T Cast2;                 /* '<S154>/Cast2' */
@@ -399,11 +423,11 @@ typedef struct {
 
 /* Invariant block signals (default storage) */
 typedef struct {
-  const real_T signV2;                 /* '<S73>/Sign' */
-  const real_T signL0b;                /* '<S73>/Sign1' */
-  const real_T Abs;                    /* '<S74>/Abs' */
-  const real_T signL0b_o;              /* '<S77>/Sign1' */
-  const uint16_T Cast;                 /* '<S79>/Cast' */
+  const real_T signV2;                 /* '<S72>/Sign' */
+  const real_T signL0b;                /* '<S72>/Sign1' */
+  const real_T Abs;                    /* '<S73>/Abs' */
+  const real_T signL0b_o;              /* '<S76>/Sign1' */
+  const uint16_T Cast;                 /* '<S78>/Cast' */
   const uint8_T Cast_h;                /* '<S342>/Cast' */
   const uint8_T Cast2;                 /* '<S342>/Cast2' */
   const uint8_T Cast3;                 /* '<S342>/Cast3' */
@@ -424,10 +448,10 @@ typedef struct {
   const uint8_T Cast4_b;               /* '<S223>/Cast4' */
   const uint8_T Cast5_k;               /* '<S223>/Cast5' */
   const uint8_T Cast6_i;               /* '<S223>/Cast6' */
-  const boolean_T Cast1;               /* '<S79>/Cast1' */
-  const boolean_T Cast2_p;             /* '<S79>/Cast2' */
-  rtC_TRCK1_ID2_TX TRCK1_ID3_TX;       /* '<S13>/TRCK1_ID3_TX' */
-  rtC_TRCK1_ID2_TX TRCK1_ID2_TX_f;     /* '<S13>/TRCK1_ID2_TX' */
+  const boolean_T Cast1;               /* '<S78>/Cast1' */
+  const boolean_T Cast2_p;             /* '<S78>/Cast2' */
+  rtC_TRCK1_ID2_TX TRCK1_ID3_TX;       /* '<S10>/TRCK1_ID3_TX' */
+  rtC_TRCK1_ID2_TX TRCK1_ID2_TX_f;     /* '<S10>/TRCK1_ID2_TX' */
 } ConstBlockIO;
 
 /* Constant parameters (default storage) */
@@ -436,6 +460,8 @@ typedef struct {
    * Referenced by:
    *   '<S91>/Logic'
    *   '<S92>/Logic'
+   *   '<S380>/Logic'
+   *   '<S381>/Logic'
    */
   boolean_T pooled23[16];
 } ConstParam;
@@ -475,14 +501,14 @@ extern const ConstParam rtConstP;
  *
  */
 extern real_T reqAngle;                /* '<S5>/Data Store Read' */
-extern real_T Gamma1;                  /* '<S20>/Sum1' */
-extern real_T steering;                /* '<S19>/Gain2' */
-extern real_T position;                /* '<S19>/Gain1' */
-extern real_T control;                 /* '<S19>/Sum' */
-extern uint32_T SI_FreeHeap;           /* '<S369>/Level-2 M-file S-Function' */
-extern uint32_T SI_FreeStack;          /* '<S370>/Level-2 M-file S-Function' */
-extern real32_T derivativeMean;        /* '<S80>/Moving Average' */
-extern real32_T delta12K;              /* '<S75>/tan 1' */
+extern real_T Gamma1;                  /* '<S19>/Sum1' */
+extern real_T steering;                /* '<S18>/Gain2' */
+extern real_T position;                /* '<S18>/Gain1' */
+extern real_T control;                 /* '<S18>/Sum' */
+extern uint32_T SI_FreeHeap;           /* '<S372>/Level-2 M-file S-Function' */
+extern uint32_T SI_FreeStack;          /* '<S373>/Level-2 M-file S-Function' */
+extern real32_T derivativeMean;        /* '<S79>/Moving Average' */
+extern real32_T delta12K;              /* '<S74>/tan 1' */
 extern int32_T motorPos;               /* '<S81>/Level-2 M-file S-Function' */
 extern uint16_T pot31;                 /* '<S245>/Add' */
 extern uint16_T pot32;                 /* '<S244>/Add' */
@@ -491,34 +517,39 @@ extern uint16_T pot12;                 /* '<S197>/Add' */
 extern uint16_T pot21;                 /* '<S129>/Add' */
 extern uint16_T pot22;                 /* '<S128>/Add' */
 extern uint16_T testCounter;           /* '<S107>/Data Store Read1' */
-extern uint16_T potRaw;                /* '<S80>/Data Store Read5' */
-extern uint16_T lastPot;               /* '<S80>/Data Store Read6' */
+extern uint16_T potRaw;                /* '<S79>/Data Store Read5' */
+extern uint16_T lastPot;               /* '<S79>/Data Store Read6' */
 extern uint16_T derivative;            /* '<S90>/Diff' */
 extern uint16_T analogPot1;            /* '<S82>/Level-2 M-file S-Function' */
-extern uint16_T pot1;                  /* '<S78>/Cast1' */
+extern uint16_T pot1;                  /* '<S77>/Cast1' */
 extern uint16_T analogPot2;            /* '<S83>/Level-2 M-file S-Function' */
-extern uint16_T pot2;                  /* '<S78>/Cast2' */
+extern uint16_T pot2;                  /* '<S77>/Cast2' */
 extern uint16_T t2Angle;               /* '<S5>/Data Store Read2' */
 extern uint16_T t1Angle;               /* '<S5>/Data Store Read1' */
-extern uint16_T Gamma2;                /* '<S20>/Sum2' */
-extern uint16_T mospeed;               /* '<S19>/Add' */
-extern uint8_T SI_CPUload;             /* '<S368>/Level-2 M-file S-Function' */
-extern uint8_T local_ticks_interrupt;  /* '<S12>/Switch' */
-extern uint8_T setSlotTime;            /* '<S12>/Data Store Read3' */
+extern uint16_T Gamma2;                /* '<S19>/Sum2' */
+extern uint16_T mospeed;               /* '<S18>/Add' */
+extern uint8_T SI_CPUload;             /* '<S371>/Level-2 M-file S-Function' */
+extern uint8_T buttonpress2;           /* '<S324>/In6' */
+extern uint8_T buttonpress1;           /* '<S277>/In6' */
+extern uint8_T amounttrailers;         /* '<S16>/Add' */
+extern uint8_T positionID5;            /* '<S16>/Cast3' */
+extern uint8_T positionID4;            /* '<S16>/Cast2' */
+extern uint8_T local_ticks_interrupt;  /* '<S9>/Switch' */
+extern uint8_T setSlotTime;            /* '<S9>/Data Store Read3' */
 extern uint8_T slotSelected;           /* '<S98>/Switch' */
-extern boolean_T boolCan;              /* '<S13>/AND' */
+extern boolean_T boolCan;              /* '<S10>/AND' */
 extern boolean_T potFaultDetected;     /* '<S112>/Data Store Read4' */
 extern boolean_T masterCanFail;        /* '<S102>/NOT' */
-extern boolean_T mf1;                  /* '<S80>/Delay' */
-extern boolean_T mf2;                  /* '<S80>/Delay1' */
-extern boolean_T mf3;                  /* '<S80>/Delay2' */
-extern boolean_T mf4;                  /* '<S80>/Delay4' */
-extern boolean_T mf5;                  /* '<S80>/Delay3' */
-extern boolean_T motorFaultDetected;   /* '<S80>/AND2' */
-extern boolean_T ioInit;               /* '<S78>/Constant' */
-extern boolean_T cw;                   /* '<S19>/Cast1' */
-extern boolean_T ccw;                  /* '<S19>/NOT' */
-extern boolean_T canActive;            /* '<S12>/Clock_State' */
+extern boolean_T mf1;                  /* '<S79>/Delay' */
+extern boolean_T mf2;                  /* '<S79>/Delay1' */
+extern boolean_T mf3;                  /* '<S79>/Delay2' */
+extern boolean_T mf4;                  /* '<S79>/Delay4' */
+extern boolean_T mf5;                  /* '<S79>/Delay3' */
+extern boolean_T motorFaultDetected;   /* '<S79>/AND2' */
+extern boolean_T ioInit;               /* '<S77>/Constant' */
+extern boolean_T cw;                   /* '<S18>/Cast1' */
+extern boolean_T ccw;                  /* '<S18>/NOT' */
+extern boolean_T canActive;            /* '<S9>/Clock_State' */
 
 /*
  * Exported Global Parameters
@@ -529,48 +560,51 @@ extern boolean_T canActive;            /* '<S12>/Clock_State' */
  *
  */
 extern real_T ClockOn;                 /* Variable: ClockOn
-                                        * Referenced by: '<S15>/Constant'
+                                        * Referenced by: '<S12>/Constant'
+                                        */
+extern real_T ResetPosition;           /* Variable: ResetPosition
+                                        * Referenced by: '<S375>/Constant'
                                         */
 extern real_T controlWidth;            /* Variable: controlWidth
-                                        * Referenced by: '<S19>/Constant'
+                                        * Referenced by: '<S18>/Constant'
                                         */
 extern real_T desiredAngle;            /* Variable: desiredAngle
-                                        * Referenced by: '<S78>/Constant2'
+                                        * Referenced by: '<S77>/Constant2'
                                         */
 extern real_T intVal;                  /* Variable: intVal
-                                        * Referenced by: '<S52>/Integral Gain'
+                                        * Referenced by: '<S51>/Integral Gain'
                                         */
 extern real_T matrixRows;              /* Variable: matrixRows
                                         * Referenced by: '<S98>/Constant1'
                                         */
 extern real_T propVal;                 /* Variable: propVal
-                                        * Referenced by: '<S60>/Proportional Gain'
+                                        * Referenced by: '<S59>/Proportional Gain'
                                         */
 extern uint32_T MMBS1_ID;              /* Variable: MMBS1_ID
-                                        * Referenced by: '<S13>/Constant12'
+                                        * Referenced by: '<S10>/Constant12'
                                         */
 extern uint32_T SSTM1_ID;              /* Variable: SSTM1_ID
-                                        * Referenced by: '<S13>/Constant14'
+                                        * Referenced by: '<S10>/Constant14'
                                         */
 extern uint32_T SYNC1_ID;              /* Variable: SYNC1_ID
                                         * Referenced by:
-                                        *   '<S13>/Constant10'
+                                        *   '<S10>/Constant10'
                                         *   '<S364>/Constant10'
                                         */
 extern uint32_T TRCK1_ID1;             /* Variable: TRCK1_ID1
-                                        * Referenced by: '<S13>/Constant3'
+                                        * Referenced by: '<S10>/Constant3'
                                         */
 extern uint32_T TRCK1_ID2;             /* Variable: TRCK1_ID2
-                                        * Referenced by: '<S13>/Constant5'
+                                        * Referenced by: '<S10>/Constant5'
                                         */
 extern uint32_T TRCK1_ID3;             /* Variable: TRCK1_ID3
-                                        * Referenced by: '<S13>/Constant26'
+                                        * Referenced by: '<S10>/Constant26'
                                         */
 extern uint32_T TRLS1_ID4;             /* Variable: TRLS1_ID4
-                                        * Referenced by: '<S13>/Constant8'
+                                        * Referenced by: '<S10>/Constant8'
                                         */
 extern uint32_T TRLS1_ID5;             /* Variable: TRLS1_ID5
-                                        * Referenced by: '<S13>/Constant18'
+                                        * Referenced by: '<S10>/Constant18'
                                         */
 extern uint8_T slotTime;               /* Variable: slotTime
                                         * Referenced by: '<S363>/Constant3'
@@ -604,80 +638,80 @@ extern RT_MODEL *const rtM;
  * '<S4>'   : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Compare Event IRQ'
  * '<S5>'   : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution'
  * '<S6>'   : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Custom ID config'
- * '<S7>'   : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Digital Input'
- * '<S8>'   : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Digital Input1'
- * '<S9>'   : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Digital Input2'
- * '<S10>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution'
- * '<S11>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Initialize Clock Schedule'
- * '<S12>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Local Time generation'
- * '<S13>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Message selector'
- * '<S14>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Output Compare Init'
- * '<S15>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Role assignment'
- * '<S16>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Spars Slots'
- * '<S17>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/System information'
- * '<S18>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/XCP on USB config'
- * '<S19>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm'
- * '<S20>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm'
- * '<S21>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1'
- * '<S22>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Anti-windup'
- * '<S23>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/D Gain'
- * '<S24>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Filter'
- * '<S25>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Filter ICs'
- * '<S26>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/I Gain'
- * '<S27>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Ideal P Gain'
- * '<S28>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Ideal P Gain Fdbk'
- * '<S29>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Integrator'
- * '<S30>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Integrator ICs'
- * '<S31>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/N Copy'
- * '<S32>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/N Gain'
- * '<S33>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/P Copy'
- * '<S34>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Parallel P Gain'
- * '<S35>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Reset Signal'
- * '<S36>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Saturation'
- * '<S37>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Saturation Fdbk'
- * '<S38>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Sum'
- * '<S39>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Sum Fdbk'
- * '<S40>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tracking Mode'
- * '<S41>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tracking Mode Sum'
- * '<S42>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tsamp - Integral'
- * '<S43>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tsamp - Ngain'
- * '<S44>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/postSat Signal'
- * '<S45>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/preSat Signal'
- * '<S46>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Anti-windup/Disc. Clamping Parallel'
- * '<S47>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Anti-windup/Disc. Clamping Parallel/Dead Zone'
- * '<S48>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Anti-windup/Disc. Clamping Parallel/Dead Zone/Enabled'
- * '<S49>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/D Gain/Disabled'
- * '<S50>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Filter/Disabled'
- * '<S51>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Filter ICs/Disabled'
- * '<S52>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/I Gain/Internal Parameters'
- * '<S53>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Ideal P Gain/Passthrough'
- * '<S54>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Ideal P Gain Fdbk/Disabled'
- * '<S55>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Integrator/Discrete'
- * '<S56>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Integrator ICs/Internal IC'
- * '<S57>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/N Copy/Disabled wSignal Specification'
- * '<S58>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/N Gain/Disabled'
- * '<S59>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/P Copy/Disabled'
- * '<S60>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Parallel P Gain/Internal Parameters'
- * '<S61>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Reset Signal/Disabled'
- * '<S62>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Saturation/Enabled'
- * '<S63>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Saturation Fdbk/Disabled'
- * '<S64>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Sum/Sum_PI'
- * '<S65>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Sum Fdbk/Disabled'
- * '<S66>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tracking Mode/Disabled'
- * '<S67>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tracking Mode Sum/Passthrough'
- * '<S68>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tsamp - Integral/Passthrough'
- * '<S69>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tsamp - Ngain/Passthrough'
- * '<S70>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/postSat Signal/Forward_Path'
- * '<S71>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/preSat Signal/Forward_Path'
- * '<S72>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/1st trailer local velocity'
- * '<S73>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/1st trailer yew rate'
- * '<S74>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/2nd Trailer yaw rate'
- * '<S75>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/Steer angle at steer axle'
- * '<S76>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/Tractor local velocity'
- * '<S77>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/Tractor yaw rate'
- * '<S78>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution/Inputs'
- * '<S79>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution/Outputs'
- * '<S80>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution/Voting'
+ * '<S7>'   : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution'
+ * '<S8>'   : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Initialize Clock Schedule'
+ * '<S9>'   : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Local Time generation'
+ * '<S10>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Message selector'
+ * '<S11>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Output Compare Init'
+ * '<S12>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Role assignment'
+ * '<S13>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Setting ID'
+ * '<S14>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Spars Slots'
+ * '<S15>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/System information'
+ * '<S16>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Triggered Subsystem'
+ * '<S17>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/XCP on USB config'
+ * '<S18>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm'
+ * '<S19>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm'
+ * '<S20>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1'
+ * '<S21>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Anti-windup'
+ * '<S22>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/D Gain'
+ * '<S23>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Filter'
+ * '<S24>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Filter ICs'
+ * '<S25>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/I Gain'
+ * '<S26>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Ideal P Gain'
+ * '<S27>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Ideal P Gain Fdbk'
+ * '<S28>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Integrator'
+ * '<S29>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Integrator ICs'
+ * '<S30>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/N Copy'
+ * '<S31>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/N Gain'
+ * '<S32>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/P Copy'
+ * '<S33>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Parallel P Gain'
+ * '<S34>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Reset Signal'
+ * '<S35>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Saturation'
+ * '<S36>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Saturation Fdbk'
+ * '<S37>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Sum'
+ * '<S38>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Sum Fdbk'
+ * '<S39>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tracking Mode'
+ * '<S40>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tracking Mode Sum'
+ * '<S41>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tsamp - Integral'
+ * '<S42>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tsamp - Ngain'
+ * '<S43>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/postSat Signal'
+ * '<S44>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/preSat Signal'
+ * '<S45>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Anti-windup/Disc. Clamping Parallel'
+ * '<S46>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Anti-windup/Disc. Clamping Parallel/Dead Zone'
+ * '<S47>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Anti-windup/Disc. Clamping Parallel/Dead Zone/Enabled'
+ * '<S48>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/D Gain/Disabled'
+ * '<S49>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Filter/Disabled'
+ * '<S50>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Filter ICs/Disabled'
+ * '<S51>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/I Gain/Internal Parameters'
+ * '<S52>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Ideal P Gain/Passthrough'
+ * '<S53>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Ideal P Gain Fdbk/Disabled'
+ * '<S54>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Integrator/Discrete'
+ * '<S55>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Integrator ICs/Internal IC'
+ * '<S56>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/N Copy/Disabled wSignal Specification'
+ * '<S57>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/N Gain/Disabled'
+ * '<S58>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/P Copy/Disabled'
+ * '<S59>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Parallel P Gain/Internal Parameters'
+ * '<S60>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Reset Signal/Disabled'
+ * '<S61>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Saturation/Enabled'
+ * '<S62>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Saturation Fdbk/Disabled'
+ * '<S63>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Sum/Sum_PI'
+ * '<S64>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Sum Fdbk/Disabled'
+ * '<S65>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tracking Mode/Disabled'
+ * '<S66>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tracking Mode Sum/Passthrough'
+ * '<S67>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tsamp - Integral/Passthrough'
+ * '<S68>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/Tsamp - Ngain/Passthrough'
+ * '<S69>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/postSat Signal/Forward_Path'
+ * '<S70>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Control Algorithm/Discrete PID Controller1/preSat Signal/Forward_Path'
+ * '<S71>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/1st trailer local velocity'
+ * '<S72>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/1st trailer yew rate'
+ * '<S73>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/2nd Trailer yaw rate'
+ * '<S74>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/Steer angle at steer axle'
+ * '<S75>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/Tractor local velocity'
+ * '<S76>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Control execution/Kinematic Algorithm/Tractor yaw rate'
+ * '<S77>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution/Inputs'
+ * '<S78>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution/Outputs'
+ * '<S79>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution/Voting'
+ * '<S80>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution/Inputs/Digital Input'
  * '<S81>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution/Inputs/Quadrature Encoder Get'
  * '<S82>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution/Inputs/Trailer1 Angle'
  * '<S83>'  : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution/Inputs/Trailer2 Angle'
@@ -965,9 +999,20 @@ extern RT_MODEL *const rtM;
  * '<S365>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Role assignment/Subsystem2/CAN receive1'
  * '<S366>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Role assignment/Subsystem2/Subsystem1'
  * '<S367>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Role assignment/Subsystem2/CAN receive1/Enabled Subsystem'
- * '<S368>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/System information/Get CPU load'
- * '<S369>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/System information/Get free Heap'
- * '<S370>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/System information/Get free Stack'
+ * '<S368>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Setting ID/Digital Input'
+ * '<S369>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Setting ID/Digital Input1'
+ * '<S370>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Setting ID/Digital Input2'
+ * '<S371>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/System information/Get CPU load'
+ * '<S372>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/System information/Get free Heap'
+ * '<S373>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/System information/Get free Stack'
+ * '<S374>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Triggered Subsystem/Digital Input1'
+ * '<S375>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Triggered Subsystem/Subsystem'
+ * '<S376>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Triggered Subsystem/Subsystem/If Action Subsystem'
+ * '<S377>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Triggered Subsystem/Subsystem/If Action Subsystem1'
+ * '<S378>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Triggered Subsystem/Subsystem/If Action Subsystem2'
+ * '<S379>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Triggered Subsystem/Subsystem/If Action Subsystem3'
+ * '<S380>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Triggered Subsystem/Subsystem/S-R Flip-Flop'
+ * '<S381>' : 'HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/Triggered Subsystem/Subsystem/S-R Flip-Flop1'
  */
 #endif                        /* RTW_HEADER_HANcoder_E407_TTA_CombineModel_h_ */
 

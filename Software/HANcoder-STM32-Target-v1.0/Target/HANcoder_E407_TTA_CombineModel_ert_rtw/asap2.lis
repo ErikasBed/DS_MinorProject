@@ -1,5 +1,7 @@
     ClockOn
     
+        ResetPosition
+    
         controlWidth
     
         desiredAngle
@@ -57,6 +59,11 @@ t1Angle
 Gamma2
 mospeed
 SI_CPUload
+buttonpress2
+buttonpress1
+amounttrailers
+positionID5
+positionID4
 local_ticks_interrupt
 setSlotTime
 slotSelected

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.32
+ * Model version                  : 17.33
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Thu Jun 15 16:05:00 2023
+ * C/C++ source code generated on : Mon Jun 19 10:01:47 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -21,11 +21,11 @@
 
 /* Invariant block signals (default storage) */
 const ConstBlockIO rtConstB = {
-  1.0,                                 /* '<S73>/Sign' */
-  1.0,                                 /* '<S73>/Sign1' */
-  0.5,                                 /* '<S74>/Abs' */
-  1.0,                                 /* '<S77>/Sign1' */
-  0U,                                  /* '<S79>/Cast' */
+  1.0,                                 /* '<S72>/Sign' */
+  1.0,                                 /* '<S72>/Sign1' */
+  0.5,                                 /* '<S73>/Abs' */
+  1.0,                                 /* '<S76>/Sign1' */
+  0U,                                  /* '<S78>/Cast' */
   0U,                                  /* '<S342>/Cast' */
   0U,                                  /* '<S342>/Cast2' */
   0U,                                  /* '<S342>/Cast3' */
@@ -46,10 +46,10 @@ const ConstBlockIO rtConstB = {
   0U,                                  /* '<S223>/Cast4' */
   0U,                                  /* '<S223>/Cast5' */
   0U,                                  /* '<S223>/Cast6' */
-  0,                                   /* '<S79>/Cast1' */
-  0,                                   /* '<S79>/Cast2' */
+  0,                                   /* '<S78>/Cast1' */
+  0,                                   /* '<S78>/Cast2' */
 
-  /* Start of '<S13>/TRCK1_ID3_TX' */
+  /* Start of '<S10>/TRCK1_ID3_TX' */
   {
     0U,                                /* '<S176>/Cast' */
     0U,                                /* '<S176>/Cast2' */
@@ -60,9 +60,9 @@ const ConstBlockIO rtConstB = {
   }
   ,
 
-  /* End of '<S13>/TRCK1_ID3_TX' */
+  /* End of '<S10>/TRCK1_ID3_TX' */
 
-  /* Start of '<S13>/TRCK1_ID2_TX' */
+  /* Start of '<S10>/TRCK1_ID2_TX' */
   {
     0U,                                /* '<S154>/Cast' */
     0U,                                /* '<S154>/Cast2' */
@@ -71,7 +71,7 @@ const ConstBlockIO rtConstB = {
     0U,                                /* '<S154>/Cast5' */
     0U                                 /* '<S154>/Cast6' */
   }
-  /* End of '<S13>/TRCK1_ID2_TX' */
+  /* End of '<S10>/TRCK1_ID2_TX' */
 };
 
 /* Constant parameters (default storage) */
@@ -80,6 +80,8 @@ const ConstParam rtConstP = {
    * Referenced by:
    *   '<S91>/Logic'
    *   '<S92>/Logic'
+   *   '<S380>/Logic'
+   *   '<S381>/Logic'
    */
   { false, true, false, false, true, true, false, false, true, false, true, true,
     false, false, false, false }
