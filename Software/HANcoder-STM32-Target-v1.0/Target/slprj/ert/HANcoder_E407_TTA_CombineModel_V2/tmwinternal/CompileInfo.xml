@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
 <MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/ci/19700101 http://schema.mathworks.com/mf0/sl_modelref_info/R2023a http://schema.mathworks.com/mf0/slexec_mm_sto/R2023a_202208151321 http://schema.mathworks.com/mf0/sltp_mm/R2023a_202209151115">
   <ModelRefInfoRepo.ModelRefInfoRoot type="ModelRefInfoRepo.ModelRefInfoRoot" uuid="c7c66c61-cba0-49bc-a12f-499984a0df9c">
     <JITEngines>sFsiJ6ngAU4krRuVabYmmHH</JITEngines>
@@ -10,6 +11,33 @@
     <childModelRefInfo type="ModelRefInfoRepo.ChildModelRefInfo" uuid="f549d4e8-cf34-4c77-8518-4d43e256045c">
       <modelName>HANcoder_E407_TTA_CombineModel_V2</modelName>
       <modelPath>HANcoder_E407_TTA_CombineModel_V2</modelPath>
+=======
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/ci/19700101 http://schema.mathworks.com/mf0/sl_modelref_info/R2022b http://schema.mathworks.com/mf0/slexec_mm_sto/R2022b_202202091112 http://schema.mathworks.com/mf0/sltp_mm/R2022b_202203181029">
+  <ModelRefInfoRepo.ModelRefInfoRoot type="ModelRefInfoRepo.ModelRefInfoRoot" uuid="cb07bf36-3fe9-45ed-9930-99ec8b2b26c0">
+    <JITEngines>s1yEYPsOPwessHL817IdVu</JITEngines>
+    <JITEngines>s4WuZcpfT1dN8yRMiLMfB7G</JITEngines>
+    <JITEngines>s4z74ASbQgHpiFQ75E9D0NB</JITEngines>
+    <JITEngines>sEam1CFpssklIPXCVVSnTlF</JITEngines>
+    <JITEngines>sGu3Slqg0uUxn3ZjSMqRvk</JITEngines>
+    <JITEngines>sKkvW9Ha5M79uzTDFauCAVB</JITEngines>
+    <JITEngines>sT9RoFIpAe9RXBFYkh8ic8D</JITEngines>
+    <JITEngines>sWn2ShfBUrT2ijh5guW2txB</JITEngines>
+    <JITEngines>sfIieK4UzrLqvV8A1BEq5gF</JITEngines>
+    <JITEngines>sj7MW55jx5Pp4k5XekE7zZH</JITEngines>
+    <JITEngines>snpTgh8GNICX1Q625plaQVG</JITEngines>
+    <JITEngines>srWFxeRjCxZ1OV9LWjrTMY</JITEngines>
+    <JITEngines>suancHOEdjuLhm3ApuQoriH</JITEngines>
+    <JITEngines>suxFfEp6ZhtzFCw5BWQN99D</JITEngines>
+    <JITEngines>sxNz2XleAwK5Lg41zNP3bdH</JITEngines>
+    <JITEngines>syYueI5qDzGwrNluzHNn6gH</JITEngines>
+    <calibrationData type="ModelRefInfoRepo.CalibrationData" uuid="5152b28d-dd86-4828-9c92-7fedc24d9389">
+      <InternalData>[{&quot;Name&quot;:&quot;&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Local_Ticks&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;init_clock&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;SlotTime&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;testCount&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;potentiometer1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;amountOfTrailers&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;systemState&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;setAngle&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;requestedAngle&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;trailerOneAngle&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;trailerTwoAngle&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;velocity&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;pwmMotor&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;cwMotor&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;ccwMotor&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;slaveClockOn&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;slot&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;encoderPosition&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;potentiometer2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;pot3_2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;pot3_1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;pot1_1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;pot1_2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;pot5_2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;pot5_1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;pot2_2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;pot2_1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;node4Active&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;pot4_1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;node5Active&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;pot4_2&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;lastEncoderPosition&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;motorFailed&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;lastPot1&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;potFault&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;potentiometer1Raw&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;motorControlNode1Fail&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;potReadNode1Fail&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;potReadNode4Fail&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;potReadNode5Fail&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;receiveSync&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;node1CanFailed&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;ioInitialized&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;PositionID4&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;PositionID5&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;Board_ID&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;buttonPress&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;trailer2buttonPress&quot;,&quot;Profile&quot;:&quot;&quot;},{&quot;Name&quot;:&quot;trailer1buttonPress&quot;,&quot;Profile&quot;:&quot;&quot;}]</InternalData>
+      <ModelName>HANcoder_E407_TTA_CombineModel</ModelName>
+    </calibrationData>
+    <childModelRefInfo type="ModelRefInfoRepo.ChildModelRefInfo" uuid="1c48f2c3-43ab-4048-8376-aa4a826e3e03">
+      <modelName>HANcoder_E407_TTA_CombineModel</modelName>
+      <modelPath>HANcoder_E407_TTA_CombineModel</modelPath>
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
     </childModelRefInfo>
     <dataTransferInfos>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAAAAAABAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAA</dataTransferInfos>
     <defaultsCMapping>{&quot;Inports&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;Outports&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;ParameterArguments&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;LocalParameters&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;GlobalParameters&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;InternalData&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;SharedLocalDataStores&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;GlobalDataStores&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;Constants&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;DataTransfers&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;ModelData&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;InitializeTerminate&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;Execution&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;,&quot;SharedUtility&quot;:&quot;{\&quot;Name\&quot;:\&quot;Default\&quot;,\&quot;Checksum\&quot;:\&quot;Default\&quot;,\&quot;PerInstancePropertiesChecksum\&quot;:\&quot;\&quot;,\&quot;MemorySectionName\&quot;:\&quot;None\&quot;,\&quot;MemorySectionChecksum\&quot;:\&quot;None\&quot;}&quot;}</defaultsCMapping>
@@ -33,6 +61,10 @@
     <globalVariables>TRCK1_ID3</globalVariables>
     <globalVariables>TRLS1_ID4</globalVariables>
     <globalVariables>TRLS1_ID5</globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
+=======
+    <globalVariables>V2</globalVariables>
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
     <globalVariables>amounttrailers</globalVariables>
     <globalVariables>analogPot1</globalVariables>
     <globalVariables>analogPot2</globalVariables>
@@ -45,18 +77,41 @@
     <globalVariables>controlWidth</globalVariables>
     <globalVariables>cw</globalVariables>
     <globalVariables>delta12K</globalVariables>
+    <globalVariables>derivative</globalVariables>
+    <globalVariables>derivativeMean</globalVariables>
     <globalVariables>desiredAngle</globalVariables>
     <globalVariables>frequency_IRQ</globalVariables>
     <globalVariables>intVal</globalVariables>
+    <globalVariables>ioInit</globalVariables>
+    <globalVariables>lastPot</globalVariables>
     <globalVariables>local_ticks_interrupt</globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <globalVariables>masterID</globalVariables>
+=======
+    <globalVariables>masterCanFail</globalVariables>
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
     <globalVariables>matrixRows</globalVariables>
+    <globalVariables>mf1</globalVariables>
+    <globalVariables>mf2</globalVariables>
+    <globalVariables>mf3</globalVariables>
+    <globalVariables>mf4</globalVariables>
+    <globalVariables>mf5</globalVariables>
     <globalVariables>mospeed</globalVariables>
+    <globalVariables>motorFaultDetected</globalVariables>
+    <globalVariables>motorPos</globalVariables>
     <globalVariables>position</globalVariables>
     <globalVariables>positionID4</globalVariables>
     <globalVariables>positionID5</globalVariables>
     <globalVariables>pot1</globalVariables>
+    <globalVariables>pot11</globalVariables>
+    <globalVariables>pot12</globalVariables>
     <globalVariables>pot2</globalVariables>
+    <globalVariables>pot21</globalVariables>
+    <globalVariables>pot22</globalVariables>
+    <globalVariables>pot31</globalVariables>
+    <globalVariables>pot32</globalVariables>
+    <globalVariables>potFaultDetected</globalVariables>
+    <globalVariables>potRaw</globalVariables>
     <globalVariables>propVal</globalVariables>
     <globalVariables>reqAngle</globalVariables>
     <globalVariables>setSlotTime</globalVariables>
@@ -77,13 +132,15 @@
     <isInlineParamsOn>true</isInlineParamsOn>
     <loggingSaveFormat>4</loggingSaveFormat>
     <maxFreqHz>-1.0</maxFreqHz>
-    <numDStateRecs>2</numDStateRecs>
+    <needElapsedTime>true</needElapsedTime>
+    <numDStateRecs>11</numDStateRecs>
     <numDataInputPorts>0</numDataInputPorts>
-    <numLoggableDStateRecs>2</numLoggableDStateRecs>
+    <numLoggableDStateRecs>11</numLoggableDStateRecs>
     <numLoggableJacobianDStates>2</numLoggableJacobianDStates>
     <removeResetFunc>true</removeResetFunc>
     <runtimeNonFcnCallRateInfos type="ModelRefInfoRepo.RateInfo">
       <compiled>true</compiled>
+      <needAbsoluteTime>true</needAbsoluteTime>
       <nonFcnCallPartitionName>D1</nonFcnCallPartitionName>
       <period>.001</period>
       <priority>40</priority>
@@ -92,53 +149,89 @@
     <sampleTimeInheritanceRule>2</sampleTimeInheritanceRule>
     <solverStatusFlags>323</solverStatusFlags>
     <timingAndTaskingRegistry>&lt;?xml version=&quot;1.0&quot;?&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
 &lt;slexec_sto version=&quot;1.1&quot; packageUris=&quot;http://schema.mathworks.com/mf0/slexec_mm_sto/R2023a_202208151321&quot;&gt;
   &lt;sto.Registry type=&quot;sto.Registry&quot; uuid=&quot;bfe10143-e351-4848-b45e-08fed0832f8b&quot;&gt;
     &lt;executionSpec&gt;Undetermined&lt;/executionSpec&gt;
     &lt;identifier&gt;HANcoder_E407_TTA_CombineModel_V2&lt;/identifier&gt;
     &lt;clockRegistry type=&quot;sto.ClockRegistry&quot; uuid=&quot;e88e6469-6787-4481-adc5-3a2916b30c76&quot;&gt;
       &lt;clocks type=&quot;sto.Timer&quot; uuid=&quot;a48fa645-8e7a-4717-a47b-e2adaca2d8e4&quot;&gt;
+=======
+&lt;slexec_sto version=&quot;1.1&quot; packageUris=&quot;http://schema.mathworks.com/mf0/slexec_mm_sto/R2022b_202202091112&quot;&gt;
+  &lt;sto.Registry type=&quot;sto.Registry&quot; uuid=&quot;c7f168c2-32a1-4be5-9c96-21dd9d6e9b2d&quot;&gt;
+    &lt;executionSpec&gt;Undetermined&lt;/executionSpec&gt;
+    &lt;clockRegistry type=&quot;sto.ClockRegistry&quot; uuid=&quot;46084474-c9b8-47db-9bc6-f95bc436fd8c&quot;&gt;
+      &lt;clocks type=&quot;sto.Timer&quot; uuid=&quot;2f787c5d-1fc5-4b63-8c18-7ef01c063528&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         &lt;clockTickConstraint&gt;PeriodicWithFixedResolution&lt;/clockTickConstraint&gt;
         &lt;computedFundamentalDiscretePeriod&gt;.001&lt;/computedFundamentalDiscretePeriod&gt;
         &lt;fastestDiscreteRate type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;aaa42c63-c125-4d4e-8971-648de2bac718&quot;/&gt;
         &lt;isDefaultTimer&gt;true&lt;/isDefaultTimer&gt;
         &lt;resolution&gt;.001&lt;/resolution&gt;
         &lt;timeAdvanceMode&gt;FixedStep&lt;/timeAdvanceMode&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
         &lt;identifier&gt;HANcoder_E407_TTA_CombineModel_V2::defaultTimer&lt;/identifier&gt;
         &lt;rates type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;aaa42c63-c125-4d4e-8971-648de2bac718&quot;&gt;
+=======
+        &lt;rates type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;c8a68e3f-c88e-429a-952c-bfdd2613fc87&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
           &lt;annotation&gt;D1&lt;/annotation&gt;
           &lt;clockId&gt;HANcoder_E407_TTA_CombineModel_V2::defaultTimer&lt;/clockId&gt;
           &lt;colorIndex&gt;2&lt;/colorIndex&gt;
           &lt;description&gt;Discrete 1&lt;/description&gt;
           &lt;taskId&gt;_task0&lt;/taskId&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
           &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;9a2035bb-91d7-4d02-85da-88bafc6bc4b4&quot;&gt;
+=======
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;b841db15-1cf5-469c-981e-0fec4d35b97c&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
             &lt;period&gt;.001&lt;/period&gt;
             &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
           &lt;/rateSpec&gt;
         &lt;/rates&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
         &lt;baseRate type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;2555b12c-8c1a-4835-a57d-173f98c9f92c&quot;&gt;
+=======
+        &lt;baseRate type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;067c7bb7-6803-4937-9f68-8b9c6da20fdf&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
           &lt;annotation&gt;D1&lt;/annotation&gt;
           &lt;clockId&gt;HANcoder_E407_TTA_CombineModel_V2::defaultTimer&lt;/clockId&gt;
           &lt;colorIndex&gt;2&lt;/colorIndex&gt;
           &lt;description&gt;Discrete 1&lt;/description&gt;
           &lt;taskId&gt;_task0&lt;/taskId&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
           &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;f7a049a2-b631-4fcb-a7af-e9f060cc869d&quot;&gt;
+=======
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;3b8ce7c7-38a4-41fa-b844-11d339b4ea7b&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
             &lt;period&gt;.001&lt;/period&gt;
             &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
           &lt;/rateSpec&gt;
         &lt;/baseRate&gt;
       &lt;/clocks&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       &lt;clocks type=&quot;sto.Event&quot; uuid=&quot;a2fc3b8c-c5de-4dd6-9982-3fd64b7968ba&quot;&gt;
+=======
+      &lt;clocks type=&quot;sto.Event&quot; uuid=&quot;5621bb88-a8f3-4f30-8bab-3ae22eb3077a&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         &lt;eventType&gt;PARAMETER_CHANGE_EVENT&lt;/eventType&gt;
         &lt;cNum&gt;1&lt;/cNum&gt;
         &lt;clockType&gt;Event&lt;/clockType&gt;
         &lt;identifier&gt;ParameterChangeEvent&lt;/identifier&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
         &lt;rates type=&quot;sto.ModelWideEventRate&quot; uuid=&quot;42410899-0c93-48bd-aec9-fccc4922dd84&quot;&gt;
+=======
+        &lt;rates type=&quot;sto.ModelWideEventRate&quot; uuid=&quot;844ff591-a5e6-445c-bec9-ed651349db8a&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
           &lt;clockId&gt;ParameterChangeEvent&lt;/clockId&gt;
           &lt;rateIdx&gt;-1&lt;/rateIdx&gt;
           &lt;taskId&gt;ModelWideParameterChangeEvent&lt;/taskId&gt;
           &lt;useForExecution&gt;NotForExecution&lt;/useForExecution&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
           &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;157d0083-bf0a-4999-9390-7a4abfe5d4d6&quot;&gt;
+=======
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;246fd56a-1ab7-4443-91a2-701fd60a867e&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
             &lt;period&gt;inf&lt;/period&gt;
             &lt;rateType&gt;ModelWideParameterChangeEvent&lt;/rateType&gt;
           &lt;/rateSpec&gt;
@@ -146,15 +239,26 @@
       &lt;/clocks&gt;
       &lt;timeAdvanceMode&gt;FixedStep&lt;/timeAdvanceMode&gt;
     &lt;/clockRegistry&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     &lt;taskRegistry type=&quot;sto.TaskRegistry&quot; uuid=&quot;f8ac3d1d-2c09-48ac-b091-6565ef4ee91d&quot;&gt;
       &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;06626a69-4ce4-4ab7-a203-f1bf6c160f63&quot;&gt;
         &lt;isExplicit&gt;true&lt;/isExplicit&gt;
         &lt;rates type=&quot;sto.ModelWideEventRate&quot; uuid=&quot;d139c731-9080-4249-99ed-2dcb82c3306f&quot;&gt;
+=======
+    &lt;taskRegistry type=&quot;sto.TaskRegistry&quot; uuid=&quot;4f52a848-73bd-4e8d-b946-7d3f02bad2e3&quot;&gt;
+      &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;1ad65fa4-40ac-42e0-bc09-b96b21558a0d&quot;&gt;
+        &lt;isExplicit&gt;true&lt;/isExplicit&gt;
+        &lt;rates type=&quot;sto.ModelWideEventRate&quot; uuid=&quot;cd7130be-222c-478a-beae-d954b67dba67&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
           &lt;clockId&gt;ParameterChangeEvent&lt;/clockId&gt;
           &lt;rateIdx&gt;-1&lt;/rateIdx&gt;
           &lt;taskId&gt;ModelWideParameterChangeEvent&lt;/taskId&gt;
           &lt;useForExecution&gt;NotForExecution&lt;/useForExecution&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
           &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;fa095596-5b4e-4907-aa51-aaeba0e55b61&quot;&gt;
+=======
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;2567db6d-6334-4056-8551-6d75c34f82d3&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
             &lt;period&gt;inf&lt;/period&gt;
             &lt;rateType&gt;ModelWideParameterChangeEvent&lt;/rateType&gt;
           &lt;/rateSpec&gt;
@@ -165,16 +269,27 @@
         &lt;identifier&gt;ModelWideParameterChangeEvent&lt;/identifier&gt;
         &lt;priority&gt;-1&lt;/priority&gt;
       &lt;/rootTaskHierarchyElements&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;09565167-4170-4ef9-be08-79d25a963cd8&quot;&gt;
         &lt;isExecutable&gt;true&lt;/isExecutable&gt;
         &lt;orderIndex&gt;1&lt;/orderIndex&gt;
         &lt;rates type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;d81e6912-fc6a-4657-8c0c-c0048b3ddb71&quot;&gt;
+=======
+      &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;251ada75-c4b7-4a09-b68f-bc42827d38fe&quot;&gt;
+        &lt;isExecutable&gt;true&lt;/isExecutable&gt;
+        &lt;orderIndex&gt;1&lt;/orderIndex&gt;
+        &lt;rates type=&quot;sto.ClassicPeriodicDiscreteRate&quot; uuid=&quot;737b9ae4-c206-4f00-999f-e4b4d7c58852&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
           &lt;annotation&gt;D1&lt;/annotation&gt;
           &lt;clockId&gt;HANcoder_E407_TTA_CombineModel_V2::defaultTimer&lt;/clockId&gt;
           &lt;colorIndex&gt;2&lt;/colorIndex&gt;
           &lt;description&gt;Discrete 1&lt;/description&gt;
           &lt;taskId&gt;_task0&lt;/taskId&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
           &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;4c1ddede-7a5c-4d47-8fab-d344a3de4c5e&quot;&gt;
+=======
+          &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;3ee76838-c597-4d06-8375-d38fa672abf7&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
             &lt;period&gt;.001&lt;/period&gt;
             &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
           &lt;/rateSpec&gt;
@@ -185,18 +300,29 @@
         &lt;identifier&gt;_task0&lt;/identifier&gt;
         &lt;priority&gt;40&lt;/priority&gt;
       &lt;/rootTaskHierarchyElements&gt;
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;1543122b-659b-4b6b-bf4b-55bae7a507e4&quot;&gt;
         &lt;clockIdentifier&gt;HANcoder_E407_TTA_CombineModel_V2::defaultTimer&lt;/clockIdentifier&gt;
         &lt;taskIdentifier&gt;_task0&lt;/taskIdentifier&gt;
       &lt;/taskDependencyGraph&gt;
       &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;a2392f39-87ea-402e-a791-9230398722e9&quot;&gt;
+=======
+      &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;100c9b27-f1d2-45f0-913f-8752fb1b4fbb&quot;&gt;
+        &lt;taskIdentifier&gt;_task0&lt;/taskIdentifier&gt;
+      &lt;/taskDependencyGraph&gt;
+      &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;cb4bc086-b0f8-4c3e-bea1-33e83cb429e7&quot;&gt;
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         &lt;clockIdentifier&gt;ParameterChangeEvent&lt;/clockIdentifier&gt;
         &lt;taskIdentifier&gt;ModelWideParameterChangeEvent&lt;/taskIdentifier&gt;
       &lt;/taskDependencyGraph&gt;
     &lt;/taskRegistry&gt;
   &lt;/sto.Registry&gt;
 &lt;/slexec_sto&gt;</timingAndTaskingRegistry>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="a5221328-be5d-46ce-8bd5-955c1b8fdcb4">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="2905c698-db97-45ca-a1db-0c62ba952e1f">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -205,7 +331,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="f90650a8-b82b-4c12-a489-e70d1f7e8fe2">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="f1d0646b-69bd-4d74-8fb8-d8e834d9c256">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -214,7 +344,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="85450a5f-b8c3-440c-bd06-36c5b19e2367">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="98ce5b8d-9eaa-4367-add0-fc7afa81da4b">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -223,7 +357,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="bca8a283-42f7-4213-a30f-75bca99a9447">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="14b14cf3-6c5a-405a-82cf-35a44063774f">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -232,7 +370,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="493d53cd-280f-44a6-b052-a8df1ceb309e">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="ca73a5fd-9017-42e6-b225-082736a4c927">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -241,7 +383,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="ae7bc7e3-28c7-4dd0-8945-73877b41acd2">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="1b1fdde6-7ad3-4bf8-82b6-6846c745ce9e">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -250,7 +396,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="d1878e95-a8d9-4f49-8e25-0569501de317">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="4bad2049-7c45-4f72-9f0b-c7d729622697">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -259,7 +409,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="6fe03635-715d-4f19-8181-4ac74c1fa0f8">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="2824598c-3929-490c-b27a-789dadb4b91e">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -268,7 +422,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="f5db9d2f-9acb-43e4-868c-c6f60b7bf194">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="43698db2-23ef-4246-9f39-b0b3172ae4e7">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -277,7 +435,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="e46fc76f-6fd5-4f87-85a9-106c7dd494b1">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="fd993643-a668-4a91-ac0b-1db1a95b6f77">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -286,7 +448,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="16569ebd-ce04-46c7-9b47-930f6727690f">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="f0cfeacd-d7ce-4748-b52c-42fbc9b8acc8">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -295,7 +461,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="b62bbf61-69e5-4557-b6f2-f22f9c81920d">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="b49467ac-18f7-49a4-b9c3-b3db298103ca">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -304,7 +474,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="0094e746-e1d5-477c-b896-6b9f197787a6">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="0c2f61a5-a86d-4d70-9d2f-189e6c358fd9">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -313,7 +487,11 @@
       <type>1</type>
       <width>1</width>
     </zeroCrossingInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="0d55d7a3-ef8c-4a0b-866d-9c2ce06dcd94">
+=======
+    <zeroCrossingInfo type="ModelRefInfoRepo.ZeroCrossingInfo" uuid="7e9a7afc-fda0-4954-98ae-93ba9bd56e5b">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <direction>7</direction>
       <isDiscrete>true</isDiscrete>
       <name>Trig</name>
@@ -323,10 +501,17 @@
       <width>1</width>
     </zeroCrossingInfo>
     <zeroInternalMemoryAtStartupUnchecked>true</zeroInternalMemoryAtStartupUnchecked>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <FMUBlockMap type="ModelRefInfoRepo.FMUBlockInfo" uuid="9d1d47fc-6d17-4fd4-878f-72307834b284"/>
     <codeGenInfo type="ModelRefInfoRepo.CodeGenInformation" uuid="aee9893c-2ffe-4a06-a934-1fff020faaf5"/>
     <compiledVariantInfos type="ModelRefInfoRepo.CompiledVariantInfoMap" uuid="3f94c4ca-243e-4cf6-9d4d-8ca04667de55"/>
     <configSettingsForConsistencyChecks type="ModelRefInfoRepo.ConfigSettingsForConsistencyChecks" uuid="e1b00497-ca39-4dd5-823f-50279c22210f">
+=======
+    <FMUBlockMap type="ModelRefInfoRepo.FMUBlockInfo" uuid="0e79fa3a-a39f-49fa-bfd9-8b22098cae45"/>
+    <codeGenInfo type="ModelRefInfoRepo.CodeGenInformation" uuid="10ab937d-edaa-4804-a4ce-59786eae55a5"/>
+    <compiledVariantInfos type="ModelRefInfoRepo.CompiledVariantInfoMap" uuid="327aa6e9-fc37-495f-b1a1-b96a4025a785"/>
+    <configSettingsForConsistencyChecks type="ModelRefInfoRepo.ConfigSettingsForConsistencyChecks" uuid="934f306b-112f-4702-8cb8-ccd7ad555e50">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <fixedStepSize>.001</fixedStepSize>
       <frameDiagnosticSetting>2</frameDiagnosticSetting>
       <hasHybridSampleTime>true</hasHybridSampleTime>
@@ -335,7 +520,11 @@
       <simSIMDOptimization>1</simSIMDOptimization>
       <solverName>FixedStepDiscrete</solverName>
       <solverType>SOLVER_TYPE_FIXEDSTEP</solverType>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <hardwareSettings type="ModelRefInfoRepo.HardwareSettings" uuid="1af5d473-8f6a-4a04-8400-1c3de94b0769">
+=======
+      <hardwareSettings type="ModelRefInfoRepo.HardwareSettings" uuid="198bf306-113b-4d84-bb8d-017de98adef4">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <prodBitPerChar>8</prodBitPerChar>
         <prodBitPerDouble>64</prodBitPerDouble>
         <prodBitPerFloat>32</prodBitPerFloat>
@@ -353,12 +542,21 @@
         <prodWordSize>32</prodWordSize>
       </hardwareSettings>
     </configSettingsForConsistencyChecks>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <controllableInputRatesMap type="ModelRefInfoRepo.VarTsUIDMap" uuid="ac6bc688-93de-4aa7-8f78-4c86610bfc37"/>
     <controllableOutputRatesMap type="ModelRefInfoRepo.VarTsUIDMap" uuid="7953232d-66e0-47af-b502-dbce3f7b9abe"/>
     <dataPortGroup type="ModelRefInfoRepo.DataPortGroup" uuid="af39ae2f-a0a2-4f87-8dee-100952034bc5"/>
     <expFcnUnconnectedDataPortGroup type="ModelRefInfoRepo.DataPortGroup" uuid="eb656248-3d90-4791-9d04-fe7c6128171f"/>
     <interfaceParameterInfo type="ModelRefInfoRepo.InterfaceParameterInfo" uuid="688eee99-f054-482e-8a1c-7568288dbd77">
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a187b965-33e7-4087-8396-5f756b0311a0">
+=======
+    <controllableInputRatesMap type="ModelRefInfoRepo.VarTsUIDMap" uuid="50c79549-e3e8-4da0-899a-c91cd3628b71"/>
+    <controllableOutputRatesMap type="ModelRefInfoRepo.VarTsUIDMap" uuid="9049416a-17e5-4462-b2ac-7372ad436529"/>
+    <dataPortGroup type="ModelRefInfoRepo.DataPortGroup" uuid="0bed2b7f-3bc8-4f67-bbb1-2df0790d600a"/>
+    <expFcnUnconnectedDataPortGroup type="ModelRefInfoRepo.DataPortGroup" uuid="d7c79a7e-edcb-4814-ad8b-8e7890c3e761"/>
+    <interfaceParameterInfo type="ModelRefInfoRepo.InterfaceParameterInfo" uuid="5a3ea5e4-7215-4dd1-885e-f62298d8cf54">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="5503ec1a-9e2f-422b-b638-993aa193e5e9">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
@@ -366,7 +564,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>ClockOn</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6f5256ca-f66c-49da-bca6-8acc59c4f082">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="2d861e71-9e79-4b1d-bb21-b3c293b316e9">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
@@ -374,7 +576,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>ResetPosition</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="842d2d6a-0f2f-489c-a192-416782ee96da">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="1c3c2534-50d2-44ff-be7f-585e47063f86">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
@@ -382,7 +588,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>controlWidth</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ebbe109e-482e-426a-aab1-7720851ce0f1">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4cdd3ee1-7301-48d7-ab91-16437769d435">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
@@ -390,7 +600,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>desiredAngle</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="aa42daca-63fa-40c5-8f4e-3782034b14f5">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3b05f462-e63b-44e2-b0e1-cc0944a55d00">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
@@ -398,7 +612,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>intVal</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3262483d-3505-4a46-9c8b-9b1dc280a3fc">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="89902720-5759-4f85-8c6b-b9d805550ae1">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
@@ -406,7 +624,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>matrixRows</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b009adc5-5289-4005-a3c7-1715e0926803">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="bc2a5f57-201c-400d-9374-d3f87a134247">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
@@ -414,7 +636,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>propVal</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6477d68e-a3ee-4996-9e08-abc5a315ea53">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="62f2f139-ad73-4bf8-ac74-bc986bf2ffe4">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <datatypeID>7</datatypeID>
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
@@ -423,7 +649,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>MMBS1_ID</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="0c1ab221-d6cb-4d98-aa29-146f16539968">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="d1f805a0-0354-4073-acd2-877dcbb32a43">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <datatypeID>7</datatypeID>
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
@@ -432,7 +662,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>SSTM1_ID</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="c3bc86b7-e939-41fb-aa73-4d9efc2b8b42">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="0db97a8c-b3a3-4574-aad7-31022e6066d7">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <datatypeID>7</datatypeID>
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
@@ -441,7 +675,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>SYNC1_ID</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="aff69604-2836-444e-804e-096a1591a184">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="26ab116c-ea38-4e83-a7f9-733851b2c747">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <datatypeID>7</datatypeID>
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
@@ -450,7 +688,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>TRCK1_ID1</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a6100ea8-d45a-492f-897e-be1c94f5e593">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3a39b9ed-465e-4c9f-bae2-3516312e0209">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <datatypeID>7</datatypeID>
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
@@ -459,7 +701,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>TRCK1_ID2</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ec109cd7-b0cd-46c8-9b33-deca85213273">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="aebfc562-0c2e-4fa8-a7c1-b4178d0e9e03">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <datatypeID>7</datatypeID>
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
@@ -468,7 +714,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>TRCK1_ID3</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3ae462e2-885d-4d40-97f2-1d11e0c2c411">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="ea21cbe8-8e41-49d5-b8cf-a21654e38d58">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <datatypeID>7</datatypeID>
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
@@ -477,7 +727,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>TRLS1_ID4</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="e86094b5-462a-42fa-9069-4f69ebeb37cd">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="dd7bb165-1017-4508-b7a9-73fdb625b528">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <datatypeID>7</datatypeID>
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
@@ -486,7 +740,11 @@
         <numDimensions>2</numDimensions>
         <parameterName>TRLS1_ID5</parameterName>
       </globalVariables>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="c7df7f86-cccf-446d-90dd-581f28fd11cf">
+=======
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="261bd5c2-b7a7-4472-8787-c378d40df3ce">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
         <datatypeID>3</datatypeID>
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
@@ -496,14 +754,20 @@
         <parameterName>slotTime</parameterName>
       </globalVariables>
     </interfaceParameterInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <messageInfo type="ModelRefInfoRepo.MessageInformation" uuid="0478887e-1056-404a-bd4c-bc86db462d1e"/>
     <methodInfo type="ModelRefInfoRepo.MethodExistenceInfo" uuid="a87124c8-921f-4476-9991-5afc4b1b3774">
+=======
+    <messageInfo type="ModelRefInfoRepo.MessageInformation" uuid="4252c79b-ca78-420f-b196-800b69663e6e"/>
+    <methodInfo type="ModelRefInfoRepo.MethodExistenceInfo" uuid="28e65454-3804-4677-baaa-95847f6d73a1">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <hasEnableMethod>true</hasEnableMethod>
       <hasSystemInitializeMethod>true</hasSystemInitializeMethod>
       <hasSystemResetMethod>true</hasSystemResetMethod>
       <hasTerminateMethod>true</hasTerminateMethod>
       <hasUpdateMethod>true</hasUpdateMethod>
     </methodInfo>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <periodicEventPortUnsupportedBlockInfo type="ModelRefInfoRepo.PeriodicEventPortUnsupportedBlockInfo" uuid="7cf79dfa-bde3-4e93-9057-b3024c48f2ad"/>
     <portGroupsRequireSameRate type="ModelRefInfoRepo.PortGroupsRequireSameRate" uuid="7f7ff3dc-666d-40bd-8c18-5839311f2e33">
       <DSMPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="71d89b16-e95f-4bbf-b308-475b0f2907e0"/>
@@ -522,12 +786,35 @@
       <compSimulinkFunctionCatalog></compSimulinkFunctionCatalog>
     </simulinkFunctions>
     <sltpContext type="sltp.mm.core.Context" uuid="2bb7f68f-332b-4477-b69f-38ae14859c72">
+=======
+    <periodicEventPortUnsupportedBlockInfo type="ModelRefInfoRepo.PeriodicEventPortUnsupportedBlockInfo" uuid="0d849336-f65d-4b47-8026-99c75a77fe3e">
+      <triggeredRateElapsedTimeBlocks>HANcoder_E407_TTA_CombineModel/HANcoder STM32 Target - E407-STM32 algorithm/IO execution/Voting/Discrete Derivative/TSamp</triggeredRateElapsedTimeBlocks>
+    </periodicEventPortUnsupportedBlockInfo>
+    <portGroupsRequireSameRate type="ModelRefInfoRepo.PortGroupsRequireSameRate" uuid="8227d22e-6496-458f-aa2d-91b9b2b65e3a">
+      <DSMPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="af0336ca-adbb-4ab6-b7af-fe46d419990d"/>
+      <GlobalDSMPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="bf734dad-126e-41f4-a2f2-454fdd7487bf"/>
+      <mergedPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="4bf69ac4-edf8-4ea3-bd41-fe5f5c04b899"/>
+    </portGroupsRequireSameRate>
+    <rateBasedMdlGlobalDSMRateSpec type="ModelRefInfoRepo.GlobalDSMRateSpecMap" uuid="02cc5aee-c82d-4b54-88c8-c2ffb0c16f9e"/>
+    <rateSpecOfGlobalDSMAccessedByDescExpFcnMdlMap type="ModelRefInfoRepo.GlobalDSMRateSpecMap" uuid="d013f4e3-d6ae-46ae-9007-cc20c8e48712"/>
+    <rootBlockDiagramInterface type="ci.Model" uuid="d6e96c81-d320-4b0f-bef1-a1cd34ec6855">
+      <p_RootComponentInterface type="ci.ComponentInterface" uuid="70f18e4d-213f-4259-b106-53ee48cd3745">
+        <p_Name>HANcoder_E407_TTA_CombineModel</p_Name>
+        <p_Type>ROOT</p_Type>
+      </p_RootComponentInterface>
+    </rootBlockDiagramInterface>
+    <simulinkFunctions type="ModelRefInfoRepo.SimulinkFunctions" uuid="dca88e51-d457-4066-b3b5-edf887316afa">
+      <compSimulinkFunctionCatalog></compSimulinkFunctionCatalog>
+    </simulinkFunctions>
+    <sltpContext type="sltp.mm.core.Context" uuid="b3e84dc8-e987-4c2b-9556-47e2eb466c79">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
       <unusedTaskIds>1</unusedTaskIds>
       <defaultEventBehavior type="sltp.mm.core.EventBehavior" uuid="07f6fa9a-9b2c-490c-80a9-cc2b9df4de99"/>
       <editorState type="sltp.mm.core.EditorState" uuid="531e72f2-c773-4162-9941-1fcb00c9b376">
         <isSynchronized>true</isSynchronized>
         <panelState type="sltp.mm.core.EditorPanelState" uuid="73726b1b-70b7-496f-ba73-7b331530a521"/>
       </editorState>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
       <rootTask type="sltp.mm.core.Task" uuid="5eebf336-f058-4606-be7b-2137d2d65f1d">
         <context type="sltp.mm.core.Context" uuid="2bb7f68f-332b-4477-b69f-38ae14859c72"/>
         <explicit>false</explicit>
@@ -536,12 +823,26 @@
         <subgraph type="sltp.mm.core.Graph" uuid="e18c9826-dbcd-4836-a7e7-ed37b88e3b0f">
           <tasks type="sltp.mm.core.Task" uuid="8ad2689b-e2bf-465a-89a5-3d9be09cc444">
             <context type="sltp.mm.core.Context" uuid="2bb7f68f-332b-4477-b69f-38ae14859c72"/>
+=======
+      <rootTask type="sltp.mm.core.Task" uuid="58b6f8f1-1c2b-4cdf-bcbc-8f42f2d5fdd4">
+        <context type="sltp.mm.core.Context" uuid="b3e84dc8-e987-4c2b-9556-47e2eb466c79"/>
+        <explicit>false</explicit>
+        <name>Default</name>
+        <priority>-2147483648</priority>
+        <subgraph type="sltp.mm.core.Graph" uuid="d01f65b1-8df5-4d9c-a051-569acd1db1bb">
+          <tasks type="sltp.mm.core.Task" uuid="6d62c227-6f9f-44c2-9470-7fe4f09f6173">
+            <context type="sltp.mm.core.Context" uuid="b3e84dc8-e987-4c2b-9556-47e2eb466c79"/>
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
             <explicit>false</explicit>
             <id>2</id>
             <isTimed>true</isTimed>
             <name>D1</name>
             <priority>40</priority>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
             <rates type="sltp.mm.core.Rate" uuid="63f5ede9-3e1b-4c58-ab3c-e74f08ce715d">
+=======
+            <rates type="sltp.mm.core.Rate" uuid="0f9d3683-7eec-4c16-aedd-d8bde107d109">
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
               <annotation>D1</annotation>
               <color>-436207361</color>
               <hasBlocks>true</hasBlocks>
@@ -556,6 +857,7 @@
         </subgraph>
       </rootTask>
     </sltpContext>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <stateWriterToOwnerMap type="ModelRefInfoRepo.StateWriterInfo" uuid="fa656ab8-9ec3-4988-8bb5-cabad4c7d6e1"/>
     <stoClientDataRegistry type="sto.ClientDataRegistry" uuid="1655baf1-12ad-48eb-b5ec-31c2b1e409ee">
       <dataSets type="sto.ClientClockNamedDataSet" uuid="7ebadd14-d45e-4830-8b9d-cb3d0491ac15">
@@ -569,6 +871,21 @@
         <tSet type="ModelRefInfoRepo.SltpTaskData" uuid="19d5727d-bb69-46df-8857-64aea2da2405">
           <dataName>D1</dataName>
           <linkedSet type="sto.ClientTaskHierarchyElementNamedDataSet" uuid="23fa8e4d-5756-4bd7-9aea-17da36f1bf1e"/>
+=======
+    <stateWriterToOwnerMap type="ModelRefInfoRepo.StateWriterInfo" uuid="264d0d22-f376-4979-b8d0-3b3867ac0a08"/>
+    <stoClientDataRegistry type="sto.ClientDataRegistry" uuid="637f5fff-bc7f-44b8-820f-cdfa7cc4dc8a">
+      <dataSets type="sto.ClientClockNamedDataSet" uuid="487303f6-215f-4f4c-bbd4-f40158b901f7">
+        <tag>sltpEvents</tag>
+      </dataSets>
+      <dataSets type="sto.ClientTaskHierarchyElementNamedDataSet" uuid="c2aa30cb-a98a-4c40-875f-1c6aa024dcad">
+        <tag>sltpTaskGroups</tag>
+      </dataSets>
+      <dataSets type="sto.ClientTaskHierarchyElementNamedDataSet" uuid="ebc1fda2-2e4e-4e86-b7f8-192284fbe74f">
+        <dSet type="ModelRefInfoRepo.SltpTaskData" uuid="f3d96db8-578b-4d7e-bc07-72cf3414b16e"/>
+        <tSet type="ModelRefInfoRepo.SltpTaskData" uuid="f3d96db8-578b-4d7e-bc07-72cf3414b16e">
+          <dataName>D1</dataName>
+          <linkedSet type="sto.ClientTaskHierarchyElementNamedDataSet" uuid="ebc1fda2-2e4e-4e86-b7f8-192284fbe74f"/>
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
           <id type="sto.TaskHierarchyElementId">
             <clockId>HANcoder_E407_TTA_CombineModel_V2::defaultTimer</clockId>
             <id>_task0</id>
@@ -577,6 +894,10 @@
         <tag>sltpTasks</tag>
       </dataSets>
     </stoClientDataRegistry>
+<<<<<<< HEAD:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel_V2/tmwinternal/CompileInfo.xml
     <varTsUIDMap type="ModelRefInfoRepo.VarTsUIDMap" uuid="a5792ffe-aead-4589-85f0-918609b9e037"/>
+=======
+    <varTsUIDMap type="ModelRefInfoRepo.VarTsUIDMap" uuid="af0517d2-68cc-4de1-83f5-c823fa5bc6b4"/>
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac:Software/HANcoder-STM32-Target-v1.0/Target/slprj/ert/HANcoder_E407_TTA_CombineModel/tmwinternal/CompileInfo.xml
   </ModelRefInfoRepo.ModelRefInfoRoot>
 </MF0>
