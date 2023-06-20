@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.38
+ * Model version                  : 17.39
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jun 20 14:17:31 2023
+ * C/C++ source code generated on : Tue Jun 20 14:31:59 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -26,38 +26,38 @@ const ConstBlockIO rtConstB = {
   0.5,                                 /* '<S74>/Abs' */
   1.0,                                 /* '<S77>/Sign1' */
   0U,                                  /* '<S79>/Cast' */
-  0U,                                  /* '<S346>/Cast' */
-  0U,                                  /* '<S346>/Cast2' */
-  0U,                                  /* '<S346>/Cast3' */
-  0U,                                  /* '<S346>/Cast4' */
-  0U,                                  /* '<S346>/Cast5' */
-  0U,                                  /* '<S346>/Cast6' */
-  0U,                                  /* '<S346>/Cast7' */
-  0U,                                  /* '<S299>/Cast' */
-  0U,                                  /* '<S299>/Cast2' */
-  0U,                                  /* '<S299>/Cast3' */
-  0U,                                  /* '<S299>/Cast4' */
-  0U,                                  /* '<S299>/Cast5' */
-  0U,                                  /* '<S299>/Cast6' */
-  0U,                                  /* '<S299>/Cast7' */
-  0U,                                  /* '<S227>/Cast' */
-  0U,                                  /* '<S227>/Cast2' */
-  0U,                                  /* '<S227>/Cast3' */
-  0U,                                  /* '<S227>/Cast4' */
-  0U,                                  /* '<S227>/Cast5' */
-  0U,                                  /* '<S227>/Cast6' */
-  0U,                                  /* '<S180>/Cast' */
-  0U,                                  /* '<S180>/Cast2' */
-  0U,                                  /* '<S180>/Cast3' */
-  0U,                                  /* '<S180>/Cast4' */
-  0U,                                  /* '<S180>/Cast5' */
-  0U,                                  /* '<S180>/Cast6' */
-  0U,                                  /* '<S158>/Cast' */
-  0U,                                  /* '<S158>/Cast2' */
-  0U,                                  /* '<S158>/Cast3' */
-  0U,                                  /* '<S158>/Cast4' */
-  0U,                                  /* '<S158>/Cast5' */
-  0U,                                  /* '<S158>/Cast6' */
+  0U,                                  /* '<S347>/Cast' */
+  0U,                                  /* '<S347>/Cast2' */
+  0U,                                  /* '<S347>/Cast3' */
+  0U,                                  /* '<S347>/Cast4' */
+  0U,                                  /* '<S347>/Cast5' */
+  0U,                                  /* '<S347>/Cast6' */
+  0U,                                  /* '<S347>/Cast7' */
+  0U,                                  /* '<S300>/Cast' */
+  0U,                                  /* '<S300>/Cast2' */
+  0U,                                  /* '<S300>/Cast3' */
+  0U,                                  /* '<S300>/Cast4' */
+  0U,                                  /* '<S300>/Cast5' */
+  0U,                                  /* '<S300>/Cast6' */
+  0U,                                  /* '<S300>/Cast7' */
+  0U,                                  /* '<S228>/Cast' */
+  0U,                                  /* '<S228>/Cast2' */
+  0U,                                  /* '<S228>/Cast3' */
+  0U,                                  /* '<S228>/Cast4' */
+  0U,                                  /* '<S228>/Cast5' */
+  0U,                                  /* '<S228>/Cast6' */
+  0U,                                  /* '<S181>/Cast' */
+  0U,                                  /* '<S181>/Cast2' */
+  0U,                                  /* '<S181>/Cast3' */
+  0U,                                  /* '<S181>/Cast4' */
+  0U,                                  /* '<S181>/Cast5' */
+  0U,                                  /* '<S181>/Cast6' */
+  0U,                                  /* '<S159>/Cast' */
+  0U,                                  /* '<S159>/Cast2' */
+  0U,                                  /* '<S159>/Cast3' */
+  0U,                                  /* '<S159>/Cast4' */
+  0U,                                  /* '<S159>/Cast5' */
+  0U,                                  /* '<S159>/Cast6' */
   0,                                   /* '<S79>/Cast1' */
   0                                    /* '<S79>/Cast2' */
 };
@@ -66,11 +66,11 @@ const ConstBlockIO rtConstB = {
 const ConstParam rtConstP = {
   /* Pooled Parameter (Expression: [0 1;1 0;0 1;0 1;1 0;1 0;0 0;0 0])
    * Referenced by:
-   *   '<S91>/Logic'
    *   '<S92>/Logic'
-   *   '<S121>/Logic'
-   *   '<S384>/Logic'
+   *   '<S93>/Logic'
+   *   '<S122>/Logic'
    *   '<S385>/Logic'
+   *   '<S386>/Logic'
    */
   { false, true, false, false, true, true, false, false, true, false, true, true,
     false, false, false, false }
