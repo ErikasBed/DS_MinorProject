@@ -90,7 +90,7 @@ propVal.Value = 1; % Initial value is set to zer
 
 intVal = Simulink.Parameter; % Define as parameter
 intVal.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-intVal.Value = 0.15; % Initial value is set to zer
+intVal.Value = 0.015; % Initial value is set to zer
 
 nodeRole = Simulink.Parameter; % Define as parameter
 nodeRole.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
@@ -150,7 +150,7 @@ trailer2TestAngle.Value = 0; % Angle in degrees
 
 controlWidth = Simulink.Parameter; % Define as parameter
 controlWidth.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-controlWidth.Value = 10; % Angle in degrees
+controlWidth.Value = 20; % Angle in degrees
 
 maxMissedMessages = Simulink.Parameter; % Define as parameter
 maxMissedMessages.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
