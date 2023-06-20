@@ -15,16 +15,16 @@
   15              		.text
   16              	.Ltext0:
   17              		.cfi_sections	.debug_frame
-  18              		.section	.text.ModelBootCroMsgReceived,"ax",%progbits
-  19              		.align	1
-  20              		.p2align 2,,3
-  21              		.syntax unified
-  22              		.thumb
-  23              		.thumb_func
-  25              	ModelBootCroMsgReceived:
-  26              	.LVL0:
-  27              	.LFB113:
-  28              		.file 1 "../blockset/rtw/STM32/lib/model.c"
+  18              		.file 1 "../blockset/rtw/STM32/lib/model.c"
+  19              		.section	.text.ModelBootCroMsgReceived,"ax",%progbits
+  20              		.align	1
+  21              		.p2align 2,,3
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	ModelBootCroMsgReceived:
+  27              	.LVL0:
+  28              	.LFB113:
    1:../blockset/rtw/STM32/lib/model.c **** /************************************************************************************//**
    2:../blockset/rtw/STM32/lib/model.c **** * \file         model.c
    3:../blockset/rtw/STM32/lib/model.c **** * \brief        Interface to Simulink generated model source file
@@ -294,59 +294,60 @@
  122              		.cfi_endproc
  123              	.LFE112:
  125              		.global	kXcpEventCycle
- 126              		.global	kXcpStationId
- 127              		.global	kXcpStationIdLengthVariable
- 128              		.global	nrFilteredADCchannels
- 129              		.section	.data.kXcpStationIdLengthVariable,"aw"
- 130              		.align	1
- 133              	kXcpStationIdLengthVariable:
- 134 0000 4B00     		.short	75
- 135              		.section	.data.nrFilteredADCchannels,"aw"
- 138              	nrFilteredADCchannels:
- 139 0000 00       		.space	1
- 140              		.section	.rodata.kXcpEventCycle,"a"
- 141              		.align	2
- 144              	kXcpEventCycle:
- 145 0000 0A0A0A   		.ascii	"\012\012\012"
- 146              		.section	.rodata.kXcpStationId,"a"
- 147              		.align	2
- 150              	kXcpStationId:
- 151 0000 48414E63 		.ascii	"HANcoder_E407_TTA_CombineModel_Membership_2022a_sof"
- 151      6F646572 
- 151      5F453430 
- 151      375F5454 
- 151      415F436F 
- 152 0033 74776172 		.ascii	"twareID_v1_060623_155241"
- 152      6549445F 
- 152      76315F30 
- 152      36303632 
- 152      335F3135 
+ 126              		.section	.rodata.kXcpEventCycle,"a"
+ 127              		.align	2
+ 130              	kXcpEventCycle:
+ 131 0000 0A0A0A   		.ascii	"\012\012\012"
+ 132              		.global	kXcpStationId
+ 133              		.section	.rodata.kXcpStationId,"a"
+ 134              		.align	2
+ 137              	kXcpStationId:
+ 138 0000 48414E63 		.ascii	"HANcoder_E407_TTA_CombineModel_Membership_2022a_sof"
+ 138      6F646572 
+ 138      5F453430 
+ 138      375F5454 
+ 138      415F436F 
+ 139 0033 74776172 		.ascii	"twareID_v1_090623_153538"
+ 139      6549445F 
+ 139      76315F30 
+ 139      39303632 
+ 139      335F3135 
+ 140              		.global	kXcpStationIdLengthVariable
+ 141              		.section	.data.kXcpStationIdLengthVariable,"aw"
+ 142              		.align	1
+ 145              	kXcpStationIdLengthVariable:
+ 146 0000 4B00     		.short	75
+ 147              		.global	nrFilteredADCchannels
+ 148              		.section	.data.nrFilteredADCchannels,"aw"
+ 151              	nrFilteredADCchannels:
+ 152 0000 00       		.space	1
  153              		.text
  154              	.Letext0:
- 155              		.file 2 "../blockset/rtw/STM32/inc/xcp_cfg.h"
- 156              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 157              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 158              		.file 5 "../blockset/rtw/STM32/inc/xcp_par.h"
- 159              		.file 6 "../blockset/rtw/STM32/inc/STM32_E407/anin.h"
- 160              		.file 7 "../blockset/rtw/STM32/inc/STM32_E407/canio.h"
- 161              		.file 8 "../blockset/rtw/STM32/inc/os.h"
+ 155              		.file 2 "./rtwtypes.h"
+ 156              		.file 3 "../blockset/rtw/STM32/inc/xcp_cfg.h"
+ 157              		.file 4 "c:\\program files (x86)\\arm gnu toolchain arm-none-eabi\\12.2 rel1\\arm-none-eabi\\inclu
+ 158              		.file 5 "c:\\program files (x86)\\arm gnu toolchain arm-none-eabi\\12.2 rel1\\arm-none-eabi\\inclu
+ 159              		.file 6 "../blockset/rtw/STM32/inc/xcp_par.h"
+ 160              		.file 7 "../blockset/rtw/STM32/inc/STM32_E407/anin.h"
+ 161              		.file 8 "../blockset/rtw/STM32/inc/STM32_E407/canio.h"
+ 162              		.file 9 "../blockset/rtw/STM32/inc/os.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 model.c
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:19     .text.ModelBootCroMsgReceived:00000000 $t
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:25     .text.ModelBootCroMsgReceived:00000000 ModelBootCroMsgReceived
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:62     .text.ModelInit:00000000 $t
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:69     .text.ModelInit:00000000 ModelInit
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:100    .text.ModelInit:00000018 $d
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:105    .text.ModelStep:00000000 $t
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:112    .text.ModelStep:00000000 ModelStep
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:144    .rodata.kXcpEventCycle:00000000 kXcpEventCycle
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:150    .rodata.kXcpStationId:00000000 kXcpStationId
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:133    .data.kXcpStationIdLengthVariable:00000000 kXcpStationIdLengthVariable
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:138    .data.nrFilteredADCchannels:00000000 nrFilteredADCchannels
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:130    .data.kXcpStationIdLengthVariable:00000000 $d
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:139    .data.nrFilteredADCchannels:00000000 $d
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:141    .rodata.kXcpEventCycle:00000000 $d
-C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccMZ9rEV.s:147    .rodata.kXcpStationId:00000000 $d
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:20     .text.ModelBootCroMsgReceived:00000000 $t
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:26     .text.ModelBootCroMsgReceived:00000000 ModelBootCroMsgReceived
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:62     .text.ModelInit:00000000 $t
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:69     .text.ModelInit:00000000 ModelInit
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:100    .text.ModelInit:00000018 $d
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:105    .text.ModelStep:00000000 $t
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:112    .text.ModelStep:00000000 ModelStep
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:130    .rodata.kXcpEventCycle:00000000 kXcpEventCycle
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:127    .rodata.kXcpEventCycle:00000000 $d
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:137    .rodata.kXcpStationId:00000000 kXcpStationId
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:134    .rodata.kXcpStationId:00000000 $d
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:145    .data.kXcpStationIdLengthVariable:00000000 kXcpStationIdLengthVariable
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:142    .data.kXcpStationIdLengthVariable:00000000 $d
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:151    .data.nrFilteredADCchannels:00000000 nrFilteredADCchannels
+C:\Users\luukr\AppData\Local\Temp\ccQwobcV.s:152    .data.nrFilteredADCchannels:00000000 $d
 
 UNDEFINED SYMBOLS
 OsSystemReset
