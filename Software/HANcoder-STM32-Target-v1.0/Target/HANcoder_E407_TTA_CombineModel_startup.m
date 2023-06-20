@@ -151,3 +151,7 @@ trailer2TestAngle.Value = 0; % Angle in degrees
 controlWidth = Simulink.Parameter; % Define as parameter
 controlWidth.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 controlWidth.Value = 10; % Angle in degrees
+
+maxMissedMessages = Simulink.Parameter; % Define as parameter
+maxMissedMessages.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+maxMissedMessages.Value = 10; %Misses master messages before error

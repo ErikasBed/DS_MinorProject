@@ -28,6 +28,8 @@
     
         TRLS1_ID5
     
+        maxMissedMessages
+    
         slotTime
     
     reqAngle
@@ -37,7 +39,6 @@ position
 control
 SI_FreeHeap
 SI_FreeStack
-derivativeMean
 delta12K
 motorPos
 pot31
@@ -49,7 +50,6 @@ pot22
 testCounter
 potRaw
 lastPot
-derivative
 analogPot1
 pot1
 analogPot2
@@ -58,9 +58,11 @@ t2Angle
 t1Angle
 Gamma2
 mospeed
+errors
 SI_CPUload
 buttonpress2
 buttonpress1
+missedMasterMessages
 amounttrailers
 positionID5
 positionID4
