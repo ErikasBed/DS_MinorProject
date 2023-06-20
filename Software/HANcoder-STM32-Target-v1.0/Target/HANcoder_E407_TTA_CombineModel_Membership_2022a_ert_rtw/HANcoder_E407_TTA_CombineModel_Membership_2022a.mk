@@ -69,10 +69,10 @@ COMPILER_TOOL_CHAIN = default
 MODEL                = HANcoder_E407_TTA_CombineModel_Membership_2022a
 MODULES              = HANcoder_E407_TTA_CombineModel_Membership_2022a_data.c rt_i32zcfcn.c
 MAKEFILE             = HANcoder_E407_TTA_CombineModel_Membership_2022a.mk
-MATLAB_ROOT          = C:\Program Files\MATLAB\R2023a
-ALT_MATLAB_ROOT      = C:\PROGRA~1\MATLAB\R2023a
-MATLAB_BIN           = C:\Program Files\MATLAB\R2023a\bin
-ALT_MATLAB_BIN       = C:\PROGRA~1\MATLAB\R2023a\bin
+MATLAB_ROOT          = C:\Program Files\MATLAB\R2022b
+ALT_MATLAB_ROOT      = C:\PROGRA~1\MATLAB\R2022b
+MATLAB_BIN           = C:\Program Files\MATLAB\R2022b\bin
+ALT_MATLAB_BIN       = C:\PROGRA~1\MATLAB\R2022b\bin
 S_FUNCTIONS          = 
 S_FUNCTIONS_LIB      = 
 NUMST                = 1
@@ -199,8 +199,8 @@ HANcoder_INCLUDES = \
 
 # Additional includes
 ADD_INCLUDES = \
-	-I"C:\Users\luukr\Documents\GitHub\DS_MinorProject\Software\HANcoder-STM32-Target-v1.0\Target" \
-	-I"C:\Users\luukr\Documents\GitHub\DS_MinorProject\Software\HANcoder-STM32-Target-v1.0\Target\HANcoder_E407_TTA_CombineModel_Membership_2022a_ert_rtw" \
+	-I"C:\Temp\LOCAL\Studie\DS\ProjectRepo\DS_MinorProject\Software\HANcoder-STM32-Target-v1.0\Target" \
+	-I"C:\Temp\LOCAL\Studie\DS\ProjectRepo\DS_MinorProject\Software\HANcoder-STM32-Target-v1.0\Target\HANcoder_E407_TTA_CombineModel_Membership_2022a_ert_rtw" \
 	-I"$(MATLAB_ROOT)\extern\include" \
 	-I"$(MATLAB_ROOT)\simulink\include" \
 	-I"$(MATLAB_ROOT)\rtw\c\src" \

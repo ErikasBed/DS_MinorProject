@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
@@ -8,44 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.23
+ * Model version                  : 17.35
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Mon Jun  5 20:39:27 2023
- *
- * Target selection: ert.tlc
- * Embedded hardware selection: ARM Compatible->ARM Cortex
- * Code generation objectives: Unspecified
- * Validation result: Not run
- */
-
-#include "HANcoder_E407_TTA_CombineModel.h"
-
-/* Invariant block signals (default storage) */
-const ConstBlockIO rtConstB = {
-  1.0,                                 /* '<S112>/Sign' */
-  1.0,                                 /* '<S112>/Sign1' */
-  1.3,                                 /* '<S113>/Abs' */
-  1.0                                  /* '<S116>/Sign1' */
-};
-
-/*
- * File trailer for generated code.
- *
- * [EOF]
- */
-=======
-/*
- * Academic License - for use in teaching, academic research, and meeting
- * course requirements at degree granting institutions only.  Not for
- * government, commercial, or other organizational use.
- *
- * File: HANcoder_E407_TTA_CombineModel_data.c
- *
- * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
- *
- * Model version                  : 17.34
- * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Mon Jun 19 11:48:19 2023
+ * C/C++ source code generated on : Tue Jun 20 11:14:14 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -82,32 +46,20 @@ const ConstBlockIO rtConstB = {
   0U,                                  /* '<S219>/Cast4' */
   0U,                                  /* '<S219>/Cast5' */
   0U,                                  /* '<S219>/Cast6' */
+  0U,                                  /* '<S172>/Cast' */
+  0U,                                  /* '<S172>/Cast2' */
+  0U,                                  /* '<S172>/Cast3' */
+  0U,                                  /* '<S172>/Cast4' */
+  0U,                                  /* '<S172>/Cast5' */
+  0U,                                  /* '<S172>/Cast6' */
+  0U,                                  /* '<S150>/Cast' */
+  0U,                                  /* '<S150>/Cast2' */
+  0U,                                  /* '<S150>/Cast3' */
+  0U,                                  /* '<S150>/Cast4' */
+  0U,                                  /* '<S150>/Cast5' */
+  0U,                                  /* '<S150>/Cast6' */
   0,                                   /* '<S78>/Cast1' */
-  0,                                   /* '<S78>/Cast2' */
-
-  /* Start of '<S10>/TRCK1_ID3_TX' */
-  {
-    0U,                                /* '<S172>/Cast' */
-    0U,                                /* '<S172>/Cast2' */
-    0U,                                /* '<S172>/Cast3' */
-    0U,                                /* '<S172>/Cast4' */
-    0U,                                /* '<S172>/Cast5' */
-    0U                                 /* '<S172>/Cast6' */
-  }
-  ,
-
-  /* End of '<S10>/TRCK1_ID3_TX' */
-
-  /* Start of '<S10>/TRCK1_ID2_TX' */
-  {
-    0U,                                /* '<S150>/Cast' */
-    0U,                                /* '<S150>/Cast2' */
-    0U,                                /* '<S150>/Cast3' */
-    0U,                                /* '<S150>/Cast4' */
-    0U,                                /* '<S150>/Cast5' */
-    0U                                 /* '<S150>/Cast6' */
-  }
-  /* End of '<S10>/TRCK1_ID2_TX' */
+  0                                    /* '<S78>/Cast2' */
 };
 
 /* Constant parameters (default storage) */
@@ -128,4 +80,3 @@ const ConstParam rtConstP = {
  *
  * [EOF]
  */
->>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac

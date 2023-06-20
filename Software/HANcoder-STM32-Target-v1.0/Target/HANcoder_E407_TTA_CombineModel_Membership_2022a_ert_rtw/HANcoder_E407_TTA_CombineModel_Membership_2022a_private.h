@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel_Membership_2022a'.
  *
- * Model version                  : 18.9
- * Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
- * C/C++ source code generated on : Fri Jun  9 15:35:56 2023
+ * Model version                  : 16.0
+ * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
+ * C/C++ source code generated on : Tue Jun  6 15:53:51 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -72,8 +72,9 @@ preprocessor word size checks.
 #endif
 
 void CanDrvByteSwap_x(uint8_t *b, size_t n);
-extern void EnabledSubsystem(int8_T rtu_Enable, uint8_T rtu_In1,
-  rtB_EnabledSubsystem *localB);
+extern void EnabledSubsystem(int8_T rtu_Enable, uint8_T rtu_In1, uint8_T rtu_In2,
+  uint8_T rtu_In3, uint8_T rtu_In4, uint8_T rtu_In5, uint8_T rtu_In6, uint8_T
+  rtu_In7, uint8_T rtu_In8, rtB_EnabledSubsystem *localB);
 extern void MMBS1_RX_Start(uint32_T rtu_In1);
 extern void MMBS1_RX_Disable(rtDW_MMBS1_RX *localDW);
 extern void MMBS1_RX(boolean_T rtu_Enable, uint32_T rtu_In1, rtB_MMBS1_RX

@@ -1,17 +1,5 @@
     ClockOn
     
-        ErrorBoard1
-    
-        ErrorBoard2
-    
-        ErrorBoard3
-    
-        ErrorBoard4
-    
-        ErrorBoard5
-    
-        ResetPosition
-    
         controlWidth
     
         desiredAngle
@@ -57,13 +45,7 @@ pot1
 analogPot2
 pot2
 testCounter
-masterID
 SI_CPUload
-buttonpress2
-buttonpress1
-amounttrailers
-positionID5
-positionID4
 local_ticks_interrupt
 setSlotTime
 slotSelected
