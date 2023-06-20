@@ -1,3 +1,47 @@
+<<<<<<< HEAD
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 2
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.file	"HANcoder_E407_TTA_CombineModel_data.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	rtConstB
+  19              		.section	.rodata.rtConstB,"a"
+  20              		.align	3
+  23              	rtConstB:
+  24 0000 00000000 		.word	0
+  25 0004 0000F03F 		.word	1072693248
+  26 0008 00000000 		.word	0
+  27 000c 0000F03F 		.word	1072693248
+  28 0010 000000C0 		.word	-1073741824
+  29 0014 CCCCF43F 		.word	1073007820
+  30 0018 00000000 		.word	0
+  31 001c 0000F03F 		.word	1072693248
+  32              		.text
+  33              	.Letext0:
+  34              		.file 1 "rtwtypes.h"
+  35              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+  36              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+  37              		.file 4 "HANcoder_E407_TTA_CombineModel.h"
+  38              		.file 5 "HANcoder_E407_TTA_CombineModel_data.c"
+DEFINED SYMBOLS
+                            *ABS*:00000000 HANcoder_E407_TTA_CombineModel_data.c
+C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccz0tzRD.s:23     .rodata.rtConstB:00000000 rtConstB
+C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccz0tzRD.s:20     .rodata.rtConstB:00000000 $d
+
+NO UNDEFINED SYMBOLS
+=======
    1              		.cpu cortex-m4
    2              		.arch armv7e-m
    3              		.fpu fpv4-sp-d16
@@ -87,3 +131,4 @@ C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccpNvohK.s:21     .rodata.rtConstB:00000
 C:\Users\ADMIN~1.CVA\AppData\Local\Temp\ccpNvohK.s:70     .rodata.rtConstP:00000000 $d
 
 NO UNDEFINED SYMBOLS
+>>>>>>> 81417dd1e339209a4e3107c0a47e656175be45ac
