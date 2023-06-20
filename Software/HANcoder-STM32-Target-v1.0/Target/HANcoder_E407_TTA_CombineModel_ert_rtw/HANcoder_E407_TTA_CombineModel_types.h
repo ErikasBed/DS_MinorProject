@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.39
+ * Model version                  : 17.40
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jun 20 14:31:59 2023
+ * C/C++ source code generated on : Tue Jun 20 14:49:55 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -20,25 +20,25 @@
 #ifndef RTW_HEADER_HANcoder_E407_TTA_CombineModel_types_h_
 #define RTW_HEADER_HANcoder_E407_TTA_CombineModel_types_h_
 #include "rtwtypes.h"
-#ifndef struct_tag_mJe2swu4Us9xX2hzs0ahHB
-#define struct_tag_mJe2swu4Us9xX2hzs0ahHB
+#ifndef struct_tag_qeexLHoIOYdJlGhTa5h1v
+#define struct_tag_qeexLHoIOYdJlGhTa5h1v
 
-struct tag_mJe2swu4Us9xX2hzs0ahHB
+struct tag_qeexLHoIOYdJlGhTa5h1v
 {
   int32_T isInitialized;
   boolean_T isSetupComplete;
   real32_T pCumSum;
-  real32_T pCumSumRev[9];
+  real32_T pCumSumRev[29];
   real32_T pCumRevIndex;
   real32_T pModValueRev;
 };
 
-#endif                                 /* struct_tag_mJe2swu4Us9xX2hzs0ahHB */
+#endif                                 /* struct_tag_qeexLHoIOYdJlGhTa5h1v */
 
 #ifndef typedef_g_dsp_internal_SlidingWindowAve
 #define typedef_g_dsp_internal_SlidingWindowAve
 
-typedef struct tag_mJe2swu4Us9xX2hzs0ahHB g_dsp_internal_SlidingWindowAve;
+typedef struct tag_qeexLHoIOYdJlGhTa5h1v g_dsp_internal_SlidingWindowAve;
 
 #endif                             /* typedef_g_dsp_internal_SlidingWindowAve */
 
@@ -59,10 +59,10 @@ typedef struct tag_BlgwLpgj2bjudmbmVKWwDE cell_wrap;
 
 #endif                                 /* typedef_cell_wrap */
 
-#ifndef struct_tag_1K8LTFDXi6otMlpJhpxnC
-#define struct_tag_1K8LTFDXi6otMlpJhpxnC
+#ifndef struct_tag_Wl4NYB6Ph9d410gmwljiYH
+#define struct_tag_Wl4NYB6Ph9d410gmwljiYH
 
-struct tag_1K8LTFDXi6otMlpJhpxnC
+struct tag_Wl4NYB6Ph9d410gmwljiYH
 {
   boolean_T matlabCodegenIsDeleted;
   int32_T isInitialized;
@@ -75,12 +75,12 @@ struct tag_1K8LTFDXi6otMlpJhpxnC
   g_dsp_internal_SlidingWindowAve _pobj0;
 };
 
-#endif                                 /* struct_tag_1K8LTFDXi6otMlpJhpxnC */
+#endif                                 /* struct_tag_Wl4NYB6Ph9d410gmwljiYH */
 
 #ifndef typedef_dsp_simulink_MovingAverage
 #define typedef_dsp_simulink_MovingAverage
 
-typedef struct tag_1K8LTFDXi6otMlpJhpxnC dsp_simulink_MovingAverage;
+typedef struct tag_Wl4NYB6Ph9d410gmwljiYH dsp_simulink_MovingAverage;
 
 #endif                                 /* typedef_dsp_simulink_MovingAverage */
 #endif                  /* RTW_HEADER_HANcoder_E407_TTA_CombineModel_types_h_ */

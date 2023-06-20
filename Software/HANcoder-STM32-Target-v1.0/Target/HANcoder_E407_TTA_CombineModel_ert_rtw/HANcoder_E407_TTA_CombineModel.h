@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.39
+ * Model version                  : 17.40
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jun 20 14:31:59 2023
+ * C/C++ source code generated on : Tue Jun 20 14:49:55 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -329,7 +329,6 @@ typedef struct {
   real_T init_clock;                   /* '<S1>/Data Store Memory18' */
   int32_T Delay5_DSTATE[7];            /* '<S80>/Delay5' */
   int32_T encoderPosition;             /* '<S1>/Data Store Memory16' */
-  uint32_T requestedAngle;             /* '<S1>/Data Store Memory7' */
   uint16_T Delay7_DSTATE[2];           /* '<S80>/Delay7' */
   uint16_T potentiometer1;             /* '<S1>/Data Store Memory1' */
   uint16_T pwmMotor;                   /* '<S1>/Data Store Memory12' */
@@ -339,6 +338,7 @@ typedef struct {
   uint16_T lastPot1;                   /* '<S1>/Data Store Memory32' */
   uint16_T potentiometer1Raw;          /* '<S1>/Data Store Memory34' */
   uint16_T potentiometer2;             /* '<S1>/Data Store Memory4' */
+  uint16_T requestedAngle;             /* '<S1>/Data Store Memory7' */
   uint16_T trailerOneAngle;            /* '<S1>/Data Store Memory8' */
   uint16_T trailerTwoAngle;            /* '<S1>/Data Store Memory9' */
   uint16_T testCount;                  /* '<S108>/Data Store Memory' */
@@ -498,7 +498,6 @@ extern real_T position;                /* '<S19>/Gain1' */
 extern real_T control;                 /* '<S19>/Sum' */
 extern uint32_T SI_FreeHeap;           /* '<S377>/Level-2 M-file S-Function' */
 extern uint32_T SI_FreeStack;          /* '<S378>/Level-2 M-file S-Function' */
-extern uint32_T reqAngle;              /* '<S5>/Data Store Read' */
 extern real32_T delta12K;              /* '<S75>/tan 1' */
 extern int32_T motorPos;               /* '<S82>/Level-2 M-file S-Function' */
 extern uint16_T pot31;                 /* '<S250>/Add' */
@@ -514,6 +513,7 @@ extern uint16_T analogPot1;            /* '<S83>/Level-2 M-file S-Function' */
 extern uint16_T pot1;                  /* '<S78>/Cast1' */
 extern uint16_T analogPot2;            /* '<S84>/Level-2 M-file S-Function' */
 extern uint16_T pot2;                  /* '<S78>/Cast2' */
+extern uint16_T reqAngle;              /* '<S5>/Data Store Read' */
 extern uint16_T t2Angle;               /* '<S5>/Data Store Read2' */
 extern uint16_T t1Angle;               /* '<S5>/Data Store Read1' */
 extern uint16_T Gamma2;                /* '<S20>/Sum2' */

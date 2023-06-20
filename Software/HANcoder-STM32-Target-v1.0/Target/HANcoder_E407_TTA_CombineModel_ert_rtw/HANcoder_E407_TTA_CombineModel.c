@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.39
+ * Model version                  : 17.40
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jun 20 14:31:59 2023
+ * C/C++ source code generated on : Tue Jun 20 14:49:55 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -38,7 +38,6 @@ real_T position;                       /* '<S19>/Gain1' */
 real_T control;                        /* '<S19>/Sum' */
 uint32_T SI_FreeHeap;                  /* '<S377>/Level-2 M-file S-Function' */
 uint32_T SI_FreeStack;                 /* '<S378>/Level-2 M-file S-Function' */
-uint32_T reqAngle;                     /* '<S5>/Data Store Read' */
 real32_T delta12K;                     /* '<S75>/tan 1' */
 int32_T motorPos;                      /* '<S82>/Level-2 M-file S-Function' */
 uint16_T pot31;                        /* '<S250>/Add' */
@@ -54,6 +53,7 @@ uint16_T analogPot1;                   /* '<S83>/Level-2 M-file S-Function' */
 uint16_T pot1;                         /* '<S78>/Cast1' */
 uint16_T analogPot2;                   /* '<S84>/Level-2 M-file S-Function' */
 uint16_T pot2;                         /* '<S78>/Cast2' */
+uint16_T reqAngle;                     /* '<S5>/Data Store Read' */
 uint16_T t2Angle;                      /* '<S5>/Data Store Read2' */
 uint16_T t1Angle;                      /* '<S5>/Data Store Read1' */
 uint16_T Gamma2;                       /* '<S20>/Sum2' */
@@ -321,7 +321,7 @@ void MovingAverage_Init(rtDW_MovingAverage *localDW)
   obj = localDW->obj.pStatistic;
   if (obj->isInitialized == 1) {
     obj->pCumSum = 0.0F;
-    for (i = 0; i < 9; i++) {
+    for (i = 0; i < 29; i++) {
       obj->pCumSumRev[i] = 0.0F;
     }
 
@@ -350,7 +350,7 @@ void MovingAverage(real32_T rtu_0, rtB_MovingAverage *localB, rtDW_MovingAverage
 {
   g_dsp_internal_SlidingWindowAve *obj;
   int32_T i;
-  real32_T csumrev[9];
+  real32_T csumrev[29];
   real32_T csum;
   real32_T cumRevIndex;
   real32_T modValueRev;
@@ -366,7 +366,7 @@ void MovingAverage(real32_T rtu_0, rtB_MovingAverage *localB, rtDW_MovingAverage
     obj->isSetupComplete = false;
     obj->isInitialized = 1;
     obj->pCumSum = 0.0F;
-    for (i = 0; i < 9; i++) {
+    for (i = 0; i < 29; i++) {
       obj->pCumSumRev[i] = 0.0F;
     }
 
@@ -374,7 +374,7 @@ void MovingAverage(real32_T rtu_0, rtB_MovingAverage *localB, rtDW_MovingAverage
     obj->pModValueRev = 0.0F;
     obj->isSetupComplete = true;
     obj->pCumSum = 0.0F;
-    for (i = 0; i < 9; i++) {
+    for (i = 0; i < 29; i++) {
       obj->pCumSumRev[i] = 0.0F;
     }
 
@@ -384,7 +384,7 @@ void MovingAverage(real32_T rtu_0, rtB_MovingAverage *localB, rtDW_MovingAverage
 
   cumRevIndex = obj->pCumRevIndex;
   csum = obj->pCumSum;
-  for (i = 0; i < 9; i++) {
+  for (i = 0; i < 29; i++) {
     csumrev[i] = obj->pCumSumRev[i];
   }
 
@@ -401,23 +401,23 @@ void MovingAverage(real32_T rtu_0, rtB_MovingAverage *localB, rtDW_MovingAverage
   }
 
   csumrev[(int32_T)cumRevIndex - 1] = rtu_0;
-  if (cumRevIndex != 9.0F) {
+  if (cumRevIndex != 29.0F) {
     cumRevIndex++;
   } else {
     cumRevIndex = 1.0F;
     csum = 0.0F;
-    for (i = 7; i >= 0; i--) {
+    for (i = 27; i >= 0; i--) {
       csumrev[i] += csumrev[i + 1];
     }
   }
 
   if (modValueRev == 0.0F) {
     /* MATLABSystem: '<S78>/Moving Average' */
-    localB->MovingAverage_n = z / 10.0F;
+    localB->MovingAverage_n = z / 30.0F;
   }
 
   obj->pCumSum = csum;
-  for (i = 0; i < 9; i++) {
+  for (i = 0; i < 29; i++) {
     obj->pCumSumRev[i] = csumrev[i];
   }
 
@@ -1004,11 +1004,10 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
     /* Product: '<S74>/Product' incorporates:
      *  Constant: '<S20>/TrailUnitWheelbase'
-     *  DataStoreRead: '<S5>/Data Store Read'
      *  DataTypeConversion: '<S5>/Cast'
      *  Trigonometry: '<S74>/tan '
      */
-    rtb_Uk1 = tan((real_T)reqAngle * 2.384185791015625E-7) * rtConstB.Abs / 4.0;
+    rtb_Uk1 = tan(reqAngle) * rtConstB.Abs / 4.0;
 
     /* DataStoreRead: '<S5>/Data Store Read2' */
     t2Angle = rtDWork.trailerTwoAngle;
@@ -1321,8 +1320,8 @@ void HANcoder_E407_TTA_CombineModel_step(void)
      *  DataStoreRead: '<S80>/Data Store Read12'
      *  DataStoreWrite: '<S80>/Data Store Write4'
      */
-    rtDWork.requestedAngle = (uint32_T)((uint16_T)62602U) *
-      rtDWork.potentiometer1;
+    rtDWork.requestedAngle = (uint16_T)(((uint32_T)((uint16_T)62602U) *
+      rtDWork.potentiometer1) >> 22);
 
     /* Delay: '<S80>/Delay7' incorporates:
      *  DataStoreWrite: '<S80>/Data Store Write1'

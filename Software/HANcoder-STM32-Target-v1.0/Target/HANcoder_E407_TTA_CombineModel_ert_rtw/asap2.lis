@@ -36,7 +36,6 @@ position
 control
 SI_FreeHeap
 SI_FreeStack
-reqAngle
 delta12K
 motorPos
 pot31
@@ -52,6 +51,7 @@ analogPot1
 pot1
 analogPot2
 pot2
+reqAngle
 t2Angle
 t1Angle
 Gamma2
