@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.33
+ * Model version                  : 17.34
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Mon Jun 19 10:01:47 2023
+ * C/C++ source code generated on : Mon Jun 19 11:48:19 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -26,37 +26,37 @@ const ConstBlockIO rtConstB = {
   0.5,                                 /* '<S73>/Abs' */
   1.0,                                 /* '<S76>/Sign1' */
   0U,                                  /* '<S78>/Cast' */
-  0U,                                  /* '<S342>/Cast' */
-  0U,                                  /* '<S342>/Cast2' */
-  0U,                                  /* '<S342>/Cast3' */
-  0U,                                  /* '<S342>/Cast4' */
-  0U,                                  /* '<S342>/Cast5' */
-  0U,                                  /* '<S342>/Cast6' */
-  0U,                                  /* '<S342>/Cast7' */
-  0U,                                  /* '<S295>/Cast' */
-  0U,                                  /* '<S295>/Cast2' */
-  0U,                                  /* '<S295>/Cast3' */
-  0U,                                  /* '<S295>/Cast4' */
-  0U,                                  /* '<S295>/Cast5' */
-  0U,                                  /* '<S295>/Cast6' */
-  0U,                                  /* '<S295>/Cast7' */
-  0U,                                  /* '<S223>/Cast' */
-  0U,                                  /* '<S223>/Cast2' */
-  0U,                                  /* '<S223>/Cast3' */
-  0U,                                  /* '<S223>/Cast4' */
-  0U,                                  /* '<S223>/Cast5' */
-  0U,                                  /* '<S223>/Cast6' */
+  0U,                                  /* '<S338>/Cast' */
+  0U,                                  /* '<S338>/Cast2' */
+  0U,                                  /* '<S338>/Cast3' */
+  0U,                                  /* '<S338>/Cast4' */
+  0U,                                  /* '<S338>/Cast5' */
+  0U,                                  /* '<S338>/Cast6' */
+  0U,                                  /* '<S338>/Cast7' */
+  0U,                                  /* '<S291>/Cast' */
+  0U,                                  /* '<S291>/Cast2' */
+  0U,                                  /* '<S291>/Cast3' */
+  0U,                                  /* '<S291>/Cast4' */
+  0U,                                  /* '<S291>/Cast5' */
+  0U,                                  /* '<S291>/Cast6' */
+  0U,                                  /* '<S291>/Cast7' */
+  0U,                                  /* '<S219>/Cast' */
+  0U,                                  /* '<S219>/Cast2' */
+  0U,                                  /* '<S219>/Cast3' */
+  0U,                                  /* '<S219>/Cast4' */
+  0U,                                  /* '<S219>/Cast5' */
+  0U,                                  /* '<S219>/Cast6' */
   0,                                   /* '<S78>/Cast1' */
   0,                                   /* '<S78>/Cast2' */
 
   /* Start of '<S10>/TRCK1_ID3_TX' */
   {
-    0U,                                /* '<S176>/Cast' */
-    0U,                                /* '<S176>/Cast2' */
-    0U,                                /* '<S176>/Cast3' */
-    0U,                                /* '<S176>/Cast4' */
-    0U,                                /* '<S176>/Cast5' */
-    0U                                 /* '<S176>/Cast6' */
+    0U,                                /* '<S172>/Cast' */
+    0U,                                /* '<S172>/Cast2' */
+    0U,                                /* '<S172>/Cast3' */
+    0U,                                /* '<S172>/Cast4' */
+    0U,                                /* '<S172>/Cast5' */
+    0U                                 /* '<S172>/Cast6' */
   }
   ,
 
@@ -64,12 +64,12 @@ const ConstBlockIO rtConstB = {
 
   /* Start of '<S10>/TRCK1_ID2_TX' */
   {
-    0U,                                /* '<S154>/Cast' */
-    0U,                                /* '<S154>/Cast2' */
-    0U,                                /* '<S154>/Cast3' */
-    0U,                                /* '<S154>/Cast4' */
-    0U,                                /* '<S154>/Cast5' */
-    0U                                 /* '<S154>/Cast6' */
+    0U,                                /* '<S150>/Cast' */
+    0U,                                /* '<S150>/Cast2' */
+    0U,                                /* '<S150>/Cast3' */
+    0U,                                /* '<S150>/Cast4' */
+    0U,                                /* '<S150>/Cast5' */
+    0U                                 /* '<S150>/Cast6' */
   }
   /* End of '<S10>/TRCK1_ID2_TX' */
 };
@@ -80,8 +80,8 @@ const ConstParam rtConstP = {
    * Referenced by:
    *   '<S91>/Logic'
    *   '<S92>/Logic'
-   *   '<S380>/Logic'
-   *   '<S381>/Logic'
+   *   '<S376>/Logic'
+   *   '<S377>/Logic'
    */
   { false, true, false, false, true, true, false, false, true, false, true, true,
     false, false, false, false }

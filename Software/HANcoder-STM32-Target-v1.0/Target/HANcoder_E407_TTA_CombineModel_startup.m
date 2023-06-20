@@ -102,7 +102,7 @@ ClockOn.Value = 0; % Initial value is set to zero
 
 slotTime = Simulink.Parameter; % Define as parameter
 slotTime.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-slotTime.Value = 10; % Initial value is 50 [ms]
+slotTime.Value = 10; % Initial value is 10 [ms]
 
 matrixRows = Simulink.Parameter; % Define as parameter
 matrixRows.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
