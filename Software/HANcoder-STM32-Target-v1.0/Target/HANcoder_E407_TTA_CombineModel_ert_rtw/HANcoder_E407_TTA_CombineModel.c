@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.40
+ * Model version                  : 17.41
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jun 20 14:49:55 2023
+ * C/C++ source code generated on : Tue Jun 20 16:14:01 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -53,6 +53,7 @@ uint16_T analogPot1;                   /* '<S83>/Level-2 M-file S-Function' */
 uint16_T pot1;                         /* '<S78>/Cast1' */
 uint16_T analogPot2;                   /* '<S84>/Level-2 M-file S-Function' */
 uint16_T pot2;                         /* '<S78>/Cast2' */
+uint16_T outputPwm;                    /* '<S79>/Switch3' */
 uint16_T reqAngle;                     /* '<S5>/Data Store Read' */
 uint16_T t2Angle;                      /* '<S5>/Data Store Read2' */
 uint16_T t1Angle;                      /* '<S5>/Data Store Read1' */
@@ -78,6 +79,8 @@ boolean_T mf3;                         /* '<S80>/Delay2' */
 boolean_T mf4;                         /* '<S80>/Delay4' */
 boolean_T mf5;                         /* '<S80>/Delay3' */
 boolean_T motorFaultDetected;          /* '<S80>/AND2' */
+boolean_T outputD4;                    /* '<S79>/Switch4' */
+boolean_T outputD5;                    /* '<S79>/Switch5' */
 boolean_T ioInit;                      /* '<S78>/Constant' */
 boolean_T cw;                          /* '<S19>/Cast1' */
 boolean_T ccw;                         /* '<S19>/NOT' */
@@ -93,8 +96,14 @@ real_T ResetPosition = 0.0;            /* Variable: ResetPosition
 real_T controlWidth = 10.0;            /* Variable: controlWidth
                                         * Referenced by: '<S19>/Constant'
                                         */
+real_T desiredAngle = 0.0;             /* Variable: desiredAngle
+                                        * Referenced by: '<S80>/Constant3'
+                                        */
 real_T intVal = 0.15;                  /* Variable: intVal
                                         * Referenced by: '<S52>/Integral Gain'
+                                        */
+real_T manual = 1.0;                   /* Variable: manual
+                                        * Referenced by: '<S80>/Constant4'
                                         */
 real_T matrixRows = 10.0;              /* Variable: matrixRows
                                         * Referenced by: '<S99>/Constant1'
@@ -1316,12 +1325,23 @@ void HANcoder_E407_TTA_CombineModel_step(void)
     /* DataStoreWrite: '<S80>/Data Store Write2' */
     rtDWork.potFault = rtb_Logic_f_idx_0;
 
-    /* Gain: '<S80>/Gain' incorporates:
+    /* Switch: '<S80>/Switch' incorporates:
+     *  Constant: '<S80>/Constant3'
+     *  Constant: '<S80>/Constant4'
      *  DataStoreRead: '<S80>/Data Store Read12'
-     *  DataStoreWrite: '<S80>/Data Store Write4'
+     *  Logic: '<S80>/NOT2'
      */
-    rtDWork.requestedAngle = (uint16_T)(((uint32_T)((uint16_T)62602U) *
-      rtDWork.potentiometer1) >> 22);
+    if (manual == 0.0) {
+      tmp = rtDWork.potentiometer1;
+    } else {
+      tmp = desiredAngle;
+    }
+
+    /* Gain: '<S80>/Gain' incorporates:
+     *  DataStoreWrite: '<S80>/Data Store Write4'
+     *  Switch: '<S80>/Switch'
+     */
+    rtDWork.requestedAngle = (uint16_T)(0.014925373134328358 * tmp);
 
     /* Delay: '<S80>/Delay7' incorporates:
      *  DataStoreWrite: '<S80>/Data Store Write1'
@@ -1519,38 +1539,38 @@ void HANcoder_E407_TTA_CombineModel_step(void)
         /* Switch: '<S79>/Switch3' incorporates:
          *  DataStoreRead: '<S7>/Data Store Read'
          */
-        rtB.Switch3 = rtDWork.pwmMotor;
+        outputPwm = rtDWork.pwmMotor;
 
         /* Switch: '<S79>/Switch4' incorporates:
          *  DataStoreRead: '<S7>/Data Store Read1'
          */
-        rtB.Switch4 = rtDWork.cwMotor;
+        outputD4 = rtDWork.cwMotor;
 
         /* Switch: '<S79>/Switch5' incorporates:
          *  DataStoreRead: '<S7>/Data Store Read3'
          */
-        rtB.Switch5 = rtDWork.ccwMotor;
+        outputD5 = rtDWork.ccwMotor;
       } else {
         /* Switch: '<S79>/Switch3' */
-        rtB.Switch3 = rtConstB.Cast;
+        outputPwm = rtConstB.Cast;
 
         /* Switch: '<S79>/Switch4' */
-        rtB.Switch4 = rtConstB.Cast1;
+        outputD4 = rtConstB.Cast1;
 
         /* Switch: '<S79>/Switch5' */
-        rtB.Switch5 = rtConstB.Cast2_pq;
+        outputD5 = rtConstB.Cast2_pq;
       }
 
       /* End of Switch: '<S79>/Switch' */
     } else {
       /* Switch: '<S79>/Switch3' */
-      rtB.Switch3 = rtConstB.Cast;
+      outputPwm = rtConstB.Cast;
 
       /* Switch: '<S79>/Switch4' */
-      rtB.Switch4 = rtConstB.Cast1;
+      outputD4 = rtConstB.Cast1;
 
       /* Switch: '<S79>/Switch5' */
-      rtB.Switch5 = rtConstB.Cast2_pq;
+      outputD5 = rtConstB.Cast2_pq;
     }
 
     /* End of Switch: '<S79>/Switch3' */
@@ -1632,7 +1652,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
     /* Update for M-S-Function: '<S86>/Level-2 M-file S-Function' */
     /* update digital output */
-    if (rtB.Switch4 == 0) {
+    if (outputD4 == 0) {
       DigoutSet(DIGOUT_PORTE_PIN5, DIGOUT_LOW);
     } else {
       DigoutSet(DIGOUT_PORTE_PIN5, DIGOUT_HIGH);
@@ -1640,7 +1660,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
     /* Update for M-S-Function: '<S87>/Level-2 M-file S-Function' */
     /* update digital output */
-    if (rtB.Switch5 == 0) {
+    if (outputD5 == 0) {
       DigoutSet(DIGOUT_PORTE_PIN6, DIGOUT_LOW);
     } else {
       DigoutSet(DIGOUT_PORTE_PIN6, DIGOUT_HIGH);
@@ -1656,7 +1676,7 @@ void HANcoder_E407_TTA_CombineModel_step(void)
 
     /* Update for M-S-Function: '<S89>/Level-2 M-file S-Function' */
     /* set the new duty cycle */
-    PwmoutSet(PWMOUT_TIM14_PIN_PF9, rtB.Switch3);
+    PwmoutSet(PWMOUT_TIM14_PIN_PF9, outputPwm);
   }
 
   /* Outputs for Triggered SubSystem: '<S1>/Control execution' incorporates:
@@ -2201,6 +2221,11 @@ void HANcoder_E407_TTA_CombineModel_step(void)
        *  Constant: '<S110>/Constant2'
        */
       rtDWork.receiveSync = false;
+
+      /* DataStoreWrite: '<S110>/Data Store Write' incorporates:
+       *  Constant: '<S110>/Constant3'
+       */
+      rtDWork.truck2CommActive = true;
 
       /* DataStoreRead: '<S110>/Data Store Read2' */
       rtB.DataStoreRead2_n = rtDWork.Local_Ticks;

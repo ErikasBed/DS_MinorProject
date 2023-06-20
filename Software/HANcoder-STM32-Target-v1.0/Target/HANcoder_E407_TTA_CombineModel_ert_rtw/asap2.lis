@@ -4,7 +4,11 @@
     
         controlWidth
     
+        desiredAngle
+    
         intVal
+    
+        manual
     
         matrixRows
     
@@ -51,6 +55,7 @@ analogPot1
 pot1
 analogPot2
 pot2
+outputPwm
 reqAngle
 t2Angle
 t1Angle
@@ -76,6 +81,8 @@ mf3
 mf4
 mf5
 motorFaultDetected
+outputD4
+outputD5
 ioInit
 cw
 ccw

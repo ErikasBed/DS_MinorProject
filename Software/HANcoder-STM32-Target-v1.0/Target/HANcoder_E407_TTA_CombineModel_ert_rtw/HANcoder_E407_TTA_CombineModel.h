@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_CombineModel'.
  *
- * Model version                  : 17.40
+ * Model version                  : 17.41
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jun 20 14:49:55 2023
+ * C/C++ source code generated on : Tue Jun 20 16:14:01 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -156,7 +156,6 @@ typedef struct {
 
 /* Block signals (default storage) */
 typedef struct {
-  uint16_T Switch3;                    /* '<S79>/Switch3' */
   uint16_T Sum;                        /* '<S9>/Sum' */
   uint8_T DataStoreRead3;              /* '<S118>/Data Store Read3' */
   uint8_T DataStoreRead4;              /* '<S118>/Data Store Read4' */
@@ -212,8 +211,6 @@ typedef struct {
   boolean_T OR;                        /* '<S12>/OR' */
   boolean_T DataTypeConversion;        /* '<S82>/Data Type Conversion' */
   boolean_T NOT;                       /* '<S79>/NOT' */
-  boolean_T Switch4;                   /* '<S79>/Switch4' */
-  boolean_T Switch5;                   /* '<S79>/Switch5' */
   rtB_EnabledSubsystem EnabledSubsystem_i;/* '<S370>/Enabled Subsystem' */
   rtB_BitShift_c BitShift_gul;         /* '<S349>/Bit Shift' */
   rtB_BitShift_c BitShift_g3;          /* '<S348>/Bit Shift' */
@@ -513,6 +510,7 @@ extern uint16_T analogPot1;            /* '<S83>/Level-2 M-file S-Function' */
 extern uint16_T pot1;                  /* '<S78>/Cast1' */
 extern uint16_T analogPot2;            /* '<S84>/Level-2 M-file S-Function' */
 extern uint16_T pot2;                  /* '<S78>/Cast2' */
+extern uint16_T outputPwm;             /* '<S79>/Switch3' */
 extern uint16_T reqAngle;              /* '<S5>/Data Store Read' */
 extern uint16_T t2Angle;               /* '<S5>/Data Store Read2' */
 extern uint16_T t1Angle;               /* '<S5>/Data Store Read1' */
@@ -538,6 +536,8 @@ extern boolean_T mf3;                  /* '<S80>/Delay2' */
 extern boolean_T mf4;                  /* '<S80>/Delay4' */
 extern boolean_T mf5;                  /* '<S80>/Delay3' */
 extern boolean_T motorFaultDetected;   /* '<S80>/AND2' */
+extern boolean_T outputD4;             /* '<S79>/Switch4' */
+extern boolean_T outputD5;             /* '<S79>/Switch5' */
 extern boolean_T ioInit;               /* '<S78>/Constant' */
 extern boolean_T cw;                   /* '<S19>/Cast1' */
 extern boolean_T ccw;                  /* '<S19>/NOT' */
@@ -560,8 +560,14 @@ extern real_T ResetPosition;           /* Variable: ResetPosition
 extern real_T controlWidth;            /* Variable: controlWidth
                                         * Referenced by: '<S19>/Constant'
                                         */
+extern real_T desiredAngle;            /* Variable: desiredAngle
+                                        * Referenced by: '<S80>/Constant3'
+                                        */
 extern real_T intVal;                  /* Variable: intVal
                                         * Referenced by: '<S52>/Integral Gain'
+                                        */
+extern real_T manual;                  /* Variable: manual
+                                        * Referenced by: '<S80>/Constant4'
                                         */
 extern real_T matrixRows;              /* Variable: matrixRows
                                         * Referenced by: '<S99>/Constant1'
