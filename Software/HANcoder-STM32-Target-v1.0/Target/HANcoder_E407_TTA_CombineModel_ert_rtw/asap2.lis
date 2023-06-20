@@ -4,8 +4,6 @@
     
         controlWidth
     
-        desiredAngle
-    
         intVal
     
         matrixRows
@@ -32,13 +30,13 @@
     
         slotTime
     
-    reqAngle
-Gamma1
+    Gamma1
 steering
 position
 control
 SI_FreeHeap
 SI_FreeStack
+reqAngle
 delta12K
 motorPos
 pot31
